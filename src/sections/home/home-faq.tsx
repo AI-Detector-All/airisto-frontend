@@ -31,7 +31,7 @@ const faqs = [
 
 export default function HomeFAQ() {
     return (
-        <div className="mt-16 w-full ">
+        <div id="faq" className="mt-16 w-full ">
             <div className="w-1/2 flex justify-center items-center mx-auto flex-col font-onest">
                 <h1 className="text-3xl font-bold mb-4"> Frequently Asked Questions </h1>
                 <p className="text-gray-700 max-w-2xl mx-auto font-onest">

@@ -34,7 +34,7 @@ export default function Header() {
     useEffect(() => {
         const handleScroll = () => {
             const sections = nav_links.map(link => document.getElementById(link.id));
-            const scrollPosition = window.scrollY + 100;
+            const scrollPosition = window.scrollY + 80;
             
             for (let i = sections.length - 1; i >= 0; i--) {
                 const section = sections[i];

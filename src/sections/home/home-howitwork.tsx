@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 
 export function HomeHowItWorks() {
     return (
-        <div className="w-full flex justify-center items-center">
+        <div id="how-it-works" className="w-full flex justify-center items-center">
             <div className="w-full lg:w-3/4 bg-slate-900 text-white rounded-3xl p-12 mt-16">
                 <div className="text-center mb-10">
                     <h2 className="text-4xl font-bold mb-4 font-onest">Nasıl Çalışıyor?</h2>
