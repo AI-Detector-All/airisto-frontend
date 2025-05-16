@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 
-export default function HomeHowItWorks() {
+export function HomeHowItWorks() {
     return (
         <div className="w-full flex justify-center items-center">
             <div className="w-full lg:w-3/4 bg-slate-900 text-white rounded-3xl p-12 mt-16">

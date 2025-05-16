@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText, AlertCircle, CheckCircle } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 
-export default function HomeProvide() {
+export function HomeProvide() {
 
   // Mock analysis results
   const analysisResult = {
