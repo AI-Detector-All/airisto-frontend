@@ -54,7 +54,7 @@ export default function Header() {
     }, []);
 
     return (
-        <header className="w-full flex justify-between items-center p-4 border-b border-b-border fixed left-0 top-0 bg-white z-50">
+        <header className="w-full flex justify-between items-center p-4 border-b border-b-border sticky left-0 top-0 bg-white z-50">
             <div className="w-full flex justify-center items-center gap-4">
                 <Image
                     src="/favicon.ico"
