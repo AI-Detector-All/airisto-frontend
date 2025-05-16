@@ -3,7 +3,7 @@ import { FileText, } from "lucide-react";
 
 export function HomeContent() {
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-6xl mx-auto px-4 py-8 lg:mt-32">
+    <div className="flex flex-col items-center justify-center w-full max-w-6xl mx-auto px-4 py-8 ">
       <h1 className="text-header font-onest font-bold text-center mb-2">Yapay Zeka İçerik Dedektifi</h1>
       <p className="text-center text-gray-600 mb-8">
         Yapay zeka tarafından oluşturulan içeriği tespit etmek ve dakikalar içinde orijinalliği sağlamak için hepsi bir arada platform

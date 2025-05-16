@@ -46,7 +46,7 @@ export function HomePricing() {
     };
     type BillingPeriod = 'monthly' | 'annual' | 'lifetime' | 'prepaid';
     return (
-        <div id="pricing" className="w-full font-onest py-12 mt-16">
+        <div id="pricing" className="w-full font-onest py-8 mt-16 flex flex-col min-h-screen justify-center items-center">
             <div className="text-center mb-10">
                 <h2 className="text-3xl font-bold mb-4 font-onest">Choose Your Detection Plan</h2>
                 <p className="text-gray-600 max-w-2xl mx-auto font-onest">

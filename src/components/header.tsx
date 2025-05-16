@@ -11,11 +11,11 @@ const nav_links = [
         id: "home"
     },
     {
-        name: "Hakkımızda",
-        id: "about"
+        name: "Özellikler",
+        id: "features"
     },
     {
-        name: "Nasıl Çalışır", 
+        name: "Nasıl Çalışır",
         id: "how-it-works"
     },
     {
@@ -30,28 +30,35 @@ const nav_links = [
 
 export default function Header() {
     const [activeSection, setActiveSection] = useState("home");
-    
+
     useEffect(() => {
         const handleScroll = () => {
-            const sections = nav_links.map(link => document.getElementById(link.id));
-            const scrollPosition = window.scrollY + 80;
-            
-            for (let i = sections.length - 1; i >= 0; i--) {
-                const section = sections[i];
-                if (section && section.offsetTop <= scrollPosition) {
-                    setActiveSection(nav_links[i].id);
-                    break;
+            const scrollMargin = 120;
+            const scrollPosition = window.scrollY;
+
+            let currentSectionId = nav_links[0].id;
+
+            for (let i = 0; i < nav_links.length; i++) {
+                const section = document.getElementById(nav_links[i].id);
+                if (section) {
+                    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+                    if (scrollPosition + scrollMargin >= sectionTop) {
+                        currentSectionId = nav_links[i].id;
+                    }
                 }
             }
+
+            setActiveSection(currentSectionId);
         };
-        
+
         window.addEventListener("scroll", handleScroll);
         handleScroll();
-        
+
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
 
     return (
         <header className="w-full flex justify-between items-center p-4 border-b border-b-border sticky left-0 top-0 bg-white z-50">
@@ -65,12 +72,12 @@ export default function Header() {
                 />
                 <h1 className="text-header3 font-bold font-onest tracking-widest ">Airisto</h1>
             </div>
-            
+
             <div className="w-full flex gap-8 justify-center items-center">
                 {nav_links.map((link) => (
                     <div key={link.id} className="relative flex flex-col items-center ">
-                        <Link 
-                            href={`#${link.id}`} 
+                        <Link
+                            href={`#${link.id}`}
                             className={`text-body2 font-semibold font-onest relative transition-colors duration-300 hover:text-fuchsia-400 
                             ${activeSection === link.id ? 'text-fuchsia-400' : 'text-gray-600'}`}
                             onClick={() => setActiveSection(link.id)}
@@ -83,7 +90,7 @@ export default function Header() {
                     </div>
                 ))}
             </div>
-            
+
             <div className="w-full flex gap-4 justify-center">
                 <Link href={"/sign-in"}>
                     <Button className="bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300 transform hover:scale-105">

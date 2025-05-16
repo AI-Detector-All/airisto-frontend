@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function HomeHero() {
     return (
-        <div id="home" className="w-full flex flex-col justify-center items-center">
+        <div id="home" className="w-full flex flex-col justify-center items-center min-h-screen">
             <div className="lg:p-4 bg-gray-200 rounded-xl">
                 <h1 className="text-body2 font-onest text-gray-700"> Airisto ile Yapay Zekanın Gücünü Deneyin </h1>
             </div>
