@@ -52,7 +52,7 @@ export function DashboardHero() {
             </div>
 
             {/* AI Assistant Section */}
-            <div className="mt-8 bg-white p-8">
+            <div className="mt-8 bg-white p-8 rounded-md">
                 <div className="flex items-center gap-2 mb-4">
                     <div className=" h-6 w-6 flex items-center justify-center rounded text-white">
                         <Zap className="h-4 w-4 text-fuchsia-400" />
