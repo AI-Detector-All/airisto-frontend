@@ -1,6 +1,6 @@
 import { SearchInput } from "@/components/search-input";
 import { Button } from "@/components/ui/button";
-import { ImageIcon, Plus, PlusIcon, Zap } from "lucide-react";
+import { Plus, PlusIcon, Zap } from "lucide-react";
 import Link from "next/link";
 
 export function DashboardHero() {
@@ -40,13 +40,6 @@ export function DashboardHero() {
                                 Şimdi Dene
                             </Link>
                         </Button>
-                    </div>
-                </div>
-
-                <div className="bg-violet-200 rounded-xl w-56 flex items-center justify-center">
-                    <div className="text-center text-violet-800">
-                        <ImageIcon className="h-10 w-10 mx-auto mb-2" />
-                        <p>Image Placeholder</p>
                     </div>
                 </div>
             </div>
