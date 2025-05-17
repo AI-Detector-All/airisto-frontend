@@ -83,11 +83,11 @@ export default function DocumentsTable({ documents }: DocumentTableProps) {
                 <table className="w-full">
                     <thead>
                         <tr className="border-b bg-gray-50">
-                            <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">Name</th>
-                            <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">Type</th>
-                            <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">Date</th>
-                            <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">AI Percentage</th>
-                            <th className="py-3 px-4 text-center text-sm font-medium text-gray-500">Actions</th>
+                            <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">Dosya İsmi</th>
+                            <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">Tip </th>
+                            <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">Tarih</th>
+                            <th className="py-3 px-4 text-left text-sm font-medium text-gray-500">Yüzde</th>
+                            <th className="py-3 px-4 text-center text-sm font-medium text-gray-500">Eylemler</th>
                         </tr>
                     </thead>
                     <tbody>
