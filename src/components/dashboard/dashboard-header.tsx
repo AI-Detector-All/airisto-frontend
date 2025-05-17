@@ -18,7 +18,7 @@ export default function DashboardHeader() {
             <div className="container mx-auto ">
                 <div className="flex h-16 items-center justify-between">
 
-                    <SearchInput />
+                    <SearchInput width="max-w-[800px]" />
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-4">

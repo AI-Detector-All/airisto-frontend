@@ -4,7 +4,12 @@ import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export function SearchInput() {
+interface SearchInputProps {
+  width?: string;
+  placeholder?: string;
+}
+
+export function SearchInput({ width, placeholder }: SearchInputProps) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -18,11 +23,11 @@ export function SearchInput() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative w-full flex-1 max-w-[800px]"
+      className={`relative w-full flex-1 ${width ? width : ""}`}
     >
       <input
         type="text"
-        placeholder="Search..."
+        placeholder={placeholder ? placeholder : "Search..."}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         className="w-full rounded-md bg-gray-50 border-2 border-gray-200 px-4 py-2 pl-10 text-body2 focus:outline-none focus:ring-2 focus:ring-gray-300"

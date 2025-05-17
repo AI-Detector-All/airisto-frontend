@@ -9,7 +9,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     return (
         <ThemeProvider>
             <div className="min-h-screen flex w-full">
-                <div className="lg:w-1/6 hidden lg:flex">
+                <div className="w-64 hidden lg:flex">
                     <DashboardSidebar />
                 </div>
                 <div className="w-full">
