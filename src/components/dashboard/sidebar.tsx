@@ -69,13 +69,13 @@ export default function DashboardSidebar({ className, ...props }: SidebarProps) 
     return (
         <div
             className={cn(
-                "flex flex-col h-screen bg-slate-50 border-r border-slate-200 transition-all duration-300",
+                "flex flex-col h-screen bg-slate-50 border-r border-slate-200 transition-all duration-300 fixed top-0 left-0 overflow-y-auto z-50",
                 isCollapsed ? "w-16" : "w-64",
                 className
             )}
             {...props}
         >
-            <div className="flex items-center justify-between p-6 ">
+            <div className="flex items-center justify-between p-6 sticky top-0 bg-slate-50 z-10">
                 {!isCollapsed && (
                     <div className="flex items-center gap-4">
                         <Image
@@ -85,7 +85,7 @@ export default function DashboardSidebar({ className, ...props }: SidebarProps) 
                             height={15}
                             priority
                         />
-                        <h1 className="text-body font-bold font-onest tracking-wider ">Airisto</h1>
+                        <h1 className="text-body font-bold font-onest tracking-wider">Airisto</h1>
                     </div>
                 )}
                 <Button
@@ -118,8 +118,8 @@ export default function DashboardSidebar({ className, ...props }: SidebarProps) 
                 </ul>
             </nav>
 
-            <div className="border-t border-slate-200 py-4">
-                <ul className="space-y-1 px-2">
+            <div className="border-t border-slate-200 py-4 sticky bottom-0 bg-slate-50">
+                <ul className="space-y-1 px-4">
                     {bottomItems.map((item) => (
                         <li key={item.name}>
                             <Link

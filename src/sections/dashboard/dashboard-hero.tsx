@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function DashboardHero() {
     return (
-        <div className="w-full p-8 flex flex-col ">
+        <div className="w-full px-8 flex flex-col ">
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-body2 text-gray-600 font-onest">Ana Sayfa</h1>
