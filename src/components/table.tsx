@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Star, Trash2, FileSearch, ChevronLeft, ChevronRight, } from "lucide-react";
 import { Document } from "@/types/document";
+import { Button } from "./ui/button";
 
 interface DocumentTableProps {
     documents: Document[]
@@ -55,16 +56,16 @@ export default function DocumentsTable({ documents }: DocumentTableProps) {
 
         for (let i = startPage; i <= endPage; i++) {
             buttons.push(
-                <button
+                <Button
                     key={i}
                     onClick={() => goToPage(i)}
-                    className={`px-3 py-1 mx-1 rounded ${currentPage === i
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-100 hover:bg-gray-200"
+                    className={`px-3  py-1 mx-1 rounded ${currentPage === i
+                        ? "bg-gray-200 text-gray-900 hover:bg-gray-300"
+                        : " text-gray-900 bg-transparent hover:bg-gray-300"
                         }`}
                 >
                     {i}
-                </button>
+                </Button>
             );
         }
 
@@ -151,7 +152,6 @@ export default function DocumentsTable({ documents }: DocumentTableProps) {
                 <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center">
                         <span className="text-sm text-gray-700">
-                            Show
                             <select
                                 value={itemsPerPage}
                                 onChange={(e) => {
@@ -164,7 +164,7 @@ export default function DocumentsTable({ documents }: DocumentTableProps) {
                                 <option value={25}>25</option>
                                 <option value={50}>50</option>
                             </select>
-                            per page
+                            Her sayfada
                         </span>
                     </div>
 
@@ -173,29 +173,29 @@ export default function DocumentsTable({ documents }: DocumentTableProps) {
                     </div>
 
                     <div className="flex items-center space-x-2">
-                        <button
+                        <Button
                             onClick={prevPage}
                             disabled={currentPage === 1}
                             className={`rounded p-1 ${currentPage === 1
-                                ? "text-gray-300"
-                                : "text-gray-700 hover:bg-gray-100"
+                                ? "text-gray-900 bg-transparent "
+                                : "text-gray-900 hover:bg-gray-100 "
                                 }`}
                         >
                             <ChevronLeft className="w-5 h-5" />
-                        </button>
+                        </Button>
 
                         {renderPaginationButtons()}
 
-                        <button
+                        <Button
                             onClick={nextPage}
                             disabled={currentPage === totalPages}
-                            className={`rounded p-1 ${currentPage === totalPages
+                            className={`rounded bg-transparent p-1 ${currentPage === totalPages
                                 ? "text-gray-300"
                                 : "text-gray-700 hover:bg-gray-100"
                                 }`}
                         >
                             <ChevronRight className="w-5 h-5" />
-                        </button>
+                        </Button>
                     </div>
                 </div>
             )}
