@@ -7,7 +7,7 @@ export function HomeHero() {
             <div className="lg:p-4 bg-gray-200 rounded-xl">
                 <h1 className="text-body2 font-onest text-gray-700"> Airisto ile Yapay Zekanın Gücünü Deneyin </h1>
             </div>
-            <div className="mt-8 flex flex-col justify-center items-center">
+            <div className="mt-8 flex flex-col justify-center items-center p-4 lg:p-0">
                 <h1 className="text-dlg font-onest font-bold text-gray-900"> Yapay Zeka Yazılarını Tespit Etmenin En Güvenilir Yolu </h1>
                 <p className="text-gray-700 text-body2 font-onest mt-4"> Yapay zeka üretimi metinleri % doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda. </p>
             </div>
