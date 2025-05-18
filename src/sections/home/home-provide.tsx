@@ -10,10 +10,10 @@ export function HomeProvide() {
     aiProbability: 87,
     humanProbability: 13,
     indicators: [
-      { name: "Tekrarlayan cümle yapısı", score: 92 },
-      { name: "Doğal olmayan ifade kalıpları", score: 88 },
-      { name: "Baştan sona tutarlı ton", score: 76 },
-      { name: "Kişisel anekdot eksikliği", score: 83 }
+      { name: "Tekrarlayan cümle yapıları ve yapay zeka üretimine özgü öngörülebilir geçişler", score: 92 },
+      { name: "Sınırlı deyimsel ifadeler ile doğal olarak tutarlı olmayan kelime dağarcığı", score: 88 },
+      { name: "İçerik konu bütünlüğünü koruyor ancak genel bilgi yoğunluğu belirtileri gösteriyor", score: 76 },
+      { name: "Kelime sıklığı dağılımı, bilinen yapay zeka metin oluşturma modelleriyle yakından eşleşiyor", score: 83 }
     ]
   };
 
