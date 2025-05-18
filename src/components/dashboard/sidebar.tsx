@@ -42,12 +42,12 @@ const sidebarItems = [
 
 const bottomItems = [
     {
-        name: "Support",
+        name: "Destek",
         icon: LifeBuoy,
         href: "/dashboard/support",
     },
     {
-        name: "Settings",
+        name: "Ayarlar",
         icon: Settings,
         href: "/dashboard/settings",
     }

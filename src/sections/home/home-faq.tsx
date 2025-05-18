@@ -33,10 +33,9 @@ export default function HomeFAQ() {
     return (
         <div id="faq" className="mt-16 w-full min-h-screen flex justify-center items-center">
             <div className="w-1/2 flex justify-center items-center mx-auto flex-col font-onest">
-                <h1 className="text-3xl font-bold mb-4"> Frequently Asked Questions </h1>
+                <h1 className="text-3xl font-bold mb-4"> Sıkça Sorulan Sorular </h1>
                 <p className="text-gray-700 max-w-2xl mx-auto font-onest">
-                    Our support team will get assistance from AI-powered suggestions, making it quicker
-                    than ever to handle support requests.
+                    Destek ekibimiz yapay zeka destekli önerilerden yardım alarak destek taleplerini her zamankinden daha hızlı bir şekilde ele alacak.
                 </p>
                 <Accordion type="single" collapsible className="mt-6 w-full">
                     {faqs.map((faq, index) => (
