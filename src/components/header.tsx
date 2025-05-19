@@ -4,6 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { Menu } from "lucide-react";
+import { 
+  Sheet, 
+  SheetContent, 
+  SheetTrigger,
+  SheetClose,
+  SheetTitle
+} from "./ui/sheet";
 
 const nav_links = [
     {
@@ -59,10 +67,9 @@ export default function Header() {
         };
     }, []);
 
-
     return (
         <header className="w-full flex justify-between items-center p-4 border-b border-b-border sticky left-0 top-0 bg-white z-50">
-            <div className="w-full flex justify-center items-center gap-4">
+            <div className="flex justify-start items-center gap-4">
                 <Image
                     src="/favicon.ico"
                     alt="Next.js logo"
@@ -70,12 +77,13 @@ export default function Header() {
                     height={38}
                     priority
                 />
-                <h1 className="text-header3 font-bold font-onest tracking-widest ">Airisto</h1>
+                <h1 className="text-header3 font-bold font-onest tracking-widest">Airisto</h1>
             </div>
 
-            <div className="w-full flex gap-8 justify-center items-center">
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex gap-8 justify-center items-center">
                 {nav_links.map((link) => (
-                    <div key={link.id} className="relative flex flex-col items-center ">
+                    <div key={link.id} className="relative flex flex-col items-center">
                         <Link
                             href={`#${link.id}`}
                             className={`text-body2 font-semibold font-onest relative transition-colors duration-300 hover:text-fuchsia-400 
@@ -91,17 +99,53 @@ export default function Header() {
                 ))}
             </div>
 
-            <div className="w-full flex gap-4 justify-center">
+            {/* Desktop Login Button */}
+            <div className="hidden lg:flex justify-end">
                 <Link href={"/sign-in"}>
                     <Button className="bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300 transform hover:scale-105">
                         Giriş
                     </Button>
                 </Link>
-                {/* <Link href={"/sign-up"}>
-                    <Button variant="outline" className="border-fuchsia-400 text-fuchsia-400 text-body2 font-semibold font-onest transition-all duration-300 transform hover:scale-105 hover:border-fuchsia-500 hover:text-fuchsia-500">
-                        Kayıt Ol
-                    </Button>
-                </Link> */}
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="lg:hidden flex justify-end">
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button variant="ghost" size="icon" className="text-gray-700">
+                            <Menu className="h-6 w-6" />
+                            <span className="sr-only">Menüyü Aç</span>
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="right" className="w-[80%] sm:w-[350px] py-12 p-4">
+                        <SheetTitle className="text-xl font-bold font-onest">Menü</SheetTitle>
+                        <div className="flex flex-col h-full">
+                            <div className="flex-1 flex flex-col gap-6 mt-8">
+                                {nav_links.map((link) => (
+                                    <SheetClose asChild key={link.id}>
+                                        <Link
+                                            href={`#${link.id}`}
+                                            className={`text-lg font-semibold font-onest relative transition-colors duration-300 hover:text-fuchsia-400 
+                                            ${activeSection === link.id ? 'text-fuchsia-400' : 'text-gray-600'}`}
+                                            onClick={() => setActiveSection(link.id)}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    </SheetClose>
+                                ))}
+                            </div>
+                            <div className="pt-6 border-t border-gray-200">
+                                <SheetClose asChild>
+                                    <Link href={"/sign-in"} className="w-full block">
+                                        <Button className="w-full bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300">
+                                            Giriş
+                                        </Button>
+                                    </Link>
+                                </SheetClose>
+                            </div>
+                        </div>
+                    </SheetContent>
+                </Sheet>
             </div>
         </header>
     );

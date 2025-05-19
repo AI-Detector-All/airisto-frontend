@@ -33,9 +33,9 @@ export function HomeProvide() {
           </Button>
         </div>
 
-        <div className="flex w-3/4 justify-center mx-auto mt-8">
+        <div className="lg:flex w-full lg:w-3/4 justify-center mx-auto mt-8">
           {/* Left section - content analysis preview */}
-          <div className="w-1/2 p-8 bg-slate-50 flex flex-col min-h-[400px] justify-center">
+          <div className="w-full lg:w-1/2 p-4 lg:p-8 bg-slate-50 flex flex-col min-h-[400px] justify-center">
             <div className="bg-white p-4 rounded-lg border shadow-sm mb-4 overflow-y-auto h-64">
               <div className="flex items-center mb-2">
                 <FileText className="w-5 h-5 text-purple-600 mr-2" />
@@ -75,7 +75,7 @@ export function HomeProvide() {
           </div>
 
           {/* Right section - content */}
-          <div className="w-1/2 p-8 relative">
+          <div className="w-full lg:w-1/2 p-4 lg:p-8 relative">
             {/* Decorative elements */}
             <div className="absolute top-8 right-8 w-32 h-32 rounded-full bg-purple-500/20"></div>
             <div className="absolute bottom-32 right-16 w-16 h-16 rounded-full bg-purple-600/30"></div>
