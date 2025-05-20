@@ -9,7 +9,7 @@ import Link from "next/link";
 export function DashboardYourPlan() {
 
     const planDetails = {
-        planName: "Pro Plan",
+        planName: "Kurumsal Aylık Plan",
         renewalDate: "25 Haziran 2025",
         wordTokens: {
             total: 1000,
@@ -58,7 +58,6 @@ export function DashboardYourPlan() {
                             <span>{planDetails.wordTokens.used} token kullanıldı</span>
                         </div>
                     </div>
-
                 </CardContent>
 
                 <CardFooter className="flex justify-between pt-4">
@@ -67,7 +66,7 @@ export function DashboardYourPlan() {
                         href={"/dashboard/upgrade"}
                         className="bg-gradient-to-r from-fuchsia-400 to-magenta-400 flex space-x-2 items-center text-sm font-medium text-white hover:text-foreground transition-colors rounded-md px-4 py-2 font-onest"
                     >
-                        <span>Plan Yükselt</span>
+                        <span>Plan Detayları</span>
                         <Crown className="h-4 w-4" />
 
                     </Link>

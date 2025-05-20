@@ -3,6 +3,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { LogOut, User, User2 } from "lucide-react";
+import Link from "next/link";
 
 interface UserAvatarProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -36,13 +37,21 @@ export function UserAvatar({ user, logout }: UserAvatarProps) {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="cursor-pointer">
-                    <User className="mr-2 h-4 w-4" />
-                    <span>Profile</span>
+                    <Link href={'/dashboard/profile'} className="flex items-center gap-1">
+                        <User className="mr-2 h-4 w-4" />
+                        <span>Profil</span>
+                    </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                    <Link href={'/dashboard/subscription'} className="flex items-center gap-1">
+                        <User className="mr-2 h-4 w-4" />
+                        <span>Abonelik Planınız</span>
+                    </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="cursor-pointer" onClick={logout}>
                     <LogOut className="mr-2 h-4 w-4" />
-                    <span>Sign Out</span>
+                    <span>Çıkış</span>
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

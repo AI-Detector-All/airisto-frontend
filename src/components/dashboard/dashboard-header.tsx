@@ -1,16 +1,33 @@
 'use client'
 import Link from "next/link";
 // import DarkModeToggle from "../dark-mode-toggle";
-import { Crown } from "lucide-react";
 import { SearchInput } from "../search-input";
 import { Notification } from "./notification";
 import { UserAvatar } from "./user-avatar";
+import { Progress } from "../ui/progress";
+import { Zap } from "lucide-react";
 
 export default function DashboardHeader() {
     const user = {
         name: "John Doe",
         email: "vYKu2@example.com",
     }
+
+    const planDetails = {
+        planName: "Kurumsal Aylık Plan",
+        renewalDate: "25 Haziran 2025",
+        wordTokens: {
+            total: 1000,
+            used: 185,
+            remaining: 815
+        },
+        imageTokens: {
+            total: 100,
+            used: 50,
+            remaining: 50
+        },
+    }
+    const wordProgressPercentage = (planDetails.wordTokens.used / planDetails.wordTokens.total) * 100;
 
     const logout = () => { }
     return (
@@ -23,15 +40,19 @@ export default function DashboardHeader() {
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-4">
                         <nav>
-                            <Link
-                                prefetch={false}
-                                href={"/dashboard/upgrade"}
-                                className="bg-gradient-to-r from-fuchsia-400 to-magenta-400 flex space-x-2 items-center text-sm font-medium text-white hover:text-foreground transition-colors rounded-md px-4 py-2 font-onest"
-                            >
-                                <span>Plan Yükselt</span>
-                                <Crown className="h-4 w-4" />
-
-                            </Link>
+                            <div className="space-x-4 space-y-2">
+                                <div className="flex items-center justify-between gap-4">
+                                    <div className="flex items-center">
+                                        <Zap className="h-4 w-4 text-purple-500 mr-2 " />
+                                        <span className="text-sm font-medium">Kelime Token</span>
+                                    </div>
+                                    <span className="text-sm text-gray-500">{planDetails.wordTokens.remaining} / {planDetails.wordTokens.total}</span>
+                                </div>
+                                <Progress
+                                    value={wordProgressPercentage}
+                                    className="h-2 bg-purple-100"
+                                />
+                            </div>
                         </nav>
 
                         {/* <DarkModeToggle /> */}
