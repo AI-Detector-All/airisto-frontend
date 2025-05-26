@@ -27,7 +27,7 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       localStorage.removeItem("access_token")
-      console.log("Token expired or invalid");
+      window.location.href = "/sign-in"
     }
     const errorMessage = error.response?.data?.message || error.message
     handleError(errorMessage)
