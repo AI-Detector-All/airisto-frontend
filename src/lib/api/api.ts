@@ -3,9 +3,6 @@ import { handleError } from "../error-handler";
 
 const API_URL = process.env.BASE_URL
 
-console.log(API_URL);
-
-
 export const api = axios.create({
   baseURL: API_URL,
   headers: {

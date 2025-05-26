@@ -1,12 +1,7 @@
 'use client';
 import { useState } from "react";
-import { Save, ChevronLeft } from "lucide-react";
-
-// Import shadcn components
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import {  ChevronLeft } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Tooltip as TooltipUI, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import Link from "next/link";
 import { AnalysisResults } from "@/types/analysis-results";
 import { AIDetectorResult } from "../ai-detector-result";
@@ -17,7 +12,6 @@ export default function AIDetectorView() {
     const [text, setText] = useState("");
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [results, setResults] = useState<AnalysisResults | null>(null);
-    const [fileName, setFileName] = useState("Adsız Doküman");
     const [activeTab, setActiveTab] = useState("input");
 
     return (
@@ -39,7 +33,7 @@ export default function AIDetectorView() {
                             <TabsTrigger value="input" className="p-5" > Analiz Et </TabsTrigger>
                             <TabsTrigger value="results" disabled={!results && !isAnalyzing} className="p-5"> Sonuçlar </TabsTrigger>
                         </TabsList>
-                        <div className="flex items-center gap-2">
+                        {/* <div className="flex items-center gap-2">
                             <Input
                                 value={fileName}
                                 onChange={(e) => setFileName(e.target.value)}
@@ -55,7 +49,7 @@ export default function AIDetectorView() {
                                     <TooltipContent> Kaydet </TooltipContent>
                                 </TooltipUI>
                             </TooltipProvider>
-                        </div>
+                        </div> */}
                     </div>
 
                     <TabsContent value="input" className="mt-0">

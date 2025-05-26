@@ -5,26 +5,21 @@ import { Notification } from "./notification";
 import { UserAvatar } from "./user-avatar";
 import { Progress } from "../ui/progress";
 import { Zap } from "lucide-react";
-import { useUser } from "@/context/user-context";
+import { useAuth } from "@/hooks/useAuth";
+import { InlineLoader } from "../ui/global-loader";
 
 export default function DashboardHeader() {
-    const { user } = useUser();
+    const { user, isLoading, isAuthenticated, getTokenUsage } = useAuth();
+    const { used, total, percentage } = getTokenUsage();
 
-    const planDetails = {
-        planName: "Kurumsal Aylık Plan",
-        renewalDate: "25 Haziran 2025",
-        wordTokens: {
-            total: 1000,
-            used: 185,
-            remaining: 815
-        },
-        imageTokens: {
-            total: 100,
-            used: 50,
-            remaining: 50
-        },
+    if (isLoading) {
+        return <InlineLoader size="sm" />;
     }
-    const wordProgressPercentage = (planDetails.wordTokens.used / planDetails.wordTokens.total) * 100;
+
+    if (!isAuthenticated || !user) {
+        return <div>Please login to continue</div>;
+    }
+
 
     const logout = () => { }
     return (
@@ -42,12 +37,12 @@ export default function DashboardHeader() {
                                 <div className="flex items-center justify-between gap-4">
                                     <div className="flex items-center">
                                         <Zap className="h-4 w-4 text-purple-500 mr-2 " />
-                                        <span className="text-sm font-medium">Kelime Token</span>
+                                        <span className="text-sm font-medium">Kullanılan Token</span>
                                     </div>
-                                    <span className="text-sm text-gray-500">{planDetails.wordTokens.remaining} / {planDetails.wordTokens.total}</span>
+                                    <span className="text-sm text-gray-500">{used} / {total}</span>
                                 </div>
                                 <Progress
-                                    value={wordProgressPercentage}
+                                    value={percentage}
                                     className="h-2 bg-purple-100"
                                 />
                             </div>
