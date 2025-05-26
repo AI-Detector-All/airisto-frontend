@@ -46,7 +46,7 @@ export default function Page() {
                     <div className="flex flex-col items-center justify-center h-full">
                         <div className="w-24 h-24 rounded-lg bg-indigo-600/20 border border-indigo-600/50 flex items-center justify-center mb-4">
                             <Image
-                                src="/favicon.ico"
+                                src="/airisto.png"
                                 alt="Next.js logo"
                                 width={50}
                                 height={38}
@@ -111,7 +111,7 @@ export default function Page() {
                             <div className="flex items-center gap-2">
                                 <div className="h-8 w-8 rounded-lg justify-center">
                                     <Image
-                                        src="/favicon.ico"
+                                        src="/airisto.png"
                                         alt="Next.js logo"
                                         width={50}
                                         height={38}

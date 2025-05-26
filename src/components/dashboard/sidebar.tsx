@@ -98,7 +98,7 @@ export default function DashboardSidebar({
                 {!isCollapsed && (
                     <div className="flex items-center gap-4">
                         <Image
-                            src="/favicon.ico"
+                            src="/airisto.png"
                             alt="Next.js logo"
                             width={30}
                             height={15}

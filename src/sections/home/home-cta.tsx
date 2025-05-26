@@ -11,10 +11,10 @@ export default function HomeCTA() {
                 <div className="text-center space-y-6 max-w-3xl">
                     <div className="flex items-center justify-center">
                         <Image
-                            src="/favicon.ico"
+                            src="/airisto.png"
                             alt="Next.js logo"
-                            width={50}
-                            height={38}
+                            width={100}
+                            height={76}
                             priority
                         />
                     </div>
