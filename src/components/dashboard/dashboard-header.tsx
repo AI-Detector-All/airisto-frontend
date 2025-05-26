@@ -1,17 +1,14 @@
 'use client'
 import Link from "next/link";
 // import DarkModeToggle from "../dark-mode-toggle";
-import { SearchInput } from "../search-input";
 import { Notification } from "./notification";
 import { UserAvatar } from "./user-avatar";
 import { Progress } from "../ui/progress";
 import { Zap } from "lucide-react";
+import { useUser } from "@/context/user-context";
 
 export default function DashboardHeader() {
-    const user = {
-        name: "John Doe",
-        email: "vYKu2@example.com",
-    }
+    const { user } = useUser();
 
     const planDetails = {
         planName: "Kurumsal Aylık Plan",
@@ -35,7 +32,8 @@ export default function DashboardHeader() {
             <div className="container mx-auto ">
                 <div className="flex h-16 items-center justify-between">
 
-                    <SearchInput width="max-w-[800px]" />
+                    {/* <SearchInput width="max-w-[800px]" /> */}
+                    <div></div>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-4">
