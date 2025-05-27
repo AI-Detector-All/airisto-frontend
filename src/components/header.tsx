@@ -5,12 +5,12 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
-import { 
-  Sheet, 
-  SheetContent, 
-  SheetTrigger,
-  SheetClose,
-  SheetTitle
+import {
+    Sheet,
+    SheetContent,
+    SheetTrigger,
+    SheetClose,
+    SheetTitle
 } from "./ui/sheet";
 
 const nav_links = [
@@ -68,17 +68,18 @@ export default function Header() {
     }, []);
 
     return (
-        <header className="w-full flex justify-between items-center p-4 border-b border-b-border sticky left-0 top-0 bg-white z-50">
-            <div className="flex justify-start items-center gap-4">
+        <header className="w-full flex justify-between items-center p-4 px-16 border-b border-b-border sticky left-0 top-0 bg-white z-50">
+            <Link href="/" className="flex justify-start items-center gap-4">
                 <Image
-                    src="/favicon.ico"
+                    src="/airisto.png"
                     alt="Next.js logo"
                     width={50}
                     height={38}
                     priority
+                    className=""
                 />
                 <h1 className="text-header3 font-bold font-onest tracking-widest">Airisto</h1>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex gap-8 justify-center items-center">

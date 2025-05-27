@@ -1,13 +1,21 @@
 'use client';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DashboardHeader from "@/components/dashboard/dashboard-header";
 import DashboardSidebar from "@/components/dashboard/sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { useRouter } from "next/navigation";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const router = useRouter()
 
-  // Sidebar genişliğini kontrol eden fonksiyon
+  useEffect(() => {
+    const token = localStorage.getItem('access_token');
+    if (!token) {
+      router.push('/sign-in');
+    }
+  }, [router]);
+  
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };

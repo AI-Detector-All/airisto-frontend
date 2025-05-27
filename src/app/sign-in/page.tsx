@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -7,34 +7,29 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Shield, Bot, FileCheck, BarChart3, ArrowLeft, } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { signIn } from "@/services/auth";
+import { useRouter } from "next/navigation";
+import { useUser } from "@/context/user-context";
 
 export default function Page() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const router = useRouter()
+    const { setUser } = useUser();
 
-    const features = [
-        {
-            icon: <Shield className="h-5 w-5" />,
-            title: "Gelişmiş Tespit",
-            description: "%85'lik doğruluk oranıyla yapay zeka destekli analiz"
-        },
-        {
-            icon: <Bot className="h-5 w-5" />,
-            title: "Çoklu Model Desteği",
-            description: "ChatGPT, Gemini ve daha fazlasından gelen içeriği algılar"
-        },
-        {
-            icon: <FileCheck className="h-5 w-5" />,
-            title: "Dosya Uyumluluğu",
-            description: "txt, docx, pdf ve diğer belge formatlarını analiz edin"
-        },
-        {
-            icon: <BarChart3 className="h-5 w-5" />,
-            title: "Detaylı Raporlar",
-            description: "Tespit edilen içerikle ilgili kapsamlı analizler alın"
+    useEffect(() => {
+        if (localStorage.getItem('access_token')) {
+            router.push('/dashboard');
         }
-    ];
+    },[])
 
+    const handleLogin = async() => {
+        const response = await signIn(email, password);
+
+        localStorage.setItem('access_token', response.access_token);
+        setUser(response.user);
+        router.push('/dashboard');
+    }
 
     return (
         <div className="flex flex-col mt-8 w-full justify-center items-center">
@@ -51,7 +46,7 @@ export default function Page() {
                     <div className="flex flex-col items-center justify-center h-full">
                         <div className="w-24 h-24 rounded-lg bg-indigo-600/20 border border-indigo-600/50 flex items-center justify-center mb-4">
                             <Image
-                                src="/favicon.ico"
+                                src="/airisto.png"
                                 alt="Next.js logo"
                                 width={50}
                                 height={38}
@@ -116,7 +111,7 @@ export default function Page() {
                             <div className="flex items-center gap-2">
                                 <div className="h-8 w-8 rounded-lg justify-center">
                                     <Image
-                                        src="/favicon.ico"
+                                        src="/airisto.png"
                                         alt="Next.js logo"
                                         width={50}
                                         height={38}
@@ -128,7 +123,7 @@ export default function Page() {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-4 mb-6">
+                        {/* <div className="flex flex-col gap-4 mb-6">
                             <Button variant="outline" className="w-full flex items-center justify-center gap-2 py-6">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M18.1711 8.36788H17.4998V8.33329H9.99984V11.6666H14.7094C14.0223 13.607 12.1761 15 9.99984 15C7.23859 15 4.99984 12.7612 4.99984 9.99996C4.99984 7.23871 7.23859 4.99996 9.99984 4.99996C11.2744 4.99996 12.4344 5.48079 13.317 6.26621L15.674 3.90913C14.1857 2.52204 12.1948 1.66663 9.99984 1.66663C5.39775 1.66663 1.6665 5.39788 1.6665 9.99996C1.6665 14.602 5.39775 18.3333 9.99984 18.3333C14.6019 18.3333 18.3332 14.602 18.3332 9.99996C18.3332 9.44121 18.2757 8.89579 18.1711 8.36788Z" fill="#FFC107" />
@@ -138,8 +133,8 @@ export default function Page() {
                                 </svg>
                                 <span>Google ile Oturum Açın</span>
                             </Button>
-                        </div>
-
+                        </div> */}
+                        {/* 
                         <div className="relative my-6">
                             <div className="absolute inset-0 flex items-center">
                                 <div className="w-full border-t border-gray-300"></div>
@@ -147,7 +142,7 @@ export default function Page() {
                             <div className="relative flex justify-center text-xs uppercase">
                                 <span className="bg-white px-2 text-gray-500">Ya da</span>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="space-y-4">
                             <div>
@@ -180,7 +175,7 @@ export default function Page() {
                                 <a href="#" className="text-sm text-purple-600 hover:text-purple-500">Şifremi Unuttum</a>
                             </div>
 
-                            <Button className="w-full bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 text-white py-6">
+                            <Button type="submit" onClick={handleLogin} className="w-full bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 text-white py-6">
                                 Giriş
                             </Button>
                         </div>
@@ -191,3 +186,26 @@ export default function Page() {
         </div>
     );
 }
+
+const features = [
+    {
+        icon: <Shield className="h-5 w-5" />,
+        title: "Gelişmiş Tespit",
+        description: "%85'lik doğruluk oranıyla yapay zeka destekli analiz"
+    },
+    {
+        icon: <Bot className="h-5 w-5" />,
+        title: "Çoklu Model Desteği",
+        description: "ChatGPT, Gemini ve daha fazlasından gelen içeriği algılar"
+    },
+    {
+        icon: <FileCheck className="h-5 w-5" />,
+        title: "Dosya Uyumluluğu",
+        description: "txt, docx, pdf ve diğer belge formatlarını analiz edin"
+    },
+    {
+        icon: <BarChart3 className="h-5 w-5" />,
+        title: "Detaylı Raporlar",
+        description: "Tespit edilen içerikle ilgili kapsamlı analizler alın"
+    }
+];

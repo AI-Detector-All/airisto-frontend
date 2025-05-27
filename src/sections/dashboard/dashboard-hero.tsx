@@ -1,15 +1,20 @@
 import { SearchInput } from "@/components/search-input";
 import { Button } from "@/components/ui/button";
+import { User } from "@/types/user";
 import { Plus, PlusIcon, Zap } from "lucide-react";
 import Link from "next/link";
 
-export function DashboardHero() {
+interface HeroProps {
+    user: User
+}
+
+export function DashboardHero({ user }: HeroProps) {
     return (
         <div className="w-full px-8 flex flex-col ">
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-body2 text-gray-600 font-onest">Ana Sayfa</h1>
-                    <p className="text-gray-900 text-header font-onest font-semibold">Hoşgeldin Airisto</p>
+                    <p className="text-gray-900 text-header font-onest font-semibold">Hoşgeldin {user.name} {user.surname} </p>
                 </div>
                 <div className="mr-8 gap-4 flex">
                     <Button variant={'outline'} className="rounded-md px-4 py-2 border border-gray-300">

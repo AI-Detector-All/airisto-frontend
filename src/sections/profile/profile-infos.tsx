@@ -24,13 +24,18 @@ import {
     SelectValue
 } from '@/components/ui/select';
 import { User } from 'lucide-react';
+import { User as UserType } from '@/types/user';
 
-export default function UserProfileForm() {
+interface UserProfileProps {
+    user: UserType
+}
+
+export default function UserProfileForm({ user }: UserProfileProps) {
     const [userData, setUserData] = useState({
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'john.doe@example.com',
-        phone: '+1234567890',
+        firstName: user.name,
+        lastName: user.surname,
+        email: user.email,
+        phone: user.phone,
         address: 'Fırat Üniversitesi',
         city: 'Elazığ',
         postalCode: '10001',
