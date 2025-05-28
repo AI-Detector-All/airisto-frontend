@@ -3,13 +3,14 @@ import { useState } from "react";
 import {  ChevronLeft } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
-import { AnalysisResults } from "@/types/analysis-results";
 import { AIDetectorResult } from "../ai-detector-result";
 import { AIDetectorInput } from "../ai-detector-input";
+import { AnalysisResults } from "@/types/analysis";
 
 
 export default function AIDetectorView() {
     const [text, setText] = useState("");
+    const [title, setTitle] = useState("");
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [results, setResults] = useState<AnalysisResults | null>(null);
     const [activeTab, setActiveTab] = useState("input");
@@ -53,7 +54,7 @@ export default function AIDetectorView() {
                     </div>
 
                     <TabsContent value="input" className="mt-0">
-                        <AIDetectorInput text={text} setText={setText} isAnalyzing={isAnalyzing} setIsAnalyzing={setIsAnalyzing} setResults={setResults} setActiveTab={setActiveTab} />
+                        <AIDetectorInput setTitle={setTitle} title={title} text={text} setText={setText} isAnalyzing={isAnalyzing} setIsAnalyzing={setIsAnalyzing} setResults={setResults} setActiveTab={setActiveTab} />
                     </TabsContent>
 
                     <TabsContent value="results" className="mt-0">
