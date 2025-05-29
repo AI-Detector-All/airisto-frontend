@@ -1,5 +1,5 @@
 'use client';
-import DocumentsTable from "@/components/table";
+import { DocumentsTable } from "@/components/document-table";
 import { Button } from "@/components/ui/button";
 import { DashboardSkeleton } from "@/components/ui/global-loader";
 import { useAuth } from "@/hooks/useAuth";
