@@ -20,3 +20,13 @@ export async function newAnalyze(corporate?: string, title?: string, inputText?:
         throw error;
     }
 }
+
+export async function getUserAnalysis(userId: string): Promise<AnalysisResults[]> {
+    try {
+        const response = await api.get(`/analysis/user/${userId}`)
+
+        return response.data;
+    } catch (error) {
+        throw error
+    }
+}

@@ -1,7 +1,9 @@
 'use client';
 import DocumentsTable from "@/components/table";
 import { Button } from "@/components/ui/button";
-import { initialDocuments } from "@/mock/documents";
+import { DashboardSkeleton } from "@/components/ui/global-loader";
+import { useAuth } from "@/hooks/useAuth";
+import { useUserDocument } from "@/hooks/useUserDocument";
 import { ChevronLeft, Plus } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -32,7 +34,12 @@ const filterItems = [
 export default function DocumentsView() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [selected, setSelected] = useState(filterItems[0].id)
+    const { isLoading } = useAuth()
+    const { userDocuments, isDocumentLoading } = useUserDocument();
 
+    if (isLoading) return <DashboardSkeleton />
+
+    if (isDocumentLoading) return <DashboardSkeleton />
 
     return (
         <div className="bg-gray-100 w-full min-h-screen p-8">
@@ -63,7 +70,7 @@ export default function DocumentsView() {
                     ))}
                 </div>
                 <div className="mt-8">
-                    <DocumentsTable documents={initialDocuments} />
+                    <DocumentsTable documents={userDocuments} />
                 </div>
             </div>
         </div>

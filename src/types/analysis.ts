@@ -6,6 +6,7 @@ interface CategoryScore {
 }
 
 export interface AnalysisResults {
+    id:string
     user: string
     corporate?: string
     title: string
