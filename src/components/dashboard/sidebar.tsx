@@ -12,58 +12,83 @@ import {
     ChevronLeft,
     ChevronRight,
     Settings,
-    LifeBuoy
+    LifeBuoy,
+    Building2,
+    UserRound
 } from "lucide-react";
 import Image from 'next/image';
+import { RolesEnum } from '@/enums/roles';
 
-// Arayüzün güncellenmesi
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   isCollapsed?: boolean;
   toggleSidebar?: () => void;
+  userRole?: RolesEnum;
 }
 
-const sidebarItems = [
+const baseSidebarItems = [
     {
         name: "Ana Sayfa",
         icon: LayoutDashboard,
         href: "/dashboard",
+        roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     },
     {
         name: "Dokümanlar",
         icon: FileText,
         href: "/dashboard/documents",
+        roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     },
     {
         name: "Yapay Zeka Dedektörü",
         icon: Search,
         href: "/dashboard/ai-detector",
+        roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     },
-]
+    {
+        name: "Kullanıcılar",
+        icon: UserRound,
+        href: "/dashboard/users",
+        roles: [RolesEnum.INSTITUTION_ADMIN]
+    },
+    {
+        name: "Tüm Kullanıcılar",
+        icon: UserRound,
+        href: "/dashboard/all-users",
+        roles: [RolesEnum.ADMIN]
+    },
+    {
+        name: "Tüm Kurumlar",
+        icon: Building2,
+        href: "/dashboard/all-corporates",
+        roles: [RolesEnum.ADMIN]
+    },
+];
 
 const bottomItems = [
     {
         name: "Destek",
         icon: LifeBuoy,
         href: "/dashboard/support",
+        roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     },
     {
         name: "Ayarlar",
         icon: Settings,
         href: "/dashboard/settings",
+        roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     }
-]
+];
 
 export default function DashboardSidebar({ 
   className, 
   isCollapsed: parentIsCollapsed, 
   toggleSidebar: parentToggleSidebar,
+  userRole = RolesEnum.USER, // Varsayılan olarak USER rolü
   ...props 
 }: SidebarProps) {
-    // Local state - parent state'e bağlı olarak çalışır
     const [isCollapsed, setIsCollapsed] = useState(false);
     const pathname = usePathname();
     
-    // Parent'tan gelen değişiklikleri izle
     useEffect(() => {
       if (parentIsCollapsed !== undefined) {
         setIsCollapsed(parentIsCollapsed);
@@ -84,6 +109,15 @@ export default function DashboardSidebar({
         }
         return pathname.startsWith(href);
     };
+
+    // Kullanıcının rolüne göre menü öğelerini filtrele
+    const filteredSidebarItems = baseSidebarItems.filter(item => 
+        item.roles.includes(userRole)
+    );
+
+    const filteredBottomItems = bottomItems.filter(item => 
+        item.roles.includes(userRole)
+    );
 
     return (
         <div
@@ -119,7 +153,7 @@ export default function DashboardSidebar({
 
             <nav className="flex-1 py-4">
                 <ul className="space-y-1 px-4">
-                    {sidebarItems.map((item) => (
+                    {filteredSidebarItems.map((item) => (
                         <li key={item.name}>
                             <Link
                                 href={item.href}
@@ -139,7 +173,7 @@ export default function DashboardSidebar({
 
             <div className="border-t border-slate-200 py-4 bg-slate-50">
                 <ul className="space-y-1 px-4">
-                    {bottomItems.map((item) => (
+                    {filteredBottomItems.map((item) => (
                         <li key={item.name}>
                             <Link
                                 href={item.href}
