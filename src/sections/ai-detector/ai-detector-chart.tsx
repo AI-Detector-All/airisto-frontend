@@ -2,8 +2,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { Info, RefreshCw } from "lucide-react";
-import { AnalysisResults } from "@/types/analysis-results";
 import { Progress } from "@/components/ui/progress";
+import { AnalysisResults } from "@/types/analysis";
 
 interface AIDetectionRadarChartProps {
   isAnalyzing: boolean;
@@ -31,9 +31,10 @@ export default function AIDetectionRadarChart({ isAnalyzing, results }: AIDetect
   if (!results) return null;
   
   // Convert indicators to radar chart data format
-  const radarData = results.indicators.map(indicator => ({
-    indicator: indicator.type,
+  const radarData = results.categoryScores.map(indicator => ({
+    category: indicator.category,
     score: indicator.score,
+    explanation: indicator.explanation,
     fullMark: 100
   }));
   
@@ -43,14 +44,14 @@ export default function AIDetectionRadarChart({ isAnalyzing, results }: AIDetect
     return { label: "Muhtemel İnsan İçeriği", color: "text-green-500" };
   };
 
-  const scoreInfo = getScoreCategory(results.score);
+  const scoreInfo = getScoreCategory(parseInt(results.aiPercent));
 
   return (
-    <Card className="w-full mt-6">
+    <Card className="w-full mt-6 font-onest">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle>Yapay Zeka Örüntü Analizi</CardTitle>
-          <div className={`text-lg font-bold ${scoreInfo.color}`}>{results.score}%</div>
+          <div className={`text-lg font-bold ${scoreInfo.color}`}>{parseInt(results.aiPercent)}%</div>
         </div>
         <CardDescription>Yapay zeka içerik göstergelerinin görsel dökümü</CardDescription>
       </CardHeader>
@@ -84,7 +85,7 @@ export default function AIDetectionRadarChart({ isAnalyzing, results }: AIDetect
         <div className="grid grid-cols-2 gap-2 mt-4">
           {radarData.map((item, index) => (
             <div key={index} className="flex justify-between items-center text-sm p-2 border rounded">
-              <span>{item.indicator}</span>
+              <span>{item.category}</span>
               <span className={
                 item.score > 70 ? "text-red-500 font-medium" : 
                 item.score > 40 ? "text-amber-500 font-medium" : 

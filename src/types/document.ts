@@ -1,9 +1,8 @@
 
 export interface Document {
-    id: number;
-    name: string;
-    type: string;
-    date: string;
-    percentage: number;
-    favorite: boolean;
+    analysisId:string
+    inputDocument: string;
+    outputDocument: string;
+    aiPercent: string;
+    title: string
 }

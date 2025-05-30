@@ -1,4 +1,3 @@
-
 import { useUser } from "@/context/user-context";
 import { User } from "@/types/user";
 
@@ -13,10 +12,11 @@ interface AuthReturn {
     total: number;
     percentage: number;
   };
+  refreshUserData: () => Promise<void>;
 }
 
 export const useAuth = (): AuthReturn => {
-  const { user, isLoading, setUser } = useUser();
+  const { user, isLoading, setUser, isAuthenticated, refreshUser } = useUser();
 
   const logout = () => {
     localStorage.removeItem("access_token");
@@ -37,12 +37,17 @@ export const useAuth = (): AuthReturn => {
     return { used, total, percentage };
   };
 
+  const refreshUserData = async () => {
+    await refreshUser();
+  };
+
   return {
     user,
     isLoading,
-    isAuthenticated: !!user && !isLoading,
+    isAuthenticated,
     logout,
     login,
-    getTokenUsage
+    getTokenUsage,
+    refreshUserData
   };
 };

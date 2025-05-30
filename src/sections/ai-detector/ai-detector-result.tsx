@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { AnalysisResults } from "@/types/analysis-results"
 import { Info, RefreshCw } from "lucide-react"
 import AIDetectionRadarChart from "./ai-detector-chart"
+import { AnalysisResults } from "@/types/analysis"
 
 interface AIDetectorResultProps {
     isAnalyzing: boolean
@@ -17,7 +17,7 @@ export function AIDetectorResult({ isAnalyzing, results }: AIDetectorResultProps
     };
 
     return (
-        <div>
+        <div className="font-onest">
             {isAnalyzing ? (
                 <Card>
                     <CardContent className="pt-6">
@@ -65,8 +65,8 @@ export function AIDetectorResult({ isAnalyzing, results }: AIDetectorResultProps
                         <CardHeader>
                             <div className="flex items-center justify-between">
                                 <CardTitle>Analiz Sonuçları</CardTitle>
-                                <Badge variant={getColorBasedOnScore(results.score)}>
-                                    {results.score}% Yapay Zeka İçeriği
+                                <Badge variant={getColorBasedOnScore(parseInt(results.aiPercent))}>
+                                    {results.aiPercent}% Yapay Zeka İçeriği
                                 </Badge>
                             </div>
                             <CardDescription>{results.summary}</CardDescription>
@@ -74,15 +74,25 @@ export function AIDetectorResult({ isAnalyzing, results }: AIDetectorResultProps
                         <CardContent>
                             <div className="space-y-6">
                                 <div>
-                                    <h4 className="text-sm font-medium mb-3">İçerik Değerlendirmesi</h4>
+                                    <h4 className="text-sm font-medium mb-3 ">İçerik Değerlendirmesi</h4>
                                     <div className="flex flex-col items-center justify-center text-center p-4 border rounded-lg">
-                                        <div className="text-6xl font-bold text-primary mb-2">{results.score}%</div>
+                                        <div className="text-6xl font-bold text-primary mb-2">{results.aiPercent}%</div>
                                         <p className="text-muted-foreground">Yapay zeka tarafından oluşturulan içerik olasılığı</p>
                                         <Progress
-                                            value={results.score}
-                                            className={`w-full mt-4 ${results.score > 70 ? "bg-red-500" : results.score > 40 ? "bg-yellow-500" : "bg-green-500"}`}
+                                            value={parseInt(results.aiPercent)}
+                                            className={`w-full mt-4 ${parseInt(results.aiPercent) > 70 ? "bg-red-500" : parseInt(results.aiPercent) > 40 ? "bg-yellow-500" : "bg-green-500"}`}
                                         />
                                     </div>
+                                </div>
+                                <div>
+                                    <h4 className="text-sm font-medium mb-3 font-onest">Öneriler</h4>
+                                    <ul className="list-disc px-6">
+                                        {results.suggestions.map((suggestion, index) => (
+                                            <li key={index} className="mb-2">
+                                                <p className="text-body3 font-onest">{suggestion}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         </CardContent>

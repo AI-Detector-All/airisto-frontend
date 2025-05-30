@@ -9,6 +9,7 @@ interface UserContextType {
   setUser: (user: User | null) => void;
   isLoading: boolean;
   isAuthenticated: boolean;
+  refreshUser: () => Promise<void>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -25,27 +26,32 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const fetchUser = async () => {
+    const token = localStorage.getItem("access_token");
+
+    if (!token) {
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      const userData = await currentUser();
+      setUser(userData);
+    } catch (error) {
+      console.log(error);
+      setUser(null);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Manuel refresh fonksiyonu
+  const refreshUser = async () => {
+    await fetchUser();
+  };
+
   useEffect(() => {
-    const fetchUser = async () => {
-      const token = localStorage.getItem("access_token");
-
-      if (!token) {
-        setIsLoading(false);
-        return;
-      }
-
-      try {
-        setIsLoading(true);
-        const userData = await currentUser();
-        setUser(userData);
-      } catch (error) {
-        console.log(error);
-        setUser(null);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
     fetchUser();
   }, []);
 
@@ -53,7 +59,8 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     user,
     setUser,
     isLoading,
-    isAuthenticated: !!user && !isLoading
+    isAuthenticated: !!user && !isLoading,
+    refreshUser
   };
 
   return (
