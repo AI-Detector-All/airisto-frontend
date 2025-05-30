@@ -14,8 +14,7 @@ export default function UsersView() {
     const [users, setUsers] = useState<User[]>([])
 
     const getUsers = async () => {
-        const response = await getCorporateMembers(user?.corporate ?? "");
-        console.log(response);
+        const response = await getCorporateMembers(user?.corporate?.id ?? "");
 
         setUsers(response);
     }
