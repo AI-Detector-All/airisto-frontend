@@ -1,3 +1,13 @@
+interface Corporate {
+    id: string
+    name: string
+}
+
+interface Subscription {
+    id: string
+    name: string
+}
+
 export interface User {
     id: string
     email: string
@@ -11,8 +21,8 @@ export interface User {
     picture: string
     createdAt: Date
     updatedAt: Date
-    corporate?: string | null
-    subscription?: string
+    corporate?: Corporate | null
+    subscription?: Subscription | null
     usedAnalysesThisMonth: number
     remainToken: number
     renewalDate: Date

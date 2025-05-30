@@ -2,14 +2,15 @@
 import GenericTable from "@/components/generic-table";
 import { TableAction, TableColumn } from "@/types/table";
 import { User } from "@/types/user";
-import { Edit3, Eye, Trash2, UserCheck, UserX } from "lucide-react";
+import { Eye, UserCheck, UserX } from "lucide-react";
 import React from "react";
 
 interface UsersTableProps {
     users: User[];
 }
 
-export const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
+export const AllUsersTable: React.FC<UsersTableProps> = ({ users }) => {
+    
     const columns: TableColumn<User>[] = [
         {
             key: 'name',
@@ -43,11 +44,33 @@ export const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
             )
         },
         {
+            key:'corporate',
+            header:'Kurum',
+            render:(item) => {
+                return (
+                    <div className="text-sm">
+                        <div className="font-medium">{item.corporate?.name || "-"}</div>
+                    </div>
+                )
+            }
+        },
+        {
+            key:'subscription',
+            header:'Abonelik',
+            render:(item) => {
+                return (
+                    <div className="text-sm">
+                        <div className="font-medium">{item.subscription?.name || "-"}</div>
+                    </div>
+                )
+            }
+        },
+        {
             key: 'remainToken',
             header: 'Kalan Token',
             render: (item, value) => (
                 <div className="text-sm">
-                    <div className="font-medium">{value.toLocaleString()}</div>
+                    <div className="font-medium">{value?.toLocaleString()}</div>
                     <div className="text-gray-500">{item.usedAnalysesThisMonth} kullanıldı</div>
                 </div>
             )
@@ -71,25 +94,13 @@ export const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
             label: 'Görüntüle',
             onClick: (item) => console.log('View user:', item.id),
             className: 'text-blue-600 hover:bg-blue-50'
-        },
-        {
-            icon: Edit3,
-            label: 'Düzenle',
-            onClick: (item) => console.log('Edit user:', item.id),
-            className: 'text-green-600 hover:bg-green-50'
-        },
+        },        
         {
             icon: (item) => React.createElement(item.isActive ? UserX : UserCheck),
             label: (item) => item.isEmailVerified ? 'Pasifleştir' : 'Aktifleştir',
             onClick: (item) => console.log('Toggle user status:', item.id),
             className: 'text-yellow-600 hover:bg-yellow-50'
         },
-        {
-            icon: Trash2,
-            label: 'Sil',
-            onClick: (item) => console.log('Delete user:', item.id),
-            className: 'text-red-500 hover:bg-red-50'
-        }
     ];
 
     return (
