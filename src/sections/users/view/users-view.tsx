@@ -36,7 +36,7 @@ export default function UsersView() {
                             <ChevronLeft className="text-gray-600" />
                             <h1 className="text-body2 text-gray-600 font-onest">Ana Sayfa</h1>
                         </Link>
-                        <p className="text-gray-900 text-header2 font-onest font-semibold mt-2">Dokümanlar</p>
+                        <p className="text-gray-900 text-header2 font-onest font-semibold mt-2"> Kullanıclar </p>
                     </div>
                     <div className="mr-8 gap-4 flex">
                         <Button className="bg-fuchsia-400 rounded-md px-4 py-2 hover:bg-fuchsia-500">

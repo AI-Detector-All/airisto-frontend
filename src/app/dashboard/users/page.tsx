@@ -18,7 +18,7 @@ export default function Page() {
 
     if (isLoading) return <DashboardSkeleton />;
 
-    if (user?.role !== RolesEnum.ADMIN) return null;
+    if (user?.role !== RolesEnum.INSTITUTION_ADMIN) return null;
 
     return <UsersView />
 }
