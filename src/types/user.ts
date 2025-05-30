@@ -1,7 +1,5 @@
-interface Corporate {
-    id: string
-    name: string
-}
+import { Corporate } from "./corporates"
+
 
 interface Subscription {
     id: string
