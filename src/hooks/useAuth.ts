@@ -1,5 +1,6 @@
 import { useUser } from "@/context/user-context";
 import { User } from "@/types/user";
+import { useRouter } from "next/navigation";
 
 interface AuthReturn {
   user: User | null;
@@ -17,10 +18,12 @@ interface AuthReturn {
 
 export const useAuth = (): AuthReturn => {
   const { user, isLoading, setUser, isAuthenticated, refreshUser } = useUser();
+  const router = useRouter()
 
   const logout = () => {
     localStorage.removeItem("access_token");
     setUser(null);
+    router.push("/sign-in");
   };
 
   const login = (token: string) => {
@@ -34,7 +37,13 @@ export const useAuth = (): AuthReturn => {
     const total = user.remainToken + user.usedAnalysesThisMonth;
     const percentage = total > 0 ? (used / total) * 100 : 0;
     
-    return { used, total, percentage };
+    // if (user.corporate) {
+    //   const corporateUsed = user.corporate.totalUsedAnalyses;
+    //   const corporateTotal = user.corporate.subscription?.maxTotalAnalyses;
+    //   const corporatePercentage = corporateTotal && corporateTotal > 0 ? (corporateUsed / corporateTotal) * 100 : 0;
+    // }
+
+    return { used, total, percentage,  };
   };
 
   const refreshUserData = async () => {
