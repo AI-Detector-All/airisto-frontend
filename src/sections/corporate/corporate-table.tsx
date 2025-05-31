@@ -66,9 +66,9 @@ export const CorporateTable: React.FC<CorporateTableProps> = ({ corporates }) =>
         {
             key: 'remainToken',
             header: 'Kalan Token',
-            render: (item, value) => (
+            render: (item) => (
                 <div className="text-sm">
-                    <div className="font-medium">{value?.toLocaleString()}</div>
+                    <div className="font-medium">{item?.subscription?.maxTotalAnalyses ? (item?.subscription?.maxTotalAnalyses - item.totalUsedAnalyses) : "-"}</div>
                 </div>
             )
         },

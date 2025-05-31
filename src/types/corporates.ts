@@ -1,7 +1,5 @@
-interface Subscription {
-    id: string
-    name: string
-}
+import { Subscription } from "./subscription";
+
 export interface Corporate {
     id: string;
     name: string;
@@ -9,6 +7,7 @@ export interface Corporate {
     subscription?: Subscription | null;
     members: string[]
     isActive: boolean
+    totalUsedAnalyses: number
     createdAt: Date
     updatedAt: Date
 }
