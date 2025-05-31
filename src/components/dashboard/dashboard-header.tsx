@@ -9,7 +9,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { InlineLoader } from "../ui/global-loader";
 
 export default function DashboardHeader() {
-    const { user, isLoading, isAuthenticated, getTokenUsage } = useAuth();
+    const { user, isLoading, isAuthenticated, getTokenUsage, logout } = useAuth();
     const { used, total, percentage } = getTokenUsage();
 
     if (isLoading) {
@@ -20,8 +20,6 @@ export default function DashboardHeader() {
         return <div>Please login to continue</div>;
     }
 
-
-    const logout = () => { }
     return (
         <header className="backdrop-blur-sm border-b border-border">
             <div className="container mx-auto ">

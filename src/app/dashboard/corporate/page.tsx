@@ -2,7 +2,7 @@
 import { DashboardSkeleton } from "@/components/ui/global-loader";
 import { RolesEnum } from "@/enums/roles";
 import { useAuth } from "@/hooks/useAuth";
-import UsersView from "@/sections/users/view/users-view";
+import CorporateView from "@/sections/corporate/view/corporate-view";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -11,14 +11,14 @@ export default function Page() {
     const router = useRouter();
 
     useEffect(() => {
-        if (!isLoading && user?.role !== RolesEnum.INSTITUTION_ADMIN) {
+        if (!isLoading && user?.role !== RolesEnum.ADMIN) {
             router.push("/error");
         }
     }, [user, isLoading, router]);
 
     if (isLoading) return <DashboardSkeleton />;
 
-    if (user?.role !== RolesEnum.INSTITUTION_ADMIN) return null;
+    if (user?.role !== RolesEnum.ADMIN) return null;
 
-    return <UsersView />
+    return <CorporateView />
 }

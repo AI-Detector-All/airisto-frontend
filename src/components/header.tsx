@@ -12,6 +12,7 @@ import {
     SheetClose,
     SheetTitle
 } from "./ui/sheet";
+import { useAuth } from "@/hooks/useAuth";
 
 const nav_links = [
     {
@@ -38,6 +39,7 @@ const nav_links = [
 
 export default function Header() {
     const [activeSection, setActiveSection] = useState("home");
+    const { user, logout } = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -86,7 +88,7 @@ export default function Header() {
                 {nav_links.map((link) => (
                     <div key={link.id} className="relative flex flex-col items-center">
                         <Link
-                            href={`#${link.id}`}
+                            href={`/#${link.id}`}
                             className={`text-body2 font-semibold font-onest relative transition-colors duration-300 hover:text-fuchsia-400 
                             ${activeSection === link.id ? 'text-fuchsia-400' : 'text-gray-600'}`}
                             onClick={() => setActiveSection(link.id)}
@@ -102,11 +104,29 @@ export default function Header() {
 
             {/* Desktop Login Button */}
             <div className="hidden lg:flex justify-end">
-                <Link href={"/sign-in"}>
-                    <Button className="bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300 transform hover:scale-105">
-                        Giriş
-                    </Button>
-                </Link>
+                {user ? (
+                    <div className="flex items-center gap-4">
+                        <Link
+                            href="/dashboard"
+                        >
+                            <Button className="bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300 transform hover:scale-105">
+                                Panel
+                            </Button>
+                        </Link>
+                        <Button
+                            onClick={logout}
+                            className="bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300 transform hover:scale-105"
+                        >
+                            Çıkış
+                        </Button>
+                    </div>
+                ) : (
+                    <Link href={"/sign-in"}>
+                        <Button className="bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300 transform hover:scale-105">
+                            Giriş
+                        </Button>
+                    </Link>
+                )}
             </div>
 
             {/* Mobile Navigation */}

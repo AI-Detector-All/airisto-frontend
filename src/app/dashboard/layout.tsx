@@ -17,7 +17,18 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     if (!token) {
       router.push('/sign-in');
     }
-  }, [router]);
+
+    if (!user) return;
+
+    if (!user?.corporate?.isActive) {
+      if (user?.role === RolesEnum.INSTITUTION_ADMIN) {
+        router.push('/corporate/subscription-required');
+      } else if (user?.role === RolesEnum.STUDENT || user?.role === RolesEnum.ACADEMICIAN) {
+        router.push("/corporate/access-denied")
+      }
+    }
+
+  }, [router, user]);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -27,7 +38,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <ThemeProvider>
       <div className="min-h-screen flex w-full">
         <div className={`${isCollapsed ? "w-16" : "w-64"} hidden lg:block transition-all duration-300`}>
-          <DashboardSidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} userRole={user?.role as RolesEnum  || RolesEnum.USER} />
+          <DashboardSidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} userRole={user?.role as RolesEnum || RolesEnum.USER} />
         </div>
         <div className="flex-1">
           <DashboardHeader />

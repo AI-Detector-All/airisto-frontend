@@ -21,3 +21,13 @@ export async function getUserById(userId:string): Promise<User> {
         throw error
     }
 }
+
+export async function getAllUsers(): Promise<User[]> {
+    try {
+        const response = await api.get('/user');
+
+        return response.data;
+    } catch (error) {
+        throw error
+    }
+}

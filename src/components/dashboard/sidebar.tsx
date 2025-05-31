@@ -59,7 +59,7 @@ const baseSidebarItems = [
     {
         name: "Tüm Kurumlar",
         icon: Building2,
-        href: "/dashboard/all-corporates",
+        href: "/dashboard/corporate",
         roles: [RolesEnum.ADMIN]
     },
 ];
