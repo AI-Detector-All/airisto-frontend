@@ -1,10 +1,6 @@
 import { Corporate } from "./corporates"
+import { Subscription } from "./subscription"
 
-
-interface Subscription {
-    id: string
-    name: string
-}
 
 export interface User {
     id: string
