@@ -6,9 +6,13 @@ import { CheckCircle, Building2, User } from "lucide-react";
 
 type BillingPeriod = "onetime" | "monthly" | "annual";
 
-export function HomePricing() {
+interface HomePricingProps {
+    activePlansType?: string
+}
+
+export function HomePricing({ activePlansType }: HomePricingProps) {
     const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("monthly");
-    const [customerType, setCustomerType] = useState("individual");
+    const [customerType, setCustomerType] = useState(activePlansType ? activePlansType : "individual");
 
     const individualPlans = {
         onetime: {
@@ -105,8 +109,8 @@ export function HomePricing() {
         }
     };
 
-    const activePlans = customerType === "individual" ? 
-        [individualPlans[billingPeriod]] : 
+    const activePlans = customerType === "individual" ?
+        [individualPlans[billingPeriod]] :
         [corporatePlans[billingPeriod]];
 
     return (
@@ -121,24 +125,40 @@ export function HomePricing() {
             {/* Customer Type Toggle */}
             <div className="flex justify-center mb-8">
                 <div className="inline-flex p-1 rounded-xl bg-gray-100 gap-4">
-                    <Button
-                        className={`px-8 py-6 flex items-center gap-2 ${customerType === "individual" 
-                            ? "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white" 
-                            : "text-gray-900 border border-gray-300 bg-transparent hover:bg-transparent"}`}
-                        onClick={() => setCustomerType("individual")}
-                    >
-                        <User size={18} />
-                        Bireysel
-                    </Button>
-                    <Button
-                        className={`px-8 py-6 flex items-center gap-2 ${customerType === "corporate" 
-                            ? "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white" 
-                            : "text-gray-900 border border-gray-300 bg-transparent hover:bg-transparent"}`}
-                        onClick={() => setCustomerType("corporate")}
-                    >
-                        <Building2 size={18} />
-                        Kurumsal
-                    </Button>
+                    {activePlansType === "corporate" ? (
+                        <>
+                            <Button
+                                className={`px-8 py-6 flex items-center gap-2 ${customerType === "corporate"
+                                    ? "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white"
+                                    : "text-gray-900 border border-gray-300 bg-transparent hover:bg-transparent"}`}
+                                onClick={() => setCustomerType("corporate")}
+                            >
+                                <Building2 size={18} />
+                                Kurumsal
+                            </Button>
+                        </>
+                    ) : (
+                        <>
+                            <Button
+                                className={`px-8 py-6 flex items-center gap-2 ${customerType === "individual"
+                                    ? "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white"
+                                    : "text-gray-900 border border-gray-300 bg-transparent hover:bg-transparent"}`}
+                                onClick={() => setCustomerType("individual")}
+                            >
+                                <User size={18} />
+                                Bireysel
+                            </Button>
+                            <Button
+                                className={`px-8 py-6 flex items-center gap-2 ${customerType === "corporate"
+                                    ? "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white"
+                                    : "text-gray-900 border border-gray-300 bg-transparent hover:bg-transparent"}`}
+                                onClick={() => setCustomerType("corporate")}
+                            >
+                                <Building2 size={18} />
+                                Kurumsal
+                            </Button>
+                        </>
+                    )}
                 </div>
             </div>
 
@@ -197,10 +217,10 @@ function BillingToggle({ label, active, onClick, gradient = false, badge = null 
     return (
         <Button
             className={`px-8 py-6 text-sm font-medium relative ${active
-                    ? gradient
-                        ? "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white"
-                        : "bg-white text-gray-900"
-                    : "text-gray-900 border border-gray-300 bg-transparent hover:bg-transparent"
+                ? gradient
+                    ? "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white"
+                    : "bg-white text-gray-900"
+                : "text-gray-900 border border-gray-300 bg-transparent hover:bg-transparent"
                 } rounded-lg transition-colors`}
             onClick={onClick}
         >
@@ -233,13 +253,13 @@ function PricingCard({ name, price, credits, features, highlighted = false, bill
             default: return "Aylık";
         }
     };
-    
+
     const buttonText = customerType === "individual" ? "Satın Al" : "İletişime Geç";
 
     return (
         <Card className={`overflow-hidden ${highlighted
-                ? "border-purple-500 border-2 relative"
-                : "border-gray-200"
+            ? "border-purple-500 border-2 relative"
+            : "border-gray-200"
             }`}>
             {highlighted && (
                 <div className="absolute top-0 right-0 bg-purple-500 text-white px-3 py-1 text-xs font-medium">
@@ -259,8 +279,8 @@ function PricingCard({ name, price, credits, features, highlighted = false, bill
 
                 <Button
                     className={`w-full mt-6 py-6 ${highlighted
-                            ? "bg-purple-600 hover:bg-purple-700 text-white"
-                            : "bg-slate-900 hover:bg-slate-800 text-white"
+                        ? "bg-purple-600 hover:bg-purple-700 text-white"
+                        : "bg-slate-900 hover:bg-slate-800 text-white"
                         }`}
                 >
                     {buttonText}
