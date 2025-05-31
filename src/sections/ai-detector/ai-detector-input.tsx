@@ -32,8 +32,7 @@ export function AIDetectorInput({ text, setText, isAnalyzing, setIsAnalyzing, se
         setIsAnalyzing(true);
         setActiveTab("results");
 
-        const response = await newAnalyze(user?.corporate ?? undefined, title, text, uploadedFileName ?? undefined);
-        console.log(response);
+        const response = await newAnalyze(user?.corporate ? user?.corporate.id : undefined, title, text, uploadedFileName ?? undefined);
         
         if (!response) return;
 
