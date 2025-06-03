@@ -10,7 +10,12 @@ export interface SignUpData {
     name: string;
     surname: string;
     password: string;
-    type: string;
+    type?: string;
     provider: string;
     isActive: boolean;
+}
+
+export interface SignUpResponse {
+    authResponse: AuthResponse,
+    emailVerificationToken: string
 }
