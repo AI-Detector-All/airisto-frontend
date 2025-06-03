@@ -50,7 +50,7 @@ export default function DashboardHeader() {
 
                         {user ? (
                             <>
-                                <Notification />
+                                {/* <Notification /> */}
                                 <UserAvatar user={user} logout={logout} />
                             </>
                         ) : (
