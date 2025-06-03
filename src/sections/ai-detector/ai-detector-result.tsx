@@ -4,12 +4,15 @@ import { Progress } from "@/components/ui/progress"
 import { Info, RefreshCw } from "lucide-react"
 import AIDetectionRadarChart from "./ai-detector-chart"
 import { AnalysisResults } from "@/types/analysis"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 interface AIDetectorResultProps {
     isAnalyzing: boolean
-    results?: AnalysisResults | null
+    results?: AnalysisResults | null,
+    tokenLimitExceeded: boolean
 }
-export function AIDetectorResult({ isAnalyzing, results }: AIDetectorResultProps) {
+export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: AIDetectorResultProps) {
     const getColorBasedOnScore = (score: number) => {
         if (score > 70) return "destructive";
         if (score > 40) return "secondary";
@@ -38,24 +41,42 @@ export function AIDetectorResult({ isAnalyzing, results }: AIDetectorResultProps
                             <div className="bg-primary/10 p-4 rounded-full mb-4">
                                 <Info className="w-12 h-12 text-primary" />
                             </div>
-                            <h3 className="text-lg font-semibold mb-2">Yapay Zeka Metin Tespiti</h3>
+                            <h3 className="text-lg font-semibold mb-2">
+                                {tokenLimitExceeded
+                                    ? "Token Hakkınız Tükenmiştir"
+                                    : "Yapay Zeka Metin Tespiti"}
+                            </h3>
                             <p className="text-muted-foreground mb-6">
-                                Yapay zeka tarafından oluşturulan kalıplar için içeriği analiz etmek üzere düzenleyiciye metin yapıştırın. Gelişmiş algoritmamız yapay zeka yazarlığı olasılığını değerlendirecektir.
+                                {tokenLimitExceeded
+                                    ? "Yeni analiz yapabilmek için token paketiniz kalmamıştır. Lütfen daha fazla token edinin."
+                                    : "Yapay zeka tarafından oluşturulan kalıplar için içeriği analiz etmek üzere düzenleyiciye metin yapıştırın. Gelişmiş algoritmamız yapay zeka yazarlığı olasılığını değerlendirecektir."}
                             </p>
-                            <div className="grid grid-cols-2 gap-4 w-full max-w-md">
-                                <Card>
-                                    <CardContent className="pt-6">
-                                        <h4 className="font-medium mb-1">Doğruluk</h4>
-                                        <p className="text-sm text-muted-foreground">Birden fazla yapay zeka modelinde yüksek hassasiyetli algılama</p>
-                                    </CardContent>
-                                </Card>
-                                <Card>
-                                    <CardContent className="pt-6">
-                                        <h4 className="font-medium mb-1">Grafik Sonuçları</h4>
-                                        <p className="text-sm text-muted-foreground"> Gelişmiş algoritmamız yapay zeka yazarlığı olasılığını değerlendirecektir. </p>
-                                    </CardContent>
-                                </Card>
-                            </div>
+                            <Link href={'/dashboard/subscription'}>
+                                <Button className="bg-fuchsia-400 rounded-md px-4 py-2 hover:bg-fuchsia-500">
+                                    Aboneliğinizi Yenileyin
+                                </Button>
+                            </Link>
+
+                            {!tokenLimitExceeded && (
+                                <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+                                    <Card>
+                                        <CardContent className="pt-6">
+                                            <h4 className="font-medium mb-1">Doğruluk</h4>
+                                            <p className="text-sm text-muted-foreground">
+                                                Birden fazla yapay zeka modelinde yüksek hassasiyetli algılama
+                                            </p>
+                                        </CardContent>
+                                    </Card>
+                                    <Card>
+                                        <CardContent className="pt-6">
+                                            <h4 className="font-medium mb-1">Grafik Sonuçları</h4>
+                                            <p className="text-sm text-muted-foreground">
+                                                Gelişmiş algoritmamız yapay zeka yazarlığı olasılığını değerlendirecektir.
+                                            </p>
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            )}
                         </div>
                     </CardContent>
                 </Card>

@@ -12,6 +12,7 @@ export default function AIDetectorView() {
     const [text, setText] = useState("");
     const [title, setTitle] = useState("");
     const [isAnalyzing, setIsAnalyzing] = useState(false);
+    const [tokenLimitExceeded, setTokenLimitExceeded] = useState(false);
     const [results, setResults] = useState<AnalysisResults | null>(null);
     const [activeTab, setActiveTab] = useState("input");
 
@@ -54,11 +55,21 @@ export default function AIDetectorView() {
                     </div>
 
                     <TabsContent value="input" className="mt-0">
-                        <AIDetectorInput setTitle={setTitle} title={title} text={text} setText={setText} isAnalyzing={isAnalyzing} setIsAnalyzing={setIsAnalyzing} setResults={setResults} setActiveTab={setActiveTab} />
+                        <AIDetectorInput 
+                        setTitle={setTitle} 
+                        title={title} 
+                        text={text} 
+                        setText={setText} 
+                        isAnalyzing={isAnalyzing} 
+                        setIsAnalyzing={setIsAnalyzing} 
+                        setResults={setResults} 
+                        setActiveTab={setActiveTab}
+                        setTokenLimitExceeded={setTokenLimitExceeded}
+                        />
                     </TabsContent>
 
                     <TabsContent value="results" className="mt-0">
-                        <AIDetectorResult isAnalyzing={isAnalyzing} results={results} />
+                        <AIDetectorResult isAnalyzing={isAnalyzing} results={results} tokenLimitExceeded={tokenLimitExceeded} />
                     </TabsContent>
                 </Tabs>
             </main>

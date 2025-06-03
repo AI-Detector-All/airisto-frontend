@@ -7,6 +7,7 @@ import { newAnalyze } from "@/services/analysis";
 import { AnalysisResults } from "@/types/analysis";
 import { FileText, RefreshCw, Upload, X } from "lucide-react";
 import React, { SetStateAction, useRef } from "react";
+import { toast } from "sonner";
 
 
 interface AIDetectorInputProps {
@@ -18,27 +19,50 @@ interface AIDetectorInputProps {
     setIsAnalyzing: React.Dispatch<React.SetStateAction<boolean>>;
     setResults: React.Dispatch<React.SetStateAction<AnalysisResults | null>>;
     setActiveTab: React.Dispatch<React.SetStateAction<string>>;
+    setTokenLimitExceeded: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export function AIDetectorInput({ text, setText, isAnalyzing, setIsAnalyzing, setResults, setActiveTab, title, setTitle }: AIDetectorInputProps) {
+export function AIDetectorInput({ 
+    text, 
+    setText, 
+    isAnalyzing, 
+    setIsAnalyzing, 
+    setResults, 
+    setActiveTab, 
+    title, 
+    setTitle,
+    setTokenLimitExceeded
+}: AIDetectorInputProps) {
     const { user, isLoading, refreshUserData } = useAuth();
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [uploadedFileName, setUploadedFileName] = React.useState<File | null>(null);
 
     if (isLoading) return <DashboardSkeleton />
 
-    const handleAnalyze = async() => {
+    const handleAnalyze = async () => {
         if (!text.trim() && !uploadedFileName) return;
         setIsAnalyzing(true);
         setActiveTab("results");
 
-        const response = await newAnalyze(user?.corporate ? user?.corporate.id : undefined, title, text, uploadedFileName ?? undefined);
-        
-        if (!response) return;
+        try {
+            const response = await newAnalyze(user?.corporate ? user?.corporate.id : undefined, title, text, uploadedFileName ?? undefined);
 
-        setResults(response);
-        setIsAnalyzing(false);
-        refreshUserData();
+            setResults(response);
+            setIsAnalyzing(false);
+            refreshUserData();
+
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (error: any) {
+            if (error.response.status === 402) {
+                toast.warning("Analiz hakkınız kalmadı", {
+                    description: "Yeni analiz yapabilmek için daha fazla token satın alın.",
+                });
+                setTokenLimitExceeded(true);
+                return;
+            }
+        } finally {
+            setIsAnalyzing(false);
+        }
     };
 
     const handleClear = () => {
