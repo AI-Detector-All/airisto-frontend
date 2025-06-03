@@ -21,9 +21,9 @@ export default function Page() {
         if (localStorage.getItem('access_token')) {
             router.push('/dashboard');
         }
-    },[])
+    }, [])
 
-    const handleLogin = async() => {
+    const handleLogin = async () => {
         const response = await signIn(email, password);
 
         localStorage.setItem('access_token', response.access_token);
@@ -178,6 +178,11 @@ export default function Page() {
                             <Button type="submit" onClick={handleLogin} className="w-full bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 text-white py-6">
                                 Giriş
                             </Button>
+                            <div className="text-center mt-4">
+                                <p className="text-sm text-gray-600">
+                                    Hesabınız yok mu? <Link href="/sign-up" className="text-fuchsia-600 hover:text-fuchsia-500 font-medium">Kayıt olun</Link>
+                                </p>
+                            </div>
                         </div>
 
                     </div>
