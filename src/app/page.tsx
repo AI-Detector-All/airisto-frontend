@@ -1,18 +1,18 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Mail, Calendar, Star, BookOpen, Lightbulb, Quote, Languages, Brain, BarChart3, Zap } from 'lucide-react';
+import { Mail, Lightbulb, Quote, Languages, Brain, BarChart3, Zap } from 'lucide-react';
 import Image from 'next/image';
 
 export default function AiristoComingSoon() {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const [isVisible, setIsVisible] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const [language, setLanguage] = useState('tr');
+  const [language, setLanguage] = useState<'tr' | 'en'>('tr');
 
   useEffect(() => {
     setIsClient(true);
     setIsVisible(true);
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: { clientX: number; clientY: number; }) => {
       setMousePosition({ x: (e.clientX / window.innerWidth) * 100, y: (e.clientY / window.innerHeight) * 100 });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -191,7 +191,7 @@ export default function AiristoComingSoon() {
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 max-w-2xl mx-auto">
               <Quote className="w-8 h-8 text-purple-400 mx-auto mb-4" />
               <p className="text-lg text-slate-200 italic transition-all duration-500">
-                "{currentContent.quotes[currentQuote]}"
+                &quot;{currentContent.quotes[currentQuote]}&quot;
               </p>
               <p className="text-sm text-slate-400 mt-2">- Aristoteles</p>
             </div>
