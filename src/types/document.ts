@@ -4,5 +4,6 @@ export interface Document {
     inputDocument: string;
     outputDocument: string;
     aiPercent: string;
-    title: string
+    title: string;
+    createdAt: Date
 }
