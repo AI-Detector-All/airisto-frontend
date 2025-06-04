@@ -28,6 +28,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       }
     }
 
+    if (!user.subscription) {
+      router.push('/#pricing');
+      return;
+    }
+
   }, [router, user]);
 
   const toggleSidebar = () => {

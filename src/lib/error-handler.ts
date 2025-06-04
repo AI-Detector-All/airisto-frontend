@@ -9,7 +9,7 @@ export function handleError(error: unknown) {
 
   toast('Beklenmeyen bir hata oluştu', { description: message });
 
-  if (process.env.NODE_ENV === 'development') {
-    console.error(error);
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   console.error(error);
+  // }
 }
