@@ -20,4 +20,7 @@ export interface User {
     usedAnalysesThisMonth: number
     remainToken: number
     renewalDate: Date
+    orcidId?: string
+    usedStorage: number
+    maxStorage: number
 }
