@@ -17,4 +17,6 @@ export interface AnalysisResults {
     categoryScores: CategoryScore[]
     summary:string
     suggestions: string[]
+    createdAt: Date
+    updatedAt: Date
 }

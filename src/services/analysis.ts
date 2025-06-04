@@ -30,3 +30,9 @@ export async function getUserAnalysis(userId: string): Promise<AnalysisResults[]
         throw error
     }
 }
+
+export async function deleteAnalysis(analysisId: string) {
+    const response = await api.delete(`/analysis/${analysisId}`);
+
+    return response.data;
+}
