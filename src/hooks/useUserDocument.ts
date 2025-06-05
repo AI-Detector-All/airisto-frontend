@@ -19,7 +19,8 @@ export const useUserDocument = () => {
                 outputDocument: analysis.outputDocument as string,
                 aiPercent: analysis.aiPercent as string,
                 title: analysis.title as string,
-                analysisId: analysis.id
+                analysisId: analysis.id,
+                createdAt: analysis.createdAt
             }));
             setUserDocuments(userDocuments);
             setIsDocumentLoading(false);

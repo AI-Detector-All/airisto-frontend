@@ -1,18 +1,20 @@
 import { Document } from "@/types/document";
 import { TableAction, TableColumn } from "@/types/table";
 import { Download, FileText, Star, Trash2 } from "lucide-react";
-import GenericTable from "./generic-table";
-
+import GenericTable from "../../components/generic-table";
 interface DocumentsTableProps {
     documents: Document[];
+    handleDeleteAnalysis: (analysisId: string) => void
 }
 
-export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents }) => {
+export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents, handleDeleteAnalysis }) => {
     const getPercentageColor = (percentage: number) => {
         if (percentage < 30) return "text-green-600";
         if (percentage < 70) return "text-yellow-600";
         return "text-red-600";
     };
+
+    
 
     const columns: TableColumn<Document>[] = [
         {
@@ -49,7 +51,7 @@ export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents }) => 
                         <div className="w-full bg-gray-200 rounded-full h-2.5 mr-2">
                             <div
                                 className={`h-2.5 rounded-full ${percentage < 30 ? "bg-green-500" :
-                                        percentage < 70 ? "bg-yellow-500" : "bg-red-500"
+                                    percentage < 70 ? "bg-yellow-500" : "bg-red-500"
                                     }`}
                                 style={{ width: `${percentage}%` }}
                             />
@@ -85,7 +87,7 @@ export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents }) => 
         {
             icon: Trash2,
             label: 'Sil',
-            onClick: (item) => console.log('Delete:', item.analysisId),
+            onClick: (item) => handleDeleteAnalysis(item.analysisId),
             className: 'text-red-500 hover:bg-red-50'
         }
     ];

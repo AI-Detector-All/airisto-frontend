@@ -1,6 +1,6 @@
 'use client';
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     ChevronLeft,
     ChevronRight,
@@ -28,14 +28,16 @@ export default function GenericTable<T extends Record<string, any>>({
     keyField,
     searchable = false,
     defaultItemsPerPage = 10,
-    onDataChange
 }: GenericTableProps<T>) {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage);
     const [tableData, setTableData] = useState(data);
     const [searchTerm, setSearchTerm] = useState('');
 
-    // Filter data based on search
+    useEffect(() => {
+        setTableData(data);
+    }, [data]);
+
     const filteredData = searchable && searchTerm
         ? tableData.filter(item =>
             Object.values(item).some(value =>
@@ -49,15 +51,15 @@ export default function GenericTable<T extends Record<string, any>>({
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
-    const updateData = (newData: T[]) => {
-        setTableData(newData);
-        onDataChange?.(newData);
-    };
+    // const updateData = (newData: T[]) => {
+    //     setTableData(newData);
+    //     onDataChange?.(newData);
+    // };
 
-    const deleteItem = (item: T) => {
-        const newData = tableData.filter(dataItem => dataItem[keyField] !== item[keyField]);
-        updateData(newData);
-    };
+    // const deleteItem = (item: T) => {
+    //     const newData = tableData.filter(dataItem => dataItem[keyField] !== item[keyField]);
+    //     updateData(newData);
+    // };
 
     const nextPage = () => {
         if (currentPage < totalPages) setCurrentPage(currentPage + 1);
@@ -82,8 +84,8 @@ export default function GenericTable<T extends Record<string, any>>({
                     key={i}
                     onClick={() => goToPage(i)}
                     className={`px-3 py-1 mx-1 rounded ${currentPage === i
-                            ? "bg-gray-200 text-gray-900 hover:bg-gray-300"
-                            : "text-gray-900 bg-transparent hover:bg-gray-300"
+                        ? "bg-gray-200 text-gray-900 hover:bg-gray-300"
+                        : "text-gray-900 bg-transparent hover:bg-gray-300"
                         }`}
                 >
                     {i}
@@ -173,7 +175,7 @@ export default function GenericTable<T extends Record<string, any>>({
                                                                 </button>
                                                             </TooltipTrigger>
                                                             <TooltipContent>
-                                                                <p>{action.label}</p>
+                                                                <p>{typeof action.label === 'function' ? action.label(item) : action.label}</p>
                                                             </TooltipContent>
                                                         </Tooltip>
                                                     );
@@ -217,8 +219,8 @@ export default function GenericTable<T extends Record<string, any>>({
                             onClick={prevPage}
                             disabled={currentPage === 1}
                             className={`rounded p-1 ${currentPage === 1
-                                    ? "text-gray-900 bg-transparent"
-                                    : "text-gray-900 hover:bg-gray-100"
+                                ? "text-gray-900 bg-transparent"
+                                : "text-gray-900 hover:bg-gray-100"
                                 }`}
                         >
                             <ChevronLeft className="w-5 h-5" />
@@ -230,8 +232,8 @@ export default function GenericTable<T extends Record<string, any>>({
                             onClick={nextPage}
                             disabled={currentPage === totalPages}
                             className={`rounded bg-transparent p-1 ${currentPage === totalPages
-                                    ? "text-gray-300"
-                                    : "text-gray-700 hover:bg-gray-100"
+                                ? "text-gray-300"
+                                : "text-gray-700 hover:bg-gray-100"
                                 }`}
                         >
                             <ChevronRight className="w-5 h-5" />
