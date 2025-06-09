@@ -1,5 +1,6 @@
 import axios from "axios";
 import { handleError } from "../error-handler";
+import { deleteCookie, getCookie } from "@/utils/cookie";
 
 const API_URL = process.env.BASE_URL
 
@@ -12,7 +13,7 @@ export const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    const token = typeof window !== "undefined" ? localStorage.getItem("access_token") : null;
+    const token = getCookie('access_token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -26,6 +27,7 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
+      deleteCookie('access_token');
       localStorage.removeItem("access_token")
       window.location.href = "/sign-in"
     }

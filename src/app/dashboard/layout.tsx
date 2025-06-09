@@ -9,25 +9,25 @@ import { RolesEnum } from "@/enums/roles";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
-    const token = localStorage.getItem('access_token');
-    if (!token) {
-      router.push('/sign-in');
-    }
-
+    // Middleware zaten token kontrolünü yapıyor, sadece user bazlı kontrolleri yap
     if (!user) return;
 
+    // Corporate kontrolü
     if (!user?.corporate?.isActive) {
       if (user?.role === RolesEnum.INSTITUTION_ADMIN) {
         router.push('/corporate/subscription-required');
+        return;
       } else if (user?.role === RolesEnum.STUDENT || user?.role === RolesEnum.ACADEMICIAN) {
-        router.push("/corporate/access-denied")
+        router.push("/corporate/access-denied");
+        return;
       }
     }
 
+    // Subscription kontrolü
     if (!user.subscription) {
       router.push('/#pricing');
       return;

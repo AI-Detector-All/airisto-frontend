@@ -2,12 +2,25 @@ import { api } from "@/lib/api/api";
 import { AuthResponse, SignUpData, SignUpResponse } from "@/types/auth";
 import { Corporate } from "@/types/corporates";
 import { User } from "@/types/user";
+import { deleteCookie, setCookie } from "@/utils/cookie";
 
 
 export async function signIn(email: string, password: string): Promise<AuthResponse> {
     const response = await api.post('/auth/signin', { email, password });
-
+    
+    if (response.data.access_token) {
+        setCookie('access_token', response.data.access_token, 7);
+    }
+    
     return response.data;
+}
+
+export function signOut() {
+    deleteCookie('access_token');
+    
+    if (typeof window !== 'undefined') {
+        localStorage.removeItem('access_token');
+    }
 }
 
 export async function signUp(data: SignUpData): Promise<SignUpResponse> {
