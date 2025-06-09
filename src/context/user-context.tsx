@@ -2,6 +2,7 @@
 
 import { currentUser } from "@/services/user";
 import { User } from "@/types/user";
+import { deleteCookie, getCookie } from "@/utils/cookie";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface UserContextType {
@@ -10,6 +11,7 @@ interface UserContextType {
   isLoading: boolean;
   isAuthenticated: boolean;
   refreshUser: () => Promise<void>;
+  logout: () => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -27,7 +29,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchUser = async () => {
-    const token = localStorage.getItem("access_token");
+    const token = getCookie("access_token");
 
     if (!token) {
       setIsLoading(false);
@@ -41,14 +43,22 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     } catch (error) {
       console.log(error);
       setUser(null);
+      deleteCookie("access_token");
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Manuel refresh fonksiyonu
   const refreshUser = async () => {
     await fetchUser();
+  };
+
+  const logout = () => {
+    setUser(null);
+    deleteCookie("access_token");
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('access_token');
+    }
   };
 
   useEffect(() => {
@@ -60,7 +70,8 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     setUser,
     isLoading,
     isAuthenticated: !!user && !isLoading,
-    refreshUser
+    refreshUser,
+    logout
   };
 
   return (

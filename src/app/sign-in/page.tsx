@@ -10,6 +10,7 @@ import Link from "next/link";
 import { signIn } from "@/services/auth";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
+import { getCookie } from "@/utils/cookie";
 
 export default function Page() {
     const [email, setEmail] = useState("");
@@ -18,17 +19,21 @@ export default function Page() {
     const { setUser } = useUser();
 
     useEffect(() => {
-        if (localStorage.getItem('access_token')) {
+        const token = getCookie('access_token');
+        if (token) {
             router.push('/dashboard');
         }
-    }, [])
+    }, [router])
 
     const handleLogin = async () => {
-        const response = await signIn(email, password);
+        try {
+            const response = await signIn(email, password);
 
-        localStorage.setItem('access_token', response.access_token);
-        setUser(response.user);
-        router.push('/dashboard');
+            setUser(response.user);
+            router.push('/dashboard');
+        } catch (error) {
+            console.error('Login failed:', error);
+        }
     }
 
     return (
