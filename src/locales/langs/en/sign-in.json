@@ -1,0 +1,61 @@
+{
+  "backToHome": "Airisto",
+  "welcomeBack": "Welcome back! Please enter your details",
+  "signInTitle": "Sign In",
+  "emailLabel": "Email",
+  "emailPlaceholder": "Enter your email",
+  "passwordLabel": "Password",
+  "passwordPlaceholder": "Enter your password",
+  "rememberMe": "Remember Me",
+  "forgotPassword": "Forgot Password?",
+  "signInButton": "Sign In",
+  "signingIn": "Signing In...",
+  "noAccount": "Don’t have an account?",
+  "signUpLink": "Sign Up",
+  "orContinueWith": "Or continue with",
+  "signInWithGoogle": "Sign In with Google",
+  "aiTagline": "Unleash the Power of AI",
+  "mainTitle": "Detect AI-Generated Content",
+  "mainSubtitle": "The Fastest and Easiest Way",
+  "mainDescription": "Identify AI-generated text with % accuracy. Get analysis, reasoning, and reliable results in a single step.",
+  "detectAI": "Detect AI",
+  "cancelAnytime": "Cancel anytime",
+  "seeHowItWorks": "See How It Works",
+  "features": {
+    "advancedDetection": {
+      "title": "Advanced Detection",
+      "description": "AI-powered analysis with 85% accuracy"
+    },
+    "multiModelSupport": {
+      "title": "Multi-Model Support",
+      "description": "Detects content from ChatGPT, Gemini, and more"
+    },
+    "fileCompatibility": {
+      "title": "File Compatibility",
+      "description": "Analyze docx and pdf documents"
+    },
+    "detailedReports": {
+      "title": "Detailed Reports",
+      "description": "Get comprehensive insights on detected content"
+    }
+  },
+  "accessDeniedTitle": "Access Denied",
+  "accessDeniedMessage": "Your organization is currently inactive.",
+  "accessCorporateDenied": "You cannot access the system because your organization's subscription is not active.",
+  "accessCorporateInfo": "Your Organization Information",
+  "accessCorporateName": "Organization Name",
+  "accessCorporateDomain": "Organization Domain",
+  "accessCorporateManager": "Organization Administrator",
+  "accessCorporateStatus": "Organization Status",
+  "accessInactive": "Inactive",
+  "whatNext": "What Should You Do?",
+  "contactCorporate": "Contact Your Organization Administrator",
+  "sendEmail": "Send Email",
+  "sendEmailDesc": "Send an email directly to your organization administrator:",
+  "waitActivation": "Wait for Activation",
+  "waitActivationDesc": "Once your organization administrator completes the subscription process, you will automatically gain access to the system.",
+  "refreshStatus": "Refresh Status",
+  "contactToManager": "Contact your organization administrator",
+  "contactSupport": "For urgent matters, you can contact our technical support team",
+  "contactSupportButton": "Contact Technical Support"
+}

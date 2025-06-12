@@ -12,8 +12,10 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { getCookie } from "@/utils/cookie";
 import { InlineLoader } from "@/components/ui/global-loader";
+import { useTranslate } from "@/locales";
 
 export default function Page() {
+    const { t } = useTranslate('sign-in');
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter()
@@ -43,12 +45,35 @@ export default function Page() {
         }
     }
 
+    const features = [
+        {
+            icon: <Shield className="h-5 w-5" />,
+            title: t('features.advancedDetection.title'),
+            description: t('features.advancedDetection.description')
+        },
+        {
+            icon: <Bot className="h-5 w-5" />,
+            title: t('features.multiModelSupport.title'),
+            description: t('features.multiModelSupport.description')
+        },
+        {
+            icon: <FileCheck className="h-5 w-5" />,
+            title: t('features.fileCompatibility.title'),
+            description: t('features.fileCompatibility.description')
+        },
+        {
+            icon: <BarChart3 className="h-5 w-5" />,
+            title: t('features.detailedReports.title'),
+            description: t('features.detailedReports.description')
+        }
+    ];
+
     return (
-        <div className="flex flex-col mt-8 w-full justify-center items-center">
+        <div className="flex flex-col mt-8 max-w-[99%] justify-center items-center">
             <div className="w-full flex justify-start items-start ml-8">
                 <Link href="/" className="flex gap-2">
                     <ArrowLeft className="h-5 w-5" />
-                    <h1 className="text-body2 font-onest font-bold text-gray-700"> Airisto </h1>
+                    <h1 className="text-body2 font-onest font-bold text-gray-700">{t('backToHome')}</h1>
                 </Link>
             </div>
             {/* Main container */}
@@ -68,12 +93,12 @@ export default function Page() {
 
                         <div className="text-center mt-8 mb-8">
                             <Badge variant="outline" className="bg-white/10 hover:bg-white/20 text-sm rounded-full mb-8 px-6 py-1">
-                                Yapay Zeka ile Ortaya Çıkarın
+                                {t('aiTagline')}
                             </Badge>
-                            <h2 className="text-2xl font-bold mb-2">Yapay Zeka Tarafından Oluşturulan İçeriği Tespit Etmek için</h2>
-                            <h2 className="text-2xl font-bold mb-6">En Hızlı ve En Kolay Yol</h2>
+                            <h2 className="text-2xl font-bold mb-2">{t('mainTitle')}</h2>
+                            <h2 className="text-2xl font-bold mb-6">{t('mainSubtitle')}</h2>
                             <p className="text-sm text-gray-200 mb-8">
-                                Yapay zeka üretimi metinleri % doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda.
+                                {t('mainDescription')}
                             </p>
 
                             <div className="grid grid-cols-2 gap-4 mb-8">
@@ -93,16 +118,18 @@ export default function Page() {
                             <div className="flex space-x-4 mb-8">
                                 <div className="flex items-center text-xs">
                                     <CheckCircle className="h-4 w-4 mr-1 text-green-400" />
-                                    <span>Yapay Zekayı Tespit Et</span>
+                                    <span>{t('detectAI')}</span>
                                 </div>
                                 <div className="flex items-center text-xs">
                                     <CheckCircle className="h-4 w-4 mr-1 text-green-400" />
-                                    <span> İstediğiniz zaman iptal edebilirsiniz </span>
+                                    <span>{t('cancelAnytime')}</span>
                                 </div>
                             </div>
 
                             <Button variant="outline" className="bg-transparent border border-white text-white hover:bg-white/10 hover:text-white rounded-lg">
-                                <Link href={'/#how-it-works'}> <span className="mr-2">Nasıl çalıştığını görün</span> </Link>
+                                <Link href={'/#how-it-works'}>
+                                    <span className="mr-2">{t('seeHowItWorks')}</span>
+                                </Link>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8 3.33325V12.6666" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     <path d="M12.6667 7.99992L8.00008 12.6666L3.33341 7.99992" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -117,8 +144,8 @@ export default function Page() {
                     <div className="w-full max-w-md">
                         <div className="flex justify-between items-center mb-6">
                             <div>
-                                <h1 className="text-2xl font-bold">Oturum Açın</h1>
-                                <p className="text-gray-500 text-sm mt-1">Tekrar hoş geldiniz! Lütfen bilgilerinizi girin</p>
+                                <h1 className="text-2xl font-bold">{t('signInTitle')}</h1>
+                                <p className="text-gray-500 text-sm mt-1">{t('welcomeBack')}</p>
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="h-8 w-8 rounded-lg justify-center">
@@ -130,8 +157,7 @@ export default function Page() {
                                         priority
                                     />
                                 </div>
-                                <h1 className="text-header3 font-bold font-onest tracking-widest ">Airisto</h1>
-
+                                <h1 className="text-header3 font-bold font-onest tracking-widest">Airisto</h1>
                             </div>
                         </div>
 
@@ -143,7 +169,7 @@ export default function Page() {
                                     <path d="M10 18.3333C12.1525 18.3333 14.1084 17.5095 15.5892 16.17L13.0158 13.9875C12.1513 14.6452 11.0937 15 10 15C7.83255 15 5.99213 13.6179 5.2988 11.6833L2.5725 13.7683C3.84172 16.4617 6.64922 18.3333 10 18.3333Z" fill="#4CAF50" />
                                     <path d="M18.1711 8.36796H17.5V8.33337H10V11.6667H14.7096C14.3809 12.5902 13.7889 13.3917 13.0146 13.9879L13.0158 13.9871L15.5892 16.1696C15.4088 16.3354 18.3333 14.1667 18.3333 10C18.3333 9.44129 18.2758 8.89587 18.1711 8.36796Z" fill="#1976D2" />
                                 </svg>
-                                <span>Google ile Oturum Açın</span>
+                                <span>{t('signInWithGoogle')}</span>
                             </Button>
                         </div> */}
                         {/* 
@@ -152,28 +178,28 @@ export default function Page() {
                                 <div className="w-full border-t border-gray-300"></div>
                             </div>
                             <div className="relative flex justify-center text-xs uppercase">
-                                <span className="bg-white px-2 text-gray-500">Ya da</span>
+                                <span className="bg-white px-2 text-gray-500">{t('orContinueWith')}</span>
                             </div>
                         </div> */}
 
                         <div className="space-y-4">
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{t('emailLabel')}</label>
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="Emailinizi girin"
+                                    placeholder={t('emailPlaceholder')}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Şifre</label>
+                                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">{t('passwordLabel')}</label>
                                 <Input
                                     id="password"
                                     type="password"
-                                    placeholder="Şifrenizi girin"
+                                    placeholder={t('passwordPlaceholder')}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
@@ -182,17 +208,17 @@ export default function Page() {
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
                                     <Checkbox id="remember" />
-                                    <label htmlFor="remember" className="ml-2 text-sm text-gray-600">Beni Hatırla</label>
+                                    <label htmlFor="remember" className="ml-2 text-sm text-gray-600">{t('rememberMe')}</label>
                                 </div>
-                                <a href="#" className="text-sm text-purple-600 hover:text-purple-500">Şifremi Unuttum</a>
+                                <a href="#" className="text-sm text-purple-600 hover:text-purple-500">{t('forgotPassword')}</a>
                             </div>
 
                             <Button type="submit" onClick={handleLogin} className="w-full bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 text-white py-6">
-                                {isLoading ? <InlineLoader text="Giriş Yapılıyor..." className="text-white flex items-center gap-4" /> : "Giriş Yap"}
+                                {isLoading ? <InlineLoader text={t('signingIn')} className="text-white flex items-center gap-4" /> : t('signInButton')}
                             </Button>
                             <div className="text-center mt-4">
                                 <p className="text-sm text-gray-600">
-                                    Hesabınız yok mu? <Link href="/sign-up" className="text-fuchsia-600 hover:text-fuchsia-500 font-medium">Kayıt olun</Link>
+                                    {t('noAccount')} <Link href="/sign-up" className="text-fuchsia-600 hover:text-fuchsia-500 font-medium">{t('signUpLink')}</Link>
                                 </p>
                             </div>
                         </div>
@@ -203,26 +229,3 @@ export default function Page() {
         </div>
     );
 }
-
-const features = [
-    {
-        icon: <Shield className="h-5 w-5" />,
-        title: "Gelişmiş Tespit",
-        description: "%85'lik doğruluk oranıyla yapay zeka destekli analiz"
-    },
-    {
-        icon: <Bot className="h-5 w-5" />,
-        title: "Çoklu Model Desteği",
-        description: "ChatGPT, Gemini ve daha fazlasından gelen içeriği algılar"
-    },
-    {
-        icon: <FileCheck className="h-5 w-5" />,
-        title: "Dosya Uyumluluğu",
-        description: "txt, docx, pdf ve diğer belge formatlarını analiz edin"
-    },
-    {
-        icon: <BarChart3 className="h-5 w-5" />,
-        title: "Detaylı Raporlar",
-        description: "Tespit edilen içerikle ilgili kapsamlı analizler alın"
-    }
-];
