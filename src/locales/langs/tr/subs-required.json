@@ -1,0 +1,11 @@
+{
+    "title":"Kurumsal Aktivasyon",
+    "desc":"Kurumunuz başarıyla oluşturuldu. Hizmetlerimizi kullanmaya başlamak için abonelik planınızı seçin.",
+    "corporateInfo":"Kurum Bilgileri",
+    "activationStatus":"Aktivasyon Bekliyor",
+    "corporateName":"Kurum Adı:",
+    "corporateDomain":"Kurum Domain:",
+    "corporateCreatedAt":"Kurum Olusturulma Tarihi:",
+    "needHelp":"Yardıma mı ihtiyacınız var?",
+    "needHelpDesc":" Hangi planın size uygun olduğundan emin değil misiniz? Uzmanlarımızla konuşarak size özel çözüm alalım."
+}

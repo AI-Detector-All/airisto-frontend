@@ -14,55 +14,13 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { HomePricing } from '@/sections/home/home-pricing';
+import { useTranslate } from '@/locales';
 
 export default function Page() {
+  const { t, currentLang } = useTranslate('subs-required')
   const { user } = useAuth();
 
   const corporateInfo = user?.corporate;
-  console.log(corporateInfo);
-  
-  // const subscriptionPlans = [
-  //   {
-  //     name: "Starter",
-  //     price: "₺2,500",
-  //     period: "/ay",
-  //     users: "25 kullanıcı",
-  //     features: [
-  //       "Temel analiz araçları",
-  //       "Email desteği",
-  //       "Standart raporlama",
-  //       "5GB depolama"
-  //     ]
-  //   },
-  //   {
-  //     name: "Professional",
-  //     price: "₺5,000",
-  //     period: "/ay",
-  //     users: "100 kullanıcı",
-  //     features: [
-  //       "Gelişmiş analiz araçları",
-  //       "Öncelikli destek",
-  //       "Özel raporlama",
-  //       "50GB depolama",
-  //       "API erişimi"
-  //     ],
-  //     popular: true
-  //   },
-  //   {
-  //     name: "Enterprise",
-  //     price: "₺10,000",
-  //     period: "/ay",
-  //     users: "Sınırsız kullanıcı",
-  //     features: [
-  //       "Tüm analiz araçları",
-  //       "7/24 destek",
-  //       "Özelleştirilebilir raporlar",
-  //       "Sınırsız depolama",
-  //       "Tam API erişimi",
-  //       "Özel entegrasyon"
-  //     ]
-  //   }
-  // ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4 ">
@@ -71,10 +29,10 @@ export default function Page() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
             <Building2 className="h-12 w-12 text-fuchsia-600 mr-3" />
-            <h1 className="text-4xl font-bold text-gray-900">Kurumsal Aktivasyon</h1>
+            <h1 className="text-4xl font-bold text-gray-900"> {t('title')} </h1>
           </div>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Kurumunuz başarıyla oluşturuldu. Hizmetlerimizi kullanmaya başlamak için abonelik planınızı seçin.
+            {t('desc')}
           </p>
         </div>
 
@@ -84,10 +42,10 @@ export default function Page() {
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <Crown className="h-6 w-6 text-yellow-500" />
-                <CardTitle className="text-xl">Kurum Bilgileri</CardTitle>
+                <CardTitle className="text-xl">{t('corporateInfo')}</CardTitle>
               </div>
               <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">
-                Aktivasyon Bekliyor
+                {t('activationStatus')}
               </Badge>
             </div>
           </CardHeader>
@@ -95,19 +53,19 @@ export default function Page() {
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <Building2 className="h-4 w-4 text-gray-500" />
-                <span className="font-medium">Kurum Adı:</span>
+                <span className="font-medium">{t('corporateName')}</span>
                 <span>{corporateInfo?.name}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-gray-500" />
-                <span className="font-medium">Domain:</span>
+                <span className="font-medium">{t('corporateDomain')}</span>
                 <span className="text-blue-600">{corporateInfo?.domain}</span>
               </div>
             </div>
-            <div className="space-y-3">              
+            <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-gray-500" />
-                <span className="font-medium">Oluşturulma:</span>
+                <span className="font-medium">{t('corporateCreatedAt')}</span>
                 <span>{corporateInfo?.createdAt ? new Date(corporateInfo.createdAt).toLocaleDateString('tr-TR') : 'Unknown'}</span>
               </div>
             </div>
@@ -118,9 +76,19 @@ export default function Page() {
         <Alert className="mb-8 border-amber-200 bg-amber-50">
           <CreditCard className="h-4 w-4 text-amber-600" />
           <AlertDescription className="text-amber-800">
-            <strong>Önemli:</strong> Kurumunuz henüz aktif değil. Çalışanlarınızın sistemi kullanabilmesi için
-            önce bir abonelik planı seçmeniz gerekmektedir. Abonelik aktivasyonu sonrası tüm
-            <strong> @{corporateInfo?.domain}</strong> uzantılı email adresleri otomatik olarak kurumunuza bağlanacaktır.
+            {currentLang.value === 'tr' ? (
+              <div>
+                <strong>Önemli:</strong> Kurumunuz henüz aktif değil. Çalışanlarınızın sistemi kullanabilmesi için
+                önce bir abonelik planı seçmeniz gerekmektedir. Abonelik aktivasyonu sonrası tüm
+                <strong> @{corporateInfo?.domain}</strong> uzantılı email adresleri otomatik olarak kurumunuza bağlanacaktır.
+              </div>
+            ) : (
+              <div>
+                <strong>Important:</strong> Your company is currently inactive. Before selecting a subscription plan,
+                you must first activate your company. All <strong> @{corporateInfo?.domain}</strong> email addresses will be automatically linked to your company after activation.
+              </div>
+            )}
+
           </AlertDescription>
         </Alert>
 
@@ -175,10 +143,9 @@ export default function Page() {
         <Card className="bg-gray-50">
           <CardContent className="text-center py-8">
             <Phone className="h-8 w-8 text-blue-600 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold mb-2">Yardıma mı ihtiyacınız var?</h3>
+            <h3 className="text-lg font-semibold mb-2"> {t('needHelp')} </h3>
             <p className="text-gray-600 mb-4">
-              Hangi planın size uygun olduğundan emin değil misiniz?
-              Uzmanlarımızla konuşarak size özel çözüm alalım.
+              {t('needHelpDesc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button variant="outline">
