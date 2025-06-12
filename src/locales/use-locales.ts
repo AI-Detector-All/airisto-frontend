@@ -47,7 +47,7 @@ export function useTranslate(ns?: string) {
         setCurrentLangCode(newLangValue);
         
         // Force reload the page to ensure server and client are in sync
-        // window.location.reload();
+        window.location.reload();
       });
     },
     []

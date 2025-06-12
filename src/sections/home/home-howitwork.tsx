@@ -1,33 +1,36 @@
+'use client';
 import { Card } from "@/components/ui/card";
+import { useTranslate } from "@/locales";
 
 export function HomeHowItWorks() {
+    const { t } = useTranslate('home');
     return (
         <div id="how-it-works" className="w-full flex justify-center items-center min-h-screen">
             <div className="w-full lg:w-3/4 bg-slate-900 text-white rounded-3xl p-12 mt-16">
                 <div className="text-center mb-10">
-                    <h2 className="text-4xl font-bold mb-4 font-onest">Nasıl Çalışıyor?</h2>
+                    <h2 className="text-4xl font-bold mb-4 font-onest"> {t('hiwTitle')} </h2>
                     <p className="text-slate-300 max-w-3xl mx-auto font-onest mt-8">
-                        Yapay zeka tarafından oluşturulan içeriği olağanüstü doğrulukla tespit etmek için gelişmiş algoritmaların ve makine öğreniminin gücünden yararlanma konusunda tutkuluyuz. Son teknoloji Yapay Zeka Algılama teknolojimiz, kalıpları analiz etmek, işaretçileri belirlemek ve herhangi bir metnin gerçekliğini doğrulamak için tasarlanmıştır.
+                        {t('hiwDesc')}
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
                     <StepCard
                         number="1"
-                        title="İçeriğinizi Gönderin"
-                        description="Sistemimiz düz metin, belgeler, makaleler, denemeler ve daha fazlası dahil olmak üzere çok çeşitli içerik formatlarını kabul eder. Analiz sürecini başlatmak için metninizi yapıştırmanız veya bir belge yüklemeniz yeterlidir. Platformumuz kısa paragraflardan tam akademik makalelere kadar her uzunluktaki içeriği işler."
+                        title="hiwStep1Title"
+                        description="hiwStep1Desc"
                     />
 
                     <StepCard
                         number="2"
-                        title="Gelişmiş Analiz"
-                        description="Algılama algoritmalarımız dilsel kalıpları, üslup tutarsızlıklarını ve yapay zeka tarafından oluşturulan metni ayırt eden yapısal unsurları inceler. Büyük dil modelleri tarafından oluşturulan içeriği tanımlamak için cümle çeşitliliğini, kelime kullanımını, ton tutarlılığını ve çok sayıda özel işaretleyiciyi analiz ediyoruz."
+                        title="hiwStep2Title"
+                        description="hiwStep2Desc"
                     />
 
                     <StepCard
                         number="3"
-                        title="Detaylı Sonuçlar!"
-                        description="Belirli göstergelerin yüzde dağılımları ile yapay zeka oluşturma olasılığını gösteren kapsamlı raporlar alın. Sonuçlarımız, metnin neden insan veya makine tarafından yazılmış gibi göründüğüne dair eyleme geçirilebilir bilgiler sağlayarak eğitimcilerin, yayıncıların ve içerik yöneticilerinin bilinçli kararlar almasına yardımcı olur."
+                        title="hiwStep3Title"
+                        description="hiwStep3Desc"
                     />
                 </div>
             </div>
@@ -42,16 +45,17 @@ interface StepCardProps {
 }
 
 function StepCard({ number, title, description }: StepCardProps) {
+    const { t } = useTranslate('home');
     return (
         <Card className="bg-slate-800 border-0 p-8 text-center h-full flex flex-col items-center">
             <div className="bg-purple-600 w-12 h-12 rounded-lg mb-6 flex items-center justify-center text-white font-bold text-xl font-onest">
                 {number}
             </div>
 
-            <h3 className="text-xl font-bold mb-4 font-onest text-white">{title}</h3>
+            <h3 className="text-xl font-bold mb-4 font-onest text-white">{t(title)}</h3>
 
             <p className="text-slate-300 text-sm font-onest">
-                {description}
+                {t(description)}
             </p>
         </Card>
     );

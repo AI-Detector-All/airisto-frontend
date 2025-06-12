@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { CheckCircle, Building2, User } from "lucide-react";
+import { useTranslate } from "@/locales";
 
 type BillingPeriod = "onetime" | "monthly" | "annual";
 
@@ -11,100 +12,100 @@ interface HomePricingProps {
 }
 
 export function HomePricing({ activePlansType }: HomePricingProps) {
+    const { t } = useTranslate('home');
     const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("monthly");
     const [customerType, setCustomerType] = useState(activePlansType ? activePlansType : "individual");
 
     const individualPlans = {
         onetime: {
-            name: "Tek Seferlik Analiz",
-            price: "₺249",
-            credits: "20 sayfa analizi",
+            name: t('pricingIndividualOneTimeName'),
+            price: t('pricingIndividualOneTimePrice'),
+            credits: t('pricingIndividualOneTimeCredits'),
             highlighted: false,
             features: [
-                "Yapay Zeka İçerik Dedektörü",
-                "Temel Tespit Özelliklerine Erişim",
-                "Metin Tespit Araçları",
-                "Belge Yükleme",
-                "Temel Raporlar",
-                "E-Posta Desteği"
+                t('pricingIndividualOneTimeFeature1'),
+                t('pricingIndividualOneTimeFeature2'),
+                t('pricingIndividualOneTimeFeature3'),
+                t('pricingIndividualOneTimeFeature4'),
+                t('pricingIndividualOneTimeFeature5'),
             ]
         },
         monthly: {
-            name: "Aylık Abonelik",
-            price: "₺399",
-            credits: "100 sayfa/ay",
+            name: t('pricingIndividualMonthlyName'),
+            price: t('pricingIndividualMonthlyPrice'),
+            credits: t('pricingIndividualMonthlyCredits'),
             highlighted: true,
             features: [
-                "Gelişmiş Yapay Zeka İçerik Dedektörü",
-                "Tüm Tespit Özelliklerine Erişim",
-                "Tüm Tespit Araçlarına Erişim",
-                "Detaylı Analiz Panosu",
-                "Öncelikli Destek",
-                "Toplu İşlem",
-                "Gelişmiş Raporlama"
+                t('pricingIndividualMonthlyFeature1'),
+                t('pricingIndividualMonthlyFeature2'),
+                t('pricingIndividualMonthlyFeature3'),
+                t('pricingIndividualMonthlyFeature4'),
+                t('pricingIndividualMonthlyFeature5'),
+                t('pricingIndividualMonthlyFeature6'),
+                t('pricingIndividualMonthlyFeature7'),
             ]
         },
         annual: {
-            name: "Yıllık Abonelik",
-            price: "₺3990",
-            credits: "1200 sayfa/yıl",
+            name: t('pricingIndividualAnnualName'),
+            price: t('pricingIndividualAnnualPrice'),
+            credits: t('pricingIndividualAnnualCredits'),
             highlighted: true,
             features: [
-                "Gelişmiş Yapay Zeka İçerik Dedektörü",
-                "Tüm Tespit Özelliklerine Erişim",
-                "Tüm Tespit Araçlarına Erişim",
-                "Detaylı Analiz Panosu",
-                "Öncelikli Destek",
-                "Toplu İşlem",
-                "Gelişmiş Raporlama"
+                t('pricingIndividualAnnualFeature1'),
+                t('pricingIndividualAnnualFeature2'),
+                t('pricingIndividualAnnualFeature3'),
+                t('pricingIndividualAnnualFeature4'),
+                t('pricingIndividualAnnualFeature5'),
+                t('pricingIndividualAnnualFeature6'),
+                t('pricingIndividualAnnualFeature7'),
             ]
         }
     };
 
     const corporatePlans = {
         onetime: {
-            name: "Kurumsal Tek Seferlik",
-            price: "₺1499",
-            credits: "200 sayfa analizi",
+            name: t('pricingCorporateOneTimeName'),
+            price: t('pricingCorporateOneTimePrice'),
+            credits: t('pricingCorporateOneTimeCredits'),
             highlighted: false,
             features: [
-                "Kurumsal Yapay Zeka Dedektörü",
-                "5 Kullanıcı Erişimi",
-                "Tüm Tespit Özelliklerine Erişim",
-                "Kurumsal Raporlama",
-                "Öncelikli Destek",
-                "Toplu İşlem"
+                t('pricingCorporateOneTimeFeature1'),
+                t('pricingCorporateOneTimeFeature2'),
+                t('pricingCorporateOneTimeFeature3'),
+                t('pricingCorporateOneTimeFeature4'),
+                t('pricingCorporateOneTimeFeature5'),
+                t('pricingCorporateOneTimeFeature6'),
             ]
         },
         monthly: {
-            name: "Kurumsal Aylık",
-            price: "₺2999",
-            credits: "1000 sayfa/ay",
+            name: t('pricingCorporateMonthlyName'),
+            price: t('pricingCorporateMonthlyPrice'),
+            credits: t('pricingCorporateMonthlyCredits'),
             highlighted: true,
             features: [
-                "Gelişmiş Kurumsal Yapay Zeka Dedektörü",
-                "Sınırsız Kullanıcı",
-                "Tüm Gelişmiş Tespit Özellikleri",
-                "Özelleştirilebilir Raporlama",
-                "Özel Müşteri Temsilcisi",
-                "API Erişimi",
-                "7/24 Teknik Destek"
+                t('pricingCorporateMonthlyFeature1'),
+                t('pricingCorporateMonthlyFeature2'),
+                t('pricingCorporateMonthlyFeature3'),
+                t('pricingCorporateMonthlyFeature4'),
+                t('pricingCorporateMonthlyFeature5'),
+                t('pricingCorporateMonthlyFeature6'),
+                t('pricingCorporateMonthlyFeature7'),
             ]
         },
         annual: {
-            name: "Kurumsal Yıllık",
-            price: "₺29990",
-            credits: "Sınırsız analiz",
+            name: t('pricingCorporateAnnualName'),
+            price: t('pricingCorporateAnnualPrice'),
+            credits: t('pricingCorporateAnnualCredits'),
             highlighted: true,
             features: [
-                "Gelişmiş Kurumsal Yapay Zeka Dedektörü",
-                "Sınırsız Kullanıcı",
-                "Tüm Gelişmiş Tespit Özellikleri",
-                "Özelleştirilebilir Raporlama",
-                "Özel Müşteri Temsilcisi",
-                "Gelişmiş API Erişimi",
-                "Özelleştirilebilir Entegrasyonlar",
-                "7/24 Öncelikli Teknik Destek"
+                t('pricingCorporateAnnualFeature1'),
+                t('pricingCorporateAnnualFeature2'),
+                t('pricingCorporateAnnualFeature3'),
+                t('pricingCorporateAnnualFeature4'),
+                t('pricingCorporateAnnualFeature5'),
+                t('pricingCorporateAnnualFeature6'),
+                t('pricingCorporateAnnualFeature7'),
+                t('pricingCorporateAnnualFeature8'),
             ]
         }
     };
@@ -116,9 +117,9 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
     return (
         <div id="pricing" className="w-full font-onest py-8 mt-16 flex flex-col min-h-screen justify-center items-center">
             <div className="text-center mb-10">
-                <h2 className="text-3xl font-bold mb-4 font-onest">İhtiyacınıza Uygun Planı Seçin</h2>
+                <h2 className="text-3xl font-bold mb-4 font-onest">{t('pricingTitle')}</h2>
                 <p className="text-gray-600 max-w-2xl mx-auto font-onest">
-                    İçerik doğrulama ihtiyaçlarınıza en uygun planı seçin
+                    {t('pricingSubtitle')}
                 </p>
             </div>
 
@@ -134,7 +135,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                                 onClick={() => setCustomerType("corporate")}
                             >
                                 <Building2 size={18} />
-                                Kurumsal
+                                {t('pricingCorporateLabel')}
                             </Button>
                         </>
                     ) : (
@@ -146,7 +147,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                                 onClick={() => setCustomerType("individual")}
                             >
                                 <User size={18} />
-                                Bireysel
+                                {t('pricingIndividualLabel')}
                             </Button>
                             <Button
                                 className={`px-8 py-6 flex items-center gap-2 ${customerType === "corporate"
@@ -155,7 +156,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                                 onClick={() => setCustomerType("corporate")}
                             >
                                 <Building2 size={18} />
-                                Kurumsal
+                                {t('pricingCorporateLabel')}
                             </Button>
                         </>
                     )}
@@ -166,20 +167,20 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             <div className="flex justify-center mb-8 ">
                 <div className="inline-flex p-1 rounded-xl bg-gray-100 gap-4">
                     <BillingToggle
-                        label="Tek Seferlik"
+                        label={t('pricingOneTimeLabel')}
                         active={billingPeriod === "onetime"}
                         onClick={() => setBillingPeriod("onetime")}
                         gradient
                     />
                     <BillingToggle
-                        label="Aylık"
+                        label={t('pricingMonthlyLabel')}
                         active={billingPeriod === "monthly"}
                         onClick={() => setBillingPeriod("monthly")}
                         gradient
                     />
                     <BillingToggle
-                        label="Yıllık"
-                        badge="Tasarruf"
+                        label={t('pricingAnnualLabel')}
+                        badge={t('pricingSavingsBadge')}
                         active={billingPeriod === "annual"}
                         onClick={() => setBillingPeriod("annual")}
                         gradient
@@ -245,16 +246,20 @@ interface PricingCardProps {
 }
 
 function PricingCard({ name, price, credits, features, highlighted = false, billingPeriod, customerType }: PricingCardProps) {
+    const { t } = useTranslate('home');
+
     const getPeriodText = () => {
         switch (billingPeriod) {
-            case "onetime": return "Tek Seferlik";
-            case "monthly": return "Aylık";
-            case "annual": return "Yıllık";
-            default: return "Aylık";
+            case "onetime": return t('pricingOneTimeLabel');
+            case "monthly": return t('pricingMonthlyLabel');
+            case "annual": return t('pricingAnnualLabel');
+            default: return t('pricingMonthlyLabel');
         }
     };
 
-    const buttonText = customerType === "individual" ? "Satın Al" : "İletişime Geç";
+    const buttonText = customerType === "individual" 
+        ? t('pricingIndividualOneTimeButton') 
+        : t('pricingCorporateOneTimeButton');
 
     return (
         <Card className={`overflow-hidden ${highlighted
@@ -263,7 +268,7 @@ function PricingCard({ name, price, credits, features, highlighted = false, bill
             }`}>
             {highlighted && (
                 <div className="absolute top-0 right-0 bg-purple-500 text-white px-3 py-1 text-xs font-medium">
-                    Önerilen
+                    {t('pricingRecommendedBadge')}
                 </div>
             )}
             <CardHeader className="pb-0">
@@ -288,7 +293,7 @@ function PricingCard({ name, price, credits, features, highlighted = false, bill
             </CardContent>
 
             <CardFooter className="flex flex-col pt-0">
-                <div className="text-sm text-gray-600 mb-4 text-center">Özellikler</div>
+                <div className="text-sm text-gray-600 mb-4 text-center">{t('pricingFeaturesLabel')}</div>
                 <ul className="space-y-3">
                     {features.map((feature, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm">

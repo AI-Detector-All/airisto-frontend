@@ -4,7 +4,7 @@ export type LanguageValue = 'en' | 'fr' | 'tr' | 'cn' | 'ar';
 
 export const fallbackLng = 'tr';
 export const languages = ['en', 'fr', 'tr', 'cn', 'ar'];
-export const defaultNS = 'navbar';
+export const defaultNS = 'header';
 export const cookieName = 'i18next';
 
 // ----------------------------------------------------------------------
