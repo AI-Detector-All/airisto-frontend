@@ -1,0 +1,21 @@
+{
+  "homepage": "Ana Sayfa",
+  "welcome": "Hoşgeldin",
+  "documents": "Dokümanlar",
+  "newDetection": "Yeni Tespit",
+  "aiDetectorTitle": "Yapay Zeka Dedektörü ile tanışın",
+  "aiDetectorDescription": "Kullanıcıların metin içeriğinin yapay zeka tarafından mı yoksa insanlar tarafından mı yazıldığını doğruluk raporlarıyla kontrol etmesine olanak tanıyın.",
+  "tryNow": "Şimdi Dene",
+  "searchQuestion": "Aradığın bir şey mi var ?",
+  "searchPlaceholder": "Doküman Ara...",
+  "recentlyUsed": "Son Kullanılanlar",
+  "aiDetection": "Yapay Zeka Tespit",
+  "resultsCount": "Sonuç",
+  "allDocuments": "Tüm Dokümanlar",
+  "subscriptionPlan": "Abonelik Planınız",
+  "renewalDate": "Yenileme tarihi:",
+  "wordToken": "Kelime Token",
+  "tokensRemaining": "token kaldı",
+  "tokensUsed": "token kullanıldı",
+  "planDetails": "Plan Detayları"
+}

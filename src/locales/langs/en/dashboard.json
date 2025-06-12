@@ -1,0 +1,21 @@
+{
+  "homepage": "Home",
+  "welcome": "Welcome",
+  "documents": "Documents",
+  "newDetection": "New Detection",
+  "aiDetectorTitle": "Meet the AI Detector",
+  "aiDetectorDescription": "Allow users to verify whether text content was written by artificial intelligence or humans with accuracy reports.",
+  "tryNow": "Try Now",
+  "searchQuestion": "Looking for something?",
+  "searchPlaceholder": "Search Documents...",
+  "recentlyUsed": "Recently Used",
+  "aiDetection": "AI Detection",
+  "resultsCount": "Results",
+  "allDocuments": "All Documents",
+  "subscriptionPlan": "Your Subscription Plan",
+  "renewalDate": "Renewal date:",
+  "wordToken": "Word Token",
+  "tokensRemaining": "tokens remaining",
+  "tokensUsed": "tokens used",
+  "planDetails": "Plan Details"
+}
