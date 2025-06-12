@@ -3,8 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { UserProvider } from "@/context/user-context";
-import { I18nProvider, LanguageValue, LocalizationProvider } from "@/locales";
-import { CONFIG } from "@/config-global";
+import { I18nProvider, LocalizationProvider } from "@/locales";
 import { detectLanguage } from "@/locales/server";
 
 const geistSans = Geist({
@@ -36,7 +35,7 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <I18nProvider lang={CONFIG.isStaticExport ? undefined : (lang ?? 'tr') as LanguageValue | undefined}>
+        <I18nProvider lang={lang!}>
           <LocalizationProvider>
             <UserProvider>
               {children}
@@ -44,7 +43,6 @@ export default async function RootLayout({
             </UserProvider>
           </LocalizationProvider>
         </I18nProvider>
-
       </body>
     </html>
   );
