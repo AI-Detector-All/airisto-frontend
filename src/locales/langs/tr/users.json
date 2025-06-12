@@ -1,0 +1,27 @@
+{
+  "home": "Anasayfa",
+  "users": "Kullanıcılar",
+  "new": "Yeni Tespit",
+  "noUsers": "Henüz kullanıcı bulunmamaktadır.",
+  "usersLoading": "Kullanıcılar yükleniyor...",
+
+  "user": "Kullanıcı",
+  "type": "Tip",
+  "remainToken": "Kalan Token",
+  "status": "Durum",
+  "show": "Görüntüle",
+  "makeInactive": "Pasifleştir",
+  "makeActive": "Aktifleştir",
+  "individual": "Bireysel",
+  "active": "Aktif",
+  "inactive": "Pasif",
+  "corporate": "Kurumsal",
+  "invidividual": "Bireysel",
+  "used": "Kullanıldı",
+  "edit": "Düzenle",
+  "delete": "Sil",
+  "role": "Rol",
+  "institutionAdmin": "Kurum Yöneticisi",
+  "student": "Ogrenci",
+  "academician": "Akademisyen"
+}
