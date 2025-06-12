@@ -55,14 +55,14 @@ export function GlobalLoader({
       "flex items-center justify-center p-8",
       className
     )}>
-      <div className="flex flex-col items-center space-y-4">
+      <div className={cn("flex items-center",className)}>
         <Loader2 className={cn(
-          "animate-spin text-primary",
+          "animate-spin text-white",
           sizeClasses[size]
         )} />
         {text && (
           <p className={cn(
-            "text-muted-foreground font-medium",
+            "text-white font-medium",
             textSizes[size]
           )}>
             {text}
