@@ -13,6 +13,7 @@ export interface SignUpData {
     type?: string;
     provider: string;
     isActive: boolean;
+    orcidId?: string
 }
 
 export interface SignUpResponse {
