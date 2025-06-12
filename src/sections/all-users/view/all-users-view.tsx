@@ -7,8 +7,10 @@ import { User } from "@/types/user";
 import { useEffect, useState } from "react";
 import { getAllUsers } from "@/services/user";
 import { AllUsersTable } from "../all-users-table";
+import { useTranslate } from "@/locales";
 
 export default function AllUsersView() {
+    const { t } = useTranslate('all-users');
     const { user, isLoading } = useAuth();
     const [users, setUsers] = useState<User[]>([])
 
@@ -31,9 +33,9 @@ export default function AllUsersView() {
                     <div>
                         <Link href={'/dashboard'} className="flex gap-2 items-center">
                             <ChevronLeft className="text-gray-600" />
-                            <h1 className="text-body2 text-gray-600 font-onest">Ana Sayfa</h1>
+                            <h1 className="text-body2 text-gray-600 font-onest"> {t('home')} </h1>
                         </Link>
-                        <p className="text-gray-900 text-header2 font-onest font-semibold mt-2">Tüm Kullanıcılar</p>
+                        <p className="text-gray-900 text-header2 font-onest font-semibold mt-2">{t('allUsers')}</p>
                     </div>
                 </div>
                 {users.length > 0 ? (
@@ -41,11 +43,11 @@ export default function AllUsersView() {
                         {users.length > 0 ? (
                             <AllUsersTable users={users} />
                         ) : (
-                            <p className="text-center mt-8 text-gray-500">Henüz kullanıcı bulunmamaktadır.</p>
+                            <p className="text-center mt-8 text-gray-500">{t('noUsers')}</p>
                         )}
                     </div>
                 ) : (
-                    <GlobalLoader text="Kullanıcılar yükleniyor..." />
+                    <GlobalLoader text={t('usersLoading')} />
                 )}
             </div>
         </div>

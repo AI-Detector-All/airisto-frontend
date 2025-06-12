@@ -1,0 +1,20 @@
+{
+    "home": "Home",
+    "allUsers": "All Users",
+    "noUsers": "No users found yet.",
+
+    "user": "User",
+    "type": "Type",
+    "corporate": "Corporate",
+    "subscription": "Subscription",
+    "remainToken": "Remaining Tokens",
+    "status": "Status",
+    "show": "View",
+    "makeInactive": "Deactivate",
+    "makeActive": "Activate",
+    "individual": "Individual",
+    "active": "Active",
+    "inactive": "Inactive",
+    "usersLoading":"Loading users...",
+    "used":"used"
+}
