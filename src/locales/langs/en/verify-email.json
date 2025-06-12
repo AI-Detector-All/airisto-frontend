@@ -1,0 +1,14 @@
+{
+    "checkEmail": "Please check your inbox and click the verification link.",
+    "emailSend": "Verification email sent",
+    "sending": "Sending...",
+    "sendAgain": "Resend",
+    "sendAgain2": "Resend verification email",
+    "backToSignUp": "Back to sign up form",
+    "didntGetEmail": "Didn't receive the email?",
+    "list1": "• Check your spam/junk folder",
+    "list2": "• Verify your email address is correct",
+    "list3": "• Wait a few minutes and try again",
+    "stillTrouble": "Still having trouble?",
+    "contactSupport": "contact our support team"
+}

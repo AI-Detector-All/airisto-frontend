@@ -6,8 +6,10 @@ import { Mail, CheckCircle, ArrowLeft, RefreshCw } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useTranslate } from "@/locales";
 
 export default function Page() {
+    const { t, currentLang } = useTranslate('verify-email');
     const [isResending, setIsResending] = useState(false);
     const [resendCooldown, setResendCooldown] = useState(0);
     const [userEmail, setUserEmail] = useState('');
@@ -87,15 +89,26 @@ export default function Page() {
                     </div>
 
                     <p className="text-body2 text-gray-600 mb-4 leading-relaxed">
-                        <span className="font-semibold text-fuchsia-600">{userEmail}</span> adresine doğrulama linki gönderdik.
+                        {currentLang.value === 'tr' ? (
+                            <div>
+                                <span className="font-semibold text-fuchsia-600">{userEmail}</span> adresine doğrulama linki gönderdik.
+                            </div>
+                        ) : (
+                            <div>
+                                We sent a verification link to <span className="font-semibold text-fuchsia-600">
+                                    {userEmail}
+                                </span>
+                            </div>
+                        )}
+
                     </p>
                     <p className="text-body2 text-gray-600 mb-8 leading-relaxed">
-                        Email kutunuzu kontrol ederek doğrulama linkine tıklayın.
+                        {t('checkEmail')}
                     </p>
 
                     <Badge variant="outline" className="bg-success-50 text-success-700 border-success-200 mb-8">
                         <CheckCircle className="h-4 w-4 mr-2" />
-                        Doğrulama emaili gönderildi
+                        {t('emailSend')}
                     </Badge>
 
                     <div className="space-y-4">
@@ -108,12 +121,12 @@ export default function Page() {
                             {isResending ? (
                                 <>
                                     <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
-                                    Gönderiliyor...
+                                    {t('sending')}
                                 </>
                             ) : resendCooldown > 0 ? (
-                                `Tekrar gönder (${resendCooldown}s)`
+                                `${t('sendAgain')} (${resendCooldown}s)`
                             ) : (
-                                "Doğrulama emailini tekrar gönder"
+                                <>{t('sendAgain2')}</>
                             )}
                         </Button>
 
@@ -122,26 +135,26 @@ export default function Page() {
                             variant="ghost"
                             className="w-full text-gray-600 hover:text-gray-800 py-3"
                         >
-                            Kayıt formuna geri dön
+                            {t('backToSignUp')}
                         </Button>
                     </div>
 
                     <div className="mt-8 pt-6 border-t border-gray-100">
                         <p className="text-body3 text-gray-500 mb-4">
-                            Email almadınız mı?
+                            {t('didntGetEmail')}
                         </p>
                         <ul className="text-body3 text-gray-500 space-y-1">
-                            <li>• Spam/gereksiz klasörünüzü kontrol edin</li>
-                            <li>• Email adresinizin doğru olduğundan emin olun</li>
-                            <li>• Birkaç dakika bekleyip tekrar deneyin</li>
+                            <li>{t('list1')}</li>
+                            <li>{t('list2')}</li>
+                            <li>{t('list3')}</li>
                         </ul>
                     </div>
 
                     <div className="mt-6">
                         <p className="text-body3 text-gray-500">
-                            Hala sorun yaşıyorsanız{' '}
+                            {t('stillTrouble')}
                             <Link href="/support" className="text-fuchsia-600 hover:text-fuchsia-500 font-medium">
-                                destek ekibimizle iletişime geçin
+                                {t('contactSupport')}
                             </Link>
                         </p>
                     </div>
