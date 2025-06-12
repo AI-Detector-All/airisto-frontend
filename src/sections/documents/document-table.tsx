@@ -2,12 +2,15 @@ import { Document } from "@/types/document";
 import { TableAction, TableColumn } from "@/types/table";
 import { Download, FileText, Star, Trash2 } from "lucide-react";
 import GenericTable from "../../components/generic-table";
+import { useTranslate } from "@/locales";
 interface DocumentsTableProps {
     documents: Document[];
-    handleDeleteAnalysis: (analysisId: string) => void
+    handleDeleteAnalysis?: (analysisId: string) => void;
+    isSearchButton?: boolean
 }
 
-export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents, handleDeleteAnalysis }) => {
+export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents, handleDeleteAnalysis, isSearchButton }) => {
+    const { t } = useTranslate('documents');
     const getPercentageColor = (percentage: number) => {
         if (percentage < 30) return "text-green-600";
         if (percentage < 70) return "text-yellow-600";
@@ -19,7 +22,7 @@ export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents, handl
     const columns: TableColumn<Document>[] = [
         {
             key: 'title',
-            header: 'Dosya İsmi',
+            header: t('folderName'),
             render: (item, value) => (
                 <div className="flex items-center">
                     <FileText className="w-4 h-4 mr-2 text-gray-400" />
@@ -29,7 +32,7 @@ export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents, handl
         },
         {
             key: 'type',
-            header: 'Tip',
+            header: t('type'),
             render: () => (
                 <span className="inline-flex items-center rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
                     AI Detector
@@ -38,12 +41,12 @@ export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents, handl
         },
         {
             key: 'createdAt',
-            header: 'Tarih',
+            header: t('date'),
             render: (item, value) => new Date(value).toLocaleDateString('tr-TR')
         },
         {
             key: 'aiPercent',
-            header: 'Yüzde',
+            header: t('percentage'),
             render: (item, value) => {
                 const percentage = parseInt(value);
                 return (
@@ -68,26 +71,30 @@ export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents, handl
     const actions: TableAction<Document>[] = [
         {
             icon: Star,
-            label: 'Favorilere Ekle',
+            label: t('addFavorite'),
             onClick: (item) => console.log('Favorite:', item.analysisId),
             className: 'text-yellow-500 hover:bg-yellow-50'
         },
         {
             icon: Download,
-            label: 'Orijinal Belgeyi İndir',
+            label:  t('downloadOriginalDocument'),
             onClick: (item) => console.log('Download original:', item.analysisId),
             className: 'text-blue-600 hover:bg-blue-50'
         },
         {
             icon: Download,
-            label: 'Analiz Raporunu İndir',
+            label: t('downloadAnalyzedDocument'),
             onClick: (item) => console.log('Download report:', item.analysisId),
             className: 'text-green-600 hover:bg-green-50'
         },
         {
             icon: Trash2,
-            label: 'Sil',
-            onClick: (item) => handleDeleteAnalysis(item.analysisId),
+            label: t('delete'),
+            onClick: (item) => {
+                if (handleDeleteAnalysis) {
+                    handleDeleteAnalysis(item.analysisId);
+                }
+            },
             className: 'text-red-500 hover:bg-red-50'
         }
     ];
@@ -98,7 +105,7 @@ export const DocumentsTable: React.FC<DocumentsTableProps> = ({ documents, handl
             columns={columns}
             actions={actions}
             keyField="analysisId"
-            searchable={true}
+            searchable={isSearchButton}
         />
     );
 };

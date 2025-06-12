@@ -8,6 +8,7 @@ import {
 import { Button } from './ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { TableAction, TableColumn } from '@/types/table';
+import { useTranslate } from '@/locales';
 
 
 interface GenericTableProps<T> {
@@ -33,6 +34,7 @@ export default function GenericTable<T extends Record<string, any>>({
     const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage);
     const [tableData, setTableData] = useState(data);
     const [searchTerm, setSearchTerm] = useState('');
+    const { t } = useTranslate('documents')
 
     useEffect(() => {
         setTableData(data);
@@ -137,7 +139,7 @@ export default function GenericTable<T extends Record<string, any>>({
                             ))}
                             {actions.length > 0 && (
                                 <th className="py-3 px-4 text-center text-sm font-medium text-gray-500">
-                                    Eylemler
+                                    {t('actions')}
                                 </th>
                             )}
                         </tr>

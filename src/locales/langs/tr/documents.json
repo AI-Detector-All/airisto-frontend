@@ -1,0 +1,20 @@
+{
+    "allDocuments":"Tüm Dokümanlar",
+    "favorites":"Favoriler",
+    "deleteFail":"Analiz Silinemedi",
+    "home":"Ana Sayfa",
+    "documents":"Dokümanlar",
+    "new":"Yeni Tespit",
+    "storage":"Depolama Alanı",
+    "remain":"kalan",
+
+    "folderName":"Dosya İsmi",
+    "type":"Tip",
+    "date":"Tarih",
+    "percentage":"Yüzde",
+    "addFavorite":"Favorilere Ekle",
+    "downloadOriginalDocument":"Orijinal Dosyayı İndir",
+    "downloadAnalyzedDocument":"Analiz Raporunu İndir",
+    "delete":"Sil",
+    "actions":"Eylemler"
+}

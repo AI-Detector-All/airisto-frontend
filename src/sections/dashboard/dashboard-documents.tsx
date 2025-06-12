@@ -1,9 +1,10 @@
-import DocumentsTable from "@/components/table";
+
 import { DashboardSkeleton } from "@/components/ui/global-loader";
 import { useUserDocument } from "@/hooks/useUserDocument";
 import { useTranslate } from "@/locales";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { DocumentsTable } from "../documents/document-table";
 
 export function DashboardDocuments() {
     const { t } = useTranslate('dashboard');
@@ -22,7 +23,7 @@ export function DashboardDocuments() {
                     </Link>
                 </div>
                 <div className="mt-8">
-                    <DocumentsTable documents={userDocuments.slice(0, 5)} />
+                    <DocumentsTable documents={userDocuments.slice(0, 5)} isSearchButton={false} />
                 </div>
             </div>
         </div>
