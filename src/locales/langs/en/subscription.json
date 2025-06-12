@@ -1,0 +1,10 @@
+{
+    "home": "Home",
+    "summary": "Subscription Summary",
+    "subscriptionPlan": "Your Subscription Plan",
+    "renewalDate": "Renewal Date:",
+    "wordToken": "Word Tokens",
+    "tokensRemaining": "Tokens Remaining",
+    "tokensUsed": "tokens used",
+    "planDetails": "Plan Details"
+}

@@ -1,0 +1,10 @@
+{
+    "home": "Anasayfa",
+    "summary":"Abonelik Özetiniz",
+    "subscriptionPlan": "Abonelik Planınız",
+    "renewalDate": "Yenileme tarihi:",
+    "wordToken": "Kelime Token",
+    "tokensRemaining": "Token Kaldı",
+    "tokensUsed": "token kullanıldı",
+    "planDetails": "Plan Detayları"
+}
