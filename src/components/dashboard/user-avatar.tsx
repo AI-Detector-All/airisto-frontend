@@ -6,6 +6,7 @@ import { LogOut, User, User2 } from "lucide-react";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 import { DashboardSkeleton } from "../ui/global-loader";
+import { useTranslate } from "@/locales";
 
 interface UserAvatarProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -13,6 +14,7 @@ interface UserAvatarProps {
 }
 
 export function UserAvatar({ user }: UserAvatarProps) {
+    const { t } = useTranslate('dashboard-hs');
     const { logout, isLoading } = useAuth();
 
     if (isLoading) return <DashboardSkeleton />;
@@ -44,19 +46,19 @@ export function UserAvatar({ user }: UserAvatarProps) {
                 <DropdownMenuItem className="cursor-pointer">
                     <Link href={'/dashboard/profile'} className="flex items-center gap-1">
                         <User className="mr-2 h-4 w-4" />
-                        <span>Profil</span>
+                        <span> {t('profile')} </span>
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
                     <Link href={'/dashboard/subscription'} className="flex items-center gap-1">
                         <User className="mr-2 h-4 w-4" />
-                        <span>Abonelik Planınız</span>
+                        <span>{t('subsPlan')}</span>
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="cursor-pointer" onClick={logout}>
                     <LogOut className="mr-2 h-4 w-4" />
-                    <span>Çıkış</span>
+                    <span>{t('logout')}</span>
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

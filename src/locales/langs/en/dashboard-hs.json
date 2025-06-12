@@ -1,0 +1,20 @@
+{
+    "usedToken": "Used Tokens",
+    "remainingToken": "Remaining Tokens",
+    "usedTokenDescription": "Tokens Used",
+    "remainingTokenDescription": "Tokens Remaining",
+    "signIn": "Sign In",
+    "profile": "Profile",
+    "subsPlan": "Your Subscription Plan", 
+    "logout": "Log Out",
+    
+    "home": "Home",
+    "documents": "Documents",
+    "newDetection": "New Detection",
+    "aiDetectorTitle": "AI Detection Tool",
+    "users": "Users",
+    "allUsers": "All Users",
+    "allCorporates": "All Organizations",
+    "support": "Support",
+    "settings": "Settings"
+}

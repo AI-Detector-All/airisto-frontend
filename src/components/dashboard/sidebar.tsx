@@ -18,46 +18,47 @@ import {
 } from "lucide-react";
 import Image from 'next/image';
 import { RolesEnum } from '@/enums/roles';
+import { useTranslate } from '@/locales';
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
-  isCollapsed?: boolean;
-  toggleSidebar?: () => void;
-  userRole?: RolesEnum;
+    isCollapsed?: boolean;
+    toggleSidebar?: () => void;
+    userRole?: RolesEnum;
 }
 
 const baseSidebarItems = [
     {
-        name: "Ana Sayfa",
+        name: "home",
         icon: LayoutDashboard,
         href: "/dashboard",
         roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     },
     {
-        name: "Dokümanlar",
+        name: "documents",
         icon: FileText,
         href: "/dashboard/documents",
         roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     },
     {
-        name: "Yapay Zeka Dedektörü",
+        name: "aiDetectorTitle",
         icon: Search,
         href: "/dashboard/ai-detector",
         roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     },
     {
-        name: "Kullanıcılar",
+        name: "users",
         icon: UserRound,
         href: "/dashboard/users",
         roles: [RolesEnum.INSTITUTION_ADMIN]
     },
     {
-        name: "Tüm Kullanıcılar",
+        name: "allUsers",
         icon: UserRound,
         href: "/dashboard/all-users",
         roles: [RolesEnum.ADMIN]
     },
     {
-        name: "Tüm Kurumlar",
+        name: "allCorporates",
         icon: Building2,
         href: "/dashboard/corporate",
         roles: [RolesEnum.ADMIN]
@@ -66,41 +67,42 @@ const baseSidebarItems = [
 
 const bottomItems = [
     {
-        name: "Destek",
+        name: "support",
         icon: LifeBuoy,
         href: "/dashboard/support",
         roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     },
     {
-        name: "Ayarlar",
+        name: "settings",
         icon: Settings,
         href: "/dashboard/settings",
         roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     }
 ];
 
-export default function DashboardSidebar({ 
-  className, 
-  isCollapsed: parentIsCollapsed, 
-  toggleSidebar: parentToggleSidebar,
-  userRole = RolesEnum.USER, // Varsayılan olarak USER rolü
-  ...props 
+export default function DashboardSidebar({
+    className,
+    isCollapsed: parentIsCollapsed,
+    toggleSidebar: parentToggleSidebar,
+    userRole = RolesEnum.USER,
+    ...props
 }: SidebarProps) {
+    const { t } = useTranslate('dashboard-hs');
     const [isCollapsed, setIsCollapsed] = useState(false);
     const pathname = usePathname();
-    
+
     useEffect(() => {
-      if (parentIsCollapsed !== undefined) {
-        setIsCollapsed(parentIsCollapsed);
-      }
+        if (parentIsCollapsed !== undefined) {
+            setIsCollapsed(parentIsCollapsed);
+        }
     }, [parentIsCollapsed]);
 
     const toggleSidebar = () => {
-      if (parentToggleSidebar) {
-        parentToggleSidebar();
-      } else {
-        setIsCollapsed(!isCollapsed);
-      }
+        if (parentToggleSidebar) {
+            parentToggleSidebar();
+        } else {
+            setIsCollapsed(!isCollapsed);
+        }
     };
 
     const isLinkActive = (href: string) => {
@@ -111,11 +113,11 @@ export default function DashboardSidebar({
     };
 
     // Kullanıcının rolüne göre menü öğelerini filtrele
-    const filteredSidebarItems = baseSidebarItems.filter(item => 
+    const filteredSidebarItems = baseSidebarItems.filter(item =>
         item.roles.includes(userRole)
     );
 
-    const filteredBottomItems = bottomItems.filter(item => 
+    const filteredBottomItems = bottomItems.filter(item =>
         item.roles.includes(userRole)
     );
 
@@ -164,7 +166,7 @@ export default function DashboardSidebar({
                                 )}
                             >
                                 <item.icon className={`${isCollapsed ? "mx-auto" : "mr-2"} h-4 w-4 ${isLinkActive(item.href) && "text-fuchsia-400"}`} />
-                                {!isCollapsed && <span className='mt-0.5'>{item.name}</span>}
+                                {!isCollapsed && <span className='mt-0.5'>{t(item.name)}</span>}
                             </Link>
                         </li>
                     ))}
@@ -184,7 +186,7 @@ export default function DashboardSidebar({
                                 )}
                             >
                                 <item.icon className={`${isCollapsed ? "mx-auto" : "mr-2"} h-4 w-4`} />
-                                {!isCollapsed && <span className='mt-0.5'>{item.name}</span>}
+                                {!isCollapsed && <span className='mt-0.5'>{t(item.name)}</span>}
                             </Link>
                         </li>
                     ))}
