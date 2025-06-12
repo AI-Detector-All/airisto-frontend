@@ -13,10 +13,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const { user } = useAuth();
 
   useEffect(() => {
-    // Middleware zaten token kontrolünü yapıyor, sadece user bazlı kontrolleri yap
     if (!user) return;
 
-    // Corporate kontrolü
     if (!user?.corporate?.isActive) {
       if (user?.role === RolesEnum.INSTITUTION_ADMIN) {
         router.push('/corporate/subscription-required');
@@ -27,7 +25,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       }
     }
 
-    // Subscription kontrolü
     if (!user.subscription) {
       router.push('/#pricing');
       return;
