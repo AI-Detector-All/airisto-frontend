@@ -1,0 +1,19 @@
+{
+    "verifyingEmail":"Email Doğrulanıyor...",
+    "verifyingEmailDesc":"Lütfen bekleyin, email adresiniz doğrulanıyor.",
+    "verifyFail":"Dogrulama Başarısız",
+    "verifyFailDesc":"Email doğrulama linki geçersiz veya süresi dolmuş. Lütfen yeni bir doğrulama linki talep edin.",
+    "newAccount":"Yeni Hesap Oluştur",
+    "backToHome":"Ana Sayfaya Geri Dön",
+    "verifySuccess":"🎉 Email Doğrulandı!",
+    "verifySuccessDesc":"Tebrikler! Email adresiniz başarıyla doğrulandı. Artık Airisto'nun tüm özelliklerini kullanabilirsiniz.",
+    "accountActivated":"Hesap Aktif Edildi",
+    "whatCanYouDoNow":"Şimdi neler yapabilirsiniz?",
+    "list1":"• Yapay zeka içeriklerini tespit edin",
+    "list2":"• Detaylı analiz raporları alın",
+    "list3":"• Dosyalarınızı yükleyip analiz edin",
+    "lis4":"• Geçmiş analizlerinizi görüntüleyin",
+    "login":"Giriş Yapın",
+    "welcome":"Airisto ailesine hoş geldiniz! 🚀",
+    "copyright":"2024 Airisto. Tüm hakları saklıdır."
+}

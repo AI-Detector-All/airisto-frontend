@@ -6,8 +6,10 @@ import { CheckCircle, Sparkles, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { verifyEmailToken } from "@/services/auth";
+import { useTranslate } from "@/locales";
 
 export default function EmailVerifiedPage() {
+    const { t } = useTranslate('verified');
     const [isLoading, setIsLoading] = useState(true);
     const [verificationStatus, setVerificationStatus] = useState('loading'); // loading, success, error
     const router = useRouter();
@@ -79,10 +81,10 @@ export default function EmailVerifiedPage() {
                         </div>
 
                         <h2 className="text-header3 font-bold text-gray-900 mb-3">
-                            Email Doğrulanıyor...
+                            {t('verifyingEmail')}
                         </h2>
                         <p className="text-body2 text-gray-600">
-                            Lütfen bekleyin, email adresiniz doğrulanıyor.
+                           {t('verifyingEmailDesc')}
                         </p>
                     </div>
                 </div>
@@ -119,10 +121,10 @@ export default function EmailVerifiedPage() {
                         </div>
 
                         <h2 className="text-header3 font-bold text-gray-900 mb-3">
-                            Doğrulama Başarısız
+                            {t('verifyFail')}
                         </h2>
                         <p className="text-body2 text-gray-600 mb-8">
-                            Email doğrulama linki geçersiz veya süresi dolmuş. Lütfen yeni bir doğrulama linki talep edin.
+                            {t('verifyFailDesc')}
                         </p>
 
                         <div className="space-y-4">
@@ -130,14 +132,14 @@ export default function EmailVerifiedPage() {
                                 onClick={() => router.push('/signup')}
                                 className="w-full bg-gradient-to-r from-fuchsia-500 to-magenta-500 hover:from-fuchsia-600 hover:to-magenta-600 text-white py-3"
                             >
-                                Yeni Hesap Oluştur
+                                {t('newAccount')}
                             </Button>
                             <Button 
                                 onClick={handleGoHome}
                                 variant="outline" 
                                 className="w-full py-3"
                             >
-                                Ana Sayfaya Dön
+                                {t('backToHome')}
                             </Button>
                         </div>
                     </div>
@@ -178,26 +180,26 @@ export default function EmailVerifiedPage() {
 
                     {/* Success Message */}
                     <h2 className="text-header3 font-bold text-gray-900 mb-3">
-                        🎉 Email Doğrulandı!
+                        {t('verifySuccess')}
                     </h2>
                     <p className="text-body2 text-gray-600 mb-6 leading-relaxed">
-                        Tebrikler! Email adresiniz başarıyla doğrulandı. Artık Airisto&apos;nun tüm özelliklerini kullanabilirsiniz.
+                        {t('verifySuccessDesc')}
                     </p>
 
                     {/* Success Badge */}
                     <Badge variant="outline" className="bg-success-50 text-success-700 border-success-200 mb-8">
                         <CheckCircle className="h-4 w-4 mr-2" />
-                        Hesabınız aktif edildi
+                        {t('accountActivated')}
                     </Badge>
 
                     {/* Features Preview */}
                     <div className="bg-gradient-to-r from-fuchsia-50 to-magenta-50 rounded-lg p-4 mb-8">
-                        <h3 className="font-semibold text-gray-800 mb-2">Şimdi neler yapabilirsiniz:</h3>
+                        <h3 className="font-semibold text-gray-800 mb-2">{t('whatCanYouDoNow')}</h3>
                         <ul className="text-sm text-gray-600 space-y-1 text-left">
-                            <li>• Yapay zeka içeriklerini tespit edin</li>
-                            <li>• Detaylı analiz raporları alın</li>
-                            <li>• Dosyalarınızı yükleyip analiz edin</li>
-                            <li>• Geçmiş analizlerinizi görüntüleyin</li>
+                            <li>{t('list1')}</li>
+                            <li>{t('list2')}</li>
+                            <li>{t('list3')}</li>
+                            <li>{t('list4')}</li>
                         </ul>
                     </div>
 
@@ -207,7 +209,7 @@ export default function EmailVerifiedPage() {
                             onClick={handleGoToLogin}
                             className="w-full bg-gradient-to-r from-fuchsia-500 to-magenta-500 hover:from-fuchsia-600 hover:to-magenta-600 text-white py-3"
                         >
-                            Giriş Yapın
+                            {t('login')}
                             <ArrowRight className="h-4 w-4 ml-2" />
                         </Button>
                         <Button 
@@ -215,14 +217,14 @@ export default function EmailVerifiedPage() {
                             variant="outline" 
                             className="w-full border-fuchsia-200 text-fuchsia-700 hover:bg-fuchsia-50 py-3"
                         >
-                            Ana Sayfaya Dön
+                            {t('backToHome')}
                         </Button>
                     </div>
 
                     {/* Welcome Footer */}
                     <div className="mt-8 pt-6 border-t border-gray-100">
                         <p className="text-body3 text-gray-500">
-                            Airisto ailesine hoş geldiniz! 🚀
+                           {t('welcome')}
                         </p>
                     </div>
                 </div>
@@ -230,7 +232,7 @@ export default function EmailVerifiedPage() {
 
             {/* Footer */}
             <div className="text-center py-8 text-body3 text-gray-400">
-                <p>&copy; 2024 Airisto. Tüm hakları saklıdır.</p>
+                <p>&copy; {t('copyright')}</p>
             </div>
         </div>
     );

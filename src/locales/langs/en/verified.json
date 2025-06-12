@@ -1,0 +1,19 @@
+{
+    "verifyingEmail": "Verifying Email...",
+    "verifyingEmailDesc": "Please wait while we verify your email address.",
+    "verifyFail": "Verification Failed",
+    "verifyFailDesc": "The email verification link is invalid or has expired. Please request a new verification link.",
+    "newAccount": "Create New Account",
+    "backToHome": "Return to Homepage",
+    "verifySuccess": "🎉 Email Verified!",
+    "verifySuccessDesc": "Congratulations! Your email address has been successfully verified. You can now access all features of Airisto.",
+    "accountActivated": "Account Activated",
+    "whatCanYouDoNow": "What you can do now:",
+    "list1": "• Detect AI-generated content",
+    "list2": "• Get detailed analysis reports",
+    "list3": "• Upload and analyze your files",
+    "list4": "• View your analysis history",
+    "login": "Log In",
+    "welcome": "Welcome to the Airisto family! 🚀",
+    "copyright": "© 2024 Airisto. All rights reserved."
+}
