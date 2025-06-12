@@ -4,14 +4,19 @@ import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { LogOut, User, User2 } from "lucide-react";
 import Link from "next/link";
+import { useAuth } from "@/hooks/useAuth";
+import { DashboardSkeleton } from "../ui/global-loader";
 
 interface UserAvatarProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    user: any,
-    logout: () => void
+    user: any
 }
 
-export function UserAvatar({ user, logout }: UserAvatarProps) {
+export function UserAvatar({ user }: UserAvatarProps) {
+    const { logout, isLoading } = useAuth();
+
+    if (isLoading) return <DashboardSkeleton />;
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>

@@ -1,7 +1,6 @@
 'use client'
 import Link from "next/link";
 // import DarkModeToggle from "../dark-mode-toggle";
-import { Notification } from "./notification";
 import { UserAvatar } from "./user-avatar";
 import { Progress } from "../ui/progress";
 import { Zap } from "lucide-react";
@@ -9,7 +8,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { InlineLoader } from "../ui/global-loader";
 
 export default function DashboardHeader() {
-    const { user, isLoading, isAuthenticated, getTokenUsage, logout } = useAuth();
+    const { user, isLoading, isAuthenticated, getTokenUsage } = useAuth();
     const { used, total, percentage } = getTokenUsage();
 
     if (isLoading) {
@@ -51,7 +50,7 @@ export default function DashboardHeader() {
                         {user ? (
                             <>
                                 {/* <Notification /> */}
-                                <UserAvatar user={user} logout={logout} />
+                                <UserAvatar user={user}/>
                             </>
                         ) : (
                             <Link

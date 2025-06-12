@@ -3,6 +3,7 @@
 import { currentUser } from "@/services/user";
 import { User } from "@/types/user";
 import { deleteCookie, getCookie } from "@/utils/cookie";
+import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface UserContextType {
@@ -27,6 +28,7 @@ export const useUser = () => {
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
 
   const fetchUser = async () => {
     const token = getCookie("access_token");
@@ -54,11 +56,14 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const logout = () => {
+    setIsLoading(true);
     setUser(null);
     deleteCookie("access_token");
     if (typeof window !== 'undefined') {
       localStorage.removeItem('access_token');
     }
+    setIsLoading(false);
+    router.push("/sign-in");
   };
 
   useEffect(() => {

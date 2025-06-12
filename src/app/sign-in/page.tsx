@@ -11,12 +11,14 @@ import { signIn } from "@/services/auth";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/user-context";
 import { getCookie } from "@/utils/cookie";
+import { InlineLoader } from "@/components/ui/global-loader";
 
 export default function Page() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter()
     const { setUser } = useUser();
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const token = getCookie('access_token');
@@ -26,13 +28,18 @@ export default function Page() {
     }, [router])
 
     const handleLogin = async () => {
+        setIsLoading(true);
         try {
             const response = await signIn(email, password);
 
             setUser(response.user);
+
+            setIsLoading(false);
             router.push('/dashboard');
         } catch (error) {
             console.error('Login failed:', error);
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -181,7 +188,7 @@ export default function Page() {
                             </div>
 
                             <Button type="submit" onClick={handleLogin} className="w-full bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 text-white py-6">
-                                Giriş
+                                {isLoading ? <InlineLoader text="Giriş Yapılıyor..." className="text-white flex items-center gap-4" /> : "Giriş Yap"}
                             </Button>
                             <div className="text-center mt-4">
                                 <p className="text-sm text-gray-600">
