@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
+import { Globe, Menu } from "lucide-react";
 import {
     Sheet,
     SheetContent,
@@ -13,33 +13,64 @@ import {
     SheetTitle
 } from "./ui/sheet";
 import { useAuth } from "@/hooks/useAuth";
-
-const nav_links = [
-    {
-        name: "Ana Sayfa",
-        id: "home"
-    },
-    {
-        name: "Özellikler",
-        id: "features"
-    },
-    {
-        name: "Nasıl Çalışır",
-        id: "how-it-works"
-    },
-    {
-        name: "Ücretlendirme",
-        id: "pricing"
-    },
-    {
-        name: "SSS",
-        id: "faq"
-    }
-];
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { useTranslate } from "@/locales";
 
 export default function Header() {
     const [activeSection, setActiveSection] = useState("home");
+    const [isMounted, setIsMounted] = useState(false);
     const { user, logout } = useAuth();
+    const { t, onChangeLang, currentLang } = useTranslate('header');
+
+    // Hydration kontrolü
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    // nav_links'i useEffect içinde tanımla veya isMounted kontrolü yap
+    const nav_links = isMounted ? [
+        {
+            name: t('home'),
+            id: "home"
+        },
+        {
+            name: t('features'),
+            id: "features"
+        },
+        {
+            name: t('howitworks'),
+            id: "how-it-works"
+        },
+        {
+            name: t('pricing'),
+            id: "pricing"
+        },
+        {
+            name: t('faq'),
+            id: "faq"
+        }
+    ] : [
+        // Fallback değerler (İngilizce)
+        { name: "Home", id: "home" },
+        { name: "Features", id: "features" },
+        { name: "How It Works", id: "how-it-works" },
+        { name: "Pricing", id: "pricing" },
+        { name: "FAQ", id: "faq" }
+    ];
+
+    const handleLanguageChange = (lang: string) => {
+        onChangeLang(lang);
+    };
+
+    const languageMap = {
+        en: { label: "English", flag: "🇬🇧" },
+        tr: { label: "Türkçe", flag: "🇹🇷" }
+    };
+
+    // Hydration için fallback değer
+    const currentLanguageInfo = isMounted 
+        ? (languageMap[currentLang?.value as keyof typeof languageMap] || languageMap.en)
+        : languageMap.en; // Her zaman İngilizce flag ile başla
 
     useEffect(() => {
         const handleScroll = () => {
@@ -67,7 +98,7 @@ export default function Header() {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    }, [nav_links]);
 
     return (
         <header className="w-full flex justify-between items-center p-4 px-16 border-b border-b-border sticky left-0 top-0 bg-white z-50">
@@ -103,27 +134,43 @@ export default function Header() {
             </div>
 
             {/* Desktop Login Button */}
-            <div className="hidden lg:flex justify-end">
+            <div className="hidden lg:flex justify-end lg:gap-4">
+                <div className="flex items-center space-x-2">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline" className="flex items-center gap-2 text-sm font-medium">
+                                <Globe className="w-4 h-4" />
+                                {currentLanguageInfo.flag} {isMounted ? (currentLang?.value?.toUpperCase() || 'EN') : 'EN'}
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                            <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
+                                🇬🇧 English
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => handleLanguageChange('tr')}>
+                                🇹🇷 Türkçe
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
                 {user ? (
                     <div className="flex items-center gap-4">
-                        <Link
-                            href="/dashboard"
-                        >
+                        <Link href="/dashboard">
                             <Button className="bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300 transform hover:scale-105">
-                                Panel
+                                {isMounted ? t('panel') : 'Panel'}
                             </Button>
                         </Link>
                         <Button
                             onClick={logout}
                             className="bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300 transform hover:scale-105"
                         >
-                            Çıkış
+                            {isMounted ? t('logout') : 'Logout'}
                         </Button>
                     </div>
                 ) : (
                     <Link href={"/sign-in"}>
                         <Button className="bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300 transform hover:scale-105">
-                            Giriş
+                            {isMounted ? t('login') : 'Login'}
                         </Button>
                     </Link>
                 )}
@@ -135,11 +182,13 @@ export default function Header() {
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon" className="text-gray-700">
                             <Menu className="h-6 w-6" />
-                            <span className="sr-only">Menüyü Aç</span>
+                            <span className="sr-only">{isMounted ? t('openMenu') : 'Open Menu'}</span>
                         </Button>
                     </SheetTrigger>
                     <SheetContent side="right" className="w-[80%] sm:w-[350px] py-12 p-4">
-                        <SheetTitle className="text-xl font-bold font-onest">Menü</SheetTitle>
+                        <SheetTitle className="text-xl font-bold font-onest">
+                            {isMounted ? t('menu') : 'Menu'}
+                        </SheetTitle>
                         <div className="flex flex-col h-full">
                             <div className="flex-1 flex flex-col gap-6 mt-8">
                                 {nav_links.map((link) => (
@@ -154,12 +203,31 @@ export default function Header() {
                                         </Link>
                                     </SheetClose>
                                 ))}
+                                <div className="flex items-center space-x-2">
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <Button variant="outline" className="flex items-center gap-2 text-sm font-medium">
+                                                <Globe className="w-4 h-4" />
+                                                {currentLanguageInfo.flag} {currentLang?.value?.toUpperCase() || 'EN'}
+                                            </Button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent align="end">
+                                            <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
+                                                🇬🇧 English
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem onClick={() => handleLanguageChange('tr')}>
+                                                🇹🇷 Türkçe
+                                            </DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                </div>
                             </div>
+
                             <div className="pt-6 border-t border-gray-200">
                                 <SheetClose asChild>
                                     <Link href={"/sign-in"} className="w-full block">
                                         <Button className="w-full bg-fuchsia-400 hover:bg-fuchsia-500 text-body2 font-semibold font-onest text-white transition-all duration-300">
-                                            Giriş
+                                            {isMounted ? t('login') : 'Login'}
                                         </Button>
                                     </Link>
                                 </SheetClose>
