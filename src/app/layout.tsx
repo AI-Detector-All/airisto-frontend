@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { UserProvider } from "@/context/user-context";
+import { I18nProvider, LanguageValue, LocalizationProvider } from "@/locales";
+import { CONFIG } from "@/config-global";
+import { detectLanguage } from "@/locales/server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,21 +25,27 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lang = await detectLanguage();
   return (
-    <UserProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          {children}
-          <Toaster />
-        </body>
-      </html>
-    </UserProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <I18nProvider lang={CONFIG.isStaticExport ? undefined : (lang ?? 'tr') as LanguageValue | undefined}>
+          <LocalizationProvider>
+            <UserProvider>
+              {children}
+              <Toaster />
+            </UserProvider>
+          </LocalizationProvider>
+        </I18nProvider>
+
+      </body>
+    </html>
   );
 }
