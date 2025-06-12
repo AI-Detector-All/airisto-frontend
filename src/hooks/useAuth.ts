@@ -1,6 +1,5 @@
 import { useUser } from "@/context/user-context";
 import { User } from "@/types/user";
-import { useRouter } from "next/navigation";
 
 interface AuthReturn {
   user: User | null;
@@ -17,14 +16,8 @@ interface AuthReturn {
 }
 
 export const useAuth = (): AuthReturn => {
-  const { user, isLoading, setUser, isAuthenticated, refreshUser } = useUser();
-  const router = useRouter()
+  const { user, isLoading, logout, isAuthenticated, refreshUser } = useUser();
 
-  const logout = () => {
-    localStorage.removeItem("access_token");
-    setUser(null);
-    router.push("/sign-in");
-  };
 
   const login = (token: string) => {
     localStorage.setItem("access_token", token);
