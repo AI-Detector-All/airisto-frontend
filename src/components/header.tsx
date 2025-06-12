@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Globe, Menu } from "lucide-react";
 import {
     Sheet,
@@ -22,41 +22,25 @@ export default function Header() {
     const { user, logout } = useAuth();
     const { t, onChangeLang, currentLang } = useTranslate('header');
 
-    // Hydration kontrolü
     useEffect(() => {
         setIsMounted(true);
     }, []);
 
-    // nav_links'i useEffect içinde tanımla veya isMounted kontrolü yap
-    const nav_links = isMounted ? [
-        {
-            name: t('home'),
-            id: "home"
-        },
-        {
-            name: t('features'),
-            id: "features"
-        },
-        {
-            name: t('howitworks'),
-            id: "how-it-works"
-        },
-        {
-            name: t('pricing'),
-            id: "pricing"
-        },
-        {
-            name: t('faq'),
-            id: "faq"
-        }
-    ] : [
-        // Fallback değerler (İngilizce)
-        { name: "Home", id: "home" },
-        { name: "Features", id: "features" },
-        { name: "How It Works", id: "how-it-works" },
-        { name: "Pricing", id: "pricing" },
-        { name: "FAQ", id: "faq" }
-    ];
+    const nav_links = useMemo(() => {
+        return isMounted ? [
+            { name: t('home'), id: "home" },
+            { name: t('features'), id: "features" },
+            { name: t('howitworks'), id: "how-it-works" },
+            { name: t('pricing'), id: "pricing" },
+            { name: t('faq'), id: "faq" }
+        ] : [
+            { name: "Home", id: "home" },
+            { name: "Features", id: "features" },
+            { name: "How It Works", id: "how-it-works" },
+            { name: "Pricing", id: "pricing" },
+            { name: "FAQ", id: "faq" }
+        ];
+    }, [isMounted, t]);
 
     const handleLanguageChange = (lang: string) => {
         onChangeLang(lang);
@@ -67,10 +51,9 @@ export default function Header() {
         tr: { label: "Türkçe", flag: "🇹🇷" }
     };
 
-    // Hydration için fallback değer
-    const currentLanguageInfo = isMounted 
+    const currentLanguageInfo = isMounted
         ? (languageMap[currentLang?.value as keyof typeof languageMap] || languageMap.en)
-        : languageMap.en; // Her zaman İngilizce flag ile başla
+        : languageMap.tr;
 
     useEffect(() => {
         const handleScroll = () => {
