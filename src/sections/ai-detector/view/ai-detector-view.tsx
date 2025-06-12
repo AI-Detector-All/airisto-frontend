@@ -1,14 +1,16 @@
 'use client';
 import { useState } from "react";
-import {  ChevronLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 import { AIDetectorResult } from "../ai-detector-result";
 import { AIDetectorInput } from "../ai-detector-input";
 import { AnalysisResults } from "@/types/analysis";
+import { useTranslate } from "@/locales";
 
 
 export default function AIDetectorView() {
+    const { t } = useTranslate('ai-detector');
     const [text, setText] = useState("");
     const [title, setTitle] = useState("");
     const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -22,9 +24,9 @@ export default function AIDetectorView() {
                 <div>
                     <Link href={'/dashboard'} className="flex gap-2 items-center">
                         <ChevronLeft className="text-gray-600" />
-                        <h1 className="text-body2 text-gray-600 font-onest">Ana Sayfa</h1>
+                        <h1 className="text-body2 text-gray-600 font-onest"> {t('home')} </h1>
                     </Link>
-                    <p className="text-gray-900 text-header2 font-onest font-semibold mt-2">Yapay Zeka Detektörü</p>
+                    <p className="text-gray-900 text-header2 font-onest font-semibold mt-2"> {t('aiDetector')} </p>
                 </div>
             </div>
 
@@ -32,8 +34,8 @@ export default function AIDetectorView() {
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                     <div className="flex items-center justify-between mb-4">
                         <TabsList>
-                            <TabsTrigger value="input" className="p-5" > Analiz Et </TabsTrigger>
-                            <TabsTrigger value="results" disabled={!results && !isAnalyzing} className="p-5"> Sonuçlar </TabsTrigger>
+                            <TabsTrigger value="input" className="p-5" > {t('analyze')} </TabsTrigger>
+                            <TabsTrigger value="results" disabled={!results && !isAnalyzing} className="p-5"> {t('result')} </TabsTrigger>
                         </TabsList>
                         {/* <div className="flex items-center gap-2">
                             <Input
@@ -55,16 +57,16 @@ export default function AIDetectorView() {
                     </div>
 
                     <TabsContent value="input" className="mt-0">
-                        <AIDetectorInput 
-                        setTitle={setTitle} 
-                        title={title} 
-                        text={text} 
-                        setText={setText} 
-                        isAnalyzing={isAnalyzing} 
-                        setIsAnalyzing={setIsAnalyzing} 
-                        setResults={setResults} 
-                        setActiveTab={setActiveTab}
-                        setTokenLimitExceeded={setTokenLimitExceeded}
+                        <AIDetectorInput
+                            setTitle={setTitle}
+                            title={title}
+                            text={text}
+                            setText={setText}
+                            isAnalyzing={isAnalyzing}
+                            setIsAnalyzing={setIsAnalyzing}
+                            setResults={setResults}
+                            setActiveTab={setActiveTab}
+                            setTokenLimitExceeded={setTokenLimitExceeded}
                         />
                     </TabsContent>
 

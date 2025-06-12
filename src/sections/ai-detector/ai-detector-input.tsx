@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { DashboardSkeleton } from "@/components/ui/global-loader";
 import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/hooks/useAuth";
+import { useTranslate } from "@/locales";
 import { newAnalyze } from "@/services/analysis";
 import { AnalysisResults } from "@/types/analysis";
 import { FileText, RefreshCw, Upload, X } from "lucide-react";
@@ -33,6 +34,7 @@ export function AIDetectorInput({
     setTitle,
     setTokenLimitExceeded
 }: AIDetectorInputProps) {
+    const { t } = useTranslate('ai-detector');
     const { user, isLoading, refreshUserData } = useAuth();
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [uploadedFileName, setUploadedFileName] = React.useState<File | null>(null);
@@ -54,8 +56,8 @@ export function AIDetectorInput({
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             if (error.response.status === 402) {
-                toast.warning("Analiz hakkınız kalmadı", {
-                    description: "Yeni analiz yapabilmek için daha fazla token satın alın.",
+                toast.warning(t("youDontHaveTokenTitle"), {
+                    description: t("youDontHaveTokenDesc"),
                 });
                 setTokenLimitExceeded(true);
                 return;
@@ -91,8 +93,8 @@ export function AIDetectorInput({
         <div>
             <Card>
                 <CardHeader>
-                    <CardTitle>Metin Analizi</CardTitle>
-                    <CardDescription>Yapay zeka tarafından oluşturulan desenleri tespit etmek için metin girin veya dosya yükleyin</CardDescription>
+                    <CardTitle> {t('inputTitle')} </CardTitle>
+                    <CardDescription>{t('inputDesc')}</CardDescription>
                 </CardHeader>
                 <CardContent>
                     {uploadedFileName ? (
@@ -106,13 +108,13 @@ export function AIDetectorInput({
                             </Button>
                             <FileText className="w-16 h-16 mb-4 text-primary" />
                             <span className="text-lg font-medium">{uploadedFileName.name}</span>
-                            <p className="text-sm text-muted-foreground mt-2">Dosya yüklendi ve analiz için hazır</p>
+                            <p className="text-sm text-muted-foreground mt-2">{t('documentUploaded')}</p>
                         </div>
                     ) : (
                         <>
                             <input
                                 type="text"
-                                placeholder="Lütfen bir başlık girin"
+                                placeholder={t('inputTitlePlaceholder')}
                                 className="mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 value={title}
                                 required
@@ -122,7 +124,7 @@ export function AIDetectorInput({
                                 value={text}
                                 required
                                 onChange={(e: { target: { value: SetStateAction<string> } }) => setText(e.target.value)}
-                                placeholder="Lütfen analiz yapmak istediğiniz metni girin veya dosya yükleyin"
+                                placeholder={t('inputTextPlaceholder')}
                                 className="w-full h-64 resize-none mt-2"
                             />
 
@@ -138,18 +140,18 @@ export function AIDetectorInput({
                 </CardContent>
                 <CardFooter className="flex items-center justify-between">
                     <div className="text-sm text-muted-foreground">
-                        {!uploadedFileName && `${text.length} karakter`}
-                        {uploadedFileName && "Dosya analiz için hazır"}
+                        {!uploadedFileName && `${text.length} ${t('character')}`}
+                        {uploadedFileName && t('documentReady')}
                     </div>
                     <div className="flex gap-2">
                         {!uploadedFileName && (
                             <Button variant="outline" onClick={triggerFileInput}>
                                 <Upload className="w-4 h-4 mr-2" />
-                                Dosya Yükle
+                                {t('uploadFile')}
                             </Button>
                         )}
                         <Button variant="outline" onClick={handleClear} disabled={!text.trim() && !uploadedFileName}>
-                            Temizle
+                            {t('clear')}
                         </Button>
                         <Button
                             onClick={handleAnalyze}
@@ -158,10 +160,12 @@ export function AIDetectorInput({
                             {isAnalyzing ? (
                                 <>
                                     <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                                    Analiz Ediliyor...
+                                    {t('analyzing')}
                                 </>
                             ) : (
-                                "Analiz Et"
+                                <div>
+                                    {t('analyze')}
+                                </div>
                             )}
                         </Button>
                     </div>

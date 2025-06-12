@@ -6,6 +6,7 @@ import AIDetectionRadarChart from "./ai-detector-chart"
 import { AnalysisResults } from "@/types/analysis"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useTranslate } from "@/locales"
 
 interface AIDetectorResultProps {
     isAnalyzing: boolean
@@ -13,6 +14,7 @@ interface AIDetectorResultProps {
     tokenLimitExceeded: boolean
 }
 export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: AIDetectorResultProps) {
+    const { t } = useTranslate('ai-detector')
     const getColorBasedOnScore = (score: number) => {
         if (score > 70) return "destructive";
         if (score > 40) return "secondary";
@@ -26,9 +28,9 @@ export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: A
                     <CardContent className="pt-6">
                         <div className="flex flex-col items-center justify-center text-center p-12">
                             <RefreshCw className="w-12 h-12 text-primary animate-spin mb-4" />
-                            <h3 className="text-lg font-semibold mb-2">Analiz Ediliyor</h3>
+                            <h3 className="text-lg font-semibold mb-2"> {t('analyzing')} </h3>
                             <p className="text-muted-foreground mb-6">
-                                Yapay zeka algılama sistemimiz metninizi işliyor. Bu sadece bir kaç dakika sürer...
+                                {t('resultTitle')}
                             </p>
                             <Progress value={45} className="w-full max-w-md" />
                         </div>
@@ -43,17 +45,17 @@ export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: A
                             </div>
                             <h3 className="text-lg font-semibold mb-2">
                                 {tokenLimitExceeded
-                                    ? "Token Hakkınız Tükenmiştir"
-                                    : "Yapay Zeka Metin Tespiti"}
+                                    ? <span> {t('resultOutOfToken')} </span>
+                                    : <span> {t('aiDetector')} </span>}
                             </h3>
                             <p className="text-muted-foreground mb-6">
                                 {tokenLimitExceeded
-                                    ? "Yeni analiz yapabilmek için token paketiniz kalmamıştır. Lütfen daha fazla token edinin."
-                                    : "Yapay zeka tarafından oluşturulan kalıplar için içeriği analiz etmek üzere düzenleyiciye metin yapıştırın. Gelişmiş algoritmamız yapay zeka yazarlığı olasılığını değerlendirecektir."}
+                                    ? <span> {t('tokenLimitExceeded')} </span>
+                                    : <span> {t('tokenLimitExceededFalse')} </span>}
                             </p>
                             <Link href={'/dashboard/subscription'}>
                                 <Button className="bg-fuchsia-400 rounded-md px-4 py-2 hover:bg-fuchsia-500">
-                                    Aboneliğinizi Yenileyin
+                                    {t('refreshSubs')}
                                 </Button>
                             </Link>
 
@@ -61,17 +63,17 @@ export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: A
                                 <div className="grid grid-cols-2 gap-4 w-full max-w-md">
                                     <Card>
                                         <CardContent className="pt-6">
-                                            <h4 className="font-medium mb-1">Doğruluk</h4>
+                                            <h4 className="font-medium mb-1">{t('accuracy')}</h4>
                                             <p className="text-sm text-muted-foreground">
-                                                Birden fazla yapay zeka modelinde yüksek hassasiyetli algılama
+                                                {t('accuracyDesc')}
                                             </p>
                                         </CardContent>
                                     </Card>
                                     <Card>
                                         <CardContent className="pt-6">
-                                            <h4 className="font-medium mb-1">Grafik Sonuçları</h4>
+                                            <h4 className="font-medium mb-1">{t('graphicResult')}</h4>
                                             <p className="text-sm text-muted-foreground">
-                                                Gelişmiş algoritmamız yapay zeka yazarlığı olasılığını değerlendirecektir.
+                                                {t('graphicResultDesc')}
                                             </p>
                                         </CardContent>
                                     </Card>
@@ -85,9 +87,9 @@ export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: A
                     <Card>
                         <CardHeader>
                             <div className="flex items-center justify-between">
-                                <CardTitle>Analiz Sonuçları</CardTitle>
+                                <CardTitle>{t('analyzeResult')}</CardTitle>
                                 <Badge variant={getColorBasedOnScore(parseInt(results.aiPercent))}>
-                                    {results.aiPercent}% Yapay Zeka İçeriği
+                                    {results.aiPercent}% {t('aiContent')}
                                 </Badge>
                             </div>
                             <CardDescription>{results.summary}</CardDescription>
@@ -95,10 +97,10 @@ export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: A
                         <CardContent>
                             <div className="space-y-6">
                                 <div>
-                                    <h4 className="text-sm font-medium mb-3 ">İçerik Değerlendirmesi</h4>
+                                    <h4 className="text-sm font-medium mb-3 ">{t('contentAnalysis')}</h4>
                                     <div className="flex flex-col items-center justify-center text-center p-4 border rounded-lg">
                                         <div className="text-6xl font-bold text-primary mb-2">{results.aiPercent}%</div>
-                                        <p className="text-muted-foreground">Yapay zeka tarafından oluşturulan içerik olasılığı</p>
+                                        <p className="text-muted-foreground">{t('percentageOfAIContent')}</p>
                                         <Progress
                                             value={parseInt(results.aiPercent)}
                                             className={`w-full mt-4 ${parseInt(results.aiPercent) > 70 ? "bg-red-500" : parseInt(results.aiPercent) > 40 ? "bg-yellow-500" : "bg-green-500"}`}
@@ -106,7 +108,7 @@ export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: A
                                     </div>
                                 </div>
                                 <div>
-                                    <h4 className="text-sm font-medium mb-3 font-onest">Öneriler</h4>
+                                    <h4 className="text-sm font-medium mb-3 font-onest">{t('suggestions')}</h4>
                                     <ul className="list-disc px-6">
                                         {results.suggestions.map((suggestion, index) => (
                                             <li key={index} className="mb-2">
@@ -121,8 +123,8 @@ export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: A
 
                     <Card>
                         <CardHeader>
-                            <CardTitle>Tespit Göstergeleri</CardTitle>
-                            <CardDescription>Analiz edilen metinde tespit edilen spesifik kalıplar</CardDescription>
+                            <CardTitle>{t('indicators')}</CardTitle>
+                            <CardDescription>{t('indicatorsDesc')}</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <AIDetectionRadarChart isAnalyzing={isAnalyzing} results={results} />
