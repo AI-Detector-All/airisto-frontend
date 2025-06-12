@@ -2,8 +2,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { Home, ArrowLeft, Search } from 'lucide-react';
+import { useTranslate } from '@/locales';
 
 export default function Error404Page() {
+  const { t } = useTranslate('not-found')
   return (
     <div className="min-h-screen bg-gradient-to-br from-fuchsia-25 via-white to-magenta-25 flex items-center justify-center p-4">
       <div className="max-w-2xl mx-auto text-center">
@@ -20,10 +22,10 @@ export default function Error404Page() {
         {/* Main Content */}
         <div className="space-y-6 mb-12">
           <h1 className="text-4xl md:text-5xl font-bold font-onest text-gray-900 mb-4">
-            Sayfa Bulunamadı
+            {t('notFound')}
           </h1>
           <p className="text-lg md:text-xl text-gray-600 font-onest max-w-md mx-auto">
-            Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir.
+            {t('notFoundDesc')}
           </p>
         </div>
 
@@ -34,7 +36,7 @@ export default function Error404Page() {
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-fuchsia-500 to-magenta-500 text-white font-semibold font-onest rounded-xl hover:from-fuchsia-600 hover:to-magenta-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <Home size={20} />
-            Ana Sayfaya Dön
+            {t('backToHome')}
           </Link>
           
           <button
@@ -42,7 +44,7 @@ export default function Error404Page() {
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-fuchsia-600 font-semibold font-onest rounded-xl border-2 border-fuchsia-200 hover:border-fuchsia-300 hover:bg-fuchsia-25 transition-all duration-300 shadow-md hover:shadow-lg"
           >
             <ArrowLeft size={20} />
-            Geri Git
+            {t('back')}
           </button>
         </div>
 
@@ -51,30 +53,30 @@ export default function Error404Page() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Search className="text-fuchsia-500" size={24} />
             <h3 className="text-xl font-semibold font-onest text-gray-800">
-              Aradığınızı Bulamadınız mı?
+              {t('dontYoFind')}
             </h3>
           </div>
           <p className="text-gray-600 font-onest mb-4">
-            Belki şu linkler yardımcı olabilir:
+            {t('maybeTheseLinks')}
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
               href="/dashboard"
               className="px-4 py-2 bg-fuchsia-50 text-fuchsia-700 font-onest rounded-lg hover:bg-fuchsia-100 transition-colors duration-200"
             >
-              Dashboard
+              {t('dashboard')}
             </Link>
             <Link
               href="/dashboard/documents"
               className="px-4 py-2 bg-fuchsia-50 text-fuchsia-700 font-onest rounded-lg hover:bg-fuchsia-100 transition-colors duration-200"
             >
-              Dokümanlar
+              {t('documents')}
             </Link>
             <Link
               href="/dashboard/support"
               className="px-4 py-2 bg-fuchsia-50 text-fuchsia-700 font-onest rounded-lg hover:bg-fuchsia-100 transition-colors duration-200"
             >
-              Destek
+              {t('support')}
             </Link>
           </div>
         </div>
