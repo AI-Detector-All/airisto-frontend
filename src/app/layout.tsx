@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { UserProvider } from "@/context/user-context";
 import { I18nProvider, LocalizationProvider } from "@/locales";
 import { detectLanguage } from "@/locales/server";
+import { NoSSR } from "@/components/no-ssr";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +39,9 @@ export default async function RootLayout({
         <I18nProvider lang={lang!}>
           <LocalizationProvider>
             <UserProvider>
-              {children}
+              <NoSSR>
+                {children}
+              </NoSSR>
               <Toaster />
             </UserProvider>
           </LocalizationProvider>
