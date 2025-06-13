@@ -13,12 +13,35 @@ interface AIDetectorResultProps {
     results?: AnalysisResults | null,
     tokenLimitExceeded: boolean
 }
+
 export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: AIDetectorResultProps) {
+    console.log(results);
+    
     const { t } = useTranslate('ai-detector')
+    
     const getColorBasedOnScore = (score: number) => {
         if (score > 70) return "destructive";
         if (score > 40) return "secondary";
         return "default";
+    };
+
+    const getProgressBarStyle = (score: number) => {
+        if (score > 70) {
+            return {
+                backgroundColor: '#fee2e2', // bg-red-100
+                '--progress-foreground': '#dc2626' // bg-red-600
+            };
+        }
+        if (score > 40) {
+            return {
+                backgroundColor: '#fef3c7', // bg-yellow-100
+                '--progress-foreground': '#d97706' // bg-yellow-600
+            };
+        }
+        return {
+            backgroundColor: '#dcfce7', // bg-green-100
+            '--progress-foreground': '#16a34a' // bg-green-600
+        };
     };
 
     return (
@@ -101,10 +124,23 @@ export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: A
                                     <div className="flex flex-col items-center justify-center text-center p-4 border rounded-lg">
                                         <div className="text-6xl font-bold text-primary mb-2">{results.aiPercent}%</div>
                                         <p className="text-muted-foreground">{t('percentageOfAIContent')}</p>
-                                        <Progress
-                                            value={parseInt(results.aiPercent)}
-                                            className={`w-full mt-4 ${parseInt(results.aiPercent) > 70 ? "bg-red-500" : parseInt(results.aiPercent) > 40 ? "bg-yellow-500" : "bg-green-500"}`}
-                                        />
+                                        
+                                        {/* Düzeltilmiş Progress Bar */}
+                                        <div className="w-full mt-4">
+                                            <div 
+                                                className="w-full h-3 rounded-full overflow-hidden"
+                                                style={getProgressBarStyle(parseInt(results.aiPercent))}
+                                            >
+                                                <div 
+                                                    className="h-full transition-all duration-500 ease-in-out"
+                                                    style={{
+                                                        width: `${parseInt(results.aiPercent)}%`,
+                                                        backgroundColor: parseInt(results.aiPercent) > 70 ? '#dc2626' : 
+                                                                        parseInt(results.aiPercent) > 40 ? '#d97706' : '#16a34a'
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>

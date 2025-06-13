@@ -38,5 +38,10 @@
   "aiContentAnalyzeDesc": "Yapay zeka tespit sistemimiz örüntü göstergelerini işliyor. Bu sadece bir kaç dakika sürer...",
   "aiPatternAnalyzeTitle": "Yapay Zeka Örüntü Analizi",
   "aiPatternAnalyzeTitle2": "Yapay zeka içerik göstergelerinin görsel dökümü",
-  "aiPatternAnalyzeDesc": "Grafikteki daha yüksek değerler, yapay zeka tarafından oluşturulan içerik imzalarının daha güçlü olduğunu göstermektedir."
+  "aiPatternAnalyzeDesc": "Grafikteki daha yüksek değerler, yapay zeka tarafından oluşturulan içerik imzalarının daha güçlü olduğunu göstermektedir.",
+
+  "emailVerificationRequired": "E-posta Doğrulama Gerekli",
+  "youMustVerifyYourEmailToContinue": "Bu işlemi gerçekleştirmek için lütfen e-posta adresinizi doğrulayın.",
+  "verifyNow": "Şimdi Doğrula",
+  "cancel": "İptal"
 }

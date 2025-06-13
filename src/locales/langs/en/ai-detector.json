@@ -38,5 +38,10 @@
   "aiPatternAnalyzeTitle2": "Visual Breakdown of AI Content Indicators",
   "aiPatternAnalyzeDesc": "Higher values in the graph indicate stronger signatures of AI-generated content.",
   "aiContentAnalyze": "Content Analysis",
-  "aiContentAnalyzeDesc": "Our AI detection system is processing pattern indicators. This will only take a few moments..."
+  "aiContentAnalyzeDesc": "Our AI detection system is processing pattern indicators. This will only take a few moments...",
+
+  "emailVerificationRequired": "Email Verification Required",
+  "youMustVerifyYourEmailToContinue": "Please verify your email address to proceed with this action.",
+  "verifyNow": "Verify Now",
+  "cancel": "Cancel"
 }
