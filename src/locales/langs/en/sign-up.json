@@ -1,0 +1,59 @@
+{
+  "backToHome": "Airisto",
+  "createAccount": "Create Account",
+  "getStarted": "Create your account to get started",
+  "firstNameLabel": "First Name",
+  "firstNamePlaceholder": "Enter your first name",
+  "lastNameLabel": "Last Name",
+  "lastNamePlaceholder": "Enter your last name",
+  "emailLabel": "Email",
+  "emailPlaceholder": "Enter your email",
+  "passwordLabel": "Password",
+  "passwordPlaceholder": "Enter your password",
+  "orcidLabel": "ORCID ID",
+  "orcidPlaceholder": "Enter your ORCID ID (optional)",
+  "orcidTooltip": "You can share your ORCID ID to get more accurate results by comparing with your previous works",
+  "acceptTermsText": "and",
+  "termsOfService": "Terms of Service",
+  "privacyPolicy": "Privacy Policy",
+  "acceptTermsStart": "I accept the",
+  "acceptTermsEnd": "",
+  "createAccountButton": "Create Account",
+  "pleaseAcceptTerms": "Please accept the terms of service",
+  "passwordRequirements": "Password Requirements:",
+  "passwordMinLength": "Minimum 8 characters",
+  "passwordUppercase": "At least 1 uppercase letter",
+  "passwordLowercase": "At least 1 lowercase letter",
+  "passwordNumber": "At least 1 number",
+  "passwordSpecialChar": "At least 1 special character",
+  "passwordStrengthWeak": "Weak",
+  "passwordStrengthMedium": "Medium",
+  "passwordStrengthStrong": "Strong",
+  "alreadyHaveAccount": "Already have an account?",
+  "signInLink": "Sign in",
+  "aiTagline": "Unleash the Power of AI",
+  "mainTitle": "To Detect AI-Generated Content",
+  "mainSubtitle": "The Fastest and Easiest Way",
+  "mainDescription": "Detect AI-generated text with % accuracy. Get analysis, reasoning and reliable results in a single step.",
+  "detectAI": "Detect AI",
+  "cancelAnytime": "Cancel anytime",
+  "seeHowItWorks": "See how it works",
+  "features": {
+    "advancedDetection": {
+      "title": "Advanced Detection",
+      "description": "AI-powered analysis with 85% accuracy rate"
+    },
+    "multiModelSupport": {
+      "title": "Multi-Model Support",
+      "description": "Detects content from ChatGPT, Gemini and more"
+    },
+    "fileCompatibility": {
+      "title": "File Compatibility",
+      "description": "Analyze docx and pdf document formats"
+    },
+    "detailedReports": {
+      "title": "Detailed Reports",
+      "description": "Get comprehensive analysis about detected content"
+    }
+  }
+}

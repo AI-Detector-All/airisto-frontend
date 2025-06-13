@@ -1,0 +1,21 @@
+{
+    "home":"Ana Sayfa",
+    "allUsers":"Tüm Kullanıcılar",
+    "noUsers":"Henüz kullanıcı bulunmamaktadır.",
+
+
+    "user":"Kullanıcı",
+    "type":"Tip",
+    "corporate":"Kurumsal",
+    "subscription":"Abonelik",
+    "remainToken":"Kalan Token",
+    "status":"Durum",
+    "show":"Görüntüle",
+    "makeInactive":"Pasifleştir",
+    "makeActive":"Aktifleştir",
+    "individual":"Bireysel",
+    "active":"Aktif",
+    "inactive":"Pasif",
+    "usersLoading":"Kullanıcılar yükleniyor...",
+    "used":"kullanıldı"
+}

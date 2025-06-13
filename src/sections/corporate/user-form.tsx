@@ -9,6 +9,7 @@ import { ArrowLeft, Building2, CheckCircle, User } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { SignUpData } from "@/types/auth";
+import { useTranslate } from "@/locales";
 
 interface UserFormProps {
     userData: SignUpData;
@@ -22,9 +23,7 @@ interface UserFormProps {
 
 export function UserForm({ userData, setUserData, corporateData, setCurrentStep, handleSubmit, isSubmitting }: UserFormProps) {
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-
-
+    const { t, currentLang } = useTranslate('corporate');
     const handleUserChange = (field: string, value: string | boolean) => {
         setUserData({ ...userData, [field]: value });
         if (errors[field]) {
@@ -37,10 +36,18 @@ export function UserForm({ userData, setUserData, corporateData, setCurrentStep,
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <User className="h-5 w-5" />
-                    Kullanıcı Ataması
+                    {t('userAssign')}
                 </CardTitle>
                 <CardDescription>
-                    <strong>{corporateData.name}</strong> kurumu için bir kullanıcı oluşturunuz
+                    {currentLang.value === 'tr' ? (
+                        <p>
+                            <strong>{corporateData.name}</strong> kurumu için bir kullanıcı oluşturunuz
+                        </p>
+                    ) : (
+                        <p>
+                            Create a user for <strong>{corporateData.name}</strong> corporation
+                        </p>
+                    )}
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -48,16 +55,16 @@ export function UserForm({ userData, setUserData, corporateData, setCurrentStep,
                 <Alert>
                     <Building2 className="h-4 w-4" />
                     <AlertDescription>
-                        <strong>Kurum:</strong> {corporateData.name} ({corporateData.domain})
+                        <strong> {t('corporate')} :</strong> {corporateData.name} ({corporateData.domain})
                         <Badge variant={corporateData.isActive ? "default" : "secondary"} className="ml-2">
-                            {corporateData.isActive ? "Aktif" : "Pasif"}
+                            {corporateData.isActive ? t('active') : t('inactive')}
                         </Badge>
                     </AlertDescription>
                 </Alert>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                        <Label htmlFor="userEmail">E-posta *</Label>
+                        <Label htmlFor="userEmail">{t('email')} *</Label>
                         <Input
                             id="userEmail"
                             type="email"
@@ -74,7 +81,7 @@ export function UserForm({ userData, setUserData, corporateData, setCurrentStep,
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                        <Label htmlFor="userName">Ad *</Label>
+                        <Label htmlFor="userName"> {t('name')} *</Label>
                         <Input
                             id="userName"
                             value={userData.name}
@@ -88,7 +95,7 @@ export function UserForm({ userData, setUserData, corporateData, setCurrentStep,
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="userSurname">Soyad *</Label>
+                        <Label htmlFor="userSurname">{t('surname')}*</Label>
                         <Input
                             id="userSurname"
                             value={userData.surname}
@@ -103,13 +110,13 @@ export function UserForm({ userData, setUserData, corporateData, setCurrentStep,
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="userPassword">Şifre *</Label>
+                    <Label htmlFor="userPassword">{t('password')} *</Label>
                     <Input
                         id="userPassword"
                         type="password"
                         value={userData.password}
                         onChange={(e) => handleUserChange('password', e.target.value)}
-                        placeholder="Güçlü bir şifre giriniz"
+                        placeholder={t('passwordPl')}
                         className={errors.password ? 'border-red-500' : ''}
                     />
                     {errors.password && (
@@ -119,13 +126,13 @@ export function UserForm({ userData, setUserData, corporateData, setCurrentStep,
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="flex items-center justify-between">
-                        <Label className="text-sm">Aktif</Label>
+                        <Label className="text-sm">{t('isActive')}</Label>
                         <Switch
                             checked={userData.isActive}
                             onCheckedChange={(checked: boolean) => handleUserChange('isActive', checked)}
                         />
                     </div>
-                    
+
                 </div>
 
                 <div className="flex gap-3 pt-4">
@@ -135,7 +142,7 @@ export function UserForm({ userData, setUserData, corporateData, setCurrentStep,
                         className="flex-1"
                     >
                         <ArrowLeft className="mr-2 h-4 w-4" />
-                        Geri
+                        {t('back')}
                     </Button>
                     <Button
                         onClick={handleSubmit}
@@ -145,12 +152,12 @@ export function UserForm({ userData, setUserData, corporateData, setCurrentStep,
                         {isSubmitting ? (
                             <>
                                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                                Oluşturuluyor...
+                                {t('creating')}
                             </>
                         ) : (
                             <>
                                 <CheckCircle className="mr-2 h-4 w-4" />
-                                Oluştur
+                                {t('create')}
                             </>
                         )}
                     </Button>

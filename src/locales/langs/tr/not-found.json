@@ -1,0 +1,11 @@
+{
+    "notFound":"Sayfa Bulunamadı",
+    "notFoundDesc":"Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir.",
+    "backToHome":"Ana Sayfaya Dön",
+    "back":"Geri Git",
+    "dontYoFind":"Aradığınızı Bulamadınız mı?",
+    "maybeTheseLinks":"Belki şu linkler yardımcı olabilir:",
+    "dashboard":"Panel",
+    "documents":"Dokümanlar",
+    "support":"Destek"
+}

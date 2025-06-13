@@ -8,8 +8,10 @@ import { DashboardSkeleton, GlobalLoader } from "@/components/ui/global-loader";
 import { User } from "@/types/user";
 import { useEffect, useState } from "react";
 import { getCorporateMembers } from "@/services/corporate";
+import { useTranslate } from "@/locales";
 
 export default function UsersView() {
+    const { t } = useTranslate('users')
     const { user, isLoading } = useAuth();
     const [users, setUsers] = useState<User[]>([])
 
@@ -33,15 +35,15 @@ export default function UsersView() {
                     <div>
                         <Link href={'/dashboard'} className="flex gap-2 items-center">
                             <ChevronLeft className="text-gray-600" />
-                            <h1 className="text-body2 text-gray-600 font-onest">Ana Sayfa</h1>
+                            <h1 className="text-body2 text-gray-600 font-onest"> {t('home')} </h1>
                         </Link>
-                        <p className="text-gray-900 text-header2 font-onest font-semibold mt-2"> Kullanıclar </p>
+                        <p className="text-gray-900 text-header2 font-onest font-semibold mt-2"> {t('users')} </p>
                     </div>
                     <div className="mr-8 gap-4 flex">
                         <Button className="bg-fuchsia-400 rounded-md px-4 py-2 hover:bg-fuchsia-500">
                             <Link href={'/dashboard/ai-detector'} className="flex gap-2 items-center">
                                 <Plus className="text-white" />
-                                <p className="text-body2 text-white font-onest">Yeni Tespit</p>
+                                <p className="text-body2 text-white font-onest">{t('new')}</p>
                             </Link>
                         </Button>
                     </div>
@@ -51,11 +53,11 @@ export default function UsersView() {
                         {users.length > 0 ? (
                             <UsersTable users={users} />
                         ) : (
-                            <p className="text-center mt-8 text-gray-500">Henüz kullanıcı bulunmamaktadır.</p>
+                            <p className="text-center mt-8 text-gray-500">{t('noUsers')}</p>
                         )}
                     </div>
                 ):(
-                    <GlobalLoader text="Kullanıcılar yükleniyor..." />
+                    <GlobalLoader text={t('usersLoading')} />
                 )}
             </div>
         </div>

@@ -1,0 +1,27 @@
+{
+    "home": "Home",
+    "users": "Users",
+    "new": "New Detection",
+    "noUsers": "No users found yet.",
+    "usersLoading": "Loading users...",
+
+    "user": "User",
+    "type": "Type",
+    "remainToken": "Remaining Tokens",
+    "status": "Status",
+    "show": "View",
+    "makeInactive": "Deactivate",
+    "makeActive": "Activate",
+    "individual": "Individual",
+    "active": "Active",
+    "inactive": "Inactive",
+    "corporate": "Corporate",
+    "invidividual": "Individual",
+    "used": "Used",
+    "edit": "Edit",
+    "delete": "Delete",
+    "role": "Role",
+    "institutionAdmin": "Institution Admin",
+    "student": "Student",
+    "academician": "Academician"
+}

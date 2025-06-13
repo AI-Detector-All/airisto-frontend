@@ -1,0 +1,59 @@
+{
+  "backToHome": "Airisto",
+  "createAccount": "Hesap Oluşturun",
+  "getStarted": "Başlamak için hesabınızı oluşturun",
+  "firstNameLabel": "Ad",
+  "firstNamePlaceholder": "Adınızı girin",
+  "lastNameLabel": "Soyad",
+  "lastNamePlaceholder": "Soyadınızı girin",
+  "emailLabel": "Email",
+  "emailPlaceholder": "Emailinizi girin",
+  "passwordLabel": "Şifre",
+  "passwordPlaceholder": "Şifrenizi girin",
+  "orcidLabel": "ORCID ID",
+  "orcidPlaceholder": "ORCID ID'nizi girin (opsiyonel)",
+  "orcidTooltip": "Önceki çalışmalarınız ile karşılaştırma yaparak daha doğru sonuçlar alabilmek için ORCID ID'nizi paylaşabilirsiniz",
+  "acceptTermsText": "ve",
+  "termsOfService": "Kullanım Şartları",
+  "privacyPolicy": "Gizlilik Politikası",
+  "acceptTermsStart": "'nı",
+  "acceptTermsEnd": "'nı kabul ediyorum",
+  "createAccountButton": "Hesap Oluştur",
+  "pleaseAcceptTerms": "Lütfen kullanım şartlarını kabul edin",
+  "passwordRequirements": "Şifre Gereksinimleri:",
+  "passwordMinLength": "En az 8 karakter",
+  "passwordUppercase": "En az 1 büyük harf",
+  "passwordLowercase": "En az 1 küçük harf",
+  "passwordNumber": "En az 1 sayı",
+  "passwordSpecialChar": "En az 1 özel karakter",
+  "passwordStrengthWeak": "Zayıf",
+  "passwordStrengthMedium": "Orta",
+  "passwordStrengthStrong": "Güçlü",
+  "alreadyHaveAccount": "Zaten hesabınız var mı?",
+  "signInLink": "Giriş yapın",
+  "aiTagline": "Yapay Zeka ile Ortaya Çıkarın",
+  "mainTitle": "Yapay Zeka Tarafından Oluşturulan İçeriği Tespit Etmek için",
+  "mainSubtitle": "En Hızlı ve En Kolay Yol",
+  "mainDescription": "Yapay zeka üretimi metinleri % doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda.",
+  "detectAI": "Yapay Zekayı Tespit Et",
+  "cancelAnytime": "İstediğiniz zaman iptal edebilirsiniz",
+  "seeHowItWorks": "Nasıl çalıştığını görün",
+  "features": {
+    "advancedDetection": {
+      "title": "Gelişmiş Tespit",
+      "description": "%85'lik doğruluk oranıyla yapay zeka destekli analiz"
+    },
+    "multiModelSupport": {
+      "title": "Çoklu Model Desteği",
+      "description": "ChatGPT, Gemini ve daha fazlasından gelen içeriği algılar"
+    },
+    "fileCompatibility": {
+      "title": "Dosya Uyumluluğu",
+      "description": "docx and pdf belge formatlarını analiz edin"
+    },
+    "detailedReports": {
+      "title": "Detaylı Raporlar",
+      "description": "Tespit edilen içerikle ilgili kapsamlı analizler alın"
+    }
+  }
+}

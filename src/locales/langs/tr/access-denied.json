@@ -1,0 +1,21 @@
+{
+  "accessDeniedTitle": "Erişim Engellendi",
+  "accessDeniedMessage": "Kurumunuz şu anda aktif değil.",
+  "accessCorporateDenied":"Kurumunuzun aboneliği aktif olmadığı için sisteme erişim sağlayamazsınız.",
+  "accessCorporateInfo":"Kurumunuzun bilgileri",
+  "accessCorporateName":"Kurum Adı",
+  "accessCorporateDomain":"Kurum Domaini",
+  "accessCorporateManager":"Kurum Yöneticisi",
+  "accessCorporateStatus":"Kurum Durumu",
+  "accessInactive":"İnaktif",
+  "whatNext":"Ne yapmalısınız?",
+  "contactCorporate":"Kurum Yöneticinizle İletişime Geçin",
+  "sendEmail":"E-posta Gönder",
+  "sendEmailDesc":"Doğrudan kurum yöneticinize email gönderin:",
+  "waitActivation":"Aktivasyon Bekleyin",
+  "waitActivationDesc":"Kurum yöneticiniz abonelik işlemlerini tamamladıktan sonra sisteme otomatik olarak erişim sağlayabileceksiniz.",
+  "refreshStatus":"Durumu Yenile",
+  "contactToManager":"Kurum Yöneticinizle iletişime geçin",
+  "contactSupport":"Acil durumlarda teknik destek ekibimizle iletişime geçebilirsiniz",
+  "contactSupportButton":"Teknik Destek iletişime Geçin"
+}

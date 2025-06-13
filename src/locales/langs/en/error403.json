@@ -1,0 +1,13 @@
+{
+    "accessDenied": "Access Denied",
+    "accessError": "Authorization Error",
+    "accessErrorDesc": "You don't have permission to access this page. If you believe this is an error, please contact your system administrator or try logging in with appropriate credentials.",
+    "backToDashboard": "Return to Homepage",
+    "back": "Go Back",
+    "whatCanYouDo": "What Can You Do?",
+    "checkAccess": "Verify Access",
+    "checkAccessDesc": "Ensure you're logged in with the correct user account.",
+    "managerSupport": "Administrator Support",
+    "managerSupportDesc": "Request additional permissions from your system administrator.",
+    "contactToSupport": "Contact Support Team →"
+}

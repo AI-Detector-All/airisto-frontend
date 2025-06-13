@@ -6,21 +6,25 @@ import { CorporateForm } from '../corporate-form';
 import { UserForm } from '../user-form';
 import { corporateSignUp } from '@/services/auth';
 import Link from 'next/link';
+import { useTranslate } from '@/locales';
+import { SignUpData } from '@/types/auth';
 
 export const CreateCorporateView = () => {
+    const { t }= useTranslate('corporate');
     const [currentStep, setCurrentStep] = useState(1);
     const [corporateData, setCorporateData] = useState({
         name: '',
         domain: '',
         isActive: false
     });
-    const [userData, setUserData] = useState({
+    const [userData, setUserData] = useState<SignUpData>({
         email: '',
         name: '',
         surname: '',
         password: '',
         type: 'CORPORATE',
         provider: 'LOCAL',
+        orcidId:"",
         isActive: false,
     });
     const [errors, setErrors] = useState({});
@@ -31,20 +35,20 @@ export const CreateCorporateView = () => {
     const validateStep2 = () => {
         const newErrors: { [key: string]: string } = {};
         if (!userData.email.trim()) {
-            newErrors.email = 'E-posta gereklidir';
+            newErrors.email = t('needEmail');
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.email)) {
-            newErrors.email = 'Geçerli bir e-posta adresi giriniz';
+            newErrors.email = t('invalidEmail');
         }
         if (!userData.name.trim()) {
-            newErrors.name = 'Ad gereklidir';
+            newErrors.name = t('needName');
         }
         if (!userData.surname.trim()) {
-            newErrors.surname = 'Soyad gereklidir';
+            newErrors.surname = t('needSurname');
         }
         if (!userData.password.trim()) {
-            newErrors.password = 'Şifre gereklidir';
+            newErrors.password = t('needPassword');
         } else if (userData.password.length < 6) {
-            newErrors.password = 'Şifre en az 6 karakter olmalıdır';
+            newErrors.password = t('invalidPassword');
         }
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -60,14 +64,14 @@ export const CreateCorporateView = () => {
             const response = await corporateSignUp(userData, corporateData);
 
             if (!response.user || !response.corporate) {
-                throw new Error('Kullanıcı veya kurum oluşturulamadı');
+                throw new Error(t('errorSave'));
             }
 
             setSubmitSuccess(true);
             setTimeout(() => {
                 setCorporateData({ name: '', domain: '', isActive: true });
                 setUserData({
-                    email: '', name: '', surname: '', password: '', type: 'CORPORATE',
+                    email: '', name: '', surname: '', password: '', type: 'CORPORATE', orcidId: "",
                     isActive: true, provider: 'LOCAL'
                 });
                 setCurrentStep(1);
@@ -91,9 +95,9 @@ export const CreateCorporateView = () => {
                     <CardContent className="pt-6">
                         <div className="text-center">
                             <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Başarıyla Oluşturuldu!</h3>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2"> {t('successSave')} </h3>
                             <p className="text-gray-600 mb-4">
-                                Kurum ve kullanıcı başarıyla eklendi. Yeni kayıt için yönlendiriliyorsunuz...
+                                {t('successSaveDesc')}
                             </p>
                             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500 mx-auto"></div>
                         </div>
@@ -110,9 +114,9 @@ export const CreateCorporateView = () => {
                 <div>
                     <Link href={'/dashboard'} className="flex gap-2 items-center">
                         <ChevronLeft className="text-gray-600" />
-                        <h1 className="text-body2 text-gray-600 font-onest">Ana Sayfa</h1>
+                        <h1 className="text-body2 text-gray-600 font-onest"> {t('home')} </h1>
                     </Link>
-                    <p className="text-gray-900 text-header2 font-onest font-semibold mt-2">Tüm Kurumlar</p>
+                    <p className="text-gray-900 text-header2 font-onest font-semibold mt-2"> {t('allCorporates')}</p>
                 </div>
 
                 <div className='w-full flex flex-col justify-center items-center font-onest'>
@@ -125,7 +129,7 @@ export const CreateCorporateView = () => {
                                 </div>
                                 <span className={`ml-2 text-sm font-medium ${currentStep >= 1 ? 'text-blue-600' : 'text-gray-500'
                                     }`}>
-                                    Kurum Bilgileri
+                                    {t('corporateInfo')}
                                 </span>
                             </div>
 
@@ -139,7 +143,7 @@ export const CreateCorporateView = () => {
                                 </div>
                                 <span className={`ml-2 text-sm font-medium ${currentStep >= 2 ? 'text-blue-600' : 'text-gray-500'
                                     }`}>
-                                    Kullanıcı Ataması
+                                    {t('userAssign')}
                                 </span>
                             </div>
                         </div>

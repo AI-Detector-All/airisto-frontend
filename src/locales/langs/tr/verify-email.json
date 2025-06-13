@@ -1,0 +1,14 @@
+{
+    "checkEmail":"Email kutunuzu kontrol ederek doğrulama linkine tıklayın.",
+    "emailSend":"Doğrulama emaili gönderildi",
+    "sending":"Gönderiliyor...",
+    "sendAgain":"Tekrar gönder",
+    "sendAgain2":"Doğrulama emailini tekrar gönder",
+    "backToSignUp":"Kayıt formuna geri dön",
+    "didntGetEmail":"Email almadınız mı?",
+    "list1":"• Spam/gereksiz klasörünüzü kontrol edin",
+    "list2":"• Email adresinizin doğru olduğundan emin olun",
+    "list3":"• Birkaç dakika bekleyip tekrar deneyin",
+    "stillTrouble":"Hala sorun yaşıyorsanız",
+    "contactSupport":"destek ekibimizle iletişime geçin"
+}

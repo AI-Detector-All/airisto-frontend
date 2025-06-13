@@ -1,0 +1,14 @@
+{
+    "accessDenied":"Erişim Engellendi",
+    "accessError":"Yetki Hatası",
+    "accessErrorDesc":"Bu sayfaya erişim yetkiniz bulunmamaktadır. Bu durumun bir hata olduğunu düşünüyorsanız, lütfen sistem yöneticinizle iletişime geçin veya uygun yetkilerle giriş yapmayı deneyin.",
+    "backToDashboard":"Ana Sayfaya Geri Dön",
+    "back":"Geri Git",
+    "whatCanYouDo":"Ne yapabilirsiniz?",
+    "checkAccess":"Yetki Kontrolü",
+    "checkAccessDesc":"Doğru kullanıcı hesabıyla giriş yaptığınızdan emin olun.",
+    "managerSupport":"Yönetici Desteği",
+    "managerSupportDesc":"Sistem yöneticinizden ek yetkiler talep edin.",
+    "contactToSupport":"Destek Ekibiyle İletişime Geç →"
+
+}

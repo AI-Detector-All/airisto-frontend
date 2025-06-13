@@ -10,14 +10,15 @@ import Link from "next/link";
 import { useState, useMemo } from "react";
 import { deleteAnalysis } from "@/services/analysis";
 import { toast } from "sonner";
+import { useTranslate } from "@/locales";
 
 const filterItems = [
     {
-        name: 'Tüm Dokümanlar',
+        name: 'allDocuments',
         id: 'all'
     },
     {
-        name: 'Favoriler',
+        name: 'favorites',
         id: 'favorites'
     },
     {
@@ -31,6 +32,7 @@ const filterItems = [
 ]
 
 export default function DocumentsView() {
+    const {t} = useTranslate('documents');
     const [selected, setSelected] = useState(filterItems[0].id)
     const { isLoading, user, refreshUserData } = useAuth()
     const { userDocuments, isDocumentLoading, refreshUserAnalysis } = useUserDocument();
@@ -88,15 +90,15 @@ export default function DocumentsView() {
                     <div>
                         <Link href={'/dashboard'} className="flex gap-2 items-center">
                             <ChevronLeft className="text-gray-600" />
-                            <h1 className="text-body2 text-gray-600 font-onest">Ana Sayfa</h1>
+                            <h1 className="text-body2 text-gray-600 font-onest"> {t('home')} </h1>
                         </Link>
-                        <p className="text-gray-900 text-header2 font-onest font-semibold mt-2">Dokümanlar</p>
+                        <p className="text-gray-900 text-header2 font-onest font-semibold mt-2">{t('documents')}</p>
                     </div>
                     <div className="mr-8 gap-4 flex">
                         <Button className="bg-fuchsia-400 rounded-md px-4 py-2 hover:bg-fuchsia-500">
                             <Link href={'/dashboard/ai-detector'} className="flex gap-2 items-center">
                                 <Plus className="text-white" />
-                                <p className="text-body2 text-white font-onest">Yeni Tespit</p>
+                                <p className="text-body2 text-white font-onest"> {t('new')} </p>
                             </Link>
                         </Button>
                     </div>
@@ -111,7 +113,7 @@ export default function DocumentsView() {
                                 className={`rounded-lg px-4 py-4 text-gray-900 bg-gray-200 hover:bg-fuchsia-100
                                 ${selected === item.id ? 'border border-fuchsia-400 bg-fuchsia-50' : ''}`}
                             >
-                                <p className="text-body2 text-gray-900 font-onest">{item.name}</p>
+                                <p className="text-body2 text-gray-900 font-onest">{t(item.name)}</p>
                             </Button>
                         ))}
                     </div>
@@ -121,7 +123,7 @@ export default function DocumentsView() {
                         <div className="flex flex-col">
                             <div className="flex items-center gap-2">
                                 <span className="text-sm font-medium text-gray-700 font-onest">
-                                    Depolama Alanı
+                                    {t('storage')}
                                 </span>
                                 <span className="text-xs text-gray-500 font-onest">
                                     {formatBytes(storageInfo.used)} / {formatBytes(storageInfo.max)}
@@ -137,7 +139,7 @@ export default function DocumentsView() {
                                 />
                             </div>
                             <span className="text-xs text-gray-500 font-onest mt-1">
-                                {formatBytes(storageInfo.remaining)} kalan
+                                {formatBytes(storageInfo.remaining)} {t('remain')}
                             </span>
                         </div>
                     </div>

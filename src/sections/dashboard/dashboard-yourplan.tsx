@@ -9,9 +9,10 @@ import { useAuth } from "@/hooks/useAuth";
 import { DashboardSkeleton } from "@/components/ui/global-loader";
 import { useSubscription } from "@/hooks/useSubscription";
 import { formatDate } from "@/utils/date-formatter";
-
+import { useTranslate } from "@/locales";
 
 export function DashboardYourPlan() {
+    const { t } = useTranslate('dashboard');
     const { user, isLoading, getTokenUsage } = useAuth();
     const { subscription } = useSubscription();
     const { used, total, percentage } = getTokenUsage();
@@ -23,13 +24,13 @@ export function DashboardYourPlan() {
             <Card className="w-full shadow-none border-none">
                 <CardHeader className="pb-4">
                     <div className="flex justify-between items-center">
-                        <CardTitle className="text-header4 font-semibold font-onest text-gray-900">Abonelik Planınız</CardTitle>
+                        <CardTitle className="text-header4 font-semibold font-onest text-gray-900">{t('subscriptionPlan')}</CardTitle>
                         <Badge variant="outline" className="bg-purple-100 text-purple-700 border-purple-200">
                             {subscription?.name}
                         </Badge>
                     </div>
                     <CardDescription className="pt-2 text-gray-600">
-                        Yenileme tarihi: <span className="font-medium">{formatDate(user?.renewalDate ?? new Date(), { hour: undefined, minute: undefined })}</span>
+                        {t('renewalDate')} <span className="font-medium">{formatDate(user?.renewalDate ?? new Date(), { hour: undefined, minute: undefined })}</span>
                     </CardDescription>
                 </CardHeader>
 
@@ -38,7 +39,7 @@ export function DashboardYourPlan() {
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <Zap className="h-4 w-4 text-purple-500 mr-2" />
-                                <span className="text-sm font-medium">Kelime Token</span>
+                                <span className="text-sm font-medium">{t('wordToken')}</span>
                             </div>
                             <span className="text-sm text-gray-500">{used} / {total}</span>
                         </div>
@@ -47,8 +48,8 @@ export function DashboardYourPlan() {
                             className="h-2 bg-purple-100"
                         />
                         <div className="flex justify-between text-xs text-gray-500">
-                            <span>{total - used} token kaldı</span>
-                            <span>{used} token kullanıldı</span>
+                            <span>{total - used} {t('tokensRemaining')}</span>
+                            <span>{used} {t('tokensUsed')}</span>
                         </div>
                     </div>
                 </CardContent>
@@ -59,9 +60,8 @@ export function DashboardYourPlan() {
                         href={"/dashboard/upgrade"}
                         className="bg-gradient-to-r from-fuchsia-400 to-magenta-400 flex space-x-2 items-center text-sm font-medium text-white hover:text-foreground transition-colors rounded-md px-4 py-2 font-onest"
                     >
-                        <span>Plan Detayları</span>
+                        <span>{t('planDetails')}</span>
                         <Crown className="h-4 w-4" />
-
                     </Link>
                 </CardFooter>
             </Card>

@@ -1,0 +1,20 @@
+{
+    "usedToken":"Kullanılan Token",
+    "remainingToken":"Kalan Token",
+    "usedTokenDescription":"Kullanılan Token",
+    "remainingTokenDescription":"Kalan Token",
+    "signIn":"Giriş Yap",
+    "profile":"Profil",
+    "subsPlan":"Abonelik Planınız",
+    "logout":"Cıkıs Yap",
+    
+    "home":"Ana Sayfa",
+    "documents":"Dokumanlar",
+    "newDetection":"Yeni Tespit",
+    "aiDetectorTitle":"AI Tespit Aracı",
+    "users":"Kullanıcılar",
+    "allUsers":"Tüm Kullanıcılar",
+    "allCorporates":"Tüm Kurumlar",
+    "support":"Destek",
+    "settings":"Ayarlar"
+}

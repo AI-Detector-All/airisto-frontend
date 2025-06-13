@@ -1,0 +1,21 @@
+{
+  "accessDeniedTitle": "Access Denied",
+  "accessDeniedMessage": "Your organization is currently inactive.",
+  "accessCorporateDenied": "You cannot access the system because your organization's subscription is not active.",
+  "accessCorporateInfo": "Your organization information",
+  "accessCorporateName": "Organization Name",
+  "accessCorporateDomain": "Organization Domain",
+  "accessCorporateManager": "Organization Administrator",
+  "accessCorporateStatus": "Organization Status",
+  "accessInactive": "Inactive",
+  "whatNext": "What should you do?",
+  "contactCorporate": "Contact Your Organization Administrator",
+  "sendEmail": "Send Email",
+  "sendEmailDesc": "Send email directly to your organization administrator:",
+  "waitActivation": "Wait for Activation",
+  "waitActivationDesc": "After your organization administrator completes the subscription process, you will automatically be able to access the system.",
+  "refreshStatus": "Refresh Status",
+  "contactToManager": "Contact your organization administrator",
+  "contactSupport": "For urgent matters, you can contact our technical support team",
+  "contactSupportButton": "Contact Technical Support"
+}

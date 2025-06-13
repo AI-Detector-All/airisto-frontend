@@ -1,12 +1,15 @@
+'use client';
 import { Card, CardContent } from "@/components/ui/card";
+import { useTranslate } from "@/locales";
 import { FileText, } from "lucide-react";
 
 export function HomeContent() {
+  const { t } = useTranslate('home');
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-6xl mx-auto px-4 py-8 ">
-      <h1 className="text-header font-onest font-bold text-center mb-2">Yapay Zeka İçerik Dedektifi</h1>
+      <h1 className="text-header font-onest font-bold text-center mb-2"> {t('contentTitle')} </h1>
       <p className="text-center text-gray-600 mb-8">
-        Yapay zeka tarafından oluşturulan içeriği tespit etmek ve dakikalar içinde orijinalliği sağlamak için hepsi bir arada platform
+        {t('contentDesc')}
       </p>
 
       <div className="relative w-full">
@@ -18,9 +21,9 @@ export function HomeContent() {
                 <div className="w-14 h-14 bg-gradient-to-r from-purple-400 to-orange-400 flex items-center justify-center rounded-lg mb-3">
                   <FileText className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Yapay Zeka Metin Dedektörü</h3>
+                <h3 className="font-semibold text-lg mb-2">{t('contentTitle')} </h3>
                 <p className="text-gray-600 text-sm">
-                  Yapay zeka tarafından oluşturulup oluşturulmadıklarını doğrulamak için metinleri, belgeleri ve makaleleri analiz edin.
+                  {t('contentDesc2')} 
                 </p>
               </CardContent>
             </div>

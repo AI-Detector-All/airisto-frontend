@@ -1,0 +1,61 @@
+{
+  "backToHome": "Airisto",
+  "welcomeBack": "Tekrar hoş geldiniz! Lütfen bilgilerinizi girin",
+  "signInTitle": "Oturum Açın",
+  "emailLabel": "Email",
+  "emailPlaceholder": "Emailinizi girin",
+  "passwordLabel": "Şifre",
+  "passwordPlaceholder": "Şifrenizi girin",
+  "rememberMe": "Beni Hatırla",
+  "forgotPassword": "Şifremi Unuttum",
+  "signInButton": "Giriş Yap",
+  "signingIn": "Giriş Yapılıyor...",
+  "noAccount": "Hesabınız yok mu?",
+  "signUpLink": "Kayıt olun",
+  "orContinueWith": "Ya da",
+  "signInWithGoogle": "Google ile Oturum Açın",
+  "aiTagline": "Yapay Zeka ile Ortaya Çıkarın",
+  "mainTitle": "Yapay Zeka Tarafından Oluşturulan İçeriği Tespit Etmek için",
+  "mainSubtitle": "En Hızlı ve En Kolay Yol",
+  "mainDescription": "Yapay zeka üretimi metinleri % doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda.",
+  "detectAI": "Yapay Zekayı Tespit Et",
+  "cancelAnytime": "İstediğiniz zaman iptal edebilirsiniz",
+  "seeHowItWorks": "Nasıl çalıştığını görün",
+  "features": {
+    "advancedDetection": {
+      "title": "Gelişmiş Tespit",
+      "description": "%85'lik doğruluk oranıyla yapay zeka destekli analiz"
+    },
+    "multiModelSupport": {
+      "title": "Çoklu Model Desteği", 
+      "description": "ChatGPT, Gemini ve daha fazlasından gelen içeriği algılar"
+    },
+    "fileCompatibility": {
+      "title": "Dosya Uyumluluğu",
+      "description": "docx ve pdf belgelerini analiz edin"
+    },
+    "detailedReports": {
+      "title": "Detaylı Raporlar",
+      "description": "Tespit edilen içerikle ilgili kapsamlı analizler alın"
+    }
+  },
+  "accessDeniedTitle": "Erişim Engellendi",
+  "accessDeniedMessage": "Kurumunuz şu anda aktif değil.",
+  "accessCorporateDenied": "Kurumunuzun aboneliği aktif olmadığı için sisteme erişim sağlayamazsınız.",
+  "accessCorporateInfo": "Kurumunuzun bilgileri",
+  "accessCorporateName": "Kurum Adı",
+  "accessCorporateDomain": "Kurum Domaini", 
+  "accessCorporateManager": "Kurum Yöneticisi",
+  "accessCorporateStatus": "Kurum Durumu",
+  "accessInactive": "İnaktif",
+  "whatNext": "Ne yapmalısınız?",
+  "contactCorporate": "Kurum Yöneticinizle İletişime Geçin",
+  "sendEmail": "E-posta Gönder",
+  "sendEmailDesc": "Doğrudan kurum yöneticinize email gönderin:",
+  "waitActivation": "Aktivasyon Bekleyin",
+  "waitActivationDesc": "Kurum yöneticiniz abonelik işlemlerini tamamladıktan sonra sisteme otomatik olarak erişim sağlayabileceksiniz.",
+  "refreshStatus": "Durumu Yenile",
+  "contactToManager": "Kurum Yöneticinizle iletişime geçin",
+  "contactSupport": "Acil durumlarda teknik destek ekibimizle iletişime geçebilirsiniz",
+  "contactSupportButton": "Teknik Destek iletişime Geçin"
+}

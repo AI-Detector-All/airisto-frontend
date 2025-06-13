@@ -1,0 +1,11 @@
+{
+    "title": "Corporate Activation",
+    "desc": "Your organization has been successfully created. Select your subscription plan to start using our services.",
+    "corporateInfo": "Organization Information",
+    "activationStatus": "Awaiting Activation",
+    "corporateName": "Organization Name:",
+    "corporateDomain": "Organization Domain:",
+    "corporateCreatedAt": "Organization Creation Date:",
+    "needHelp": "Need Help?",
+    "needHelpDesc": "Not sure which plan is right for you? Let’s talk to our experts and get a customized solution for you."
+}

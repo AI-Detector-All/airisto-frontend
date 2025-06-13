@@ -25,12 +25,14 @@ import {
 } from '@/components/ui/select';
 import { User } from 'lucide-react';
 import { User as UserType } from '@/types/user';
+import { useTranslate } from '@/locales';
 
 interface UserProfileProps {
     user: UserType
 }
 
 export default function UserProfileForm({ user }: UserProfileProps) {
+    const { t } = useTranslate('profile')
     const [userData, setUserData] = useState({
         firstName: user.name,
         lastName: user.surname,
@@ -48,16 +50,16 @@ export default function UserProfileForm({ user }: UserProfileProps) {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleProfileSave = () => {
-        alert('Profile updated successfully!');
+        alert(t('success'));
     };
 
     const handlePasswordSave = () => {
         if (newPassword !== confirmPassword) {
-            alert('New passwords do not match!');
+            alert(t('passwordDoesntMatch'));
             return;
         }
 
-        alert('Password updated successfully!');
+        alert(t('successPassword'));
     };
 
     return (
@@ -73,9 +75,9 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                                 </AvatarFallback>
                                 <AvatarImage src="" />
                             </Avatar>
-                            <h1 className='text-body2 font-onest text-gray-900 font-semibold'> IMG_1241247890.JPG </h1>
+                            <h1 className='text-body2 font-onest text-gray-900 font-semibold'> {user.name} {user.surname} </h1>
                         </div>
-                        <Button className='bg-gray-800 '> <span className='text-white text-body3 font-onest'> Fotoğraf Yükle </span> </Button>
+                        <Button className='bg-gray-800 '> <span className='text-white text-body3 font-onest'> {t('uploadPhoto')} </span> </Button>
                     </div>
 
                 </CardContent>
@@ -84,7 +86,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                 <CardContent>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-4 rounded-lg">
                         <div className="space-y-2">
-                            <Label htmlFor="firstName">İsim</Label>
+                            <Label htmlFor="firstName">{t('name')}</Label>
                             <Input
                                 id="firstName"
                                 value={userData.firstName}
@@ -93,7 +95,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="lastName">Soyisim</Label>
+                            <Label htmlFor="lastName">{t('surname')}</Label>
                             <Input
                                 id="lastName"
                                 value={userData.lastName}
@@ -102,7 +104,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="email">Email</Label>
+                            <Label htmlFor="email">{t('email')}</Label>
                             <Input
                                 id="email"
                                 type="email"
@@ -112,7 +114,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="phone">Telefon</Label>
+                            <Label htmlFor="phone">{t('phone')}</Label>
                             <Input
                                 id="phone"
                                 value={userData.phone}
@@ -121,7 +123,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         </div>
 
                         <div className="space-y-2 md:col-span-2">
-                            <Label htmlFor="address">Adres</Label>
+                            <Label htmlFor="address">{t('address')}</Label>
                             <Input
                                 id="address"
                                 value={userData.address}
@@ -131,7 +133,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="postalCode">Posta Kodu</Label>
+                            <Label htmlFor="postalCode">{t('postalCode')}</Label>
                             <Input
                                 id="postalCode"
                                 value={userData.postalCode}
@@ -140,7 +142,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="city">Şehir</Label>
+                            <Label htmlFor="city">{t('state')}</Label>
                             <Input
                                 id="city"
                                 value={userData.city}
@@ -149,7 +151,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="state">İlçe</Label>
+                            <Label htmlFor="state">{t('district')}</Label>
                             <Input
                                 id="state"
                                 value={userData.state}
@@ -158,7 +160,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         </div>
 
                         <div className="space-y-2 w-full">
-                            <Label htmlFor="country">Ülke</Label>
+                            <Label htmlFor="country">{t('country')}</Label>
                             <Select defaultValue={userData.country}  >
                                 <SelectTrigger className='w-full'>
                                     <SelectValue placeholder="Select country" />
@@ -177,7 +179,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         className="w-full mt-6 bg-fuchsia-400 hover:bg-fuchsia-700"
                         onClick={handleProfileSave}
                     >
-                        Değişiklikleri Kaydet
+                        {t('save')}
                     </Button>
                 </CardContent>
 
@@ -186,9 +188,9 @@ export default function UserProfileForm({ user }: UserProfileProps) {
             {/* Password Card */}
             <Card className="w-full shadow-none border-none bg-transparent">
                 <CardContent className="space-y-4 bg-white p-8 rounded-lg">
-                    <h1 className='text-header4 text-gray-900 font-onest font-semibold'> Şifre Değiştir </h1>
+                    <h1 className='text-header4 text-gray-900 font-onest font-semibold'> {t('changePassword')} </h1>
                     <div className="space-y-2 mt-8">
-                        <Label htmlFor="currentPassword">Şifreniz</Label>
+                        <Label htmlFor="currentPassword">{t('currentPassword')}</Label>
                         <Input
                             id="currentPassword"
                             type="password"
@@ -200,7 +202,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="newPassword">Yeni Şifre</Label>
+                        <Label htmlFor="newPassword">{t('newPassword')}</Label>
                         <Input
                             id="newPassword"
                             type="password"
@@ -212,7 +214,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="confirmPassword">Yeni Şifre Tekrar</Label>
+                        <Label htmlFor="confirmPassword">{t('newPasswordRepeat')}</Label>
                         <Input
                             id="confirmPassword"
                             type="password"
@@ -227,7 +229,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         className="w-full mt-6 bg-gray-800 hover:bg-slate-900"
                         onClick={handlePasswordSave}
                     >
-                        Değişiklikleri kaydet
+                        {t('save')}
                     </Button>
                 </CardContent>
             </Card>
