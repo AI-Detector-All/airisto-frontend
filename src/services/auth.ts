@@ -7,6 +7,7 @@ import { deleteCookie, setCookie } from "@/utils/cookie";
 
 export async function signIn(email: string, password: string): Promise<AuthResponse> {
     const response = await api.post('/auth/signin', { email, password });
+    console.log(response.data);
     
     if (response.data.access_token) {
         setCookie('access_token', response.data.access_token, 7);
