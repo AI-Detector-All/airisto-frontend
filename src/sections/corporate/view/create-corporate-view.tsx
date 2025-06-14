@@ -27,6 +27,7 @@ export const CreateCorporateView = () => {
         orcidId:"",
         isActive: false,
     });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
