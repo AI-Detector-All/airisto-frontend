@@ -1,0 +1,39 @@
+name: Deploy Next.js Web
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          echo "Deploying Next.js Web..."
+          cd /root/airisto/airisto-frontend
+          
+          # Git pull
+          git pull origin main
+          
+          # Dependencies ve build
+          npm ci
+          npm run build
+          
+          # PM2 ile servisi yeniden başlat
+          pm2 delete nextjs-web || true
+          pm2 start ecosystem.config.js
+          pm2 save
+          
+          echo "Next.js Web deployed successfully!"

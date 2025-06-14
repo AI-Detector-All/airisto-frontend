@@ -156,7 +156,7 @@ export default function AIDetectionRadarChart({ isAnalyzing, results }: AIDetect
           <h4 className="font-semibold text-sm">Kategori Analizi</h4>
         </div>
         
-        <div className="h-48 w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-4">
+        <div className="h-72 w-full bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-4">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 40 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
