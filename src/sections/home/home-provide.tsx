@@ -66,7 +66,7 @@ export function HomeProvide() {
                 {analysisResult.indicators.map((indicator, index) => (
                   <div key={index}>
                     <div className="flex justify-between mb-1">
-                      <span className="text-xs text-gray-600 font-onest">{indicator.name}</span>
+                      <span className="text-xs text-gray-600 font-onest">{t(indicator.name)}</span>
                       <span className="text-xs font-medium font-onest">{indicator.score}%</span>
                     </div>
                     <Progress value={indicator.score} className="h-1 bg-gray-100" />

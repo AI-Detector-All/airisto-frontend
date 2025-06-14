@@ -55,5 +55,34 @@
       "title": "Detailed Reports",
       "description": "Get comprehensive analysis about detected content"
     }
-  }
+  },
+
+  "requiredName": "Name field is required",
+  "requiredSurName": "Surname field is required",
+  "requiredEmail": "Email field is required",
+  "requiredPassword": "Password field is required",
+  "invalidEmail": "Please enter a valid email address",
+  "errorValidation": "Missing Information",
+  "errorValidationDesc": "Please fill in all required fields",
+  "errorAcceptTerms": "Terms and Conditions",
+  "errorAcceptTermsDesc": "Please accept the terms and conditions",
+  "errorPasswordValid": "Password Requirements",
+  "errorPasswordValidDesc": "Please meet the password requirements",
+  "welcome": "Welcome",
+  "redirectToEmailVerification": "Your account has been successfully created. Redirecting to email verification page...",
+  "errorTitle": "Registration Error",
+  "errorDesc": "An error occurred while creating your account.",
+  "errorConflict": "Email address already in use",
+  "errorConflictDesc": "An account with this email already exists. Please try signing in.",
+  "errorInvalidSignUp": "Invalid Registration Information",
+  "errorInvalidSignUpDesc": "Please check your information and try again.",
+  "errorServer": "Server Error",
+  "errorServerDesc": "An error occurred on the server. Please try again later.",
+  "errorServerEmail": "Verification email could not be sent. Please check your email address.",
+  "errorToManyRequest": "Too Many Attempts",
+  "errorToManyRequestDesc": "Too many failed registration attempts. Please try again later.",
+  "errorNavigator": "Connection Error",
+  "errorNavigatorDesc": "A connection error occurred. Please try again later.",
+  "errorNetwork": "Network Error",
+  "errorNetworkDesc": "Could not connect to the server. Please try again later."
 }
