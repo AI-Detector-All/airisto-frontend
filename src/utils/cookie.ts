@@ -2,15 +2,17 @@ export const setCookie = (name: string, value: string, days = 7) => {
   const expires = new Date();
   expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
   
-  const domain = window.location.hostname;
-  console.log('Cookie domain:', domain);
+  const isHTTPS = window.location.protocol === 'https:';
   
-  if (domain === 'localhost') {
-    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+  let cookieString;
+  
+  if (isHTTPS) {
+    cookieString = `${name}=${value};expires=${expires.toUTCString()};path=/;secure;samesite=lax`;
   } else {
-    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;domain=.aristothales.com;secure;samesite=strict`;
+    cookieString = `${name}=${value};expires=${expires.toUTCString()};path=/;samesite=lax`;
   }
   
+  document.cookie = cookieString;
 };
 
 export const getCookie = (name: string): string | null => {

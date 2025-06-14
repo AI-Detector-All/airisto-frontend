@@ -29,7 +29,7 @@ export function useTranslate(ns?: string) {
 
   const onChangeLang = useCallback(
     (newLangValue: string) => {
-      console.log('Changing language to:', newLangValue);
+      // console.log('Changing language to:', newLangValue);
       
       // Set localStorage first
       if (typeof window !== 'undefined') {
@@ -43,7 +43,7 @@ export function useTranslate(ns?: string) {
           return;
         }
         
-        console.log('Language successfully changed to:', i18next.language);
+        // console.log('Language successfully changed to:', i18next.language);
         setCurrentLangCode(newLangValue);
         
         // Force reload the page to ensure server and client are in sync

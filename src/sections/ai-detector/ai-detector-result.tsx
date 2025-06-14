@@ -15,7 +15,6 @@ interface AIDetectorResultProps {
 }
 
 export function AIDetectorResult({ isAnalyzing, results, tokenLimitExceeded }: AIDetectorResultProps) {
-    console.log(results);
     
     const { t } = useTranslate('ai-detector')
     
