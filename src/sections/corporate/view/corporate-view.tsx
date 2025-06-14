@@ -17,7 +17,6 @@ export default function CorporateView() {
 
     const getAllCorporates = async () => {
         const response = await getCorporates();
-        console.log(response);
 
         setCorporates(response);
     }

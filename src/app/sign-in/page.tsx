@@ -38,7 +38,6 @@ export default function Page() {
 
             setIsLoading(false);
             setTimeout(() => {
-                console.log('Cookie kontrol:', getCookie('access_token'));
                 router.push('/dashboard');
             }, 200);
         } catch (error) {

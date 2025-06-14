@@ -20,21 +20,21 @@ export async function newAnalyze(
         if (document) formData.append("document", document);
         
         if (referenceDocuments && referenceDocuments.length > 0) {
-            referenceDocuments.forEach((refDoc, index) => {
+            referenceDocuments.forEach((refDoc) => {
                 formData.append("referenceDocuments", refDoc);
-                console.log(`Added reference document ${index + 1}: ${refDoc.name}`);
+                // console.log(`Added reference document ${index + 1}: ${refDoc.name}`);
             });
             
-            console.log(`Total reference documents: ${referenceDocuments.length}`);
+            // console.log(`Total reference documents: ${referenceDocuments.length}`);
         }
 
-        for (const [key, value] of formData.entries()) {
-            if (value instanceof File) {
-                console.log(`${key}: ${value.name} (${value.size} bytes)`);
-            } else {
-                console.log(`${key}: ${value}`);
-            }
-        }
+        // for (const [key, value] of formData.entries()) {
+        //     if (value instanceof File) {
+        //         console.log(`${key}: ${value.name} (${value.size} bytes)`);
+        //     } else {
+        //         console.log(`${key}: ${value}`);
+        //     }
+        // }
 
         const response = await api.post('/analysis', formData, {
             headers: {

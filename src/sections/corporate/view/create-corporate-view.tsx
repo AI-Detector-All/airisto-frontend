@@ -58,7 +58,6 @@ export const CreateCorporateView = () => {
     const handleSubmit = async () => {
 
         if (!validateStep2()) return;
-        console.log("Step 2 data:", userData, corporateData);
 
         setIsSubmitting(true);
         try {

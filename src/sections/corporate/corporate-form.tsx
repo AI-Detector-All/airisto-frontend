@@ -49,7 +49,6 @@ export function CorporateForm({ setCurrentStep, corporateData, setCorporateData 
 
 
     const handleStep1Next = () => {
-        console.log("Step 1 data:", corporateData);
 
         if (validateStep1()) {
 
