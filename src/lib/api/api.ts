@@ -22,18 +22,30 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      deleteCookie('access_token');
-      localStorage.removeItem("access_token")
-      window.location.href = "/sign-in"
+      const currentUrl = window.location.href;
+      const isLocalhost = currentUrl.includes('localhost:3000');
+      const isDashboard = currentUrl.includes('/dashboard');
+      
+      if (isDashboard && !isLocalhost) {
+        deleteCookie('access_token');
+        localStorage.removeItem("access_token");
+        window.location.href = "/sign-in";
+      }
     }
-    const errorMessage = error.response?.data?.message || error.message
-    handleError(errorMessage)
+    
+    const currentUrl = window.location.href;
+    const isLocalhost = currentUrl.includes('localhost:3000');
+    const isDashboard = currentUrl.includes('/dashboard');
+    
+    if (isDashboard && !isLocalhost) {
+      const errorMessage = error.response?.data?.message || error.message;
+      handleError(errorMessage);
+    }
 
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
 );
