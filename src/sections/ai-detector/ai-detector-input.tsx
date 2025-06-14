@@ -41,10 +41,10 @@ export function AIDetectorInput({
     const { user, isLoading, refreshUserData } = useAuth();
     const fileInputRef = useRef<HTMLInputElement>(null);
     const referenceFileInputRef = useRef<HTMLInputElement>(null);
-    
+
     const [uploadedFileName, setUploadedFileName] = React.useState<File | null>(null);
     const [referenceDocuments, setReferenceDocuments] = React.useState<File[]>([]);
-    
+
     const router = useRouter();
     const [showVerifyModal, setShowVerifyModal] = React.useState(false);
 
@@ -63,9 +63,9 @@ export function AIDetectorInput({
 
         try {
             const response = await newAnalyze(
-                user?.corporate ? user?.corporate.id : undefined, 
-                title, 
-                text, 
+                user?.corporate ? user?.corporate.id : undefined,
+                title,
+                text,
                 uploadedFileName ?? undefined,
                 referenceDocuments.length > 0 ? referenceDocuments : undefined
             );
@@ -112,14 +112,14 @@ export function AIDetectorInput({
 
     const handleReferenceFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(e.target.files || []);
-        
+
         // Mevcut referans dosyaları + yeni dosyalar
         const newReferenceFiles = [...referenceDocuments, ...files];
-        
+
         // Maksimum 3 dosya kontrolü
         if (newReferenceFiles.length > 3) {
-            toast.warning("Maksimum 3 referans doküman yükleyebilirsiniz", {
-                description: "Lütfen daha az dosya seçin."
+            toast.warning(t('errorReference'), {
+                description: t('errorReferenceDesc')
             });
             return;
         }
@@ -182,7 +182,7 @@ export function AIDetectorInput({
                             />
                         </>
                     )}
-                    
+
                     {/* Hidden file inputs */}
                     <input
                         type="file"
@@ -234,18 +234,17 @@ export function AIDetectorInput({
                 </CardFooter>
             </Card>
 
-            {/* Referans Dokümanlar Kartı */}
             <Card className="w-full">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                         <FileText className="w-5 h-5" />
-                        Referans Dokümanlar (Opsiyonel)
+                        {t('referenceDocumentsTitle')}
                         <Badge variant="outline" className="text-xs">
                             {referenceDocuments.length}/3
                         </Badge>
                     </CardTitle>
                     <CardDescription>
-                        Geçmiş çalışmalarınızı yükleyerek karşılaştırmalı analiz yapabilirsiniz
+                        {t('referenceDocumentsDesc')}
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -253,11 +252,11 @@ export function AIDetectorInput({
                     <Alert>
                         <Info className="h-4 w-4" />
                         <AlertDescription>
-                            <strong>Neden referans doküman?</strong> Geçmiş çalışmalarınızı yükleyerek:
+                            <strong>{t('referenceDocumentsInfoTitle')}</strong> {t('referenceDocumentsInfoDesc')}
                             <ul className="list-disc list-inside mt-2 space-y-1 text-sm">
-                                <li>Yazım dili tutarlılığınızı kontrol edebiliriz</li>
-                                <li>Akademik tarzınızla uyumluluğunu değerlendirebiliriz</li>
-                                <li>Kişisel yazım stilinizi tanıyarak daha doğru analiz yapabiliriz</li>
+                                <li>{t('referenceDocumentsInfo1')}</li>
+                                <li>{t('referenceDocumentsInfo2')}</li>
+                                <li>{t('referenceDocumentsInfo3')}</li>
                             </ul>
                         </AlertDescription>
                     </Alert>
@@ -265,7 +264,7 @@ export function AIDetectorInput({
                     {/* Yüklenen Referans Dokümanlar */}
                     {referenceDocuments.length > 0 && (
                         <div className="space-y-3">
-                            <h4 className="font-medium text-sm">Yüklenen Referans Dokümanlar:</h4>
+                            <h4 className="font-medium text-sm">{t('uploadedReferenceDocuments')}</h4>
                             <div className="grid gap-3">
                                 {referenceDocuments.map((file, index) => (
                                     <div
@@ -283,7 +282,7 @@ export function AIDetectorInput({
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <Badge variant="secondary" className="text-xs">
-                                                Referans {index + 1}
+                                                {t('reference')} {index + 1}
                                             </Badge>
                                             <Button
                                                 size="sm"
@@ -309,12 +308,12 @@ export function AIDetectorInput({
                             <div className="flex flex-col items-center gap-2">
                                 <Plus className="w-8 h-8 text-muted-foreground" />
                                 <div>
-                                    <p className="font-medium">Referans Doküman Ekle</p>
+                                    <p className="font-medium">{t('addReferenceDocument')}</p>
                                     <p className="text-sm text-muted-foreground">
-                                        PDF, DOCX veya DOC formatında dosyalarınızı seçin
+                                        {t('addReferenceDocumentDesc')}
                                     </p>
                                     <p className="text-xs text-muted-foreground mt-1">
-                                        Kalan: {3 - referenceDocuments.length} dosya
+                                        {t('remain')} {3 - referenceDocuments.length} {t('file')}
                                     </p>
                                 </div>
                             </div>
@@ -324,10 +323,10 @@ export function AIDetectorInput({
                     {referenceDocuments.length === 3 && (
                         <div className="text-center p-4 bg-green-50 dark:bg-green-950 rounded-lg">
                             <p className="text-sm text-green-700 dark:text-green-300 font-medium">
-                                ✓ Maksimum sayıda referans doküman yüklendi
+                                {t('maxReference')}
                             </p>
                             <p className="text-xs text-green-600 dark:text-green-400 mt-1">
-                                Artık karşılaştırmalı analiz için hazırsınız
+                                {t('nowReference')}
                             </p>
                         </div>
                     )}

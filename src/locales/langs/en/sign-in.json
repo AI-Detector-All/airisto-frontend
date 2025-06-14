@@ -57,5 +57,18 @@
   "refreshStatus": "Refresh Status",
   "contactToManager": "Contact your organization administrator",
   "contactSupport": "For urgent matters, you can contact our technical support team",
-  "contactSupportButton": "Contact Technical Support"
+  "contactSupportButton": "Contact Technical Support",
+
+  "welcome": "Welcome",
+  "redirectToDashboard": "Redirecting to Dashboard...",
+  "errorTitle": "Login Error",
+  "errorDesc": "An error occurred while signing in.",
+  "errorInvalidSignIn": "Invalid Login Credentials",
+  "errorInvalidSignInDesc": "Your email address or password is incorrect. Please try again.",
+  "errorToManyRequests": "Too Many Attempts",
+  "errorToManyRequestsDesc": "Too many failed login attempts. Please try again later.",
+  "errorServer": "Server Error",
+  "errorServerDesc": "An error occurred on the server. Please try again later.",
+  "errorNavigator": "Connection Error",
+  "errorNavigatorDesc": "A connection error occurred. Please try again later."
 }

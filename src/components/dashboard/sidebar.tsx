@@ -130,7 +130,7 @@ export default function DashboardSidebar({
             )}
             {...props}
         >
-            <div className="flex items-center justify-between p-6 bg-slate-50 z-10">
+            <div className={`flex items-center ${isCollapsed ? "justify-center" : "justify-between"} p-6 bg-slate-50 z-10`}>
                 {!isCollapsed && (
                     <div className="flex items-center gap-4">
                         <Image

@@ -43,5 +43,23 @@
   "emailVerificationRequired": "E-posta Doğrulama Gerekli",
   "youMustVerifyYourEmailToContinue": "Bu işlemi gerçekleştirmek için lütfen e-posta adresinizi doğrulayın.",
   "verifyNow": "Şimdi Doğrula",
-  "cancel": "İptal"
+  "cancel": "İptal",
+
+  "referenceDocumentsTitle":"Referans Dokümanlar (Opsiyonel)",
+  "referenceDocumentsDesc":"Geçmiş çalışmalarınızı yükleyerek karşılaştırmalı analiz yapabilirsiniz",
+  "referenceDocumentsInfoTitle":"Neden referans doküman?",
+  "referenceDocumentsInfoTitle1":"Geçmiş çalışmalarınızı yükleyerek:",
+  "referenceDocumentsInfo1":"Yazım dili tutarlılığınızı kontrol edebiliriz",
+  "referenceDocumentsInfo2":"Akademik tarzınızla uyumluluğunu değerlendirebiliriz",
+  "referenceDocumentsInfo3":"Kişisel yazım stilinizi tanıyarak daha doğru analiz yapabiliriz",
+  "uploadedReferenceDocuments":"Yüklenen Referans Dokümanlar:",
+  "reference":"Referans",
+  "addReferenceDocument":"Referans Doküman Ekle",
+  "addReferenceDocumentDesc":"PDF, DOCX veya DOC formatında dosyalarınızı seçin",
+  "remain":"Kalan",
+  "file":"dosya",
+  "maxReference":"✓ Maksimum sayıda referans doküman yüklendi",
+  "nowReference":"Artık karşılaştırmalı analiz için hazırsınız",
+  "errorReference":"Maksimum 3 referans doküman yükleyebilirsiniz",
+  "errorReferenceDesc":"Lütfen daha az dosya seçin."
 }

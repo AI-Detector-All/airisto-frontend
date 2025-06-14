@@ -57,5 +57,19 @@
   "refreshStatus": "Durumu Yenile",
   "contactToManager": "Kurum Yöneticinizle iletişime geçin",
   "contactSupport": "Acil durumlarda teknik destek ekibimizle iletişime geçebilirsiniz",
-  "contactSupportButton": "Teknik Destek iletişime Geçin"
+  "contactSupportButton": "Teknik Destek iletişime Geçin",
+
+  "welcome":"Hoş Geldiniz",
+  "redirectToDashboard":"Dashboard'a yönlendiriliyorsunuz...",
+  "errorTitle":"Giriş Hatası",
+  "errorDesc":"Giriş yapılırken bir hata oluştu.",
+  "errorInvalidSignIn":"Giriş Bilgileri Hatalı",
+  "errorInvalidSignInDesc":"E-posta adresiniz veya şifreniz hatalı. Lütfen tekrar deneyin.",
+  "errorToManyRequests":"Çok Fazla Deneme",
+  "errorToManyRequestsDesc":"Çok fazla başarısız giriş denemesi. Lütfen daha sonra tekrar deneyin.",
+  "errorServer":"Sunucu Hatası",
+  "errorServerDesc":"Sunucu tarafında bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+  "errorNavigator":"Bağlantı Hatası",
+  "errorNavigatorDesc":"Bağlantı hatası oluştu. Lütfen daha sonra tekrar deneyin."
+
 }
