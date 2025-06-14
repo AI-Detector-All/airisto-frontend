@@ -37,7 +37,10 @@ export default function Page() {
             setUser(response.user);
 
             setIsLoading(false);
-            router.push('/dashboard');
+            setTimeout(() => {
+                console.log('Cookie kontrol:', getCookie('access_token'));
+                router.push('/dashboard');
+            }, 200);
         } catch (error) {
             console.error('Login failed:', error);
         } finally {
