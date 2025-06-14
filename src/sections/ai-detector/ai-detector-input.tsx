@@ -252,7 +252,7 @@ export function AIDetectorInput({
                     <Alert>
                         <Info className="h-4 w-4" />
                         <AlertDescription>
-                            <strong>{t('referenceDocumentsInfoTitle')}</strong> {t('referenceDocumentsInfoDesc')}
+                            <strong>{t('referenceDocumentsInfoTitle')}</strong> {t('referenceDocumentsDesc')}
                             <ul className="list-disc list-inside mt-2 space-y-1 text-sm">
                                 <li>{t('referenceDocumentsInfo1')}</li>
                                 <li>{t('referenceDocumentsInfo2')}</li>
