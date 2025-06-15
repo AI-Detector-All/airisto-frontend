@@ -57,7 +57,7 @@ export function CorporateForm({ setCurrentStep, corporateData, setCorporateData 
     };
 
     return (
-        <Card>
+        <Card className="w-full">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <Building2 className="h-5 w-5" />
