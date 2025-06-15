@@ -19,7 +19,7 @@ export default function AIDetectorView() {
     const [activeTab, setActiveTab] = useState("input");
 
     return (
-        <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-900 p-8">
+        <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-900 lg:p-8">
             <div className="flex justify-between items-center">
                 <div>
                     <Link href={'/dashboard'} className="flex gap-2 items-center">
@@ -30,30 +30,13 @@ export default function AIDetectorView() {
                 </div>
             </div>
 
-            <main className="flex-1 container mx-auto px-4 py-8">
+            <main className="lg:flex-1 lg:container mx-auto lg:px-4 lg:py-8">
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-4 mt-4">
                         <TabsList>
                             <TabsTrigger value="input" className="p-5" > {t('analyze')} </TabsTrigger>
                             <TabsTrigger value="results" disabled={!results && !isAnalyzing} className="p-5"> {t('result')} </TabsTrigger>
                         </TabsList>
-                        {/* <div className="flex items-center gap-2">
-                            <Input
-                                value={fileName}
-                                onChange={(e) => setFileName(e.target.value)}
-                                className="max-w-xs"
-                            />
-                            <TooltipProvider>
-                                <TooltipUI>
-                                    <TooltipTrigger asChild>
-                                        <Button variant="outline" size="icon">
-                                            <Save className="w-4 h-4" />
-                                        </Button>
-                                    </TooltipTrigger>
-                                    <TooltipContent> Kaydet </TooltipContent>
-                                </TooltipUI>
-                            </TooltipProvider>
-                        </div> */}
                     </div>
 
                     <TabsContent value="input" className="mt-0">
@@ -70,7 +53,7 @@ export default function AIDetectorView() {
                         />
                     </TabsContent>
 
-                    <TabsContent value="results" className="mt-0">
+                    <TabsContent value="results" className="lg:mt-0 mt-16">
                         <AIDetectorResult isAnalyzing={isAnalyzing} results={results} tokenLimitExceeded={tokenLimitExceeded} />
                     </TabsContent>
                 </Tabs>
