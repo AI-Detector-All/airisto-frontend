@@ -12,22 +12,25 @@ interface UsersTableProps {
 
 export const AllUsersTable: React.FC<UsersTableProps> = ({ users }) => {
     const { t } = useTranslate('all-users');
+    
     const columns: TableColumn<User>[] = [
         {
             key: 'name',
             header: t('user'),
             render: (item) => (
-                <div className="flex items-center">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-sm font-medium text-blue-600">
+                <div className="flex items-center min-w-0">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                        <span className="text-xs sm:text-sm font-medium text-blue-600">
                             {item.name.charAt(0)}{item.surname.charAt(0)}
                         </span>
                     </div>
-                    <div>
-                        <div className="text-sm font-medium text-gray-900">
+                    <div className="min-w-0 flex-1">
+                        <div className="text-xs sm:text-sm font-medium text-gray-900 truncate">
                             {item.name} {item.surname}
                         </div>
-                        <div className="text-sm text-gray-500">{item.email}</div>
+                        <div className="text-xs sm:text-sm text-gray-500 truncate">
+                            {item.email}
+                        </div>
                     </div>
                 </div>
             )
@@ -36,7 +39,7 @@ export const AllUsersTable: React.FC<UsersTableProps> = ({ users }) => {
             key: 'type',
             header: t('type'),
             render: (item, value) => (
-                <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${value === 'CORPORATE'
+                <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium whitespace-nowrap ${value === 'CORPORATE'
                     ? 'bg-blue-100 text-blue-800'
                     : 'bg-gray-100 text-gray-800'
                     }`}>
@@ -47,10 +50,13 @@ export const AllUsersTable: React.FC<UsersTableProps> = ({ users }) => {
         {
             key: 'corporate',
             header: t('corporate'),
+            hideOnMobile: true,
             render: (item) => {
                 return (
-                    <div className="text-sm">
-                        <div className="font-medium">{item.corporate?.name || "-"}</div>
+                    <div className="text-xs sm:text-sm min-w-0">
+                        <div className="font-medium truncate">
+                            {item.corporate?.name || "-"}
+                        </div>
                     </div>
                 )
             }
@@ -58,10 +64,13 @@ export const AllUsersTable: React.FC<UsersTableProps> = ({ users }) => {
         {
             key: 'subscription',
             header: t('subscription'),
+            hideOnMobile: true,
             render: (item) => {
                 return (
-                    <div className="text-sm">
-                        <div className="font-medium">{item.subscription?.name || "-"}</div>
+                    <div className="text-xs sm:text-sm min-w-0">
+                        <div className="font-medium truncate">
+                            {item.subscription?.name || "-"}
+                        </div>
                     </div>
                 )
             }
@@ -70,9 +79,13 @@ export const AllUsersTable: React.FC<UsersTableProps> = ({ users }) => {
             key: 'remainToken',
             header: t('remainToken'),
             render: (item, value) => (
-                <div className="text-sm">
-                    <div className="font-medium">{value?.toLocaleString()}</div>
-                    <div className="text-gray-500">{item.usedAnalysesThisMonth} {t('used')} </div>
+                <div className="text-xs sm:text-sm">
+                    <div className="font-medium">
+                        {value?.toLocaleString()}
+                    </div>
+                    <div className="text-gray-500 hidden sm:block">
+                        {item.usedAnalysesThisMonth} {t('used')}
+                    </div>
                 </div>
             )
         },
@@ -81,7 +94,7 @@ export const AllUsersTable: React.FC<UsersTableProps> = ({ users }) => {
             header: t('status'),
             align: 'center',
             render: (item, value) => (
-                <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${value ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full whitespace-nowrap ${value ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
                     }`}>
                     {value ? t('active') : t('inactive')}
                 </span>
@@ -105,12 +118,95 @@ export const AllUsersTable: React.FC<UsersTableProps> = ({ users }) => {
     ];
 
     return (
-        <GenericTable
-            data={users}
-            columns={columns}
-            actions={actions}
-            keyField="id"
-            searchable={true}
-        />
+        <div className="w-full">
+            {/* Mobile Card View */}
+            <div className="sm:hidden space-y-3 p-4">
+                {users.map((user) => (
+                    <div key={user.id} className="bg-gray-50 rounded-lg p-4 space-y-3">
+                        {/* User Info Header */}
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center min-w-0 flex-1">
+                                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span className="text-sm font-medium text-blue-600">
+                                        {user.name.charAt(0)}{user.surname.charAt(0)}
+                                    </span>
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                    <div className="text-sm font-medium text-gray-900 truncate">
+                                        {user.name} {user.surname}
+                                    </div>
+                                    <div className="text-xs text-gray-500 truncate">
+                                        {user.email}
+                                    </div>
+                                </div>
+                            </div>
+                            <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${user.isEmailVerified ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                                }`}>
+                                {user.isEmailVerified ? t('active') : t('inactive')}
+                            </span>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-3 text-xs">
+                            <div>
+                                <span className="text-gray-500">{t('type')}:</span>
+                                <div className="mt-1">
+                                    <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${user.type === 'CORPORATE'
+                                        ? 'bg-blue-100 text-blue-800'
+                                        : 'bg-gray-100 text-gray-800'
+                                        }`}>
+                                        {user.type === 'CORPORATE' ? t('corporate') : t('individual')}
+                                    </span>
+                                </div>
+                            </div>
+                            <div>
+                                <span className="text-gray-500">{t('remainToken')}:</span>
+                                <div className="mt-1 font-medium">
+                                    {user.remainToken?.toLocaleString()}
+                                </div>
+                            </div>
+                            {user.corporate && (
+                                <div className="col-span-2">
+                                    <span className="text-gray-500">{t('corporate')}:</span>
+                                    <div className="mt-1 font-medium truncate">
+                                        {user.corporate.name}
+                                    </div>
+                                </div>
+                            )}
+                            {user.subscription && (
+                                <div className="col-span-2">
+                                    <span className="text-gray-500">{t('subscription')}:</span>
+                                    <div className="mt-1 font-medium truncate">
+                                        {user.subscription.name}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="flex justify-end gap-2 pt-2 border-t border-gray-200">
+                            {actions.map((action, actionIndex) => (
+                                <button
+                                    key={actionIndex}
+                                    onClick={() => action.onClick(user)}
+                                    className={`p-2 rounded-md transition-colors ${action.className}`}
+                                    title={typeof action.label === 'function' ? action.label(user) : action.label}
+                                >
+                                    {React.createElement(action.icon, { className: "w-4 h-4" })}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="hidden sm:block">
+                <GenericTable
+                    data={users}
+                    columns={columns}
+                    actions={actions}
+                    keyField="id"
+                    searchable={true}
+                />
+            </div>
+        </div>
     );
 };
