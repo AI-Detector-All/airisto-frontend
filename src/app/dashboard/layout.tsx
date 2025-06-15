@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import DashboardHeader from "@/components/dashboard/dashboard-header";
 import DashboardSidebar from "@/components/dashboard/sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -9,6 +10,7 @@ import { RolesEnum } from "@/enums/roles";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
   const { user } = useAuth();
 
@@ -29,22 +31,45 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       router.push('/#pricing');
       return;
     }
-
   }, [router, user]);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <ThemeProvider>
-      <div className="min-h-screen flex w-full">
-        <div className={`${isCollapsed ? "w-16" : "w-64"} hidden lg:block transition-all duration-300`}>
-          <DashboardSidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} userRole={user?.role as RolesEnum || RolesEnum.USER} />
-        </div>
-        <div className="flex-1">
-          <DashboardHeader />
-          <main className="flex-1 lg:ml-16 xl:ml-0 transition-all duration-300">
+      <div className="min-h-screen bg-gray-50">
+        {/* Sidebar */}
+        <DashboardSidebar 
+          isCollapsed={isCollapsed} 
+          toggleSidebar={toggleSidebar}
+          userRole={user?.role as RolesEnum || RolesEnum.USER}
+          isMobileOpen={isMobileMenuOpen}
+          closeMobileSidebar={closeMobileMenu}
+        />
+        
+        {/* Main Content Area */}
+        <div className={cn(
+          "min-h-screen transition-all duration-300",
+          // Desktop: sidebar genişliğine göre margin
+          isCollapsed ? "lg:ml-16" : "lg:ml-64",
+          // Mobile: margin yok çünkü sidebar overlay
+          "ml-0"
+        )}>
+          <DashboardHeader 
+            toggleMobileMenu={toggleMobileMenu}
+            isMobileMenuOpen={isMobileMenuOpen}
+          />
+          <main className="p-4 lg:p-6">
             {children}
           </main>
         </div>
