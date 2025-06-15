@@ -122,13 +122,13 @@ export default function GenericTable<T extends Record<string, any>>({
     return (
         <div className="w-full">
             {searchable && (
-                <div className="mb-4">
+                <div className="mb-4 p-2">
                     <input
                         type="text"
                         placeholder="Ara..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full px-3 sm:px-4 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="px-3 sm:px-4 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
             )}
