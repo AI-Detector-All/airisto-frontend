@@ -17,5 +17,6 @@
   "wordToken": "Word Token",
   "tokensRemaining": "tokens remaining",
   "tokensUsed": "tokens used",
-  "planDetails": "Plan Details"
+  "planDetails": "Plan Details",
+  "used":"used"
 }

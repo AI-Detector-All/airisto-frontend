@@ -108,9 +108,8 @@ export const CreateCorporateView = () => {
     }
 
     return (
-        <div className="bg-gray-100 w-full min-h-screen p-8">
-            <div className="w-full px-8 flex flex-col ">
-                {/* Header */}
+        <div className="bg-gray-100 w-full min-h-screen lg:p-8">
+            <div className="w-full lg:px-8 flex flex-col px-4 py-2">
                 <div>
                     <Link href={'/dashboard'} className="flex gap-2 items-center">
                         <ChevronLeft className="text-gray-600" />
@@ -120,7 +119,7 @@ export const CreateCorporateView = () => {
                 </div>
 
                 <div className='w-full flex flex-col justify-center items-center font-onest'>
-                    <div className="mb-8 w-2/3">
+                    <div className="mb-8 lg:w-2/3">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <div className={`flex items-center justify-center w-8 h-8 rounded-full ${currentStep >= 1 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-600'
@@ -149,7 +148,7 @@ export const CreateCorporateView = () => {
                         </div>
                     </div>
 
-                    <div className='w-2/3'>
+                    <div className='lg:w-2/3 w-full'>
                         {currentStep === 1 && (
                             <CorporateForm setCurrentStep={setCurrentStep} corporateData={corporateData} setCorporateData={setCorporateData} />
                         )}

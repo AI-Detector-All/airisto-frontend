@@ -23,4 +23,5 @@ export interface User {
     orcidId?: string
     usedStorage: number
     maxStorage: number
+    type: string
 }

@@ -141,34 +141,41 @@ export function AIDetectorInput({
     };
 
     return (
-        <div className="flex gap-4 w-full">
-            {/* Ana Analiz Kartı */}
-            <Card className="w-full">
-                <CardHeader>
-                    <CardTitle>{t('inputTitle')}</CardTitle>
-                    <CardDescription>{t('inputDesc')}</CardDescription>
+        <div className="flex flex-col lg:flex-row gap-4 w-full">
+            {/* Main Input Card */}
+            <Card className="w-full order-1">
+                <CardHeader className="pb-4 sm:pb-6">
+                    <CardTitle className="text-lg sm:text-xl">{t('inputTitle')}</CardTitle>
+                    <CardDescription className="text-sm sm:text-base">{t('inputDesc')}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                
+                <CardContent className="space-y-4">
                     {uploadedFileName ? (
-                        <div className="flex flex-col items-center justify-center h-64 border-2 border-dashed border-muted-foreground/25 rounded-md bg-muted/50 relative">
+                        <div className="flex flex-col items-center justify-center h-48 sm:h-64 border-2 border-dashed border-muted-foreground/25 rounded-md bg-muted/50 relative">
                             <Button
                                 onClick={handleClear}
                                 className="absolute top-2 right-2 p-1 rounded-full bg-muted hover:bg-muted-foreground/20 transition-colors"
                                 aria-label="Dosyayı kaldır"
                             >
-                                <X className="w-5 h-5 text-muted-foreground" />
+                                <X className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground" />
                             </Button>
-                            <FileText className="w-16 h-16 mb-4 text-primary" />
-                            <span className="text-lg font-medium">{uploadedFileName.name}</span>
-                            <p className="text-sm text-muted-foreground mt-2">{t('documentUploaded')}</p>
-                            <Badge variant="secondary" className="mt-2">Ana Doküman</Badge>
+                            <FileText className="w-12 h-12 sm:w-16 sm:h-16 mb-4 text-primary" />
+                            <span className="text-base sm:text-lg font-medium text-center px-4 break-words">
+                                {uploadedFileName.name}
+                            </span>
+                            <p className="text-xs sm:text-sm text-muted-foreground mt-2 text-center px-4">
+                                {t('documentUploaded')}
+                            </p>
+                            <Badge variant="secondary" className="mt-2 text-xs">
+                                Ana Doküman
+                            </Badge>
                         </div>
                     ) : (
-                        <>
+                        <div className="space-y-3">
                             <input
                                 type="text"
                                 placeholder={t('inputTitlePlaceholder')}
-                                className="mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                                className="w-full p-3 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 value={title}
                                 required
                                 onChange={(e: { target: { value: SetStateAction<string> } }) => setTitle(e.target.value)}
@@ -178,12 +185,11 @@ export function AIDetectorInput({
                                 required
                                 onChange={(e: { target: { value: SetStateAction<string> } }) => setText(e.target.value)}
                                 placeholder={t('inputTextPlaceholder')}
-                                className="w-full h-64 resize-none mt-2"
+                                className="w-full h-48 sm:h-64 resize-none text-sm sm:text-base"
                             />
-                        </>
+                        </div>
                     )}
 
-                    {/* Hidden file inputs */}
                     <input
                         type="file"
                         ref={fileInputRef}
@@ -200,24 +206,36 @@ export function AIDetectorInput({
                         onChange={handleReferenceFileUpload}
                     />
                 </CardContent>
-                <CardFooter className="flex items-center justify-between">
-                    <div className="text-sm text-muted-foreground">
+
+                <CardFooter className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 pt-4">
+                    <div className="text-xs sm:text-sm text-muted-foreground order-2 sm:order-1">
                         {!uploadedFileName && `${text.length} ${t('character')}`}
                         {uploadedFileName && t('documentReady')}
                     </div>
-                    <div className="flex gap-2">
+                    
+                    <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto order-1 sm:order-2">
                         {!uploadedFileName && (
-                            <Button variant="outline" onClick={triggerFileInput}>
+                            <Button 
+                                variant="outline" 
+                                onClick={triggerFileInput}
+                                className="w-full sm:w-auto text-sm"
+                            >
                                 <Upload className="w-4 h-4 mr-2" />
                                 {t('uploadFile')}
                             </Button>
                         )}
-                        <Button variant="outline" onClick={handleClear} disabled={!text.trim() && !uploadedFileName}>
+                        <Button 
+                            variant="outline" 
+                            onClick={handleClear} 
+                            disabled={!text.trim() && !uploadedFileName}
+                            className="w-full sm:w-auto text-sm"
+                        >
                             {t('clear')}
                         </Button>
                         <Button
                             onClick={handleAnalyze}
                             disabled={isAnalyzing || (!text.trim() && !uploadedFileName)}
+                            className="w-full sm:w-auto text-sm font-medium"
                         >
                             {isAnalyzing ? (
                                 <>
@@ -225,35 +243,42 @@ export function AIDetectorInput({
                                     {t('analyzing')}
                                 </>
                             ) : (
-                                <div>
-                                    {t('analyze')}
-                                </div>
+                                t('analyze')
                             )}
                         </Button>
                     </div>
                 </CardFooter>
             </Card>
 
-            <Card className="w-full">
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <FileText className="w-5 h-5" />
-                        {t('referenceDocumentsTitle')}
-                        <Badge variant="outline" className="text-xs">
+            {/* Reference Documents Card */}
+            <Card className="w-full order-2 lg:order-2">
+                <CardHeader className="pb-4 sm:pb-6">
+                    <CardTitle className="flex flex-col sm:flex-row sm:items-center gap-2 text-lg sm:text-xl">
+                        <div className="flex items-center gap-2">
+                            <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                            <span className="break-words">{t('referenceDocumentsTitle')}</span>
+                        </div>
+                        <Badge variant="outline" className="text-xs w-fit">
                             {referenceDocuments.length}/3
                         </Badge>
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-sm sm:text-base">
                         {t('referenceDocumentsDesc')}
                     </CardDescription>
                 </CardHeader>
+
                 <CardContent className="space-y-4">
-                    {/* Bilgilendirme Alert */}
-                    <Alert>
-                        <Info className="h-4 w-4" />
-                        <AlertDescription>
-                            <strong>{t('referenceDocumentsInfoTitle')}</strong> {t('referenceDocumentsDesc')}
-                            <ul className="list-disc list-inside mt-2 space-y-1 text-sm">
+                    {/* Info Alert */}
+                    <Alert className="border-blue-200 bg-blue-50 dark:bg-blue-950 dark:border-blue-800">
+                        <Info className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                        <AlertDescription className="text-sm">
+                            <strong className="text-blue-800 dark:text-blue-200">
+                                {t('referenceDocumentsInfoTitle')}
+                            </strong>
+                            <span className="text-blue-700 dark:text-blue-300 ml-1">
+                                {t('referenceDocumentsDesc')}
+                            </span>
+                            <ul className="list-disc list-inside mt-2 space-y-1 text-xs sm:text-sm text-blue-600 dark:text-blue-400">
                                 <li>{t('referenceDocumentsInfo1')}</li>
                                 <li>{t('referenceDocumentsInfo2')}</li>
                                 <li>{t('referenceDocumentsInfo3')}</li>
@@ -261,26 +286,30 @@ export function AIDetectorInput({
                         </AlertDescription>
                     </Alert>
 
-                    {/* Yüklenen Referans Dokümanlar */}
+                    {/* Uploaded Reference Documents */}
                     {referenceDocuments.length > 0 && (
                         <div className="space-y-3">
-                            <h4 className="font-medium text-sm">{t('uploadedReferenceDocuments')}</h4>
-                            <div className="grid gap-3">
+                            <h4 className="font-medium text-sm sm:text-base">
+                                {t('uploadedReferenceDocuments')}
+                            </h4>
+                            <div className="space-y-3">
                                 {referenceDocuments.map((file, index) => (
                                     <div
                                         key={index}
-                                        className="flex items-center justify-between p-3 border rounded-lg bg-muted/30"
+                                        className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 border rounded-lg bg-muted/30 gap-3 sm:gap-0"
                                     >
-                                        <div className="flex items-center gap-3">
-                                            <FileText className="w-4 h-4 text-muted-foreground" />
-                                            <div>
-                                                <p className="text-sm font-medium">{file.name}</p>
+                                        <div className="flex items-center gap-3 min-w-0 flex-1">
+                                            <FileText className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                                            <div className="min-w-0 flex-1">
+                                                <p className="text-sm font-medium truncate" title={file.name}>
+                                                    {file.name}
+                                                </p>
                                                 <p className="text-xs text-muted-foreground">
                                                     {(file.size / 1024 / 1024).toFixed(2)} MB
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-2">
+                                        <div className="flex items-center justify-between sm:justify-end gap-2">
                                             <Badge variant="secondary" className="text-xs">
                                                 {t('reference')} {index + 1}
                                             </Badge>
@@ -288,7 +317,7 @@ export function AIDetectorInput({
                                                 size="sm"
                                                 variant="ghost"
                                                 onClick={() => removeReferenceDocument(index)}
-                                                className="h-8 w-8 p-0"
+                                                className="h-8 w-8 p-0 flex-shrink-0"
                                             >
                                                 <X className="w-4 h-4" />
                                             </Button>
@@ -299,17 +328,19 @@ export function AIDetectorInput({
                         </div>
                     )}
 
-                    {/* Dosya Yükleme Alanı */}
+                    {/* Add Reference Document */}
                     {referenceDocuments.length < 3 && (
                         <div
                             onClick={triggerReferenceFileInput}
-                            className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-6 text-center cursor-pointer hover:border-muted-foreground/50 transition-colors"
+                            className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-4 sm:p-6 text-center cursor-pointer hover:border-muted-foreground/50 transition-colors"
                         >
                             <div className="flex flex-col items-center gap-2">
-                                <Plus className="w-8 h-8 text-muted-foreground" />
+                                <Plus className="w-6 h-6 sm:w-8 sm:h-8 text-muted-foreground" />
                                 <div>
-                                    <p className="font-medium">{t('addReferenceDocument')}</p>
-                                    <p className="text-sm text-muted-foreground">
+                                    <p className="font-medium text-sm sm:text-base">
+                                        {t('addReferenceDocument')}
+                                    </p>
+                                    <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                                         {t('addReferenceDocumentDesc')}
                                     </p>
                                     <p className="text-xs text-muted-foreground mt-1">
@@ -320,6 +351,7 @@ export function AIDetectorInput({
                         </div>
                     )}
 
+                    {/* Max Reference Reached */}
                     {referenceDocuments.length === 3 && (
                         <div className="text-center p-4 bg-green-50 dark:bg-green-950 rounded-lg">
                             <p className="text-sm text-green-700 dark:text-green-300 font-medium">
@@ -333,24 +365,31 @@ export function AIDetectorInput({
                 </CardContent>
             </Card>
 
-            {/* Email Verification Dialog */}
+            {/* Email Verification Modal */}
             <Dialog open={showVerifyModal} onOpenChange={setShowVerifyModal}>
-                <DialogContent>
+                <DialogContent className="mx-4 sm:mx-0">
                     <DialogHeader>
-                        <DialogTitle>{t('emailVerificationRequired')}</DialogTitle>
-                        <DialogDescription>
+                        <DialogTitle className="text-lg sm:text-xl">
+                            {t('emailVerificationRequired')}
+                        </DialogTitle>
+                        <DialogDescription className="text-sm sm:text-base">
                             {t('youMustVerifyYourEmailToContinue')}
                         </DialogDescription>
                     </DialogHeader>
-                    <DialogFooter>
+                    <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0">
                         <Button
                             onClick={() => {
                                 router.push("/verify-email");
                             }}
+                            className="w-full sm:w-auto"
                         >
                             {t('verifyNow')}
                         </Button>
-                        <Button variant="ghost" onClick={() => setShowVerifyModal(false)}>
+                        <Button 
+                            variant="ghost" 
+                            onClick={() => setShowVerifyModal(false)}
+                            className="w-full sm:w-auto"
+                        >
                             {t('cancel')}
                         </Button>
                     </DialogFooter>

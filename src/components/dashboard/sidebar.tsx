@@ -14,7 +14,8 @@ import {
     Settings,
     LifeBuoy,
     Building2,
-    UserRound
+    UserRound,
+    X
 } from "lucide-react";
 import Image from 'next/image';
 import { RolesEnum } from '@/enums/roles';
@@ -24,6 +25,8 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
     isCollapsed?: boolean;
     toggleSidebar?: () => void;
     userRole?: RolesEnum;
+    isMobileOpen?: boolean;
+    closeMobileSidebar?: () => void;
 }
 
 const baseSidebarItems = [
@@ -85,7 +88,8 @@ export default function DashboardSidebar({
     isCollapsed: parentIsCollapsed,
     toggleSidebar: parentToggleSidebar,
     userRole = RolesEnum.USER,
-    ...props
+    isMobileOpen = false,
+    closeMobileSidebar,
 }: SidebarProps) {
     const { t } = useTranslate('dashboard-hs');
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -112,6 +116,12 @@ export default function DashboardSidebar({
         return pathname.startsWith(href);
     };
 
+    const handleMobileLinkClick = () => {
+        if (closeMobileSidebar) {
+            closeMobileSidebar();
+        }
+    };
+
     // Kullanıcının rolüne göre menü öğelerini filtrele
     const filteredSidebarItems = baseSidebarItems.filter(item =>
         item.roles.includes(userRole)
@@ -122,76 +132,171 @@ export default function DashboardSidebar({
     );
 
     return (
-        <div
-            className={cn(
-                "flex flex-col h-screen bg-slate-50 border-r border-slate-200 transition-all duration-300 z-40 sticky top-0",
-                isCollapsed ? "w-16" : "w-64",
-                className
+        <>
+            {/* Mobile Overlay */}
+            {isMobileOpen && (
+                <div 
+                    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                    onClick={closeMobileSidebar}
+                />
             )}
-            {...props}
-        >
-            <div className={`flex items-center ${isCollapsed ? "justify-center" : "justify-between"} p-6 bg-slate-50 z-10`}>
-                {!isCollapsed && (
-                    <div className="flex items-center gap-4">
+
+            {/* Desktop Sidebar */}
+            <div
+                className={cn(
+                    "hidden lg:flex flex-col h-screen bg-slate-50 border-r border-slate-200 transition-all duration-300 fixed left-0 top-0 z-30",
+                    isCollapsed ? "w-16" : "w-64",
+                    className
+                )}
+            >
+                {/* Header */}
+                <div className="flex items-center justify-between p-4 border-b border-slate-200">
+                    {!isCollapsed && (
+                        <div className="flex items-center gap-3">
+                            <Image
+                                src="/airisto.png"
+                                alt="Airisto logo"
+                                width={28}
+                                height={28}
+                                priority
+                            />
+                            <h1 className="text-lg font-bold text-gray-900">Airisto</h1>
+                        </div>
+                    )}
+                    
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={toggleSidebar}
+                        className="h-8 w-8"
+                    >
+                        {isCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+                    </Button>
+                </div>
+
+                {/* Navigation */}
+                <nav className="flex-1 p-4">
+                    <ul className="space-y-1">
+                        {filteredSidebarItems.map((item) => (
+                            <li key={item.name}>
+                                <Link
+                                    href={item.href}
+                                    className={cn(
+                                        "flex items-center rounded-lg p-3 text-gray-700 hover:bg-fuchsia-50 hover:text-fuchsia-600 transition-colors",
+                                        isLinkActive(item.href) && "bg-fuchsia-50 text-fuchsia-600"
+                                    )}
+                                >
+                                    <item.icon className={cn(
+                                        "h-5 w-5",
+                                        isCollapsed ? "mx-auto" : "mr-3"
+                                    )} />
+                                    {!isCollapsed && (
+                                        <span className="font-medium">{t(item.name)}</span>
+                                    )}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+
+                {/* Bottom Items */}
+                <div className="border-t border-slate-200 p-4">
+                    <ul className="space-y-1">
+                        {filteredBottomItems.map((item) => (
+                            <li key={item.name}>
+                                <Link
+                                    href={item.href}
+                                    className={cn(
+                                        "flex items-center rounded-lg p-3 text-gray-700 hover:bg-slate-100 transition-colors",
+                                        isLinkActive(item.href) && "bg-blue-500 text-white"
+                                    )}
+                                >
+                                    <item.icon className={cn(
+                                        "h-5 w-5",
+                                        isCollapsed ? "mx-auto" : "mr-3"
+                                    )} />
+                                    {!isCollapsed && (
+                                        <span className="font-medium">{t(item.name)}</span>
+                                    )}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            {/* Mobile Sidebar */}
+            <div
+                className={cn(
+                    "lg:hidden fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 z-50 transition-transform duration-300",
+                    isMobileOpen ? "translate-x-0" : "-translate-x-full"
+                )}
+            >
+                {/* Header */}
+                <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                    <div className="flex items-center gap-3">
                         <Image
                             src="/airisto.png"
-                            alt="Next.js logo"
-                            width={30}
-                            height={15}
+                            alt="Airisto logo"
+                            width={28}
+                            height={28}
                             priority
                         />
-                        <h1 className="text-body font-bold font-onest tracking-wider">Airisto</h1>
+                        <h1 className="text-lg font-bold text-gray-900">Airisto</h1>
                     </div>
-                )}
-                <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={toggleSidebar}
-                    className="h-8 w-8"
-                >
-                    {isCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
-                </Button>
-            </div>
+                    
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={closeMobileSidebar}
+                        className="h-8 w-8"
+                    >
+                        <X className="h-4 w-4" />
+                    </Button>
+                </div>
 
-            <nav className="flex-1 py-4">
-                <ul className="space-y-1 px-4">
-                    {filteredSidebarItems.map((item) => (
-                        <li key={item.name}>
-                            <Link
-                                href={item.href}
-                                className={cn(
-                                    "flex items-center rounded-md p-2 text-gray-600 hover:bg-fuchsia-50 hover:text-gray-600",
-                                    "transition-all duration-200 text-body2 font-onest",
-                                    isLinkActive(item.href) && "bg-fuchsia-50 text-fuchsia-400 hover:bg-fuchsia-100 hover:text-fuchsia-500"
-                                )}
-                            >
-                                <item.icon className={`${isCollapsed ? "mx-auto" : "mr-2"} h-4 w-4 ${isLinkActive(item.href) && "text-fuchsia-400"}`} />
-                                {!isCollapsed && <span className='mt-0.5'>{t(item.name)}</span>}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+                {/* Navigation */}
+                <nav className="flex-1 p-4">
+                    <ul className="space-y-1">
+                        {filteredSidebarItems.map((item) => (
+                            <li key={item.name}>
+                                <Link
+                                    href={item.href}
+                                    onClick={handleMobileLinkClick}
+                                    className={cn(
+                                        "flex items-center rounded-lg p-3 text-gray-700 hover:bg-fuchsia-50 hover:text-fuchsia-600 transition-colors",
+                                        isLinkActive(item.href) && "bg-fuchsia-50 text-fuchsia-600"
+                                    )}
+                                >
+                                    <item.icon className="h-5 w-5 mr-3" />
+                                    <span className="font-medium">{t(item.name)}</span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
 
-            <div className="border-t border-slate-200 py-4 bg-slate-50">
-                <ul className="space-y-1 px-4">
-                    {filteredBottomItems.map((item) => (
-                        <li key={item.name}>
-                            <Link
-                                href={item.href}
-                                className={cn(
-                                    "flex items-center rounded-md p-2 text-slate-700 hover:bg-slate-100 hover:text-slate-900",
-                                    "transition-all duration-200 text-body2 font-onest",
-                                    isLinkActive(item.href) && "bg-blue-500 text-white hover:bg-blue-600 hover:text-white"
-                                )}
-                            >
-                                <item.icon className={`${isCollapsed ? "mx-auto" : "mr-2"} h-4 w-4`} />
-                                {!isCollapsed && <span className='mt-0.5'>{t(item.name)}</span>}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                {/* Bottom Items */}
+                <div className="border-t border-gray-200 p-4">
+                    <ul className="space-y-1">
+                        {filteredBottomItems.map((item) => (
+                            <li key={item.name}>
+                                <Link
+                                    href={item.href}
+                                    onClick={handleMobileLinkClick}
+                                    className={cn(
+                                        "flex items-center rounded-lg p-3 text-gray-700 hover:bg-gray-100 transition-colors",
+                                        isLinkActive(item.href) && "bg-blue-500 text-white"
+                                    )}
+                                >
+                                    <item.icon className="h-5 w-5 mr-3" />
+                                    <span className="font-medium">{t(item.name)}</span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

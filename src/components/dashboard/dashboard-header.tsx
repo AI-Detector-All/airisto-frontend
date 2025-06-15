@@ -3,14 +3,22 @@ import Link from "next/link";
 // import DarkModeToggle from "../dark-mode-toggle";
 import { UserAvatar } from "./user-avatar";
 import { Progress } from "../ui/progress";
-import { Globe, Zap } from "lucide-react";
+import { Globe, Zap, Menu, X } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { InlineLoader } from "../ui/global-loader";
 import { useTranslate } from "@/locales";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 
-export default function DashboardHeader() {
+interface DashboardHeaderProps {
+    toggleMobileMenu?: () => void;
+    isMobileMenuOpen?: boolean;
+}
+
+export default function DashboardHeader({ 
+    toggleMobileMenu, 
+    isMobileMenuOpen 
+}: DashboardHeaderProps) {
     const { t, onChangeLang, currentLang } = useTranslate('dashboard-hs');
     const { user, isLoading, isAuthenticated, getTokenUsage } = useAuth();
     const { used, total, percentage } = getTokenUsage();
@@ -27,93 +35,105 @@ export default function DashboardHeader() {
     const currentLanguageInfo = (languageMap[currentLang?.value as keyof typeof languageMap] || languageMap.en)
 
     if (isLoading) {
-        return <InlineLoader size="sm" />;
+        return (
+            <header className="h-16 border-b border-gray-200 bg-white flex items-center justify-center">
+                <InlineLoader size="sm" />
+            </header>
+        );
     }
 
     if (!isAuthenticated || !user) {
-        return <div>Please login to continue</div>;
+        return (
+            <header className="h-16 border-b border-gray-200 bg-white flex items-center justify-center">
+                <div>Please login to continue</div>
+            </header>
+        );
     }
 
     return (
-        <header className="backdrop-blur-sm border-b border-border">
-            <div className="container mx-auto ">
-                <div className="flex h-16 items-center justify-between">
-
-                    {/* <SearchInput width="max-w-[800px]" /> */}
-                    <div></div>
-
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-4">
-                        <nav>
-                            <div className="space-x-4 space-y-2">
-                                <div className="flex items-center justify-between gap-4">
-                                    <div className="flex items-center">
-                                        <Zap className="h-4 w-4 text-purple-500 mr-2 " />
-                                        <span className="text-sm font-medium"> {t('usedToken')} </span>
-                                    </div>
-                                    <span className="text-sm text-gray-500">{used} / {total}</span>
-                                </div>
-                                <Progress
-                                    value={percentage}
-                                    className="h-2 bg-purple-100"
-                                />
-                            </div>
-                        </nav>
-
-                        <div className="flex items-center space-x-2">
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button variant="outline" className="flex items-center gap-2 text-sm font-medium">
-                                        <Globe className="w-4 h-4" />
-                                        {currentLanguageInfo.flag}
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end">
-                                    <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
-                                        🇬🇧 English
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem onClick={() => handleLanguageChange('tr')}>
-                                        🇹🇷 Türkçe
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </div>
-
-                        {/* <DarkModeToggle /> */}
-
-                        {user ? (
-                            <>
-                                {/* <Notification /> */}
-                                <UserAvatar user={user} />
-                            </>
+        <header className="h-16 border-b border-gray-200 bg-white/95 backdrop-blur-sm sticky top-0 z-30">
+            <div className="h-full px-4 lg:px-6 flex items-center justify-between">
+                
+                {/* Sol taraf - Mobile Menu Button */}
+                <div className="flex items-center">
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={toggleMobileMenu}
+                        className="lg:hidden h-9 w-9"
+                        aria-label="Toggle mobile menu"
+                    >
+                        {isMobileMenuOpen ? (
+                            <X className="h-5 w-5" />
                         ) : (
-                            <Link
-                                href="/"
-                                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors border border-border rounded-md px-4 py-2"
-                            >
-                                {t('signIn')}
-                            </Link>
+                            <Menu className="h-5 w-5" />
                         )}
+                    </Button>
+                </div>
+
+                {/* Sağ taraf - Navigation */}
+                <div className="flex items-center gap-4 lg:gap-4">
+                    
+                    {/* Token Usage */}
+                    <div className="w-full flex items-center gap-2">
+                        {/* Desktop Token Display */}
+                        <div className="hidden md:flex items-center gap-3">
+                            <div className="flex items-center gap-2">
+                                <Zap className="h-4 w-4 text-purple-500" />
+                                <span className="text-sm font-medium">{t('usedToken')}</span>
+                            </div>
+                            <span className="text-sm text-gray-500">{used} / {total}</span>
+                        </div>
+                        
+                        {/* Mobile Token Display */}
+                        <div className="md:hidden flex items-center gap-1">
+                            <Zap className="h-4 w-4 text-purple-500" />
+                            <span className="text-xs text-gray-500">{used}/{total}</span>
+                        </div>
+                        
+                        {/* Progress Bar */}
+                        <Progress
+                            value={percentage}
+                            className="h-2 bg-purple-100 w-16 md:w-32"
+                        />
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    {/* <div className="flex md:hidden items-center gap-2">
-                        <Sheet>
-                            <SheetTrigger asChild>
-                                <Button variant="ghost" size="icon" className="h-10 w-10">
-                                    <Menu className="h-5 w-5" />
-                                </Button>
-                            </SheetTrigger>
-                            <SheetContent side="right" className="w-[280px] sm:w-[350px]">
-                                <SheetHeader>
-                                    <VisuallyHidden>
-                                        <SheetTitle>Menu</SheetTitle>
-                                    </VisuallyHidden>
-                                </SheetHeader>
-                                <MobileMenu user={user!} logout={logout} />
-                            </SheetContent>
-                        </Sheet>
-                    </div> */}
+                    {/* Language Selector */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button 
+                                variant="outline" 
+                                size="sm"
+                                className="flex items-center gap-1 h-9 px-2 lg:px-3"
+                            >
+                                <Globe className="w-4 h-4" />
+                                <span className="hidden sm:inline text-sm">
+                                    {currentLanguageInfo.flag}
+                                </span>
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                            <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
+                                🇬🇧 English
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => handleLanguageChange('tr')}>
+                                🇹🇷 Türkçe
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    {/* User Avatar */}
+                    {user ? (
+                        <UserAvatar user={user} />
+                    ) : (
+                        <Link
+                            href="/"
+                            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors border border-gray-300 rounded-md px-3 py-1.5"
+                        >
+                            <span className="hidden sm:inline">{t('signIn')}</span>
+                            <span className="sm:hidden">Sign In</span>
+                        </Link>
+                    )}
                 </div>
             </div>
         </header>

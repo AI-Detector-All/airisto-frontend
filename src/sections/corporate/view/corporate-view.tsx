@@ -29,29 +29,28 @@ export default function CorporateView() {
 
     if (isLoading) return <DashboardSkeleton />;
     return (
-        <div className="bg-gray-100 w-full min-h-screen p-8">
-            <div className="w-full px-8 flex flex-col ">
+        <div className="bg-gray-100 w-full min-h-screen lg:p-8 p-4">
+            <div className="w-full lg:px-8 flex flex-col ">
                 <div className="flex justify-between items-center">
                     <div>
                         <Link href={'/dashboard'} className="flex gap-2 items-center">
                             <ChevronLeft className="text-gray-600" />
                             <h1 className="text-body2 text-gray-600 font-onest"> {t('home')} </h1>
                         </Link>
-                        <p className="text-gray-900 text-header2 font-onest font-semibold mt-2">{t('allCorporates')}</p>
+                        <p className="text-gray-900 lg:text-header2 font-onest font-semibold mt-2">{t('allCorporates')}</p>
                     </div>
-                    <div className="mr-8 gap-4 flex">
+                    <div className="lg:mr-8 gap-4 flex">
                         <Link href={'/dashboard/corporate/create'} className="flex gap-2 items-center">
-                            <Button className="bg-fuchsia-400 rounded-md px-4 py-2 hover:bg-fuchsia-500">
-
+                            <Button className="bg-fuchsia-400 rounded-md lg:px-4 lg:py-2 hover:bg-fuchsia-500">
                                 <Plus className="text-white" />
-                                <p className="text-body2 text-white font-onest"> {t('newCorporate')} </p>
+                                <p className="lg:text-body2 text-body3 text-white font-onest lg:mt-1"> {t('newCorporate')} </p>
                             </Button>
                         </Link>
 
                     </div>
                 </div>
                 {corporates.length > 0 ? (
-                    <div className="mt-8">
+                    <div className="mt-8 w-full">
                         {corporates.length > 0 ? (
                             <CorporateTable corporates={corporates} />
                         ) : (
