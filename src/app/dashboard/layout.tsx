@@ -48,7 +48,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-gray-50">
-        {/* Sidebar */}
         <DashboardSidebar 
           isCollapsed={isCollapsed} 
           toggleSidebar={toggleSidebar}
@@ -57,19 +56,16 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           closeMobileSidebar={closeMobileMenu}
         />
         
-        {/* Main Content Area */}
         <div className={cn(
           "min-h-screen transition-all duration-300",
-          // Desktop: sidebar genişliğine göre margin
           isCollapsed ? "lg:ml-16" : "lg:ml-64",
-          // Mobile: margin yok çünkü sidebar overlay
           "ml-0"
         )}>
           <DashboardHeader 
             toggleMobileMenu={toggleMobileMenu}
             isMobileMenuOpen={isMobileMenuOpen}
           />
-          <main className="p-4 lg:p-6">
+          <main className="">
             {children}
           </main>
         </div>

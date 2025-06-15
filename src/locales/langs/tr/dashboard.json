@@ -17,5 +17,6 @@
   "wordToken": "Kelime Token",
   "tokensRemaining": "token kaldı",
   "tokensUsed": "token kullanıldı",
-  "planDetails": "Plan Detayları"
+  "planDetails": "Plan Detayları",
+  "used":"Kullanıldı"
 }
