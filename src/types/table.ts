@@ -7,6 +7,7 @@ export interface TableColumn<T> {
     align?: 'left' | 'center' | 'right';
     sortable?: boolean;
     render?: (item: T, value: any) => React.ReactNode;
+    hideOnMobile?: boolean;
 }
 
 export interface TableAction<T> {
@@ -15,4 +16,5 @@ export interface TableAction<T> {
     onClick: (item: T) => void;
     className?: string;
     show?: (item: T) => boolean;
+    hideOnMobile?: boolean;
 }

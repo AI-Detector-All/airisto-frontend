@@ -6,7 +6,7 @@ export function DashboardRecently() {
     const { t } = useTranslate('dashboard');
 
     return (
-        <div className="w-full px-8 flex justify-center items-center mt-10">
+        <div className="w-full px-4 lg:px-8 flex justify-center items-center mt-10">
             <div className="bg-white w-full p-4 rounded-md">
                 <div className="flex flex-col">
                     <h1 className="text-header4 font-onest font-semibold">{t('recentlyUsed')}</h1>
