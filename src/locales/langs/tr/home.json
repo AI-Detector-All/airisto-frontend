@@ -131,5 +131,13 @@
   "faqQ5":"Ücretsiz plan mevcut mu?",
   "faqA5":"Ücretsiz plan şuanda mevcut değildir.",
   "faqTitle":"Sık Sorulan Sorular",
-  "faqDesc":"Destek ekibimiz yapay zeka destekli önerilerden yardım alarak destek taleplerini her zamankinden daha hızlı bir şekilde ele alacak."
+  "faqDesc":"Destek ekibimiz yapay zeka destekli önerilerden yardım alarak destek taleplerini her zamankinden daha hızlı bir şekilde ele alacak.",
+
+
+  "language_detection_message":"Tercih ettiğiniz dili otomatik olarak algıladık. İstediğiniz zaman değiştirebilirsiniz.",
+  "current_language":"Mevcut dil",
+  "detected":"Tespit Edildi",
+  "or_choose_different":"veya farklı bir dil seçin:",
+  "keep_current":"Mevcut dilde kal",
+  "language_change_note":"Dili istediğiniz zaman değiştirebilirsiniz."
 }
