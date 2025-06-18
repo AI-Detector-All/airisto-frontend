@@ -61,5 +61,17 @@
   "maxReference": "✓ Maximum number of reference documents uploaded",
   "nowReference": "Now you're ready for comparative analysis",
   "errorReference": "You can upload a maximum of 3 reference documents",
-  "errorReferenceDesc": "Please select fewer files."
+  "errorReferenceDesc": "Please select fewer files.",
+
+  "textAnalyzing": "Text Analyzing",
+  "textAnalyzingDesc": "Content structure is being analyzed...",
+  "sourcesScanning": "Scanning Sources",
+  "sourcesScanningDesc": "Checking databases...",
+  "aiScanning": "AI Analysis",
+  "aiScanningDesc": "Detecting AI patterns...",
+  "finalScanning": "Merging Results",
+  "finalScanningDesc": "Completing analysis and preparing report...",
+  "aiScanningTitle": "AI Analysis in Progress",
+  "aiScanningDesc2": "Your content is being analyzed in detail...",
+  "generalProgress": "Overall Progress"
 }
