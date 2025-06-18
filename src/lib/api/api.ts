@@ -2,7 +2,7 @@ import axios from "axios";
 import { handleError } from "../error-handler";
 import { deleteCookie, getCookie } from "@/utils/cookie";
 
-const API_URL = process.env.BASE_URL
+const API_URL = process.env.NODE_ENV === 'development' ? "http://localhost:8080/api" : process.env.BASE_URL
 
 export const api = axios.create({
   baseURL: API_URL,
