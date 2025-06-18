@@ -2,44 +2,71 @@
 import { cache } from 'react';
 import { createInstance } from 'i18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { initReactI18next } from 'react-i18next/initReactI18next';
 
 import { defaultNS, i18nOptions, fallbackLng } from './config-locales';
+import { allLangs } from './all-langs';
 
 import type { LanguageValue } from './config-locales';
 
-// ----------------------------------------------------------------------
-
-/**
- * [1] with url:
- * https://nextjs.org/docs/pages/building-your-application/routing/internationalization
- *
- * Use i18next with app folder and without locale in url:
- * https://github.com/i18next/next-app-dir-i18next-example/issues/12#issuecomment-1500917570
-
-
-export async function detectLanguage() {
-  const cookies = getCookies();
-
-  const language = cookies.get(cookieName)?.value ?? fallbackLng;
-
-  return language as LanguageValue;
-}
-
- */
 const LANGUAGE_COOKIE_NAME = 'i18nextLng';
 
-export async function detectLanguage(): Promise<LanguageValue | null> {
+// Tarayıcının Accept-Language header'ından dil tercihlerini parse eder
+function parseAcceptLanguage(acceptLanguage: string): string[] {
+  return acceptLanguage
+    .split(',')
+    .map(lang => {
+      const [code, q = '1'] = lang.trim().split(';q=');
+      return { code: code.split('-')[0], quality: parseFloat(q) };
+    })
+    .sort((a, b) => b.quality - a.quality)
+    .map(({ code }) => code);
+}
+
+// Desteklenen diller arasından en uygun olanı seçer
+function findBestMatch(userLanguages: string[], supportedLanguages: string[]): string | null {
+  for (const userLang of userLanguages) {
+    if (supportedLanguages.includes(userLang)) {
+      return userLang;
+    }
+  }
+  return null;
+}
+
+export async function detectLanguage(): Promise<LanguageValue> {
   const cookieStore = cookies();
-  const lang = (await cookieStore).get(LANGUAGE_COOKIE_NAME)?.value;
-  return lang as LanguageValue | null;
+  const headersList = headers();
+  
+  // 1. Önce cookie'den kontrol et
+  const cookieLang = (await cookieStore).get(LANGUAGE_COOKIE_NAME)?.value;
+  
+  const supportedLanguages = allLangs?.map(lang => lang.value);
+  
+  if (cookieLang && supportedLanguages.includes(cookieLang)) {
+    return cookieLang as LanguageValue;
+  }
+  
+  // 2. Cookie yoksa veya geçersizse, tarayıcının Accept-Language header'ından algıla
+  const acceptLanguage = (await headersList).get('accept-language');
+  
+  if (acceptLanguage) {
+    const userLanguages = parseAcceptLanguage(acceptLanguage);
+    const bestMatch = findBestMatch(userLanguages, supportedLanguages);
+    
+    if (bestMatch) {
+      return bestMatch as LanguageValue;
+    }
+  }
+  
+  // 3. Hiçbiri yoksa fallback dili kullan
+  return fallbackLng as LanguageValue;
 }
 
 // ----------------------------------------------------------------------
 
 export const getServerTranslations = cache(async (ns = defaultNS, options = {}) => {
-  const language = await detectLanguage() || fallbackLng;
+  const language = await detectLanguage();
 
   const i18nextInstance = await initServerI18next(language, ns);
 

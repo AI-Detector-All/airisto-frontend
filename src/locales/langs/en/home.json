@@ -112,6 +112,18 @@
   "pricingCorporateAnnualFeature8": "24/7 Priority Technical Support",
   "pricingCorporateAnnualButton": "Contact Us",
 
+  "corporatePricingTitle": "Our Corporate Solutions",
+  "corporatePricingDesc": "We offer flexible solutions tailored to the size and needs of your business.",
+  "corporatePricingUsersTitle": "Your Organization's Members",
+  "corporatePricingUsersDesc": "We provide an advanced user interface and enhanced reporting options that your organization's members can also use.",
+  "corporatePricingSupport": "Priority Support",
+  "corporatePricingSupportDesc": "24/7 technical support and dedicated account manager assistance.",
+  "corporatePricingSecurity": "Security & Integration",
+  "corporatePricingSecurityDesc": "Advanced security features and integration with your existing systems.",
+  "offer": "Let Us Prepare a Custom Offer for You",
+  "offerDesc": "Contact us to determine the most suitable plan and pricing based on your needs.",
+  "contact": "Contact Us",
+
   "ctaTitle": "Ready to Detect AI?",
   "ctaTitle2": "Detect AI-generated texts with % accuracy. Analysis, reasoning, and reliable results in a single step.",
   "ctaStartNow": "Start Now",

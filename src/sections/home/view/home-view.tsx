@@ -6,10 +6,13 @@ import { HomeProvide } from "../home-provide";
 import { HomePricing } from "@/sections/home/home-pricing";
 import HomeCTA from "../home-cta";
 import HomeFAQ from "../home-faq";
+import { LanguageDetectionPopup } from "../language-detection";
 
 export default function HomeView() {
     return (
         <div>
+            <LanguageDetectionPopup />
+
             <HomeHero />
 
             <Separator className="my-8" />

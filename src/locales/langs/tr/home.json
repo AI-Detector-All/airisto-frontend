@@ -114,6 +114,20 @@
   "pricingCorporateAnnualFeature8": "7/24 Öncelikli Teknik Destek",
   "pricingCorporateAnnualButton": "İletişime Geç",
 
+  
+  "corporatePricingTitle":"Kurumsal Çözümlerimiz",
+  "corporatePricingDesc":"İşletmenizin büyüklüğüne ve ihtiyaçlarına özel tasarlanmış esnek çözümler sunuyoruz",
+  "corporatePricingUsersTitle":"Kurumunuzun Üyeleri",
+  "corporatePricingUsersDesc":"Kurumunuzun üyelerininde kullanabileceği, gelişmiş kullanıcı arayüzü ve gelişmiş raporlama opsiyonları sunuyoruz.",
+  "corporatePricingSupport":"Öncelikli Destek",
+  "corporatePricingSupportDesc":"7/24 teknik destek ve özel hesap yöneticisi desteği",
+  "corporatePricingSecurity":"Güvenlik & Entegrasyon",
+  "corporatePricingSecurityDesc":"Gelişmiş güvenlik özellikleri ve mevcut sistemlerinizle entegrasyon",
+  "offer":"Size Özel Teklif Hazırlayalım",
+  "offerDesc":"İhtiyaçlarınıza göre en uygun planı ve fiyatlandırmayı belirlemek için bizimle iletişime geçin",
+  "contact":"Bizimle İletişime Geçin",
+
+
 
   "ctaTitle":"Yapay Zekayı Tespit Etmeye Hazır mısın?",
   "ctaTitle2":"Yapay zeka üretimi metinleri % doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda.",
@@ -131,5 +145,13 @@
   "faqQ5":"Ücretsiz plan mevcut mu?",
   "faqA5":"Ücretsiz plan şuanda mevcut değildir.",
   "faqTitle":"Sık Sorulan Sorular",
-  "faqDesc":"Destek ekibimiz yapay zeka destekli önerilerden yardım alarak destek taleplerini her zamankinden daha hızlı bir şekilde ele alacak."
+  "faqDesc":"Destek ekibimiz yapay zeka destekli önerilerden yardım alarak destek taleplerini her zamankinden daha hızlı bir şekilde ele alacak.",
+
+
+  "language_detection_message":"Tercih ettiğiniz dili otomatik olarak algıladık. İstediğiniz zaman değiştirebilirsiniz.",
+  "current_language":"Mevcut dil",
+  "detected":"Tespit Edildi",
+  "or_choose_different":"veya farklı bir dil seçin:",
+  "keep_current":"Mevcut dilde kal",
+  "language_change_note":"Dili istediğiniz zaman değiştirebilirsiniz."
 }
