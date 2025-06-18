@@ -11,7 +11,7 @@ import { getCookie } from "@/utils/cookie";
 import { InlineLoader } from "@/components/ui/global-loader";
 import { useTranslate } from "@/locales";
 import { Toaster } from "@/components/ui/sonner";
-// import { resetPassword } from "@/services/auth";
+import { resetPassword } from "@/services/auth";
 
 export default function PasswordResetPage() {
     const { t } = useTranslate('password-reset');
@@ -114,10 +114,7 @@ export default function PasswordResetPage() {
 
         setIsLoading(true);
         try {
-            // await resetPassword({
-            //     token,
-            //     newPassword: password
-            // });
+            await resetPassword(token, password);
 
             toast.success(t('successToast'), {
                 description: t('successToastDesc'),
@@ -341,7 +338,6 @@ export default function PasswordResetPage() {
                                         <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>
                                     )}
                                     
-                                    {/* Şifre Eşleşme Kontrolü */}
                                     {confirmPassword && (
                                         <div className="flex items-center gap-2 mt-1">
                                             {password === confirmPassword ? (
@@ -353,21 +349,6 @@ export default function PasswordResetPage() {
                                                 <>
                                                     <X className="h-3 w-3 text-red-500" />
                                                     <span className="text-xs text-red-600">{t('passwordsMismatch')}</span>
-                                                </>
-                                            )}
-                                        </div>
-                                    )}
-                                    {confirmPassword && (
-                                        <div className="flex items-center gap-2 mt-1">
-                                            {password === confirmPassword ? (
-                                                <>
-                                                    <Check className="h-3 w-3 text-green-500" />
-                                                    <span className="text-xs text-green-600">Şifreler eşleşiyor</span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <X className="h-3 w-3 text-red-500" />
-                                                    <span className="text-xs text-red-600">Şifreler eşleşmiyor</span>
                                                 </>
                                             )}
                                         </div>

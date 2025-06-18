@@ -73,3 +73,13 @@ export async function forgotPassword(email:string): Promise<{ message: string }>
     }
     
 }
+
+export async function resetPassword(token:string, password:string): Promise<{ message: string }> {
+    try {
+        const response = await api.post('/auth/reset-password', { token, password });
+
+        return response.data;
+    } catch (error) {
+        throw error
+    }
+}
