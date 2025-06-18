@@ -15,12 +15,14 @@ import {
 import { useAuth } from "@/hooks/useAuth";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { useTranslate } from "@/locales";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
     const [activeSection, setActiveSection] = useState("home");
     const [isMounted, setIsMounted] = useState(false);
     const { user, logout } = useAuth();
     const { t, onChangeLang, currentLang } = useTranslate('header');
+    const pathname = usePathname();
 
     useEffect(() => {
         setIsMounted(true);
@@ -104,12 +106,12 @@ export default function Header() {
                         <Link
                             href={`/#${link.id}`}
                             className={`text-body2 font-semibold font-onest relative transition-colors duration-300 hover:text-fuchsia-400 
-                            ${activeSection === link.id ? 'text-fuchsia-400' : 'text-gray-600'}`}
+                            ${activeSection === link.id && pathname === `/` ? 'text-fuchsia-400' : 'text-gray-600'}`}
                             onClick={() => setActiveSection(link.id)}
                         >
                             {link.name}
                         </Link>
-                        {activeSection === link.id && (
+                        {activeSection === link.id && pathname === `/` && (
                             <div className="w-1 h-1 bg-fuchsia-400 rounded-full mt-1 absolute -bottom-2" />
                         )}
                     </div>
