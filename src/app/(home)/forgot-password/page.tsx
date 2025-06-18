@@ -11,6 +11,7 @@ import { getCookie } from "@/utils/cookie";
 import { InlineLoader } from "@/components/ui/global-loader";
 import { useTranslate } from "@/locales";
 import { Toaster } from "@/components/ui/sonner";
+import { forgotPassword } from "@/services/auth";
 
 export default function ForgotPasswordPage() {
     const { t, currentLang } = useTranslate('forgot-password');
@@ -37,7 +38,7 @@ export default function ForgotPasswordPage() {
     const handleForgotPassword = async () => {
         setIsLoading(true);
         try {
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            await forgotPassword(email);
 
             setIsEmailSent(true);
             setCountdown(60);
@@ -171,7 +172,6 @@ export default function ForgotPasswordPage() {
                                     </div>
                                 </>
                             ) : (
-                                // E-posta gönderildi durumu
                                 <div className="text-center">
                                     <div className="flex justify-center mb-6">
                                         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
@@ -182,18 +182,20 @@ export default function ForgotPasswordPage() {
                                     <div className="flex justify-between items-center mb-6">
                                         <div className="w-full text-center">
                                             <h1 className="text-2xl font-bold">{t('emailSend')}</h1>
-                                            <p className="text-gray-500 text-sm mt-1">
-                                                {currentLang.value === 'tr' ? (
-                                                    <div>
-                                                        <span className="font-medium">{email}</span> adresine şifre sıfırlama bağlantısı gönderdik
-                                                    </div>
-                                                ): (
-                                                    <div>
-                                                        We have sent a password reset link to <span className="font-medium">{email}</span>
-                                                    </div>
-                                                )}
+                                            <div>
+                                                <p className="text-gray-500 text-sm mt-1">
+                                                    {currentLang.value === 'tr' ? (
+                                                        <div>
+                                                            <span className="font-medium">{email}</span> adresine şifre sıfırlama bağlantısı gönderdik
+                                                        </div>
+                                                    ) : (
+                                                        <div>
+                                                            We have sent a password reset link to <span className="font-medium">{email}</span>
+                                                        </div>
+                                                    )}
 
-                                            </p>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
 

@@ -62,3 +62,14 @@ export async function getEmailVerificationToken(userId:string): Promise<string> 
         throw error
     }
 }
+
+export async function forgotPassword(email:string): Promise<{ message: string }> {
+    try {
+        const response = await api.post('/auth/forgot-password', { email });
+
+        return response.data;
+    } catch (error) {
+        throw error
+    }
+    
+}
