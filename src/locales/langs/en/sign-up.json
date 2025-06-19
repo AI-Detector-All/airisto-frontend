@@ -84,5 +84,6 @@
   "errorNavigator": "Connection Error",
   "errorNavigatorDesc": "A connection error occurred. Please try again later.",
   "errorNetwork": "Network Error",
-  "errorNetworkDesc": "Could not connect to the server. Please try again later."
+  "errorNetworkDesc": "Could not connect to the server. Please try again later.",
+  "passwordStrength": "Password Strength"
 }

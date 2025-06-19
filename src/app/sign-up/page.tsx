@@ -468,7 +468,7 @@ export default function Page() {
                                             {userData.password && (
                                                 <div className="mt-2 pt-2 border-t border-gray-200">
                                                     <div className="flex items-center justify-between">
-                                                        <span className="text-xs text-gray-600">Şifre Gücü:</span>
+                                                        <span className="text-xs text-gray-600">{t('passwordStrength')}</span>
                                                         <span className={`text-xs font-medium ${getPasswordStrength().color}`}>
                                                             {getPasswordStrength().text}
                                                         </span>
