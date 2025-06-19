@@ -26,6 +26,8 @@ import {
 import { User } from 'lucide-react';
 import { User as UserType } from '@/types/user';
 import { useTranslate } from '@/locales';
+import { RolesEnum } from '@/enums/roles';
+import { Corporate } from '@/types/corporates';
 
 interface UserProfileProps {
     user: UserType
@@ -37,12 +39,24 @@ export default function UserProfileForm({ user }: UserProfileProps) {
         firstName: user.name,
         lastName: user.surname,
         email: user.email,
-        phone: user.phone,
-        address: 'Fırat Üniversitesi',
-        city: 'Elazığ',
-        postalCode: '10001',
-        state: 'Merkez',
-        country: 'Türkiye'
+        phone: user.phone
+    });
+    
+    const [corporateData, setCorporateData] = useState<Corporate>({
+        id: user.corporate?.id || '',
+        name: user.corporate?.name || '',
+        domain: user.corporate?.domain || '',
+        subscription: user.corporate?.subscription || null,
+        members: user.corporate?.members || [],
+        isActive: user.corporate?.isActive || false,
+        totalUsedAnalyses: user.corporate?.totalUsedAnalyses || 0,
+        createdAt: user.corporate?.createdAt || new Date(),
+        updatedAt: user.corporate?.updatedAt || new Date(),
+        country: user.corporate?.country || '',
+        city: user.corporate?.city || '',
+        state: user.corporate?.state || '',
+        address: user.corporate?.address || '',
+        postalCode: user.corporate?.postalCode || ''
     });
 
     const [currentPassword, setCurrentPassword] = useState('');
@@ -51,6 +65,10 @@ export default function UserProfileForm({ user }: UserProfileProps) {
 
     const handleProfileSave = () => {
         alert(t('success'));
+    };
+
+    const handleCorporateSave = () => {
+        alert(t('corporateSuccess') || 'Kurumsal bilgiler başarıyla güncellendi');
     };
 
     const handlePasswordSave = () => {
@@ -99,7 +117,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                         <h2 className="text-lg sm:text-xl font-onest font-semibold text-gray-900 mb-4 sm:mb-6">
                             {t('personalInformation') || 'Kişisel Bilgiler'}
                         </h2>
-                        
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                             <div className="space-y-2">
                                 <Label htmlFor="firstName" className="text-sm font-medium">
@@ -132,8 +150,8 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                                 <Input
                                     id="email"
                                     type="email"
+                                    disabled
                                     value={userData.email}
-                                    onChange={(e) => setUserData({ ...userData, email: e.target.value })}
                                     className="h-10 sm:h-11"
                                 />
                             </div>
@@ -149,73 +167,6 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                                     className="h-10 sm:h-11"
                                 />
                             </div>
-
-                            <div className="space-y-2 sm:col-span-2">
-                                <Label htmlFor="address" className="text-sm font-medium">
-                                    {t('address')}
-                                </Label>
-                                <Input
-                                    id="address"
-                                    value={userData.address}
-                                    onChange={(e) => setUserData({ ...userData, address: e.target.value })}
-                                    placeholder="Enter your address"
-                                    className="h-10 sm:h-11"
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="postalCode" className="text-sm font-medium">
-                                    {t('postalCode')}
-                                </Label>
-                                <Input
-                                    id="postalCode"
-                                    value={userData.postalCode}
-                                    onChange={(e) => setUserData({ ...userData, postalCode: e.target.value })}
-                                    className="h-10 sm:h-11"
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="city" className="text-sm font-medium">
-                                    {t('state')}
-                                </Label>
-                                <Input
-                                    id="city"
-                                    value={userData.city}
-                                    onChange={(e) => setUserData({ ...userData, city: e.target.value })}
-                                    className="h-10 sm:h-11"
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="state" className="text-sm font-medium">
-                                    {t('district')}
-                                </Label>
-                                <Input
-                                    id="state"
-                                    value={userData.state}
-                                    onChange={(e) => setUserData({ ...userData, state: e.target.value })}
-                                    className="h-10 sm:h-11"
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="country" className="text-sm font-medium">
-                                    {t('country')}
-                                </Label>
-                                <Select defaultValue={userData.country}>
-                                    <SelectTrigger className='w-full h-10 sm:h-11'>
-                                        <SelectValue placeholder="Select country" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="Türkiye">Türkiye</SelectItem>
-                                        <SelectItem value="Canada">Canada</SelectItem>
-                                        <SelectItem value="United Kingdom">United Kingdom</SelectItem>
-                                        <SelectItem value="Australia">Australia</SelectItem>
-                                        <SelectItem value="Germany">Germany</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
                         </div>
 
                         <Button
@@ -225,10 +176,123 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                             {t('save')}
                         </Button>
                     </div>
+
+                    {/* Corporate Information Card */}
+                    {user.role === RolesEnum.INSTITUTION_ADMIN && (
+                        <div className="bg-white p-4 sm:p-6 rounded-lg">
+                            <h2 className="text-lg sm:text-xl font-onest font-semibold text-gray-900 mb-4 sm:mb-6">
+                                {t('corporateInformation') || 'Kurumsal Bilgiler'}
+                            </h2>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                                <div className="space-y-2">
+                                    <Label htmlFor="corporateName" className="text-sm font-medium">
+                                        {t('corporateName') || 'Kuruluş Adı'}
+                                    </Label>
+                                    <Input
+                                        id="corporateName"
+                                        value={corporateData.name}
+                                        onChange={(e) => setCorporateData({ ...corporateData, name: e.target.value })}
+                                        className="h-10 sm:h-11"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <Label htmlFor="domain" className="text-sm font-medium">
+                                        {t('Domain') || 'Domain'}
+                                    </Label>
+                                    <Input
+                                        id="domain"
+                                        value={corporateData.domain}
+                                        disabled
+                                        onChange={(e) => setCorporateData({ ...corporateData, domain: e.target.value })}
+                                        className="h-10 sm:h-11"
+                                    />
+                                </div>
+
+                                <div className="space-y-2 sm:col-span-2">
+                                    <Label htmlFor="corporateAddress" className="text-sm font-medium">
+                                        {t('address')}
+                                    </Label>
+                                    <Input
+                                        id="corporateAddress"
+                                        value={corporateData.address}
+                                        onChange={(e) => setCorporateData({ ...corporateData, address: e.target.value })}
+                                        placeholder="Enter corporate address"
+                                        className="h-10 sm:h-11"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <Label htmlFor="corporatePostalCode" className="text-sm font-medium">
+                                        {t('postalCode')}
+                                    </Label>
+                                    <Input
+                                        id="corporatePostalCode"
+                                        value={corporateData.postalCode}
+                                        onChange={(e) => setCorporateData({ ...corporateData, postalCode: e.target.value })}
+                                        className="h-10 sm:h-11"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <Label htmlFor="corporateCity" className="text-sm font-medium">
+                                        {t('city') || 'Şehir'}
+                                    </Label>
+                                    <Input
+                                        id="corporateCity"
+                                        value={corporateData.city}
+                                        onChange={(e) => setCorporateData({ ...corporateData, city: e.target.value })}
+                                        className="h-10 sm:h-11"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <Label htmlFor="corporateState" className="text-sm font-medium">
+                                        {t('state') || 'İlçe'}
+                                    </Label>
+                                    <Input
+                                        id="corporateState"
+                                        value={corporateData.state}
+                                        onChange={(e) => setCorporateData({ ...corporateData, state: e.target.value })}
+                                        className="h-10 sm:h-11"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <Label htmlFor="corporateCountry" className="text-sm font-medium">
+                                        {t('country')}
+                                    </Label>
+                                    <Select 
+                                        value={corporateData.country} 
+                                        onValueChange={(value) => setCorporateData({ ...corporateData, country: value })}
+                                    >
+                                        <SelectTrigger className='w-full h-10 sm:h-11'>
+                                            <SelectValue placeholder="Select country" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="Türkiye">Türkiye</SelectItem>
+                                            <SelectItem value="Canada">Canada</SelectItem>
+                                            <SelectItem value="United Kingdom">United Kingdom</SelectItem>
+                                            <SelectItem value="Australia">Australia</SelectItem>
+                                            <SelectItem value="Germany">Germany</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            </div>
+
+                            <Button
+                                className="w-full mt-6 bg-blue-500 hover:bg-blue-600 h-10 sm:h-11 text-sm sm:text-base font-medium"
+                                onClick={handleCorporateSave}
+                            >
+                                {t('saveCorporate') || 'Kurumsal Bilgileri Kaydet'}
+                            </Button>
+                        </div>
+                    )}
                 </CardContent>
             </Card>
 
-            {/* Password Change Card */}
+            {/* Password change */}
             <Card className="w-full shadow-none border-none bg-transparent order-2 lg:order-2">
                 <CardContent className="p-0">
                     <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-lg space-y-4 sm:space-y-6">
@@ -280,11 +344,10 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
                                     placeholder="••••••••••••••••"
-                                    className={`bg-gray-50 h-10 sm:h-11 border-gray-200 focus:border-gray-400 ${
-                                        confirmPassword && newPassword !== confirmPassword 
-                                            ? 'border-red-300 focus:border-red-400' 
+                                    className={`bg-gray-50 h-10 sm:h-11 border-gray-200 focus:border-gray-400 ${confirmPassword && newPassword !== confirmPassword
+                                            ? 'border-red-300 focus:border-red-400'
                                             : ''
-                                    }`}
+                                        }`}
                                 />
                                 {confirmPassword && newPassword !== confirmPassword && (
                                     <p className="text-xs text-red-500 mt-1">

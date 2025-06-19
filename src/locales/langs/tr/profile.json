@@ -22,5 +22,9 @@
     "changePassword":"Şifre Değiştir",
     "currentPassword":"Mevcut Sifre",
     "newPassword":"Yeni Sifre",
-    "newPasswordRepeat":"Yeni Sifre Tekrar"
+    "newPasswordRepeat":"Yeni Sifre Tekrar",
+
+    "corporateInformation":"Kurumsal Bilgiler",
+    "corporateName":"Kurum Adı",
+    "saveCorporate":"Kurum Bilgilerini Kaydet"
 }

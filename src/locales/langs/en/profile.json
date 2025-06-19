@@ -22,5 +22,9 @@
     "changePassword": "Change Password",
     "currentPassword": "Current Password",
     "newPassword": "New Password",
-    "newPasswordRepeat": "Confirm New Password"
+    "newPasswordRepeat": "Confirm New Password",
+    
+    "corporateInformation":"Corporate Information",
+    "corporateName":"Organization Name",
+    "saveCorporate":"Save Organization Information"
 }
