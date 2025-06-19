@@ -32,9 +32,13 @@ export async function getAllUsers(): Promise<User[]> {
     }
 }
 
-export async function updateUser(user: { name: string, surname: string, phone: string, isActive: boolean }): Promise<User> {
+export async function updateUser(user: { name: string, surname: string, phone: string }): Promise<User> {
     try {
-        const response = await api.patch(`/user`, user)
+        const response = await api.patch(`/user/current`, {
+            name: user.name,
+            surname: user.surname,
+            phone: user.phone
+        })
 
         return response.data;
     } catch (error) {

@@ -28,6 +28,9 @@ import { User as UserType } from '@/types/user';
 import { useTranslate } from '@/locales';
 import { RolesEnum } from '@/enums/roles';
 import { Corporate } from '@/types/corporates';
+import { toast } from 'sonner';
+import { updateUser } from '@/services/user';
+import { Toaster } from '@/components/ui/sonner';
 
 interface UserProfileProps {
     user: UserType
@@ -41,7 +44,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
         email: user.email,
         phone: user.phone
     });
-    
+
     const [corporateData, setCorporateData] = useState<Corporate>({
         id: user.corporate?.id || '',
         name: user.corporate?.name || '',
@@ -63,12 +66,87 @@ export default function UserProfileForm({ user }: UserProfileProps) {
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleProfileSave = () => {
-        alert(t('success'));
+    const handleProfileSave = async () => {
+        try {
+            const response = await updateUser({
+                name: userData.firstName,
+                surname: userData.lastName,
+                phone: userData.phone
+            });
+
+            if (response) {
+                window.location.reload();
+            }
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (error: any) {
+            console.error('Update failed:', error);
+
+            let errorMessage = t('errorDesc');
+            let errorTitle = error.response.data.message;
+            if (error?.response?.status === 500) {
+                errorTitle = t('errorServer');
+                errorMessage = t('errorServerDesc');
+            } else if (!navigator.onLine) {
+                errorTitle = t('errorNavigator');
+                errorMessage = t('errorNavigatorDesc');
+            } else if (error?.code === 'NETWORK_ERROR') {
+                errorTitle = t('errorNetwork');
+                errorMessage = t('errorNetworkDesc');
+            }
+
+            toast.error(errorTitle, {
+                description: errorMessage,
+                duration: 5000,
+                style: {
+                    background: '#ef4444',
+                    color: '#ffffff',
+                    border: 'none'
+                }
+            });
+        }
     };
 
-    const handleCorporateSave = () => {
-        alert(t('corporateSuccess') || 'Kurumsal bilgiler başarıyla güncellendi');
+    const handleCorporateSave = async () => {
+        try {
+            const response = await updateUser(user);
+
+            if (response) {
+                window.location.reload();
+            }
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (error: any) {
+            console.error('update failed:', error);
+
+            let errorMessage = t('errorDesc');
+            let errorTitle = t('errorTitle');
+
+            if (error?.response?.status === 400) {
+                errorTitle = t('errorInvalidSignUp');
+                errorMessage = t('errorInvalidSignUpDesc');
+            } else if (error?.response?.status === 500) {
+                errorTitle = t('errorServer');
+                errorMessage = t('errorServerDesc');
+            } else if (error?.response?.status === 404) {
+                errorTitle = t('errorUserNotFound');
+                errorMessage = t('errorUserNotFoundDesc');
+            } else if (!navigator.onLine) {
+                errorTitle = t('errorNavigator');
+                errorMessage = t('errorNavigatorDesc');
+            } else if (error?.code === 'NETWORK_ERROR') {
+                errorTitle = t('errorNetwork');
+                errorMessage = t('errorNetworkDesc');
+            }
+
+            toast.error(errorTitle, {
+                description: errorMessage,
+                duration: 5000,
+                style: {
+                    background: '#ef4444',
+                    color: '#ffffff',
+                    border: 'none'
+                }
+            });
+        }
     };
 
     const handlePasswordSave = () => {
@@ -263,8 +341,8 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                                     <Label htmlFor="corporateCountry" className="text-sm font-medium">
                                         {t('country')}
                                     </Label>
-                                    <Select 
-                                        value={corporateData.country} 
+                                    <Select
+                                        value={corporateData.country}
                                         onValueChange={(value) => setCorporateData({ ...corporateData, country: value })}
                                     >
                                         <SelectTrigger className='w-full h-10 sm:h-11'>
@@ -345,8 +423,8 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                                     onChange={(e) => setConfirmPassword(e.target.value)}
                                     placeholder="••••••••••••••••"
                                     className={`bg-gray-50 h-10 sm:h-11 border-gray-200 focus:border-gray-400 ${confirmPassword && newPassword !== confirmPassword
-                                            ? 'border-red-300 focus:border-red-400'
-                                            : ''
+                                        ? 'border-red-300 focus:border-red-400'
+                                        : ''
                                         }`}
                                 />
                                 {confirmPassword && newPassword !== confirmPassword && (
@@ -367,6 +445,7 @@ export default function UserProfileForm({ user }: UserProfileProps) {
                     </div>
                 </CardContent>
             </Card>
+            <Toaster />
         </div>
     );
 }
