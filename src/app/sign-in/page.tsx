@@ -38,7 +38,6 @@ export default function Page() {
 
             setUser(response.user);
 
-            // Başarı toast'ı göster
             toast.success(`${t('welcome')}, ${response.user?.name || response.user?.email || 'Kullanıcı'}! 🎉`, {
                 description: t('redirectToDashboard'),
                 duration: 2000,
@@ -51,7 +50,6 @@ export default function Page() {
 
             setIsLoading(false);
 
-            // 2 saniye sonra yönlendir
             setTimeout(() => {
                 router.push('/dashboard');
             }, 2000);
@@ -90,7 +88,6 @@ export default function Page() {
         }
     }
 
-    // Enter tuşu ile form submit
     const handleKeyPress = (e: { key: string; }) => {
         if (e.key === 'Enter' && email && password && !isLoading) {
             handleLogin();
@@ -267,7 +264,7 @@ export default function Page() {
                                         <Checkbox id="remember" disabled={isLoading} />
                                         <label htmlFor="remember" className="ml-2 text-sm text-gray-600">{t('rememberMe')}</label>
                                     </div>
-                                    <a href="#" className="text-sm text-purple-600 hover:text-purple-500">{t('forgotPassword')}</a>
+                                    <a href="/forgot-password" className="text-sm text-purple-600 hover:text-purple-500">{t('forgotPassword')}</a>
                                 </div>
 
                                 <Button

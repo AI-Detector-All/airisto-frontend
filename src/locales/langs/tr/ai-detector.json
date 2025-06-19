@@ -61,5 +61,17 @@
   "maxReference":"✓ Maksimum sayıda referans doküman yüklendi",
   "nowReference":"Artık karşılaştırmalı analiz için hazırsınız",
   "errorReference":"Maksimum 3 referans doküman yükleyebilirsiniz",
-  "errorReferenceDesc":"Lütfen daha az dosya seçin."
+  "errorReferenceDesc":"Lütfen daha az dosya seçin.",
+
+  "textAnalyzing":"Metin Taranıyor",
+  "textAnalyzingDesc":"İçerik yapısı analiz ediliyor...",
+  "sourcesScanning":"Kaynaklar Taranıyor",
+  "sourcesScanningDesc":"Veri tabanları kontrol ediliyor...",
+  "aiScanning":"Yapay Zeka Analizi",
+  "aiScanningDesc":"Yapay zeka kalıpları tespit ediliyor...",
+  "finalScanning":"Sonuçlar Birleştiriliyor",
+  "finalScanningDesc":"Analiz tamamlanıyor ve rapor hazırlanıyor...",
+  "aiScanningTitle":"Yapay Zeka Analizi Yapılıyor",
+  "aiScanningDesc2":"İçeriğiniz detaylı olarak analiz ediliyor...",
+  "generalProgress":"Genel İlerleme"
 }
