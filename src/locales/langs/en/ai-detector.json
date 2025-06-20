@@ -73,5 +73,8 @@
   "finalScanningDesc": "Completing analysis and preparing report...",
   "aiScanningTitle": "AI Analysis in Progress",
   "aiScanningDesc2": "Your content is being analyzed in detail...",
-  "generalProgress": "Overall Progress"
+  "generalProgress": "Overall Progress",
+
+  "aiServiceUnavailable": "AI Service Unavailable",
+  "aiServiceUnavailableDesc": "Please try again later."
 }

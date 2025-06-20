@@ -83,6 +83,12 @@ export function AIDetectorInput({
                 setTokenLimitExceeded(true);
                 return;
             }
+            if (error.response.status === 500 && error.response.data.message === "AI servisi şu anda kullanılamıyor.") {
+                toast.warning(t("aiServiceUnavailable"), {
+                    description: t("aiServiceUnavailableDesc"),
+                });
+                return;
+            }
         } finally {
             setIsAnalyzing(false);
         }
