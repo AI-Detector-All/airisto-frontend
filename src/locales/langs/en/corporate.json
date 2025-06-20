@@ -47,5 +47,17 @@
   "isActive": "Set user as active?",
   "back": "Back",
   "creating": "Creating...",
-  "create": "Create"
+  "create": "Create",
+
+  "addressInformation": "Address Information",
+  "address": "Address",
+  "addressPl": "Enter full address details",
+  "city": "City",
+  "state": "District/State",
+  "country": "Country",
+  "selectCountry": "Select country",
+  "postalCode": "Postal/Zip Code",
+  "district": "District",
+  "corporateInformation": "Corporate Information",
+  "saveCorporate": "Save Corporate Information"
 }

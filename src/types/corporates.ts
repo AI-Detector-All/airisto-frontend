@@ -10,4 +10,9 @@ export interface Corporate {
     totalUsedAnalyses: number
     createdAt: Date
     updatedAt: Date
+    country: string;
+    city: string;
+    state: string;
+    address: string;
+    postalCode: string;
 }

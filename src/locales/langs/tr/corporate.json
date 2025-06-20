@@ -48,5 +48,17 @@
     "isActive":"Kullanıcı aktif olarak ayarlanacak mı?",
     "back":"Geri",
     "creating":"Oluşturuluyor...",
-    "create":"Oluştur"
+    "create":"Oluştur",
+    
+    "addressInformation":"Adres Bilgileri",
+    "address":"Adres",
+    "addressPl":"Tam adres bilgisini giriniz",
+    "city":"Sehir",
+    "state":"İlçe/Eyalet",
+    "country":"Ülke",
+    "selectCountry":"Ülke seçiniz",
+    "postalCode":"Posta Kodu",
+    "district":"İlce",
+    "corporateInformation":"Kurum Bilgileri",
+    "saveCorporate":"Kurum Bilgilerini Kaydet"
 }

@@ -12,7 +12,7 @@ export async function currentUser() {
     }
 }
 
-export async function getUserById(userId:string): Promise<User> {
+export async function getUserById(userId: string): Promise<User> {
     try {
         const response = await api.get(`/user/${userId}`);
 
@@ -30,4 +30,19 @@ export async function getAllUsers(): Promise<User[]> {
     } catch (error) {
         throw error
     }
+}
+
+export async function updateUser(user: { name: string, surname: string, phone: string }): Promise<User> {
+    try {
+        const response = await api.patch(`/user/current`, {
+            name: user.name,
+            surname: user.surname,
+            phone: user.phone
+        })
+
+        return response.data;
+    } catch (error) {
+        throw error
+    }
+
 }

@@ -83,3 +83,13 @@ export async function resetPassword(token:string, password:string): Promise<{ me
         throw error
     }
 }
+
+export async function changePassword(currentPassword:string, newPassword:string): Promise<{ message: string }> {
+    try {
+        const response = await api.post('/auth/change-password', { currentPassword, newPassword });
+
+        return response.data;
+    } catch (error) {
+        throw error
+    }
+}

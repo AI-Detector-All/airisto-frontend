@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useTranslate } from "@/locales";
 import { ArrowRight, Building2 } from "lucide-react";
 import { useState } from "react";
@@ -14,11 +15,21 @@ interface CorporateFormProps {
         name: string;
         domain: string;
         isActive: boolean;
+        country: string;
+        city: string;
+        state: string;
+        address: string;
+        postalCode: string;
     };
     setCorporateData: (data: {
         name: string;
         domain: string;
         isActive: boolean;
+        country: string;
+        city: string;
+        state: string;
+        address: string;
+        postalCode: string;
     }) => void
 }
 
@@ -36,6 +47,15 @@ export function CorporateForm({ setCurrentStep, corporateData, setCorporateData 
         } else if (!/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(corporateData.domain)) {
             newErrors.domain = t('invalidCorporateDomain');
         }
+        if (!corporateData.address.trim()) {
+            newErrors.address = t('needAddress') || 'Adres zorunludur';
+        }
+        if (!corporateData.city.trim()) {
+            newErrors.city = t('needCity') || 'Şehir zorunludur';
+        }
+        if (!corporateData.country.trim()) {
+            newErrors.country = t('needCountry') || 'Ülke zorunludur';
+        }
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -47,11 +67,8 @@ export function CorporateForm({ setCurrentStep, corporateData, setCorporateData 
         }
     };
 
-
     const handleStep1Next = () => {
-
         if (validateStep1()) {
-
             setCurrentStep(2);
         }
     };
@@ -68,37 +85,123 @@ export function CorporateForm({ setCurrentStep, corporateData, setCorporateData 
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-                <div className="space-y-2">
-                    <Label htmlFor="corporateName"> {t('corporateName')} *</Label>
-                    <Input
-                        id="corporateName"
-                        value={corporateData.name}
-                        onChange={(e) => handleCorporateChange('name', e.target.value)}
-                        placeholder={t('corporateNamePl')}
-                        className={errors.name ? 'border-red-500' : ''}
-                    />
-                    {errors.name && (
-                        <p className="text-sm text-red-600">{errors.name}</p>
-                    )}
+                {/* Corporate Basic Information */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="corporateName"> {t('corporateName')} *</Label>
+                        <Input
+                            id="corporateName"
+                            value={corporateData.name}
+                            onChange={(e) => handleCorporateChange('name', e.target.value)}
+                            placeholder={t('corporateNamePl')}
+                            className={errors.name ? 'border-red-500' : ''}
+                        />
+                        {errors.name && (
+                            <p className="text-sm text-red-600">{errors.name}</p>
+                        )}
+                    </div>
+
+                    <div className="space-y-2">
+                        <Label htmlFor="domain">{t('corporateDomain')} *</Label>
+                        <Input
+                            id="domain"
+                            value={corporateData.domain}
+                            onChange={(e) => handleCorporateChange('domain', e.target.value)}
+                            placeholder="Örn: acme.com"
+                            className={errors.domain ? 'border-red-500' : ''}
+                        />
+                        {errors.domain && (
+                            <p className="text-sm text-red-600">{errors.domain}</p>
+                        )}
+                        <p className="text-xs text-gray-500">
+                            {t('corporateDomainDesc')}
+                        </p>
+                    </div>
                 </div>
 
-                <div className="space-y-2">
-                    <Label htmlFor="domain">{t('corporateDomain')} *</Label>
-                    <Input
-                        id="domain"
-                        value={corporateData.domain}
-                        onChange={(e) => handleCorporateChange('domain', e.target.value)}
-                        placeholder="Örn: acme.com"
-                        className={errors.domain ? 'border-red-500' : ''}
-                    />
-                    {errors.domain && (
-                        <p className="text-sm text-red-600">{errors.domain}</p>
-                    )}
-                    <p className="text-xs text-gray-500">
-                        {t('corporateDomainDesc')}
-                    </p>
+                {/* Address Information */}
+                <div className="space-y-4">
+                    <h3 className="text-lg font-medium text-gray-900">
+                        {t('addressInformation') || 'Adres Bilgileri'}
+                    </h3>
+                    
+                    <div className="space-y-2">
+                        <Label htmlFor="address">{t('address')} *</Label>
+                        <Input
+                            id="address"
+                            value={corporateData.address}
+                            onChange={(e) => handleCorporateChange('address', e.target.value)}
+                            placeholder={t('addressPl') || 'Tam adres bilgisini giriniz'}
+                            className={errors.address ? 'border-red-500' : ''}
+                        />
+                        {errors.address && (
+                            <p className="text-sm text-red-600">{errors.address}</p>
+                        )}
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="space-y-2">
+                            <Label htmlFor="city">{t('city') || 'Şehir'} *</Label>
+                            <Input
+                                id="city"
+                                value={corporateData.city}
+                                onChange={(e) => handleCorporateChange('city', e.target.value)}
+                                placeholder={t('city') || 'Şehir'}
+                                className={errors.city ? 'border-red-500' : ''}
+                            />
+                            {errors.city && (
+                                <p className="text-sm text-red-600">{errors.city}</p>
+                            )}
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label htmlFor="state">{t('state') || 'İlçe/Eyalet'}</Label>
+                            <Input
+                                id="state"
+                                value={corporateData.state}
+                                onChange={(e) => handleCorporateChange('state', e.target.value)}
+                                placeholder={t('state') || 'İlçe/Eyalet'}
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label htmlFor="postalCode">{t('postalCode') || 'Posta Kodu'}</Label>
+                            <Input
+                                id="postalCode"
+                                value={corporateData.postalCode}
+                                onChange={(e) => handleCorporateChange('postalCode', e.target.value)}
+                                placeholder={t('postalCode') || 'Posta Kodu'}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="space-y-2">
+                        <Label htmlFor="country">{t('country') || 'Ülke'} *</Label>
+                        <Select 
+                            value={corporateData.country} 
+                            onValueChange={(value) => handleCorporateChange('country', value)}
+                        >
+                            <SelectTrigger className={errors.country ? 'border-red-500' : ''}>
+                                <SelectValue placeholder={t('selectCountry') || 'Ülke seçiniz'} />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="Türkiye">Türkiye</SelectItem>
+                                <SelectItem value="United States">United States</SelectItem>
+                                <SelectItem value="Canada">Canada</SelectItem>
+                                <SelectItem value="United Kingdom">United Kingdom</SelectItem>
+                                <SelectItem value="Germany">Germany</SelectItem>
+                                <SelectItem value="France">France</SelectItem>
+                                <SelectItem value="Australia">Australia</SelectItem>
+                                <SelectItem value="Japan">Japan</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        {errors.country && (
+                            <p className="text-sm text-red-600">{errors.country}</p>
+                        )}
+                    </div>
                 </div>
 
+                {/* Corporate Status */}
                 <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                         <Label>{t('corporateStatus')}</Label>

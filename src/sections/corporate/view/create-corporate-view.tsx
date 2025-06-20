@@ -15,7 +15,12 @@ export const CreateCorporateView = () => {
     const [corporateData, setCorporateData] = useState({
         name: '',
         domain: '',
-        isActive: false
+        isActive: false,
+        country: '',
+        city: '',
+        state: '',
+        address: '',
+        postalCode: ''
     });
     const [userData, setUserData] = useState<SignUpData>({
         email: '',
@@ -31,7 +36,6 @@ export const CreateCorporateView = () => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
-
 
     const validateStep2 = () => {
         const newErrors: { [key: string]: string } = {};
@@ -56,7 +60,6 @@ export const CreateCorporateView = () => {
     };
 
     const handleSubmit = async () => {
-
         if (!validateStep2()) return;
 
         setIsSubmitting(true);
@@ -69,10 +72,25 @@ export const CreateCorporateView = () => {
 
             setSubmitSuccess(true);
             setTimeout(() => {
-                setCorporateData({ name: '', domain: '', isActive: true });
+                setCorporateData({ 
+                    name: '', 
+                    domain: '', 
+                    isActive: true,
+                    country: '',
+                    city: '',
+                    state: '',
+                    address: '',
+                    postalCode: ''
+                });
                 setUserData({
-                    email: '', name: '', surname: '', password: '', type: 'CORPORATE', orcidId: "",
-                    isActive: true, provider: 'LOCAL'
+                    email: '', 
+                    name: '', 
+                    surname: '', 
+                    password: '', 
+                    type: 'CORPORATE', 
+                    orcidId: "",
+                    isActive: true, 
+                    provider: 'LOCAL'
                 });
                 setCurrentStep(1);
                 setSubmitSuccess(false);
@@ -157,10 +175,7 @@ export const CreateCorporateView = () => {
                             <UserForm userData={userData} setUserData={setUserData} corporateData={corporateData} setCurrentStep={setCurrentStep} handleSubmit={handleSubmit} isSubmitting={isSubmitting} />
                         )}
                     </div>
-
                 </div>
-
-
             </div>
         </div>
     );
