@@ -1,20 +1,165 @@
 {
-  "heroTitle": "Airisto - Advanced and Reliable AI Content Detector",
-  "heroTitle1": "Uncover Authentic Content with RegressionPro™",
-  "heroDesc": "With our proprietary RegressionPro™ technology featuring 5-layer AI trace analysis. Identifies AI-generated content with up to 95% accuracy and determines the true author.",
-  "heroHowItWorks": "How RegressionPro™ Works",
+  "homeHero": {
+    "badge": "Airisto - Advanced and Reliable AI Content Detector",
+    "title": "Detect AI,",
+    "titleHighlight": "Discover Content Authenticity",
+    "turkishFirst": "🇹🇷 First and only AI detector for Turkish content",
+    "description": "5-layer AI trace analysis with proprietary technology. Identifies AI-generated content with up to 95% accuracy and determines the real author.",
 
-  "contentTitle": "Why RegressionPro™?",
-  "contentDesc": "Airisto is the most reliable way to detect AI traces in written texts. RegressionPro™ is an advanced analysis technology developed to determine whether a text was written by artificial intelligence. Evaluates all types of content from academic papers to blog posts, corporate reports to literary works, precisely distinguishing between human and artificial production markers.",
-  "contentDesc2": "5-layer deep analysis with RegressionPro™ technology: Word patterns, sentence structure, semantic depth, model residue scanning, and author score calculation.",
-  "contentFeaturesTitle": "5-Layer Deep Analysis",
-  "contentFeaturesDesc": "With RegressionPro™ technology: Word pattern analysis, sentence structure, semantic depth evaluation",
-  "contentFeaturesTitle1": "95% Accuracy Rate",
-  "contentFeaturesDesc1": "Filters deceptive artificial traces, identifies the real author",
-  "contentFeaturesTitle2": "All AI Models",
-  "contentFeaturesDesc2": "Detects all major language models including ChatGPT, Gemini, Claude, LLaMa",
-  "contentFeaturesTitle3": "Enterprise Solution",
-  "contentFeaturesDesc3": "Ideal reliability for academics, publishers and institutions",
+    "stats": {
+      "accuracy": "95%",
+      "accuracyLabel": "Accuracy Rate",
+      "layers": "5",
+      "layersLabel": "Layer Analysis"
+    },
+
+    "features": {
+      "feature1": "Detects all major models including ChatGPT, Gemini, Claude, LLaMa",
+      "feature2": "Filters deceptive artificial traces, identifies the real author",
+      "feature3": "Ideal reliability for academics, publishers and institutions"
+    },
+
+    "ctaButton": "Get Started Now",
+
+    "scanner": {
+      "title": "AI Content Detector",
+      "subtitle": "Analyze your text",
+      "placeholder": "Paste the text you want to analyze here...",
+      "characterCount": "characters",
+      "scanButton": "Start Scan",
+      "scanning": "Analyzing...",
+      "scanningProgress": "Analysis in progress...",
+      "readyToScan":"Ready to scan",
+      "minCharacters": "Minimum 250 characters",
+
+      "results": {
+        "aiProbability": "Probability of AI generation",
+        "regressionProTitle": "RegressionPro™ Technology",
+        "regressionProDesc": "Precisely verify text authenticity",
+        "confidenceHigh": "High",
+        "layerAnalysisTitle": "5-Layer Analysis Details:",
+
+        "layers": {
+          "layer1": {
+            "name": "Word Pattern Analysis",
+            "description": "Detects repetitions and structural patterns unique to artificial language",
+            "detail": "Characteristic word usage patterns of AI models detected"
+          },
+          "layer2": {
+            "name": "Sentence Structure Deviation Model",
+            "description": "Calculates differences between human writing and artificial construction",
+            "detail": "Sentence length and complexity level analyzed"
+          },
+          "layer3": {
+            "name": "Semantic Depth Measurement",
+            "description": "Examines contextual consistency and content density in text",
+            "detail": "Thought depth and originality level evaluated"
+          },
+          "layer4": {
+            "name": "Model Residue Scanning",
+            "description": "Searches for stylistic traces left by ChatGPT and similar models",
+            "detail": "Specific AI model signatures detected"
+          },
+          "layer5": {
+            "name": "Author Score Calculation",
+            "description": "Assigns human-AI probability scores to each sentence, derives overall ratio",
+            "detail": "Final confidence score calculated"
+          }
+        },
+
+        "whyAiTitle": "Why We Think This Is AI-Generated?",
+        "reasons": {
+          "reason1": "Repetitive sentence structures and predictable transitions characteristic of AI generation",
+          "reason2": "Limited idiomatic expressions and inconsistent vocabulary",
+          "reason3": "Signs of general information density and shallow content depth",
+          "reason4": "Stylistic traces and characteristic patterns of known AI models"
+        },
+
+        "fullAnalysis": "Detailed analysis text: In the 5-layer deep analysis conducted with RegressionPro™ technology, strong evidence has been found that the text was generated by artificial intelligence. Word pattern analysis detected repetitive structures and predictable word choices characteristic of AI models. Our sentence structure deviation model showed significant deviations from human writing. Semantic depth measurement revealed superficial content and limited contextual depth. Model residue scanning found characteristic traces of popular AI models. Author score calculation detected high AI probability in each sentence evaluation. Based on this comprehensive analysis, we conclude that the text was most likely generated by an AI model. Upgrade to premium membership for detailed reports and recommendations.",
+
+        "shortAnalysisPreview": "Detailed analysis text: In the 5-layer deep analysis conducted with RegressionPro™ technology, strong evidence has been found that the text was generated by artificial intelligence. Word pattern analysis detected repetitive structures and predictable word choices characteristic of AI models..."
+      },
+
+      "registration": {
+        "title": "Detailed RegressionPro™ Analysis",
+        "subtitle": "Register to see 5-layer deep analysis results and get detailed reports",
+        "registerButton": "Sign Up Free",
+        "loginButton": "I Already Have an Account",
+        "footer": "Discover RegressionPro™ and access more features by registering",
+        "continueReading": "Continue reading"
+      }
+    },
+
+    "errors": {
+      "emptyText": "Please enter text to analyze",
+      "tooShort": "The text is too short, more detailed analysis at least 250 characters is required"
+    }
+  },
+
+  "homeContent": {
+    "title": "Why Airisto?",
+    "desc": "Airisto is the most reliable way to detect AI traces in written texts. Our advanced technology performs sophisticated analysis to determine whether a text was written by artificial intelligence. It evaluates all types of content from academic papers to blog posts, corporate reports to literary works, precisely distinguishing between human and AI-generated content markers.",
+    "desc2": "Airisto's 5-layer deep analysis: Word patterns, sentence structure, semantic depth, model residue scanning, and author score calculation.",
+    "features": {
+      "title": "5-Layer Deep Analysis",
+      "desc": "With Airisto's advanced technology: Word pattern analysis, sentence structure, and semantic depth evaluation",
+      "title1": "95% Accuracy Rate",
+      "desc1": "Detects all major language models including ChatGPT, Gemini, Claude, and LLaMa",
+      "title2": "All AI Models",
+      "desc2": "Airisto precisely detects all major language models including ChatGPT, Gemini, Claude, and LLaMa",
+      "title3": "Enterprise Solution",
+      "desc3": "Ideal reliability for academics, publishers, and institutions"
+    }
+  },
+
+  "technologySection": {
+    "badge": "OUR TECHNOLOGY",
+    "title": "Uncover Authentic Content with RegressionPro™",
+    "subtitle": "Pioneering research and modeling in AI content detection",
+    "description": "Airisto's AI detection model incorporates 7 components to determine whether text was written by artificial intelligence. We employ a multi-step approach designed to maximize accuracy while minimizing false positives. Our model specializes in detecting content from ChatGPT, GPT-4, Gemini, Claude, and LLaMa models.",
+    "ctaText": "See how it works",
+    "features": {
+      "accuracy": "Identifies AI-generated content with up to 95% accuracy",
+      "models": "Analyzes all major models including GPT, Gemini, Claude, and LLaMa",
+      "reliability": "Filters deceptive artificial traces and identifies the real author",
+      "target": "Ideal for institutions, publishers, and academics"
+    },
+    "processTitle": "Our Detection Process: 5-Layer Deep Analysis",
+    "processDesc": "RegressionPro™ technology examines texts in five stages to precisely detect artificial intelligence traces",
+    "layers": {
+      "layer1": {
+        "title": "Word Pattern Analysis",
+        "description": "Detects repetitions and structural patterns unique to artificial language",
+        "icon": "Zap"
+      },
+      "layer2": {
+        "title": "Sentence Structure Deviation Model",
+        "description": "Calculates differences between human writing and artificial construction",
+        "icon": "Brain"
+      },
+      "layer3": {
+        "title": "Semantic Depth Measurement",
+        "description": "Examines contextual consistency and content density in text",
+        "icon": "Search"
+      },
+      "layer4": {
+        "title": "Model Residue Scanning",
+        "description": "Searches for stylistic traces left by ChatGPT and similar models",
+        "icon": "Shield"
+      },
+      "layer5": {
+        "title": "Author Score Calculation",
+        "description": "Assigns human-AI probability scores to each sentence and derives overall ratio",
+        "icon": "Calculator"
+      }
+    },
+    "bottom": {
+      "title": "Our Process",
+      "more": "Sign up for more features"
+    },
+    "bottomText": "Know Who Wrote It. Share With Confidence. Decide With Scientific Accuracy.",
+    "mission": "Through RegressionPro™ technology, Airisto reveals the true source of content, ensuring academic integrity, corporate trust, and intellectual transparency."
+  },
 
   "mockIndicator1": "Word Pattern Analysis: Detects repetitions and structural patterns unique to artificial language",
   "mockIndicator2": "Sentence Structure Deviation Model: Calculates differences between human writing and artificial construction",
@@ -62,7 +207,7 @@
 
   "brandingMessages": {
     "tagline": "Know Who Wrote It. Share With Confidence. Decide With Scientific Accuracy.",
-    "mission": "With RegressionPro™ technology, Airisto reveals the true source of content, ensuring academic integrity, corporate trust and intellectual transparency.",
+    "mission": "Airisto reveals the true source of content, ensuring academic integrity, corporate trust and intellectual transparency.",
     "reliability": "Airisto is the most reliable way to detect AI traces in written texts."
   },
 
@@ -178,16 +323,20 @@
   "ctaTitle2": "Detect AI-generated texts with % accuracy. Analysis, reasoning, and reliable results in a single step.",
   "ctaStartNow": "Start Now",
 
-  "faqQ1": "What does this AI detection do?",
-  "faqA1": "This application helps determine how much of the entered text or documents were written by AI.",
-  "faqQ2": "How is AI detection performed?",
-  "faqA2": "Advanced machine learning models and natural language processing techniques are used to analyze signs of AI generation in the text.",
-  "faqQ3": "Which file types can I analyze?",
-  "faqA3": "We currently support .txt, .docx, and .pdf files. Support for more formats will be added soon.",
-  "faqQ4": "How reliable are the results?",
-  "faqA4": "Our model has a high accuracy rate, but 100% certainty is not guaranteed. It is recommended to use it alongside human review.",
-  "faqQ5": "Is there a free plan available?",
-  "faqA5": "There is currently no free plan available.",
-  "faqTitle": "Frequently Asked Questions",
-  "faqDesc": "Our support team, assisted by AI-powered suggestions, will handle support requests faster than ever."
+  "faq": {
+    "faqQ1": "What does this AI detection do?",
+    "faqA1": "This application helps determine how much of the entered text or documents were written by AI.",
+    "faqQ2": "How is AI detection performed?",
+    "faqA2": "Advanced machine learning models and natural language processing techniques are used to analyze signs of AI generation in the text.",
+    "faqQ3": "Which file types can I analyze?",
+    "faqA3": "We currently support .txt, .docx, and .pdf files. Support for more formats will be added soon.",
+    "faqQ4": "How reliable are the results?",
+    "faqA4": "Our model has a high accuracy rate, but 100% certainty is not guaranteed. It is recommended to use it alongside human review.",
+    "faqQ5": "Is there a free plan available?",
+    "faqA5": "There is currently no free plan available.",
+    "faqTitle": "Frequently Asked Questions for Airisto",
+    "faqDesc": "Our support team, assisted by AI-powered suggestions, will handle support requests faster than ever.",
+    "cantFindAnswerTitle":"Can't find the answer to your question?",
+    "contactUs":"Contact Us"
+  }
 }
