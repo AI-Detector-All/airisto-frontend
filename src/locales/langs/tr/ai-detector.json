@@ -73,5 +73,7 @@
   "finalScanningDesc":"Analiz tamamlanıyor ve rapor hazırlanıyor...",
   "aiScanningTitle":"Yapay Zeka Analizi Yapılıyor",
   "aiScanningDesc2":"İçeriğiniz detaylı olarak analiz ediliyor...",
-  "generalProgress":"Genel İlerleme"
+  "generalProgress":"Genel İlerleme",
+  "aiServiceUnavailable":"Yapay zeka servisimiz şuanda kullanılamıyor.",
+  "aiServiceUnavailableDesc":"Lütfen daha sonra tekrar deneyin."
 }

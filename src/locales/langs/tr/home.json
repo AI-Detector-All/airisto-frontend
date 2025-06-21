@@ -1,20 +1,165 @@
 {
-  "heroTitle": "Airisto - Gelişmiş ve Güvenilir Yapay Zeka İçerik Dedektörü",
-  "heroTitle1": "RegressionPro™ ile Gerçek İçeriği Ortaya Çıkarın",
-  "heroDesc": "Tamamen özgün RegressionPro™ teknolojisi ile 5 katmanlı yapay zeka iz analizi. %95'e varan doğrulukla AI üretimi içerikleri tanımlar ve gerçek yazarı belirler.",
-  "heroHowItWorks": "RegressionPro™ Nasıl Çalışır",
+  "homeHero": {
+    "badge": "Airisto - Gelişmiş ve Güvenilir Yapay Zeka İçerik Dedektörü",
+    "title": "Yapay Zekayı Tespit Et,",
+    "titleHighlight": "İçeriğin Gerçekliğini Keşfet",
+    "turkishFirst": "Türkçe olarak ilk ve tek yapay zeka dedektörü",
+    "description": "Tamamen özgün teknoloji ile 5 katmanlı yapay zeka iz analizi. %95'e varan doğrulukla AI üretimi içerikleri tanımlar ve gerçek yazarı belirler.",
 
-  "contentTitle": "Neden RegressionPro™?",
-  "contentDesc": "“Airisto” yazılı metinlerde Yapay Zekâ İzlerini Tespit Etmenin En Güvenilir Yoludur. RegressionPro™, bir metnin yapay zekâ tarafından yazılıp yazılmadığını tespit etmek için geliştirilmiş ileri düzey bir analiz teknolojisidir. Akademik metinlerden blog yazılarına, şirket raporlarından, edebi eserlere kadar her türlü içeriği değerlendirerek, insan ve yapay üretim izlerini hassas biçimde ayırt eder.",
-  "contentDesc2": "RegressionPro™ teknolojisi ile 5 katmanlı derin analiz: Kelime örüntüleri, cümle yapısı, anlamsal derinlik, model artık tarama ve yazar skoru hesaplama.",
-  "contentFeaturesTitle": "5 Katmanlı Derin Analiz",
-  "contentFeaturesDesc": "RegressionPro™ teknolojisi ile kelime örüntüleri, cümle yapısı, anlamsal derinlik analizi",
-  "contentFeaturesTitle1": "%95 Doğruluk Oranı",
-  "contentFeaturesDesc1": "Yanıltıcı yapay izleri ayıklar, gerçek yazarı belirler",
-  "contentFeaturesTitle2": "Tüm AI Modelleri",
-  "contentFeaturesDesc2": "ChatGPT, Gemini, Claude, LLaMa gibi tüm büyük dil modellerini tespit eder",
-  "contentFeaturesTitle3": "Kurumsal Çözüm",
-  "contentFeaturesDesc3": "Akademisyenler, yayıncılar ve kurumlar için ideal güvenilirlik",
+    "stats": {
+      "accuracy": "%95",
+      "accuracyLabel": "Doğruluk Oranı",
+      "layers": "5",
+      "layersLabel": "Katmanlı Analiz"
+    },
+
+    "features": {
+      "feature1": "ChatGPT, Gemini, Claude, LLaMa gibi tüm büyük modelleri tespit eder",
+      "feature2": "Yanıltıcı yapay izleri ayıklar, gerçek yazarı belirler",
+      "feature3": "Akademisyenler, yayıncılar ve kurumlar için ideal güvenilirlik"
+    },
+
+    "ctaButton": "Şimdi Başlayın",
+
+    "scanner": {
+      "title": "AI İçerik Dedektörü",
+      "subtitle": "Metninizi analiz edin",
+      "placeholder": "Analiz etmek istediğiniz metni buraya yapıştırın...",
+      "characterCount": "karakter",
+      "scanButton": "Tarama Başlat",
+      "scanning": "Analiz Ediliyor...",
+      "scanningProgress": "Analiz ediliyor...",
+      "readyToScan":"Taramaya hazır",
+      "minCharacters": "Minimum 250 karakter",
+
+      "results": {
+        "aiProbability": "AI üretimi olasılığı",
+        "regressionProTitle": "RegressionPro™ Teknolojisi",
+        "regressionProDesc": "Metnin gerçekliğini hassasiyetle doğrulayın",
+        "confidenceHigh": "Yüksek",
+        "layerAnalysisTitle": "5 Katmanlı Analiz Detayları:",
+
+        "layers": {
+          "layer1": {
+            "name": "Kelime Örüntüleri Analizi",
+            "description": "Yapay dile özgü tekrarları ve yapısal kalıpları tespit eder",
+            "detail": "AI modellerinin karakteristik kelime kullanım desenleri tespit edildi"
+          },
+          "layer2": {
+            "name": "Cümle Yapısı Sapma Modeli",
+            "description": "İnsan yazımı ile yapay kurgu arasındaki farkı hesaplar",
+            "detail": "Cümle uzunluğu ve karmaşıklık seviyesi analiz edildi"
+          },
+          "layer3": {
+            "name": "Anlamsal Derinlik Ölçümü",
+            "description": "Metindeki bağlam tutarlılığı ve içerik yoğunluğu incelenir",
+            "detail": "Düşünce derinliği ve özgünlük seviyesi değerlendirildi"
+          },
+          "layer4": {
+            "name": "Model Artık Tarama",
+            "description": "ChatGPT ve benzeri modellerden kalan stilistik izler aranır",
+            "detail": "Spesifik AI modeli imzaları tespit edildi"
+          },
+          "layer5": {
+            "name": "Yazar Skoru Hesaplama",
+            "description": "Her cümleye insan-yapay olasılık puanı verilir, genel oran çıkarılır",
+            "detail": "Final güvenilirlik skoru hesaplandı"
+          }
+        },
+
+        "whyAiTitle": "Neden Yapay Zeka Üretimi Olduğunu Düşünüyoruz?",
+        "reasons": {
+          "reason1": "Yapay zeka üretimine özgü tekrarlayan cümle yapıları ve öngörülebilir geçişler",
+          "reason2": "Sınırlı deyimsel ifadeler ve tutarlı olmayan kelime dağarcığı",
+          "reason3": "Genel bilgi yoğunluğu belirtileri ve yüzeysel içerik derinliği",
+          "reason4": "Bilinen AI modellerinin stilistik izleri ve karakteristik kalıpları"
+        },
+
+        "fullAnalysis": "Detaylı analiz metni: RegressionPro™ teknolojisi ile yapılan 5 katmanlı derin analizde, metnin yapay zeka tarafından üretildiğine dair güçlü kanıtlar bulunmuştur. Kelime örüntüleri analizinde, AI modellerine özgü tekrarlayan yapılar ve öngörülebilir kelime seçimleri tespit edilmiştir. Cümle yapısı sapma modelimiz, insan yazımından belirgin sapmalar göstermiştir. Anlamsal derinlik ölçümünde, yüzeysel içerik ve sınırlı bağlamsal derinlik gözlemlenmiştir. Model artık taramasında, popüler AI modellerinin karakteristik izleri bulunmuştur. Yazar skoru hesaplamasında, her cümle için yapılan değerlendirmede yüksek AI olasılığı tespit edilmiştir. Bu kapsamlı analiz sonucunda, metnin büyük olasılıkla bir yapay zeka modeli tarafından üretildiği sonucuna varılmıştır. Detaylı rapor ve öneriler için premium üyeliğe geçebilirsiniz.",
+
+        "shortAnalysisPreview": "Detaylı analiz metni: RegressionPro™ teknolojisi ile yapılan 5 katmanlı derin analizde, metnin yapay zeka tarafından üretildiğine dair güçlü kanıtlar bulunmuştur. Kelime örüntüleri analizinde, AI modellerine özgü tekrarlayan yapılar ve öngörülebilir kelime seçimleri tespit edilmiştir..."
+      },
+
+      "registration": {
+        "title": "Detaylı RegressionPro™ Analizi",
+        "subtitle": "5 katmanlı derin analiz sonuçlarını görmek ve detaylı raporu almak için kayıt olun",
+        "registerButton": "Ücretsiz Kayıt Ol",
+        "loginButton": "Zaten Üyeyim",
+        "footer": "Kayıt olarak RegressionPro™ Keşfedin ve daha fazla özelliğe erişin",
+        "continueReading": "Okumaya devam etmek için"
+      }
+    },
+
+    "errors": {
+      "emptyText": "Lütfen analiz edilecek bir metin girin",
+      "tooShort": "Metin çok kısa, daha detaylı analiz için en az 250 kelime giriniz."
+    }
+  },
+
+  "homeContent": {
+    "title": "Neden Airisto?",
+    "desc": "Airisto, yazılı metinlerde Yapay Zeka İzlerini Tespit Etmenin En Güvenilir Yoludur. Gelişmiş teknolojimiz ile bir metnin yapay zeka tarafından yazılıp yazılmadığını tespit etmek için ileri düzey analiz yapar. Akademik metinlerden blog yazılarına, şirket raporlarından edebi eserlere kadar her türlü içeriği değerlendirerek, insan ve yapay üretim izlerini hassas biçimde ayırt eder.",
+    "desc2": "Airisto ile 5 katmanlı derin analiz: Kelime örüntüleri, cümle yapısı, anlamsal derinlik, model artık tarama ve yazar skoru hesaplama.",
+    "features": {
+      "title": "5 Katmanlı Derin Analiz",
+      "desc": "Airisto'nun gelişmiş teknolojisi ile kelime örüntüleri, cümle yapısı ve anlamsal derinlik analizi",
+      "title1": "%95 Doğruluk Oranı",
+      "desc1": "ChatGPT, Gemini, Claude, LLaMa gibi tüm büyük dil modellerini tespit eder",
+      "title2": "Tüm AI Modelleri",
+      "desc2": "Airisto ChatGPT, Gemini, Claude, LLaMa gibi tüm büyük dil modellerini hassasiyetle tespit eder",
+      "title3": "Kurumsal Çözüm",
+      "desc3": "Akademisyenler, yayıncılar ve kurumlar için ideal güvenilirlik"
+    }
+  },
+
+  "technologySection": {
+    "badge": "BİZİM TEKNOLOJİMİZ",
+    "title": "RegressionPro™ ile Gerçek İçeriği Ortaya Çıkarın",
+    "subtitle": "Yapay zeka içerik tespitinde öncü araştırma ve modelleme",
+    "description": "Airisto'nun AI tespit modeli, metni yapay zeka tarafından yazılıp yazılmadığını belirlemek için 7 bileşen içerir. Maksimum doğruluk sağlamayı hedefleyen çok adımlı yaklaşım kullanıyoruz ve en az yanlış pozitif sonuç veriyoruz. Modelimiz ChatGPT, GPT-4, Gemini, Claude ve LLaMa modellerinden içerik tespitinde uzmanlaşmıştır.",
+    "ctaText": "Nasıl çalıştığını gör",
+    "features": {
+      "accuracy": "95%'e varan doğruluk ile AI üretimi içerikleri tanımlar",
+      "models": "GPT, Gemini, Claude, LLaMa gibi tüm büyük modelleri analiz eder",
+      "reliability": "Yanıltıcı yapay izleri ayıklar, gerçek yazarı belirler",
+      "target": "Kurumlar, yayıncılar ve akademisyenler için idealdir"
+    },
+    "processTitle": "Tespit Sürecimiz: 5 Katmanlı Derin Analiz",
+    "processDesc": "RegressionPro™ teknolojisi, metinleri beş aşamada inceler ve yapay zeka izlerini hassasiyetle tespit eder",
+    "layers": {
+      "layer1": {
+        "title": "Kelime Örüntüleri Analizi",
+        "description": "Yapay dile özgü tekrarları ve yapısal kalıpları tespit eder",
+        "icon": "Zap"
+      },
+      "layer2": {
+        "title": "Cümle Yapısı Sapma Modeli",
+        "description": "İnsan yazımı ile yapay kurgu arasındaki farkı hesaplar",
+        "icon": "Brain"
+      },
+      "layer3": {
+        "title": "Anlamsal Derinlik Ölçümü",
+        "description": "Metindeki bağlam tutarlılığı ve içerik yoğunluğu incelenir",
+        "icon": "Search"
+      },
+      "layer4": {
+        "title": "Model Artık Tarama",
+        "description": "ChatGPT ve benzeri modellerden kalan stilistik izler aranır",
+        "icon": "Shield"
+      },
+      "layer5": {
+        "title": "Yazar Skoru Hesaplama",
+        "description": "Her cümleye insan-yapay olasılık puanı verilir, genel oran çıkarılır",
+        "icon": "Calculator"
+      }
+    },
+    "bottom": {
+      "title": "Süreç Nasıl İşliyor?",
+      "more": "Daha fazlası için hemen kayıt olun"
+    },
+    "bottomText": "Kimin Yazdığını Bilin. Güvenle Paylaşın. Bilimsel Doğrulukla Karar Verin.",
+    "mission": "RegressionPro™ teknolojisi ile Airisto, içeriğin gerçek kaynağını açığa çıkararak akademik dürüstlük, kurumsal güven ve entelektüel şeffaflık sağlar."
+  },
 
   "mockIndicator1": "Kelime Örüntüleri Analizi: Yapay dile özgü tekrarları ve yapısal kalıpları tespit eder",
   "mockIndicator2": "Cümle Yapısı Sapma Modeli: İnsan yazımı ile yapay kurgu arasındaki farkı hesaplar",
@@ -62,10 +207,9 @@
 
   "brandingMessages": {
     "tagline": "Kimin Yazdığını Bilin. Güvenle Paylaşın. Bilimsel Doğrulukla Karar Verin.",
-    "mission": "RegressionPro™ teknolojisi ile Airisto, içeriğin gerçek kaynağını açığa çıkararak akademik dürüstlük, kurumsal güven ve entelektüel şeffaflık sağlar.",
+    "mission": "Airisto, içeriğin gerçek kaynağını açığa çıkararak akademik dürüstlük, kurumsal güven ve entelektüel şeffaflık sağlar.",
     "reliability": "Airisto, yazılı metinlerde Yapay Zeka İzlerini Tespit Etmenin En Güvenilir Yoludur."
   },
-
 
   "hiwTitle": "RegressionPro™ Nasıl Çalışır?",
   "hiwDesc": "RegressionPro™ teknolojisi, metinleri 5 katmanlı derin analizle inceler. Her katman, yapay zeka izlerini farklı açılardan tespit ederek %95'e varan doğrulukla sonuç üretir.",
@@ -83,11 +227,10 @@
   "hiwResultDesc": "5 katmanlı analiz tamamlandıktan sonra, RegressionPro™ detaylı bir rapor sunar:",
   "hiwGeneralScore": "Genel skor",
   "hiwResultScore": "AI üretimi olasılık yüzdesi",
-  "hiwLayerDetail":"Katman detayları",
+  "hiwLayerDetail": "Katman detayları",
   "hiwResultDetails": "Her analizin ayrı skorları",
-  "hiwReasons":"Gerekçeler",
+  "hiwReasons": "Gerekçeler",
   "hiwResultReasons": "Neden AI üretimi olduğu gerekçeleri",
-
 
   "pricingTitle": "İhtiyacınıza Uygun Planı Seçin",
   "pricingSubtitle": "İçerik doğrulama ihtiyaçlarınıza en uygun planı seçin",
@@ -180,18 +323,22 @@
   "ctaTitle2": "Yapay zeka üretimi metinleri % doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda.",
   "ctaStartNow": "Hemen Başla",
 
-  "faqQ1": "Bu yapay zeka tespiti ne işe yarar?",
-  "faqA1": "Bu uygulama, girilen metin veya dokümanların ne kadarının yapay zeka tarafından yazıldığını tespit etmeye yardımcı olur.",
-  "faqQ2": "Yapay zeka tespiti nasıl yapılır?",
-  "faqA2": "Gelişmiş makine öğrenimi modelleri ve dil işleme teknikleri kullanılarak metindeki yapay zeka üretimi izleri analiz edilir.",
-  "faqQ3": "Hangi dosya türlerini analiz edebilirim?",
-  "faqA3": "Şu anda .txt, .docx ve .pdf dosyalarını destekliyoruz. Yakında daha fazla format desteği eklenecektir.",
-  "faqQ4": "Sonuçlar ne kadar güvenilir?",
-  "faqA4": "Modelimiz yüksek doğruluk oranına sahiptir ancak %100 kesinlik garanti edilmez. İnsan incelemesiyle birlikte kullanılması önerilir.",
-  "faqQ5": "Ücretsiz plan mevcut mu?",
-  "faqA5": "Ücretsiz plan şuanda mevcut değildir.",
-  "faqTitle": "Sık Sorulan Sorular",
-  "faqDesc": "Destek ekibimiz yapay zeka destekli önerilerden yardım alarak destek taleplerini her zamankinden daha hızlı bir şekilde ele alacak.",
+  "faq": {
+    "faqQ1": "Bu yapay zeka tespiti ne işe yarar?",
+    "faqA1": "Bu uygulama, girilen metin veya dokümanların ne kadarının yapay zeka tarafından yazıldığını tespit etmeye yardımcı olur.",
+    "faqQ2": "Yapay zeka tespiti nasıl yapılır?",
+    "faqA2": "Gelişmiş makine öğrenimi modelleri ve dil işleme teknikleri kullanılarak metindeki yapay zeka üretimi izleri analiz edilir.",
+    "faqQ3": "Hangi dosya türlerini analiz edebilirim?",
+    "faqA3": "Şu anda .txt, .docx ve .pdf dosyalarını destekliyoruz. Yakında daha fazla format desteği eklenecektir.",
+    "faqQ4": "Sonuçlar ne kadar güvenilir?",
+    "faqA4": "Modelimiz yüksek doğruluk oranına sahiptir ancak %100 kesinlik garanti edilmez. İnsan incelemesiyle birlikte kullanılması önerilir.",
+    "faqQ5": "Ücretsiz plan mevcut mu?",
+    "faqA5": "Ücretsiz plan şuanda mevcut değildir.",
+    "faqTitle": "Airisto - Sık Sorulan Sorular",
+    "faqDesc": "Destek ekibimiz yapay zeka destekli önerilerden yardım alarak destek taleplerini her zamankinden daha hızlı bir şekilde ele alacak.",
+    "cantFindAnswerTitle":"Sorularınızın cevabını bulamadınız mı?",
+    "contactUs":"Bizimle iletişime geçin"
+  },
 
   "language_detection_message": "Tercih ettiğiniz dili otomatik olarak algıladık. İstediğiniz zaman değiştirebilirsiniz.",
   "current_language": "Mevcut dil",
