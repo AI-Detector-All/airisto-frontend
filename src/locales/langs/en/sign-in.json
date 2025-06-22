@@ -14,17 +14,17 @@
   "signUpLink": "Sign Up",
   "orContinueWith": "Or continue with",
   "signInWithGoogle": "Sign In with Google",
-  "aiTagline": "Unleash the Power of AI",
+  "aiTagline": "Ultimate Ai Dedection Tool",
   "mainTitle": "Detect AI-Generated Content",
   "mainSubtitle": "The Fastest and Easiest Way",
-  "mainDescription": "Identify AI-generated text with % accuracy. Get analysis, reasoning, and reliable results in a single step.",
+  "mainDescription": "Identify AI-generated text with 95% accuracy. Get analysis, reasoning, and reliable results in a single step.",
   "detectAI": "Detect AI",
   "cancelAnytime": "Cancel anytime",
   "seeHowItWorks": "See How It Works",
   "features": {
     "advancedDetection": {
       "title": "Advanced Detection",
-      "description": "AI-powered analysis with 85% accuracy"
+      "description": "AI-powered analysis with 95% accuracy"
     },
     "multiModelSupport": {
       "title": "Multi-Model Support",
