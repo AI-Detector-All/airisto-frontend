@@ -31,17 +31,17 @@
   "passwordStrengthStrong": "Güçlü",
   "alreadyHaveAccount": "Zaten hesabınız var mı?",
   "signInLink": "Giriş yapın",
-  "aiTagline": "Yapay Zeka ile Ortaya Çıkarın",
+  "aiTagline": "Türkçe de En İyi Yapay Zeka Tespit Aracı",
   "mainTitle": "Yapay Zeka Tarafından Oluşturulan İçeriği Tespit Etmek için",
   "mainSubtitle": "En Hızlı ve En Kolay Yol",
-  "mainDescription": "Yapay zeka üretimi metinleri % doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda.",
+  "mainDescription": "Yapay zeka üretimi metinleri %95 doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda.",
   "detectAI": "Yapay Zekayı Tespit Et",
   "cancelAnytime": "İstediğiniz zaman iptal edebilirsiniz",
   "seeHowItWorks": "Nasıl çalıştığını görün",
   "features": {
     "advancedDetection": {
       "title": "Gelişmiş Tespit",
-      "description": "%85'lik doğruluk oranıyla yapay zeka destekli analiz"
+      "description": "%95'lik doğruluk oranıyla yapay zeka destekli analiz"
     },
     "multiModelSupport": {
       "title": "Çoklu Model Desteği",
