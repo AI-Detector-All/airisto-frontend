@@ -34,7 +34,7 @@ export default function HomeFAQ() {
     ];
 
     return (
-        <div id="faq" className="mt-16 w-full min-h-screen flex justify-center items-center">
+        <div id="faq" className="mt-16 w-full  flex justify-center items-center">
             <div className="w-full lg:w-2/3 p-4 lg:p-8 lg:flex justify-center lg:gap-16 font-onest rounded-xl shadow">
                 <div>
                     <h1 className="text-header3 font-semibold text-gray-700 mb-4"> {t('faq.faqTitle')} </h1>

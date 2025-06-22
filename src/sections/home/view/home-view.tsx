@@ -30,7 +30,7 @@ export default function HomeView() {
             
             <HomeCTA />
 
-            <Separator className="my-8" />
+            <Separator className="" />
 
             <HomeFAQ />
         </div>

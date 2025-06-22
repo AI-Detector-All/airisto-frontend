@@ -24,11 +24,13 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             credits: t('pricingIndividualOneTimeCredits'),
             highlighted: false,
             features: [
-                t('pricingIndividualOneTimeFeature1'),
-                t('pricingIndividualOneTimeFeature2'),
-                t('pricingIndividualOneTimeFeature3'),
-                t('pricingIndividualOneTimeFeature4'),
-                t('pricingIndividualOneTimeFeature5'),
+                t('pricingIndividualMonthlyFeature1'),
+                t('pricingIndividualMonthlyFeature2'),
+                t('pricingIndividualMonthlyFeature3'),
+                t('pricingIndividualMonthlyFeature4'),
+                t('pricingIndividualMonthlyFeature5'),
+                t('pricingIndividualMonthlyFeature6'),
+                t('pricingIndividualMonthlyFeature7'),
             ]
         },
         monthly: {
@@ -44,6 +46,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                 t('pricingIndividualMonthlyFeature5'),
                 t('pricingIndividualMonthlyFeature6'),
                 t('pricingIndividualMonthlyFeature7'),
+                t('pricingIndividualMonthlyFeature8'),
             ]
         },
         annual: {
@@ -59,6 +62,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                 t('pricingIndividualAnnualFeature5'),
                 t('pricingIndividualAnnualFeature6'),
                 t('pricingIndividualAnnualFeature7'),
+                t('pricingIndividualAnnualFeature8'),
             ]
         }
     };
@@ -122,17 +126,15 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
 
     return (
         <div id="pricing" className="w-full font-onest py-16 mt-16 flex flex-col min-h-screen justify-center items-center relative overflow-hidden">
-            {/* Animated background elements */}
             <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 to-purple-50/30 pointer-events-none" />
             <div className="absolute top-20 left-20 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl animate-pulse" />
             <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-200/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
 
-            {/* Header with fade-in animation */}
             <div className="text-center mb-12 relative z-10 animate-in fade-in duration-1000">
                 <div className="inline-flex items-center justify-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 mb-6">
                     <Sparkles className="w-4 h-4 text-purple-500 mr-2" />
                     <span className="text-sm font-medium bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                        Pricing Plans
+                        {t('pricingPlans')}
                     </span>
                 </div>
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
@@ -143,7 +145,6 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                 </p>
             </div>
 
-            {/* Customer Type Toggle with animation */}
             <div className="flex justify-center mb-12 animate-in slide-in-from-bottom duration-700 delay-200">
                 <div className="inline-flex p-1.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-lg shadow-gray-200/40">
                     {activePlansType === "corporate" ? (
@@ -158,8 +159,8 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                         <div className="flex gap-1">
                             <Button
                                 className={`px-8 py-4 flex items-center gap-3 rounded-xl transition-all duration-300 ${customerType === "individual"
-                                        ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-0.5"
-                                        : "text-gray-600 bg-transparent hover:bg-gray-50 hover:text-gray-800"
+                                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-0.5"
+                                    : "text-gray-600 bg-transparent hover:bg-gray-50 hover:text-gray-800"
                                     }`}
                                 onClick={() => setCustomerType("individual")}
                             >
@@ -168,8 +169,8 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                             </Button>
                             <Button
                                 className={`px-8 py-4 flex items-center gap-3 rounded-xl transition-all duration-300 ${customerType === "corporate"
-                                        ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-0.5"
-                                        : "text-gray-600 bg-transparent hover:bg-gray-50 hover:text-gray-800"
+                                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-0.5"
+                                    : "text-gray-600 bg-transparent hover:bg-gray-50 hover:text-gray-800"
                                     }`}
                                 onClick={() => setCustomerType("corporate")}
                             >
@@ -181,7 +182,6 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                 </div>
             </div>
 
-            {/* Corporate Plans Section */}
             {customerType === "corporate" && (
                 <div className="max-w-5xl mx-auto mb-12 animate-in slide-in-from-bottom duration-700 delay-300">
                     <Card className="border-2 border-purple-200/60 bg-gradient-to-br from-white to-purple-50/30 backdrop-blur-sm shadow-xl shadow-purple-100/40 overflow-hidden">
@@ -253,7 +253,6 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                 </div>
             )}
 
-            {/* Individual Plans Billing Toggle */}
             {customerType === "individual" && (
                 <div className="flex justify-center mb-12 animate-in slide-in-from-bottom duration-700 delay-300">
                     <div className="inline-flex p-1.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-lg shadow-gray-200/40">
@@ -272,7 +271,6 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                 </div>
             )}
 
-            {/* Pricing Cards */}
             <div className={`${customerType === "individual" ? "max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8" : "max-w-lg"} mx-auto`}>
                 {activePlans.map((plan, index) => (
                     <div
@@ -310,15 +308,15 @@ interface BillingToggleProps {
 function BillingToggle({ label, active, onClick, badge = null }: BillingToggleProps) {
     return (
         <Button
-            className={`px-8 py-3 text-sm font-medium relative rounded-xl transition-all duration-300 ${active
-                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-0.5"
-                    : "text-gray-600 bg-transparent hover:bg-gray-50 hover:text-gray-800"
+            className={`px-12 py-6 text-sm font-medium relative rounded-xl transition-all duration-300 ${active
+                ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-0.5"
+                : "text-gray-600 bg-transparent hover:bg-gray-50 hover:text-gray-800"
                 }`}
             onClick={onClick}
         >
             {label}
             {badge && (
-                <span className="absolute -top-2 -right-2 text-xs bg-gradient-to-r from-green-400 to-emerald-400 text-white px-2 py-1 rounded-full font-medium shadow-sm animate-pulse">
+                <span className="absolute -top-2 -right-2 text-xs bg-gradient-to-r from-green-400 to-emerald-400 text-white px-1 py-1 rounded-full font-medium shadow-sm animate-pulse">
                     {badge}
                 </span>
             )}
@@ -355,13 +353,11 @@ function PricingCard({ name, price, credits, features, highlighted = false, bill
 
     return (
         <Card className={`overflow-hidden group transition-all duration-500 hover:-translate-y-2 relative h-full ${highlighted
-                ? "border-2 border-purple-300 bg-gradient-to-br from-white to-purple-50/50 shadow-xl shadow-purple-100/50 hover:shadow-2xl hover:shadow-purple-200/60"
-                : "border border-gray-200 bg-white/80 backdrop-blur-sm shadow-lg shadow-gray-100/50 hover:shadow-xl hover:shadow-gray-200/40"
+            ? "border-2 border-purple-300 bg-gradient-to-br from-white to-purple-50/50 shadow-xl shadow-purple-100/50 hover:shadow-2xl hover:shadow-purple-200/60"
+            : "border border-gray-200 bg-white/80 backdrop-blur-sm shadow-lg shadow-gray-100/50 hover:shadow-xl hover:shadow-gray-200/40"
             }`}>
-            {/* Animated background gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            {/* Glowing border effect */}
             {highlighted && (
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-purple-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             )}
@@ -375,7 +371,7 @@ function PricingCard({ name, price, credits, features, highlighted = false, bill
 
             <CardHeader className="pb-4 relative z-10">
                 <div className="text-center">
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-purple-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold mb-2 mt-2 group-hover:text-purple-600 transition-colors duration-300">
                         {name}
                     </h3>
                 </div>
@@ -395,8 +391,8 @@ function PricingCard({ name, price, credits, features, highlighted = false, bill
 
                 <Button
                     className={`w-full py-4 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5 ${highlighted
-                            ? "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60"
-                            : "bg-gray-900 hover:bg-gray-800 text-white shadow-lg shadow-gray-200/40 hover:shadow-xl hover:shadow-gray-200/60"
+                        ? "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60"
+                        : "bg-gray-900 hover:bg-gray-800 text-white shadow-lg shadow-gray-200/40 hover:shadow-xl hover:shadow-gray-200/60"
                         }`}
                 >
                     {buttonText}

@@ -49,9 +49,17 @@ export function HomeContent() {
       <section className="w-full">
         <div className="text-center mb-16">
           {currentLang.value === 'tr' && (
-            <Badge variant="outline" className="mb-6 px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
-              <Sparkles className="w-4 h-4 mr-2 text-purple-600" />
-              {t('homeHero.turkishFirst')}
+            <Badge
+              variant="outline"
+              className="mb-6 px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium 
+               bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200
+               inline-flex items-start max-w-[95vw] whitespace-normal
+               leading-tight min-h-fit"
+            >
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-purple-600 flex-shrink-0 mt-0.5" />
+              <span className="break-words text-left">
+                {t('homeHero.turkishFirst')}
+              </span>
             </Badge>
           )}
 
