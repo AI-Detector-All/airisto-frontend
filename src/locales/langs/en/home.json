@@ -1,8 +1,8 @@
 {
   "homeHero": {
     "badge": "Airisto - Advanced and Reliable AI Content Detector",
-    "title": "Detect AI,",
-    "titleHighlight": "Discover Content Authenticity",
+    "title": "Detect AI Generated Content,",
+    "titleHighlight": "Discover the Truth...",
     "turkishFirst": "🇹🇷 First and only AI detector for Turkish content",
     "description": "5-layer AI trace analysis with proprietary technology. Identifies AI-generated content with up to 95% accuracy and determines the real author.",
 
@@ -233,6 +233,7 @@
   "hiwResultReasons": "Rationale for AI generation determination",
 
   "pricingTitle": "Choose the Plan That Suits Your Needs",
+  "pricingPlans":"Pricing Plans",
   "pricingSubtitle": "Select the plan that best fits your content verification needs",
   "pricingIndividualLabel": "Individual",
   "pricingCorporateLabel": "Corporate",
@@ -252,8 +253,8 @@
   "pricingIndividualOneTimeFeature5": "Basic Reports",
   "pricingIndividualOneTimeButton": "Buy Now",
   "pricingIndividualMonthlyName": "Monthly Subscription",
-  "pricingIndividualMonthlyPrice": "₺399",
-  "pricingIndividualMonthlyCredits": "100 pages/month",
+  "pricingIndividualMonthlyPrice": "11.99$",
+  "pricingIndividualMonthlyCredits": "Usage up to your File Limit",
   "pricingIndividualMonthlyFeature1": "Advanced AI Content Detector",
   "pricingIndividualMonthlyFeature2": "Access to All Detection Features",
   "pricingIndividualMonthlyFeature3": "Access to All Detection Tools",
@@ -261,10 +262,11 @@
   "pricingIndividualMonthlyFeature5": "Priority Support",
   "pricingIndividualMonthlyFeature6": "Batch Processing",
   "pricingIndividualMonthlyFeature7": "Advanced Reporting",
+  "pricingIndividualMonthlyFeature8": "200MB File Limit",
   "pricingIndividualMonthlyButton": "Buy Now",
   "pricingIndividualAnnualName": "Annual Subscription",
-  "pricingIndividualAnnualPrice": "₺3990",
-  "pricingIndividualAnnualCredits": "1200 pages/year",
+  "pricingIndividualAnnualPrice": "119.99$",
+  "pricingIndividualAnnualCredits": "Usage up to your File Limit",
   "pricingIndividualAnnualFeature1": "Advanced AI Content Detector",
   "pricingIndividualAnnualFeature2": "Access to All Detection Features",
   "pricingIndividualAnnualFeature3": "Access to All Detection Tools",
@@ -272,6 +274,7 @@
   "pricingIndividualAnnualFeature5": "Priority Support",
   "pricingIndividualAnnualFeature6": "Batch Processing",
   "pricingIndividualAnnualFeature7": "Advanced Reporting",
+  "pricingIndividualAnnualFeature8": "200MB File Limit",
   "pricingIndividualAnnualButton": "Buy Now",
   "pricingCorporateOneTimeName": "Corporate One-Time",
   "pricingCorporateOneTimePrice": "₺1499",
@@ -319,8 +322,8 @@
   "offerDesc": "Contact us to determine the most suitable plan and pricing based on your needs.",
   "contact": "Contact Us",
 
-  "ctaTitle": "Ready to Detect AI?",
-  "ctaTitle2": "Detect AI-generated texts with % accuracy. Analysis, reasoning, and reliable results in a single step.",
+  "ctaTitle": "Ready to Detect the AI Trail?",
+  "ctaTitle2": "Detect AI-generated texts with 95% accuracy. Analysis, reasoning, and reliable results in a single step.",
   "ctaStartNow": "Start Now",
 
   "faq": {

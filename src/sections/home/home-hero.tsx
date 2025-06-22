@@ -116,9 +116,19 @@ export function HomeHero() {
                 <div className="grid lg:grid-cols-5 lg:gap-32 items-start">
                     <div className="lg:col-span-2 space-y-8">
                         <div className="animate-in fade-in duration-1000">
-                            <Badge variant="secondary" className="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 lg:px-4 lg:py-2 text-sm font-medium border border-purple-200/50 shadow-sm hover:shadow-md transition-all duration-300">
-                                <Sparkles className="w-4 h-4 mr-2" />
-                                {t('homeHero.badge')}
+                            <Badge
+                                variant="secondary"
+                                className="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 
+                                            px-2 py-1.5 sm:px-3 sm:py-1 lg:px-4 lg:py-2 
+                                            text-xs lg:text-sm font-medium border border-purple-200/50 
+                                            shadow-sm hover:shadow-md transition-all duration-300
+                                            inline-flex items-center max-w-[95vw] whitespace-normal
+                                            leading-tight"
+                            >
+                                <Sparkles className="w-3 h-3 lg:w-4 lg:h-4 mr-1 lg:mr-2 flex-shrink-0 mt-0.5" />
+                                <span className="break-words">
+                                    {t('homeHero.badge')}
+                                </span>
                             </Badge>
                         </div>
 
@@ -146,7 +156,7 @@ export function HomeHero() {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-6 animate-in slide-in-from-left duration-700 delay-400">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 animate-in slide-in-from-left duration-700 delay-400">
                             <div className="group bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                                 <div className="flex items-center space-x-3">
                                     <div className="bg-gradient-to-br from-green-100 to-green-200 p-3 rounded-2xl group-hover:scale-110 transition-transform duration-300">
@@ -182,7 +192,7 @@ export function HomeHero() {
                                 t('homeHero.features.feature2'),
                                 t('homeHero.features.feature3')
                             ].map((feature, index) => (
-                                <div 
+                                <div
                                     key={index}
                                     className="flex items-center space-x-3 group"
                                     style={{ animationDelay: `${600 + index * 100}ms` }}
@@ -213,7 +223,7 @@ export function HomeHero() {
 
                     <div className="lg:col-span-3 lg:sticky lg:top-8 animate-in slide-in-from-right duration-700 delay-300 lg:ml-16 mt-8 lg:mt-0">
                         <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm overflow-hidden group hover:shadow-3xl transition-all duration-500">
-                            
+
                             <CardContent className="p-8 space-y-8 relative z-10">
                                 <div className="text-center space-y-3">
                                     <div className="flex items-center justify-center space-x-3">
@@ -240,11 +250,10 @@ export function HomeHero() {
 
                                             <div className="flex justify-between items-center text-sm text-gray-500">
                                                 <span>{inputText.length}/5,000 {t('homeHero.scanner.characterCount')}</span>
-                                                <div className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
-                                                    inputText.length >= 250 
-                                                        ? 'bg-green-100 text-green-700' 
-                                                        : 'bg-orange-100 text-orange-700'
-                                                }`}>
+                                                <div className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${inputText.length >= 250
+                                                    ? 'bg-green-100 text-green-700'
+                                                    : 'bg-orange-100 text-orange-700'
+                                                    }`}>
                                                     {inputText.length >= 250 ? t('homeHero.scanner.readyToScan') : t('homeHero.scanner.minCharacters')}
                                                 </div>
                                             </div>
@@ -347,7 +356,7 @@ export function HomeHero() {
                                                         </div>
                                                     ))}
                                                 </div>
-                                                
+
                                                 <div className="absolute inset-0 flex items-center justify-center">
                                                     <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 border border-gray-200 shadow-lg">
                                                         <Lock className="w-6 h-6 text-purple-600 mx-auto mb-2" />

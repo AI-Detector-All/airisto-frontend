@@ -1,9 +1,9 @@
 {
   "homeHero": {
     "badge": "Airisto - Gelişmiş ve Güvenilir Yapay Zeka İçerik Dedektörü",
-    "title": "Yapay Zekayı Tespit Et,",
-    "titleHighlight": "İçeriğin Gerçekliğini Keşfet",
-    "turkishFirst": "Türkçe olarak ilk ve tek yapay zeka dedektörü",
+    "title": "Yapay Zeka ile Oluşturulmuş İçerikleri Tespit Et,",
+    "titleHighlight": "Gerçeği Keşfet...",
+    "turkishFirst": "İlk ve Tek Özelleştirilmiş Türkçe Yapay Zeka Dedektörü",
     "description": "Tamamen özgün teknoloji ile 5 katmanlı yapay zeka iz analizi. %95'e varan doğrulukla AI üretimi içerikleri tanımlar ve gerçek yazarı belirler.",
 
     "stats": {
@@ -233,6 +233,7 @@
   "hiwResultReasons": "Neden AI üretimi olduğu gerekçeleri",
 
   "pricingTitle": "İhtiyacınıza Uygun Planı Seçin",
+  "pricingPlans":"Satın Alım Planları",
   "pricingSubtitle": "İçerik doğrulama ihtiyaçlarınıza en uygun planı seçin",
   "pricingIndividualLabel": "Bireysel",
   "pricingCorporateLabel": "Kurumsal",
@@ -243,8 +244,8 @@
   "pricingRecommendedBadge": "Önerilen",
   "pricingFeaturesLabel": "Özellikler",
   "pricingIndividualOneTimeName": "Tek Seferlik Analiz",
-  "pricingIndividualOneTimePrice": "₺249",
-  "pricingIndividualOneTimeCredits": "20 sayfa analizi",
+  "pricingIndividualOneTimePrice": "0.99$",
+  "pricingIndividualOneTimeCredits": "1 sayfa analiz",
   "pricingIndividualOneTimeFeature1": "Yapay Zeka İçerik Dedektörü",
   "pricingIndividualOneTimeFeature2": "Temel Tespit Özelliklerine Erişim",
   "pricingIndividualOneTimeFeature3": "Metin Tespit Araçları",
@@ -252,8 +253,8 @@
   "pricingIndividualOneTimeFeature5": "Temel Raporlar",
   "pricingIndividualOneTimeButton": "Satın Al",
   "pricingIndividualMonthlyName": "Aylık Abonelik",
-  "pricingIndividualMonthlyPrice": "₺399",
-  "pricingIndividualMonthlyCredits": "100 sayfa/ay",
+  "pricingIndividualMonthlyPrice": "11.99$",
+  "pricingIndividualMonthlyCredits": "Dosya Limitiniz Kadar Kullanım Hakkı",
   "pricingIndividualMonthlyFeature1": "Gelişmiş Yapay Zeka İçerik Dedektörü",
   "pricingIndividualMonthlyFeature2": "Tüm Tespit Özelliklerine Erişim",
   "pricingIndividualMonthlyFeature3": "Tüm Tespit Araçlarına Erişim",
@@ -261,10 +262,11 @@
   "pricingIndividualMonthlyFeature5": "Öncelikli Destek",
   "pricingIndividualMonthlyFeature6": "Toplu İşlem",
   "pricingIndividualMonthlyFeature7": "Gelişmiş Raporlama",
+  "pricingIndividualMonthlyFeature8": "200MB Dosya Limiti",
   "pricingIndividualMonthlyButton": "Satın Al",
   "pricingIndividualAnnualName": "Yıllık Abonelik",
-  "pricingIndividualAnnualPrice": "₺3990",
-  "pricingIndividualAnnualCredits": "1200 sayfa/yıl",
+  "pricingIndividualAnnualPrice": "119.99$",
+  "pricingIndividualAnnualCredits": "Dosya Limitiniz Kadar Kullanım Hakkı",
   "pricingIndividualAnnualFeature1": "Gelişmiş Yapay Zeka İçerik Dedektörü",
   "pricingIndividualAnnualFeature2": "Tüm Tespit Özelliklerine Erişim",
   "pricingIndividualAnnualFeature3": "Tüm Tespit Araçlarına Erişim",
@@ -272,6 +274,7 @@
   "pricingIndividualAnnualFeature5": "Öncelikli Destek",
   "pricingIndividualAnnualFeature6": "Toplu İşlem",
   "pricingIndividualAnnualFeature7": "Gelişmiş Raporlama",
+  "pricingIndividualAnnualFeature8": "200MB Dosya Limiti",
   "pricingIndividualAnnualButton": "Satın Al",
   "pricingCorporateOneTimeName": "Kurumsal Tek Seferlik",
   "pricingCorporateOneTimePrice": "₺1499",
@@ -319,8 +322,8 @@
   "offerDesc": "İhtiyaçlarınıza göre en uygun planı ve fiyatlandırmayı belirlemek için bizimle iletişime geçin",
   "contact": "Bizimle İletişime Geçin",
 
-  "ctaTitle": "Yapay Zekayı Tespit Etmeye Hazır mısın?",
-  "ctaTitle2": "Yapay zeka üretimi metinleri % doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda.",
+  "ctaTitle": "Yapay Zeka İzini Tespit Etmeye Hazır mısınız?",
+  "ctaTitle2": "Yapay zeka üretimi metinleri 95% doğrulukla tespit edin. Analiz, gerekçeler ve güvenilir sonuçlar tek adımda.",
   "ctaStartNow": "Hemen Başla",
 
   "faq": {

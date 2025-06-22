@@ -1,5 +1,4 @@
 'use client';
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslate } from "@/locales";
@@ -82,9 +81,7 @@ export function HomeTechnology() {
                         </div>
 
                         <div className="lg:w-2/3 text-white">
-                            <Badge variant="outline" className="mb-6 px-4 py-2 text-sm font-medium bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                                {t('technologySection.badge')}
-                            </Badge>
+                            
 
                             <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                                 {currentLang.value === 'tr' ? (
@@ -148,11 +145,11 @@ export function HomeTechnology() {
                     </div>
 
                     <div className="mb-20">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                        <div className="lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 flex flex-col justify-center items-center">
                             {layers.slice(0, 3).map((layer, index) => (
                                 <div
                                     key={index}
-                                    className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both"
+                                    className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both w-3/4 lg:w-full "
                                     style={{
                                         animationDelay: `${index * 150}ms`,
                                         animationFillMode: 'both'
@@ -197,11 +194,11 @@ export function HomeTechnology() {
                         </div>
 
                         <div className="flex justify-center">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+                            <div className="lg:grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl flex flex-col justify-center items-center">
                                 {layers.slice(3, 5).map((layer, index) => (
                                     <div
                                         key={index + 3}
-                                        className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both"
+                                        className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both w-3/4 lg:w-full"
                                         style={{
                                             animationDelay: `${(index + 3) * 150}ms`,
                                             animationFillMode: 'both'
