@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Scan, CheckCircle, Target, Lock, ChevronRight, Sparkles, Zap } from 'lucide-react';
@@ -11,12 +11,17 @@ import Link from 'next/link';
 import { toast } from 'sonner';
 import { Toaster } from '@/components/ui/sonner';
 
+const EXAMPLE_TEXTS = {
+    CHATGPT: "The rapid advancement of artificial intelligence has transformed numerous industries and revolutionized the way we approach complex problems. Machine learning algorithms have become increasingly sophisticated, enabling computers to process vast amounts of data and identify patterns that would be impossible for humans to detect manually. This technological evolution has led to breakthrough applications in healthcare, finance, transportation, and communication, fundamentally altering our daily lives and work processes.",
+};
+
 export function HomeHero() {
     const { t, currentLang } = useTranslate('home');
     const [inputText, setInputText] = useState('');
     const [isScanning, setIsScanning] = useState(false);
     const [showResults, setShowResults] = useState(false);
     const [scanProgress, setScanProgress] = useState(0);
+    const [selectedExample, setSelectedExample] = useState<string | null>(null);
 
     const generateMockResults = (text: string) => {
         const textLength = text.length;
@@ -102,19 +107,31 @@ export function HomeHero() {
         }, 200);
     };
 
+    const handleExampleSelect = (key: string, text: string) => {
+        setInputText(text);
+        setSelectedExample(key);
+        setShowResults(false);
+    };
+
     const mockResults = generateMockResults(inputText);
 
     return (
-        <div className="bg-gradient-to-br from-gray-50 to-white relative overflow-hidden w-full">
+        <div className="bg-gradient-to-br from-gray-50 to-white relative  w-full ">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-20 left-20 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl animate-pulse" />
                 <div className="absolute top-40 right-40 w-24 h-24 bg-blue-200/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
                 <div className="absolute bottom-20 left-1/3 w-40 h-40 bg-purple-100/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
             </div>
 
-            <div className="container mx-auto px-2 py-10 lg:px-4 lg:py-20 relative w-full flex justify-between">
-                <div className="grid lg:grid-cols-5 lg:gap-32 items-start">
-                    <div className="lg:col-span-2 space-y-8">
+            <div className="lg:w-full px-2 py-10 lg:px-8 lg:py-20 relative w-full flex justify-center items-center">
+                <div className={`w-full lg:flex lg:px-16 2xl:px-32 xl:gap-16 ${showResults
+                        ? 'lg:items-start'
+                        : 'lg:items-start'
+                    }`}>
+                    <div className={`w-full lg:col-span-2 ${showResults
+                            ? 'space-y-6 lg:space-y-4 lg:sticky lg:top-52 lg:self-start lg:max-h-screen lg:overflow-y-auto' // Sticky + scrollable
+                            : 'space-y-8'
+                        }`}>
                         <div className="animate-in fade-in duration-1000">
                             <Badge
                                 variant="secondary"
@@ -132,9 +149,10 @@ export function HomeHero() {
                             </Badge>
                         </div>
 
-                        <div className="space-y-6 animate-in slide-in-from-left duration-700 delay-200">
+                        <div className={`space-y-6 animate-in slide-in-from-left duration-700 delay-200 ${showResults ? 'lg:space-y-4' : ''
+                            }`}>
                             <div className="space-y-4">
-                                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                                <h1 className="text-xl lg:text-3xl font-bold text-gray-900 leading-tight">
                                     {t('homeHero.title')}{' '}
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 animate-pulse">
                                         {t('homeHero.titleHighlight')}
@@ -150,16 +168,17 @@ export function HomeHero() {
                                     </div>
                                 )}
 
-                                <p className="text-lg text-gray-600 leading-relaxed">
+                                <p className="text-body2 text-gray-600 leading-relaxed">
                                     {t('homeHero.description')}
                                 </p>
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 animate-in slide-in-from-left duration-700 delay-400">
-                            <div className="group bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-3 animate-in slide-in-from-left duration-700 delay-400 ${showResults ? 'lg:gap-2' : ''
+                            }`}>
+                            <div className="">
                                 <div className="flex items-center space-x-3">
-                                    <div className="bg-gradient-to-br from-green-100 to-green-200 p-3 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                                    <div className="group-hover:scale-110 transition-transform duration-300">
                                         <Target className="w-6 h-6 text-green-600" />
                                     </div>
                                     <div>
@@ -171,10 +190,10 @@ export function HomeHero() {
                                 </div>
                             </div>
 
-                            <div className="group bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            <div className="">
                                 <div className="flex items-center space-x-3">
-                                    <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-3 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                                        <CheckCircle className="w-6 h-6 text-blue-600" />
+                                    <div className="group-hover:scale-110 transition-transform duration-300">
+                                        <Target className="w-6 h-6 text-blue-600" />
                                     </div>
                                     <div>
                                         <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
@@ -186,7 +205,8 @@ export function HomeHero() {
                             </div>
                         </div>
 
-                        <div className="space-y-4 animate-in slide-in-from-left duration-700 delay-600">
+                        <div className={`space-y-4 animate-in slide-in-from-left duration-700 delay-600 ${showResults ? 'lg:space-y-2' : ''
+                            }`}>
                             {[
                                 t('homeHero.features.feature1'),
                                 t('homeHero.features.feature2'),
@@ -201,7 +221,7 @@ export function HomeHero() {
                                         <CheckCircle className="w-5 h-5 text-green-500 group-hover:text-green-600 transition-colors duration-300" />
                                         <div className="absolute inset-0 bg-green-200/40 rounded-full scale-0 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                                     </div>
-                                    <span className="text-gray-700 group-hover:text-gray-900 transition-colors duration-300 font-medium">
+                                    <span className="text-gray-700 group-hover:text-gray-900 transition-colors duration-300 font-medium text-body3">
                                         {feature}
                                     </span>
                                 </div>
@@ -219,24 +239,24 @@ export function HomeHero() {
                                 </Button>
                             </Link>
                         </div>
+
+                        {showResults && (
+                            <div className="lg:pb-8"></div>
+                        )}
                     </div>
 
-                    <div className="lg:col-span-3 lg:sticky lg:top-8 animate-in slide-in-from-right duration-700 delay-300 lg:ml-16 mt-8 lg:mt-0">
+                    <div className={`w-full lg:col-span-3 animate-in slide-in-from-right duration-700 delay-300 lg:ml-16 mt-8 lg:mt-0 ${showResults ? '' : 'lg:sticky lg:top-8'
+                        }`}>
                         <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm overflow-hidden group hover:shadow-3xl transition-all duration-500">
-
-                            <CardContent className="p-8 space-y-8 relative z-10">
-                                <div className="text-center space-y-3">
-                                    <div className="flex items-center justify-center space-x-3">
-                                        <div className="p-2 bg-gradient-to-br from-purple-100 to-blue-100 rounded-xl">
-                                            <Scan className="w-6 h-6 text-purple-600" />
-                                        </div>
-                                        <span className="font-bold text-xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                                            {t('homeHero.scanner.title')}
-                                        </span>
-                                    </div>
-                                    <p className="text-gray-600">{t('homeHero.scanner.subtitle')}</p>
-                                </div>
-
+                            <CardHeader className='border-b'>
+                                <CardTitle className="text-2xl font-bold text-gray-900 flex gap-2 items-center">
+                                    <span className="font-bold text-xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                                        {t('homeHero.scanner.title')}
+                                    </span>
+                                    <p className="text-gray-600 text-body3 mt-1"> - {t('homeHero.scanner.subtitle')}</p>
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-4 py-1 space-y-8 relative z-10">
                                 {!showResults && (
                                     <div className="space-y-6">
                                         <div className="space-y-4">
@@ -244,7 +264,7 @@ export function HomeHero() {
                                                 placeholder={t('homeHero.scanner.placeholder')}
                                                 value={inputText}
                                                 onChange={(e) => setInputText(e.target.value)}
-                                                className="min-h-[140px] resize-none border-gray-200 focus:border-purple-400 focus:ring-purple-400 rounded-xl transition-all duration-300"
+                                                className="md:min-h-[250px] min-h-[150px] border-none shadow-none transition-all hover:focus-none hover:border-none duration-300"
                                                 maxLength={5000}
                                             />
 
@@ -256,6 +276,47 @@ export function HomeHero() {
                                                     }`}>
                                                     {inputText.length >= 250 ? t('homeHero.scanner.readyToScan') : t('homeHero.scanner.minCharacters')}
                                                 </div>
+                                            </div>
+
+                                            <div className='w-full flex justify-between items-center'>
+                                                <div className="px-1 py-4 border-t border-gray-100 w-full">
+                                                    <div className="flex flex-wrap gap-2 items-center">
+                                                        {
+                                                            currentLang.value === 'tr' ? (
+                                                                <span className="text-sm text-gray-500 mr-2">Örnek Metin:</span>
+                                                            ) : (
+                                                                <span className="text-sm text-gray-500 mr-2">Try an example:</span>
+                                                            )
+                                                        }
+                                                        <button
+                                                            onClick={() => handleExampleSelect('CHATGPT', EXAMPLE_TEXTS.CHATGPT)}
+                                                            className={`px-3 py-1.5 text-xs rounded-full border transition-all ${selectedExample === 'CHATGPT'
+                                                                ? 'bg-blue-50 border-blue-200 text-blue-700'
+                                                                : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
+                                                                }`}
+                                                        >
+                                                            ChatGPT
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <Button
+                                                    onClick={handleScan}
+                                                    disabled={!inputText.trim() || isScanning}
+                                                    className=" bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:opacity-50 py-4 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 group"
+                                                >
+                                                    {isScanning ? (
+                                                        <div className="flex items-center gap-2">
+                                                            <Scan className="w-5 h-5 animate-spin" />
+                                                            {t('homeHero.scanner.scanning')}
+                                                        </div>
+                                                    ) : (
+                                                        <div className="flex items-center gap-2">
+                                                            <Scan className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                                                            {t('homeHero.scanner.scanButton')}
+                                                        </div>
+                                                    )}
+                                                </Button>
                                             </div>
                                         </div>
 
@@ -273,24 +334,6 @@ export function HomeHero() {
                                                 </Progress>
                                             </div>
                                         )}
-
-                                        <Button
-                                            onClick={handleScan}
-                                            disabled={!inputText.trim() || isScanning}
-                                            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:opacity-50 py-4 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 group"
-                                        >
-                                            {isScanning ? (
-                                                <div className="flex items-center gap-2">
-                                                    <Scan className="w-5 h-5 animate-spin" />
-                                                    {t('homeHero.scanner.scanning')}
-                                                </div>
-                                            ) : (
-                                                <div className="flex items-center gap-2">
-                                                    <Scan className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                                                    {t('homeHero.scanner.scanButton')}
-                                                </div>
-                                            )}
-                                        </Button>
                                     </div>
                                 )}
 
