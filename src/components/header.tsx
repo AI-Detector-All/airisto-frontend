@@ -87,20 +87,19 @@ export default function Header() {
 
     return (
         <header className="w-full flex justify-between items-center p-4 px-16 border-b border-b-border sticky left-0 top-0 bg-white z-50">
-            <Link href="/" className="flex justify-start items-center gap-4">
+            <Link href="/" className="flex justify-start items-center gap-4 w-full">
                 <Image
                     src="/airisto.png"
                     alt="Next.js logo"
-                    width={50}
-                    height={38}
+                    width={150}
+                    height={30}
                     priority
-                    className=""
+                    className="lg:ml-24"
                 />
-                <h1 className="text-header3 font-bold font-onest tracking-widest">Airisto</h1>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex gap-8 justify-center items-center">
+            <div className="hidden lg:flex gap-8 justify-center items-center w-full">
                 {nav_links.map((link) => (
                     <div key={link.id} className="relative flex flex-col items-center">
                         <Link
@@ -119,7 +118,7 @@ export default function Header() {
             </div>
 
             {/* Desktop Login Button */}
-            <div className="hidden lg:flex justify-end lg:gap-4">
+            <div className="hidden lg:flex justify-end lg:gap-4 w-full">
                 <div className="flex items-center space-x-2">
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>

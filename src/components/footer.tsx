@@ -2,8 +2,9 @@
 
 import { useTranslate } from "@/locales";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, ExternalLink, ArrowUp } from "lucide-react";
+import { Mail, Phone, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Footer() {
     const { t } = useTranslate('footer');
@@ -28,7 +29,15 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className="space-y-4">
                         <div className="flex items-center space-x-2">
-                            <h3 className="text-xl font-bold">Airisto</h3>
+                            <Link href="/" className="flex justify-start items-center gap-4 w-full">
+                                <Image
+                                    src="/airisto-white.png"
+                                    alt="Next.js logo"
+                                    width={150}
+                                    height={30}
+                                    priority
+                                />
+                            </Link>
                         </div>
                         <p className="text-gray-300 text-sm leading-relaxed">
                             {t('company_description')}
