@@ -1,0 +1,71 @@
+{
+  "title": "Privacy Policy",
+  "subtitle": "Your privacy is important to us. This policy explains how we collect, use, and protect your information.",
+  "last_updated": "Last updated",
+  "section_1": {
+    "title": "Information We Collect",
+    "intro": "We collect information you provide directly to us and information we gather automatically when you use our services.",
+    "personal_info": {
+      "title": "Personal Information",
+      "name": "Name and contact information",
+      "email": "Email address",
+      "phone": "Phone number",
+      "company": "Company name and job title"
+    },
+    "usage_data": {
+      "title": "Usage Data",
+      "ip_address": "IP address and device information",
+      "browser_info": "Browser type and version",
+      "pages_visited": "Pages visited and features used",
+      "time_spent": "Time spent on our platform"
+    }
+  },
+  "section_2": {
+    "title": "How We Use Your Information",
+    "intro": "We use the information we collect for the following purposes:",
+    "purposes": {
+      "service_provision": "To provide and maintain our AI automation services",
+      "customer_support": "To provide customer support and respond to inquiries",
+      "communication": "To send important updates and marketing communications",
+      "improvements": "To improve our services and develop new features",
+      "legal_compliance": "To comply with legal obligations and protect our rights"
+    }
+  },
+  "section_3": {
+    "title": "Information Sharing and Disclosure",
+    "intro": "We do not sell your personal information. We may share your information in the following circumstances:",
+    "cases": {
+      "service_providers": "With trusted service providers who assist in our operations",
+      "legal_requirements": "When required by law or to protect our legal rights",
+      "business_transfer": "In connection with a merger, acquisition, or sale of assets",
+      "consent": "With your explicit consent for specific purposes"
+    }
+  },
+  "section_4": {
+    "title": "Data Security",
+    "intro": "We implement appropriate security measures to protect your personal information:",
+    "measures": {
+      "encryption": "Data encryption in transit and at rest",
+      "access_controls": "Strict access controls and authentication",
+      "regular_audits": "Regular security audits and vulnerability assessments",
+      "staff_training": "Employee training on data protection practices"
+    }
+  },
+  "section_5": {
+    "title": "Your Rights and Choices",
+    "intro": "You have certain rights regarding your personal information:",
+    "rights": {
+      "access": "Access to your personal information",
+      "correction": "Correction of inaccurate information",
+      "deletion": "Deletion of your personal information",
+      "portability": "Data portability to another service",
+      "objection": "Objection to processing for marketing purposes"
+    }
+  },
+  "section_6": {
+    "title": "Contact Us",
+    "intro": "If you have any questions about this Privacy Policy, please contact us:",
+    "email": "Email",
+    "website": "Website"
+  }
+}

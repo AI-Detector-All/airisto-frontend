@@ -1,0 +1,111 @@
+{
+  "title": "Cookie Policy",
+  "subtitle": "This policy explains how we use cookies and similar technologies to provide and improve our services.",
+  "last_updated": "Last updated",
+  "section_1": {
+    "title": "What Are Cookies?",
+    "intro": "Cookies are small text files that are stored on your device when you visit our website.",
+    "description": "These files contain information that helps us recognize your device and remember certain information about your visit.",
+    "purpose": "Cookies enable us to provide you with a better user experience by remembering your preferences and improving our service functionality."
+  },
+  "section_2": {
+    "title": "Types of Cookies We Use",
+    "essential": {
+      "title": "Essential Cookies",
+      "description": "These cookies are necessary for our website to function properly and cannot be disabled:",
+      "examples": {
+        "authentication": "User authentication and login sessions",
+        "security": "Security features and fraud prevention",
+        "session_management": "Session management and state preservation",
+        "load_balancing": "Load balancing and performance optimization"
+      },
+      "required": "✓ Always Active - Required for website functionality"
+    },
+    "analytics": {
+      "title": "Analytics & Performance Cookies",
+      "description": "These cookies help us understand how visitors interact with our website:",
+      "examples": {
+        "page_views": "Page views and navigation patterns",
+        "user_behavior": "User behavior and interaction tracking",
+        "performance_metrics": "Website performance and speed metrics",
+        "error_tracking": "Error tracking and debugging information"
+      },
+      "optional": "○ Optional - Can be disabled in cookie preferences"
+    },
+    "functional": {
+      "title": "Functional Cookies",
+      "description": "These cookies enable enhanced functionality and personalization:",
+      "examples": {
+        "language_preference": "Language and region preferences",
+        "theme_settings": "Dark/light mode and UI preferences",
+        "dashboard_layout": "Dashboard layout and customization",
+        "notification_preferences": "Notification settings and preferences"
+      },
+      "optional": "○ Optional - Can be disabled in cookie preferences"
+    },
+    "marketing": {
+      "title": "Marketing & Advertising Cookies",
+      "description": "These cookies are used for marketing and advertising purposes:",
+      "examples": {
+        "ad_personalization": "Personalized advertising and content",
+        "conversion_tracking": "Conversion tracking and attribution",
+        "social_media": "Social media integration and sharing",
+        "remarketing": "Remarketing and retargeting campaigns"
+      },
+      "optional": "○ Optional - Can be disabled in cookie preferences"
+    }
+  },
+  "section_3": {
+    "title": "Third-Party Cookies",
+    "intro": "We may allow certain third-party services to place cookies on your device to provide enhanced functionality:",
+    "services": {
+      "title": "Third-party services we use include:",
+      "google_analytics": "Google Analytics - for website analytics and insights",
+      "google_ads": "Google Ads - for advertising and conversion tracking",
+      "intercom": "Intercom - for customer support and communication",
+      "hotjar": "Hotjar - for user experience analysis and heatmaps",
+      "stripe": "Stripe - for payment processing and fraud prevention"
+    },
+    "disclaimer": "These third-party services have their own privacy policies and cookie practices. We recommend reviewing their policies for more information."
+  },
+  "section_4": {
+    "title": "Cookie Duration",
+    "intro": "Cookies have different lifespans depending on their purpose:",
+    "session": {
+      "title": "Session Cookies",
+      "description": "Temporary cookies that expire when you close your browser. Used for essential website functionality."
+    },
+    "persistent": {
+      "title": "Persistent Cookies",
+      "description": "Cookies that remain on your device for a set period (typically 1-24 months) to remember your preferences."
+    }
+  },
+  "section_5": {
+    "title": "Managing Your Cookie Preferences",
+    "intro": "You have several options to control and manage cookies:",
+    "browser_settings": {
+      "title": "Browser Settings",
+      "description": "You can control cookies through your browser settings:",
+      "chrome": "Chrome: Settings > Privacy and Security > Cookies and other site data",
+      "firefox": "Firefox: Settings > Privacy & Security > Cookies and Site Data",
+      "safari": "Safari: Preferences > Privacy > Cookies and website data",
+      "edge": "Edge: Settings > Cookies and site permissions > Cookies and site data"
+    },
+    "our_controls": {
+      "title": "Our Cookie Controls",
+      "description": "You can also manage your cookie preferences using our cookie consent banner that appears when you first visit our site."
+    },
+    "warning": "⚠️ Note: Disabling essential cookies may affect website functionality and your user experience."
+  },
+  "section_6": {
+    "title": "Updates to This Cookie Policy",
+    "intro": "We may update this Cookie Policy from time to time to reflect changes in our practices or applicable laws.",
+    "notification": "When we make significant changes, we will notify you by updating the 'Last Updated' date and may provide additional notice through our website or email."
+  },
+  "section_7": {
+    "title": "Contact Us",
+    "intro": "If you have any questions about our use of cookies or this Cookie Policy, please contact us:",
+    "email": "Email",
+    "website": "Website"
+  }
+}

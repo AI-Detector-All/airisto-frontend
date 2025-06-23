@@ -6,6 +6,7 @@ import { UserProvider } from "@/context/user-context";
 import { I18nProvider, LocalizationProvider } from "@/locales";
 import { detectLanguage } from "@/locales/server";
 import { NoSSR } from "@/components/no-ssr";
+import { CookieConsent } from "@/components/cookie";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,7 @@ export default async function RootLayout({
                 {children}
               </NoSSR>
               <Toaster />
+              <CookieConsent delay={5000} />
             </UserProvider>
           </LocalizationProvider>
         </I18nProvider>

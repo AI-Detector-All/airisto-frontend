@@ -1,0 +1,71 @@
+{
+  "title": "Gizlilik Politikası",
+  "subtitle": "Gizliliğiniz bizim için önemlidir. Bu politika bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.",
+  "last_updated": "Son güncelleme",
+  "section_1": {
+    "title": "Topladığımız Bilgiler",
+    "intro": "Doğrudan bize sağladığınız bilgileri ve hizmetlerimizi kullanırken otomatik olarak topladığımız bilgileri toplayız.",
+    "personal_info": {
+      "title": "Kişisel Bilgiler",
+      "name": "Ad ve iletişim bilgileri",
+      "email": "E-posta adresi",
+      "phone": "Telefon numarası",
+      "company": "Şirket adı ve iş unvanı"
+    },
+    "usage_data": {
+      "title": "Kullanım Verileri",
+      "ip_address": "IP adresi ve cihaz bilgileri",
+      "browser_info": "Tarayıcı türü ve sürümü",
+      "pages_visited": "Ziyaret edilen sayfalar ve kullanılan özellikler",
+      "time_spent": "Platformumuzda geçirilen süre"
+    }
+  },
+  "section_2": {
+    "title": "Bilgilerinizi Nasıl Kullanırız",
+    "intro": "Topladığımız bilgileri aşağıdaki amaçlar için kullanırız:",
+    "purposes": {
+      "service_provision": "AI otomasyon hizmetlerimizi sağlamak ve sürdürmek için",
+      "customer_support": "Müşteri desteği sağlamak ve sorulara yanıt vermek için",
+      "communication": "Önemli güncellemeler ve pazarlama iletişimi göndermek için",
+      "improvements": "Hizmetlerimizi geliştirmek ve yeni özellikler geliştirmek için",
+      "legal_compliance": "Yasal yükümlülüklere uymak ve haklarımızı korumak için"
+    }
+  },
+  "section_3": {
+    "title": "Bilgi Paylaşımı ve Açıklama",
+    "intro": "Kişisel bilgilerinizi satmayız. Bilgilerinizi aşağıdaki durumlarda paylaşabiliriz:",
+    "cases": {
+      "service_providers": "Operasyonlarımızda yardımcı olan güvenilir hizmet sağlayıcılarla",
+      "legal_requirements": "Yasal gereklilikler veya yasal haklarımızı korumak için",
+      "business_transfer": "Birleşme, satın alma veya varlık satışı ile bağlantılı olarak",
+      "consent": "Belirli amaçlar için açık rızanızla"
+    }
+  },
+  "section_4": {
+    "title": "Veri Güvenliği",
+    "intro": "Kişisel bilgilerinizi korumak için uygun güvenlik önlemleri uygularız:",
+    "measures": {
+      "encryption": "Transit ve dinlenme halindeki veri şifreleme",
+      "access_controls": "Sıkı erişim kontrolleri ve kimlik doğrulama",
+      "regular_audits": "Düzenli güvenlik denetimleri ve güvenlik açığı değerlendirmeleri",
+      "staff_training": "Veri koruma uygulamaları konusunda çalışan eğitimi"
+    }
+  },
+  "section_5": {
+    "title": "Haklarınız ve Seçenekleriniz",
+    "intro": "Kişisel bilgilerinizle ilgili belirli haklarınız vardır:",
+    "rights": {
+      "access": "Kişisel bilgilerinize erişim",
+      "correction": "Yanlış bilgilerin düzeltilmesi",
+      "deletion": "Kişisel bilgilerinizin silinmesi",
+      "portability": "Verilerinizin başka bir hizmete taşınması",
+      "objection": "Pazarlama amaçlı işlemeye itiraz"
+    }
+  },
+  "section_6": {
+    "title": "Bize Ulaşın",
+    "intro": "Bu Gizlilik Politikası hakkında sorularınız varsa, lütfen bizimle iletişime geçin:",
+    "email": "E-posta",
+    "website": "Web sitesi"
+  }
+}

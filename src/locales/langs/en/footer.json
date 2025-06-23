@@ -1,5 +1,35 @@
 {
-    "footerCopyright": "© 2025 Airisto. All Rights Reserved",
-    "footerPrivacy": "Privacy Policy",
-    "footerTerms": "Terms of Service"
+  "company_description": "Airisto analyzes articles to determine how much of the content is written by AI and how much by humans. It evaluates the originality of the content by showing AI and human ratios.",
+  "quick_links": {
+    "title": "Quick Links",
+    "features": "Features",
+    "pricing": "Pricing",
+    "how_it_works": "How It Works",
+    "testimonials": "Testimonials",
+    "faq": "FAQ"
+  },
+  "company": {
+    "title": "Company",
+    "about_us": "About Us",
+    "contact": "Contact",
+    "careers": "Careers",
+    "blog": "Blog",
+    "news": "News & Updates"
+  },
+  "contact_info": {
+    "title": "Get in Touch",
+    "email_label": "Email",
+    "phone_label": "Phone",
+    "address_label": "Office"
+  },
+  "copyright": "© 2025 Airisto. All rights reserved.",
+  "legal": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
+  },
+  "back_to_top": "Back to Top",
+  "footerCopyright": "© 2025 Airisto. All rights reserved.",
+  "footerPrivacy": "Privacy Policy",
+  "footerTerms": "Terms of Service"
 }
