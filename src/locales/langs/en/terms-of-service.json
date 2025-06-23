@@ -1,0 +1,75 @@
+{
+  "title": "Terms of Service",
+  "subtitle": "Please read these terms carefully before using our AI-powered automation platform.",
+  "last_updated": "Last updated",
+  "section_1": {
+    "title": "Acceptance of Terms",
+    "intro": "By accessing and using Airisto's services, you accept and agree to be bound by the terms and provision of this agreement.",
+    "agreement": "If you do not agree to abide by the above, please do not use this service."
+  },
+  "section_2": {
+    "title": "Description of Service",
+    "intro": "Airisto provides AI-powered automation solutions designed to optimize business workflows and processes. Our services include:",
+    "features": {
+      "ai_automation": "Intelligent automation tools and workflows",
+      "workflow_optimization": "Business process optimization and analysis",
+      "data_analysis": "Advanced data analytics and reporting",
+      "integration_tools": "Third-party system integrations and APIs"
+    }
+  },
+  "section_3": {
+    "title": "User Responsibilities",
+    "intro": "As a user of our service, you agree to:",
+    "responsibilities": {
+      "accurate_info": "Provide accurate and complete information when creating an account",
+      "account_security": "Maintain the security of your account and password",
+      "lawful_use": "Use the service only for lawful purposes and in accordance with these terms",
+      "respect_rights": "Respect the intellectual property rights of others",
+      "no_harmful_content": "Not upload or share harmful, offensive, or inappropriate content"
+    }
+  },
+  "section_4": {
+    "title": "Payment Terms",
+    "intro": "Our service operates on a subscription-based model. Payment terms include:",
+    "terms": {
+      "subscription_based": "Monthly or annual subscription fees based on your chosen plan",
+      "payment_methods": "Payment via credit card or other approved payment methods",
+      "auto_renewal": "Automatic renewal unless cancelled before the next billing cycle",
+      "price_changes": "We reserve the right to modify pricing with 30 days notice",
+      "refund_policy": "Refunds are available within 14 days of initial purchase"
+    }
+  },
+  "section_5": {
+    "title": "Prohibited Uses",
+    "intro": "You may not use our service for any of the following prohibited activities:",
+    "prohibited": {
+      "illegal_activities": "Any illegal activities or violation of applicable laws",
+      "malicious_content": "Creating or distributing malicious software or content",
+      "reverse_engineering": "Attempting to reverse engineer or copy our technology",
+      "spam_abuse": "Sending spam or engaging in abusive behavior",
+      "interference": "Interfering with or disrupting our services or servers"
+    }
+  },
+  "section_6": {
+    "title": "Intellectual Property",
+    "intro": "The service and its original content, features, and functionality are and will remain the exclusive property of Airisto and its licensors.",
+    "user_content": "You retain ownership of any content you create using our service, but grant us a license to host and display such content.",
+    "license_grant": "We grant you a limited, non-exclusive, non-transferable license to use our service for your business purposes."
+  },
+  "section_7": {
+    "title": "Service Modifications",
+    "intro": "We reserve the right to modify or discontinue our service at any time, with or without notice.",
+    "notification": "We will make reasonable efforts to notify users of significant changes to our service."
+  },
+  "section_8": {
+    "title": "Limitation of Liability",
+    "intro": "Airisto shall not be liable for any indirect, incidental, special, consequential, or punitive damages.",
+    "disclaimer": "Our service is provided 'as is' without warranties of any kind, either express or implied."
+  },
+  "section_9": {
+    "title": "Contact Information",
+    "intro": "If you have any questions about these Terms of Service, please contact us:",
+    "email": "Email",
+    "website": "Website"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "title": "Kullanım Şartları",
+  "subtitle": "AI destekli otomasyon platformumuzu kullanmadan önce lütfen bu şartları dikkatlice okuyun.",
+  "last_updated": "Son güncelleme",
+  "section_1": {
+    "title": "Şartların Kabulü",
+    "intro": "Airisto'nun hizmetlerine erişerek ve bunları kullanarak, bu sözleşmenin şart ve hükümlerine bağlı olmayı kabul edersiniz.",
+    "agreement": "Yukarıdakilere uymayı kabul etmiyorsanız, lütfen bu hizmeti kullanmayın."
+  },
+  "section_2": {
+    "title": "Hizmet Açıklaması",
+    "intro": "Airisto, iş akışlarını ve süreçlerini optimize etmek için tasarlanmış AI destekli otomasyon çözümleri sağlar. Hizmetlerimiz şunları içerir:",
+    "features": {
+      "ai_automation": "Akıllı otomasyon araçları ve iş akışları",
+      "workflow_optimization": "İş süreci optimizasyonu ve analizi",
+      "data_analysis": "Gelişmiş veri analitiği ve raporlama",
+      "integration_tools": "Üçüncü taraf sistem entegrasyonları ve API'ler"
+    }
+  },
+  "section_3": {
+    "title": "Kullanıcı Sorumlulukları",
+    "intro": "Hizmetimizin kullanıcısı olarak aşağıdakileri kabul edersiniz:",
+    "responsibilities": {
+      "accurate_info": "Hesap oluştururken doğru ve eksiksiz bilgi sağlamak",
+      "account_security": "Hesabınızın ve şifrenizin güvenliğini korumak",
+      "lawful_use": "Hizmeti yalnızca yasal amaçlar için ve bu şartlara uygun olarak kullanmak",
+      "respect_rights": "Başkalarının fikri mülkiyet haklarına saygı göstermek",
+      "no_harmful_content": "Zararlı, saldırgan veya uygunsuz içerik yüklememek veya paylaşmamak"
+    }
+  },
+  "section_4": {
+    "title": "Ödeme Şartları",
+    "intro": "Hizmetimiz abonelik tabanlı bir modelde çalışır. Ödeme şartları şunları içerir:",
+    "terms": {
+      "subscription_based": "Seçtiğiniz plana göre aylık veya yıllık abonelik ücretleri",
+      "payment_methods": "Kredi kartı veya diğer onaylanmış ödeme yöntemleri ile ödeme",
+      "auto_renewal": "Bir sonraki faturalama döngüsünden önce iptal edilmedikçe otomatik yenileme",
+      "price_changes": "30 gün önceden haber vererek fiyatlandırmayı değiştirme hakkımızı saklı tutarız",
+      "refund_policy": "İlk satın almadan sonraki 14 gün içinde iade mevcut"
+    }
+  },
+  "section_5": {
+    "title": "Yasaklı Kullanımlar",
+    "intro": "Hizmetimizi aşağıdaki yasaklı faaliyetlerden herhangi biri için kullanamazsınız:",
+    "prohibited": {
+      "illegal_activities": "Herhangi bir yasa dışı faaliyet veya geçerli yasaların ihlali",
+      "malicious_content": "Kötü amaçlı yazılım veya içerik oluşturma veya dağıtma",
+      "reverse_engineering": "Teknolojimizi tersine mühendislik yapmaya veya kopyalamaya çalışma",
+      "spam_abuse": "Spam gönderme veya taciz edici davranışlarda bulunma",
+      "interference": "Hizmetlerimizi veya sunucularımızı engelleme veya kesintiye uğratma"
+    }
+  },
+  "section_6": {
+    "title": "Fikri Mülkiyet",
+    "intro": "Hizmet ve orijinal içeriği, özellikleri ve işlevselliği Airisto ve lisans verenlerinin münhasır mülkiyeti olmaya devam edecektir.",
+    "user_content": "Hizmetimizi kullanarak oluşturduğunuz herhangi bir içeriğin sahipliğini elinde tutarsınız, ancak bu içeriği barındırmamız ve görüntülememiz için bize lisans verirsiniz.",
+    "license_grant": "Size iş amaçlarınız için hizmetimizi kullanmanız için sınırlı, münhasır olmayan, devredilemez bir lisans veriyoruz."
+  },
+  "section_7": {
+    "title": "Hizmet Değişiklikleri",
+    "intro": "Hizmetimizi istediğimiz zaman, önceden haber vererek veya vermeyerek değiştirme veya durdurma hakkını saklı tutarız.",
+    "notification": "Hizmetimizde önemli değişiklikler konusunda kullanıcıları bilgilendirmek için makul çaba göstereceğiz."
+  },
+  "section_8": {
+    "title": "Sorumluluk Sınırlaması",
+    "intro": "Airisto, herhangi bir dolaylı, tesadüfi, özel, sonuçsal veya cezai zararlardan sorumlu olmayacaktır.",
+    "disclaimer": "Hizmetimiz, açık veya zımni herhangi bir garanti olmaksızın 'olduğu gibi' sağlanmaktadır."
+  },
+  "section_9": {
+    "title": "İletişim Bilgileri",
+    "intro": "Bu Kullanım Şartları hakkında sorularınız varsa, lütfen bizimle iletişime geçin:",
+    "email": "E-posta",
+    "website": "Web sitesi"
+  }
+}
