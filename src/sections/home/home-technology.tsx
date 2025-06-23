@@ -123,7 +123,7 @@ export function HomeTechnology() {
                 </div>
             </section>
 
-            <section className="relative bg-gradient-to-b from-gray-50/50 to-white py-24 px-4 overflow-hidden">
+            <section id="how-it-works" className="relative bg-gradient-to-b from-gray-50/50 to-white py-24 px-4 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.04),transparent_50%)] pointer-events-none" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.04),transparent_50%)] pointer-events-none" />
 
