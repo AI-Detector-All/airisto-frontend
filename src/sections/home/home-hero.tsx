@@ -10,10 +10,8 @@ import { useTranslate } from '@/locales';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { Toaster } from '@/components/ui/sonner';
+import { EXAMPLE_TEXTS } from '@/enums/mock-scan-result';
 
-const EXAMPLE_TEXTS = {
-    CHATGPT: "The rapid advancement of artificial intelligence has transformed numerous industries and revolutionized the way we approach complex problems. Machine learning algorithms have become increasingly sophisticated, enabling computers to process vast amounts of data and identify patterns that would be impossible for humans to detect manually. This technological evolution has led to breakthrough applications in healthcare, finance, transportation, and communication, fundamentally altering our daily lives and work processes.",
-};
 
 export function HomeHero() {
     const { t, currentLang } = useTranslate('home');
@@ -125,12 +123,12 @@ export function HomeHero() {
 
             <div className="lg:w-full px-2 py-10 lg:px-8 lg:py-20 relative w-full flex justify-center items-center">
                 <div className={`w-full lg:flex lg:px-16 2xl:px-32 xl:gap-16 ${showResults
-                        ? 'lg:items-start'
-                        : 'lg:items-start'
+                    ? 'lg:items-start'
+                    : 'lg:items-start'
                     }`}>
                     <div className={`w-full lg:col-span-2 ${showResults
-                            ? 'space-y-6 lg:space-y-4 lg:sticky lg:top-52 lg:self-start lg:max-h-screen lg:overflow-y-auto' // Sticky + scrollable
-                            : 'space-y-8'
+                        ? 'space-y-6 lg:space-y-4 lg:sticky lg:top-52 lg:self-start lg:max-h-screen lg:overflow-y-auto' // Sticky + scrollable
+                        : 'space-y-8'
                         }`}>
                         <div className="animate-in fade-in duration-1000">
                             <Badge
@@ -174,7 +172,7 @@ export function HomeHero() {
                             </div>
                         </div>
 
-                        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-3 animate-in slide-in-from-left duration-700 delay-400 ${showResults ? 'lg:gap-2' : ''
+                        <div className={`grid grid-cols-2 px-1 gap-3 animate-in slide-in-from-left duration-700 delay-400 ${showResults ? 'lg:gap-2' : ''
                             }`}>
                             <div className="">
                                 <div className="flex items-center space-x-3">
@@ -288,15 +286,21 @@ export function HomeHero() {
                                                                 <span className="text-sm text-gray-500 mr-2">Try an example:</span>
                                                             )
                                                         }
-                                                        <button
-                                                            onClick={() => handleExampleSelect('CHATGPT', EXAMPLE_TEXTS.CHATGPT)}
-                                                            className={`px-3 py-1.5 text-xs rounded-full border transition-all ${selectedExample === 'CHATGPT'
-                                                                ? 'bg-blue-50 border-blue-200 text-blue-700'
-                                                                : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
-                                                                }`}
-                                                        >
-                                                            ChatGPT
-                                                        </button>
+                                                        {
+                                                            EXAMPLE_TEXTS.map((example) => (
+                                                                <Button
+                                                                    key={example.id}
+                                                                    size={"sm"}
+                                                                    onClick={() => handleExampleSelect(example.id, currentLang.value === 'tr' ? example.tr : example.en)}
+                                                                    className={`text-[10px] rounded-xl border transition-all ${selectedExample === example.id
+                                                                        ? 'bg-blue-50 border-blue-200 text-blue-700'
+                                                                        : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
+                                                                        }`}
+                                                                >
+                                                                    {example.id.toLocaleUpperCase()}
+                                                                </Button>
+                                                            ))
+                                                        }
                                                     </div>
                                                 </div>
 
