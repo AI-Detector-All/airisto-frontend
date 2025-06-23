@@ -1,0 +1,111 @@
+{
+  "title": "Çerez Politikası",
+  "subtitle": "Bu politika, hizmetlerimizi sağlamak ve geliştirmek için çerezleri ve benzer teknolojileri nasıl kullandığımızı açıklar.",
+  "last_updated": "Son güncelleme",
+  "section_1": {
+    "title": "Çerezler Nedir?",
+    "intro": "Çerezler, web sitemizi ziyaret ettiğinizde cihazınızda saklanan küçük metin dosyalarıdır.",
+    "description": "Bu dosyalar, cihazınızı tanımamıza ve ziyaretiniz hakkında belirli bilgileri hatırlamamıza yardımcı olan bilgiler içerir.",
+    "purpose": "Çerezler, tercihlerinizi hatırlayarak ve hizmet işlevselliğimizi geliştirerek size daha iyi bir kullanıcı deneyimi sunmamızı sağlar."
+  },
+  "section_2": {
+    "title": "Kullandığımız Çerez Türleri",
+    "essential": {
+      "title": "Zorunlu Çerezler",
+      "description": "Bu çerezler web sitemizin düzgün çalışması için gereklidir ve devre dışı bırakılamaz:",
+      "examples": {
+        "authentication": "Kullanıcı kimlik doğrulama ve oturum açma",
+        "security": "Güvenlik özellikleri ve dolandırıcılık önleme",
+        "session_management": "Oturum yönetimi ve durum koruma",
+        "load_balancing": "Yük dengeleme ve performans optimizasyonu"
+      },
+      "required": "✓ Her Zaman Aktif - Web sitesi işlevselliği için gerekli"
+    },
+    "analytics": {
+      "title": "Analiz ve Performans Çerezleri",
+      "description": "Bu çerezler ziyaretçilerin web sitemizle nasıl etkileşim kurduğunu anlamamıza yardımcı olur:",
+      "examples": {
+        "page_views": "Sayfa görüntülemeleri ve navigasyon kalıpları",
+        "user_behavior": "Kullanıcı davranışı ve etkileşim takibi",
+        "performance_metrics": "Web sitesi performansı ve hız metrikleri",
+        "error_tracking": "Hata takibi ve hata ayıklama bilgileri"
+      },
+      "optional": "○ İsteğe Bağlı - Çerez tercihlerinde devre dışı bırakılabilir"
+    },
+    "functional": {
+      "title": "İşlevsel Çerezler",
+      "description": "Bu çerezler gelişmiş işlevsellik ve kişiselleştirme sağlar:",
+      "examples": {
+        "language_preference": "Dil ve bölge tercihleri",
+        "theme_settings": "Karanlık/açık mod ve arayüz tercihleri",
+        "dashboard_layout": "Dashboard düzeni ve özelleştirme",
+        "notification_preferences": "Bildirim ayarları ve tercihleri"
+      },
+      "optional": "○ İsteğe Bağlı - Çerez tercihlerinde devre dışı bırakılabilir"
+    },
+    "marketing": {
+      "title": "Pazarlama ve Reklam Çerezleri",
+      "description": "Bu çerezler pazarlama ve reklam amaçları için kullanılır:",
+      "examples": {
+        "ad_personalization": "Kişiselleştirilmiş reklam ve içerik",
+        "conversion_tracking": "Dönüşüm takibi ve atıf",
+        "social_media": "Sosyal medya entegrasyonu ve paylaşım",
+        "remarketing": "Yeniden pazarlama ve hedefleme kampanyaları"
+      },
+      "optional": "○ İsteğe Bağlı - Çerez tercihlerinde devre dışı bırakılabilir"
+    }
+  },
+  "section_3": {
+    "title": "Üçüncü Taraf Çerezleri",
+    "intro": "Gelişmiş işlevsellik sağlamak için belirli üçüncü taraf hizmetlerin cihazınıza çerez yerleştirmesine izin verebiliriz:",
+    "services": {
+      "title": "Kullandığımız üçüncü taraf hizmetler şunları içerir:",
+      "google_analytics": "Google Analytics - web sitesi analitiği ve öngörüler için",
+      "google_ads": "Google Ads - reklam ve dönüşüm takibi için",
+      "intercom": "Intercom - müşteri desteği ve iletişim için",
+      "hotjar": "Hotjar - kullanıcı deneyimi analizi ve ısı haritaları için",
+      "stripe": "Stripe - ödeme işleme ve dolandırıcılık önleme için"
+    },
+    "disclaimer": "Bu üçüncü taraf hizmetlerin kendi gizlilik politikaları ve çerez uygulamaları vardır. Daha fazla bilgi için politikalarını incelemenizi öneririz."
+  },
+  "section_4": {
+    "title": "Çerez Süresi",
+    "intro": "Çerezlerin amaçlarına bağlı olarak farklı yaşam süreleri vardır:",
+    "session": {
+      "title": "Oturum Çerezleri",
+      "description": "Tarayıcınızı kapattığınızda sona eren geçici çerezler. Temel web sitesi işlevselliği için kullanılır."
+    },
+    "persistent": {
+      "title": "Kalıcı Çerezler",
+      "description": "Tercihlerinizi hatırlamak için cihazınızda belirli bir süre (genellikle 1-24 ay) kalan çerezler."
+    }
+  },
+  "section_5": {
+    "title": "Çerez Tercihlerinizi Yönetme",
+    "intro": "Çerezleri kontrol etmek ve yönetmek için çeşitli seçenekleriniz vardır:",
+    "browser_settings": {
+      "title": "Tarayıcı Ayarları",
+      "description": "Tarayıcı ayarlarınız aracılığıyla çerezleri kontrol edebilirsiniz:",
+      "chrome": "Chrome: Ayarlar > Gizlilik ve Güvenlik > Çerezler ve diğer site verileri",
+      "firefox": "Firefox: Ayarlar > Gizlilik ve Güvenlik > Çerezler ve Site Verileri",
+      "safari": "Safari: Tercihler > Gizlilik > Çerezler ve web sitesi verileri",
+      "edge": "Edge: Ayarlar > Çerezler ve site izinleri > Çerezler ve site verileri"
+    },
+    "our_controls": {
+      "title": "Çerez Kontrollerimiz",
+      "description": "Sitemizi ilk ziyaret ettiğinizde görünen çerez onay banner'ımızı kullanarak da çerez tercihlerinizi yönetebilirsiniz."
+    },
+    "warning": "⚠️ Not: Zorunlu çerezleri devre dışı bırakmak web sitesi işlevselliğini ve kullanıcı deneyiminizi etkileyebilir."
+  },
+  "section_6": {
+    "title": "Bu Çerez Politikasının Güncellemeleri",
+    "intro": "Uygulamalarımızdaki veya geçerli yasalardaki değişiklikleri yansıtmak için bu Çerez Politikasını zaman zaman güncelleyebiliriz.",
+    "notification": "Önemli değişiklikler yaptığımızda, 'Son Güncelleme' tarihini güncelleyerek sizi bilgilendireceğiz ve web sitemiz veya e-posta yoluyla ek bildirim sağlayabiliriz."
+  },
+  "section_7": {
+    "title": "Bize Ulaşın",
+    "intro": "Çerez kullanımımız veya bu Çerez Politikası hakkında sorularınız varsa, lütfen bizimle iletişime geçin:",
+    "email": "E-posta",
+    "website": "Web sitesi"
+  }
+}
