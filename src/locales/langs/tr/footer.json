@@ -1,5 +1,35 @@
 {
-    "footerCopyright":"© 2025 Airisto. Tüm Hakları Saklıdır",
-    "footerPrivacy":"Gizlilik Politikası",
-    "footerTerms":"Kullanım Sözleşmesi"
+  "company_description": "Airisto, makaleleri analiz ederek içeriğin ne kadarının yapay zeka, ne kadarının insan tarafından yazıldığını tespit eder. AI ve insan oranlarını göstererek içeriğin orijinalliğini değerlendirir.",
+  "quick_links": {
+    "title": "Hızlı Linkler",
+    "features": "Özellikler",
+    "pricing": "Fiyatlandırma",
+    "how_it_works": "Nasıl Çalışır",
+    "testimonials": "Müşteri Yorumları",
+    "faq": "Sık Sorulan Sorular"
+  },
+  "company": {
+    "title": "Şirket",
+    "about_us": "Hakkımızda",
+    "contact": "İletişim",
+    "careers": "Kariyer",
+    "blog": "Blog",
+    "news": "Haberler ve Güncellemeler"
+  },
+  "contact_info": {
+    "title": "İletişime Geçin",
+    "email_label": "E-posta",
+    "phone_label": "Telefon",
+    "address_label": "Ofis"
+  },
+  "copyright": "© 2025 Airisto. Tüm hakları saklıdır.",
+  "legal": {
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları",
+    "cookies": "Çerez Politikası"
+  },
+  "back_to_top": "Başa Dön",
+  "footerCopyright": "© 2025 Airisto. Tüm hakları saklıdır.",
+  "footerPrivacy": "Gizlilik Politikası",
+  "footerTerms": "Kullanım Şartları"
 }
