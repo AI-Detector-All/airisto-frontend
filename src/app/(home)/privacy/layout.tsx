@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
         title: titles[lang as keyof typeof titles],
         description: descriptions[lang as keyof typeof descriptions],
         icons: {
-            icon: "/airisto.ico",
+            icon: "/a.ico",
         }
     };
 }

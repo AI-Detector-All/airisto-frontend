@@ -19,7 +19,7 @@ export default function EmailVerifiedPage() {
         const verifyEmail = async () => {
             try {
                 const token = searchParams.get('token');
-                
+
                 if (!token) {
                     setVerificationStatus('error');
                     setIsLoading(false);
@@ -28,13 +28,13 @@ export default function EmailVerifiedPage() {
 
                 const response = await verifyEmailToken(token);
                 await new Promise(resolve => setTimeout(resolve, 2000));
-                
+
                 if (response) {
                     setVerificationStatus('success');
                 } else {
                     setVerificationStatus('error');
                 }
-                
+
             } catch (error) {
                 console.error('Email verification failed:', error);
                 setVerificationStatus('error');
@@ -62,16 +62,15 @@ export default function EmailVerifiedPage() {
                         {/* Logo and Brand */}
                         <div className="flex justify-center mb-6">
                             <div className="flex items-center gap-3">
-                                <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-fuchsia-100 to-fuchsia-200 flex items-center justify-center">
+                                <div className="h-16 w-32 rounded-lg justify-center mt-2">
                                     <Image
-                                        src="/airisto.png"
+                                        src="/airisto-v2.png"
                                         alt="Airisto logo"
-                                        width={32}
-                                        height={24}
+                                        width={180}
+                                        height={38}
                                         priority
                                     />
                                 </div>
-                                <h1 className="text-header4 font-bold font-onest tracking-wider text-gray-800">Airisto</h1>
                             </div>
                         </div>
 
@@ -84,7 +83,7 @@ export default function EmailVerifiedPage() {
                             {t('verifyingEmail')}
                         </h2>
                         <p className="text-body2 text-gray-600">
-                           {t('verifyingEmailDesc')}
+                            {t('verifyingEmailDesc')}
                         </p>
                     </div>
                 </div>
@@ -100,16 +99,15 @@ export default function EmailVerifiedPage() {
                         {/* Logo and Brand */}
                         <div className="flex justify-center mb-6">
                             <div className="flex items-center gap-3">
-                                <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-fuchsia-100 to-fuchsia-200 flex items-center justify-center">
+                                <div className="h-16 w-32 rounded-lg justify-center mt-2">
                                     <Image
-                                        src="/airisto.png"
+                                        src="/airisto-v2.png"
                                         alt="Airisto logo"
-                                        width={32}
-                                        height={24}
+                                        width={180}
+                                        height={38}
                                         priority
                                     />
                                 </div>
-                                <h1 className="text-header4 font-bold font-onest tracking-wider text-gray-800">Airisto</h1>
                             </div>
                         </div>
 
@@ -128,15 +126,15 @@ export default function EmailVerifiedPage() {
                         </p>
 
                         <div className="space-y-4">
-                            <Button 
+                            <Button
                                 onClick={() => router.push('/signup')}
                                 className="w-full bg-gradient-to-r from-fuchsia-500 to-magenta-500 hover:from-fuchsia-600 hover:to-magenta-600 text-white py-3"
                             >
                                 {t('newAccount')}
                             </Button>
-                            <Button 
+                            <Button
                                 onClick={handleGoHome}
-                                variant="outline" 
+                                variant="outline"
                                 className="w-full py-3"
                             >
                                 {t('backToHome')}
@@ -155,16 +153,15 @@ export default function EmailVerifiedPage() {
                     {/* Logo and Brand */}
                     <div className="flex justify-center mb-6">
                         <div className="flex items-center gap-3">
-                            <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-fuchsia-100 to-fuchsia-200 flex items-center justify-center">
+                            <div className="h-16 w-32 rounded-lg justify-center mt-2">
                                 <Image
-                                    src="/airisto.png"
+                                    src="/airisto-v2.png"
                                     alt="Airisto logo"
-                                    width={32}
-                                    height={24}
+                                    width={180}
+                                    height={38}
                                     priority
                                 />
                             </div>
-                            <h1 className="text-header4 font-bold font-onest tracking-wider text-gray-800">Airisto</h1>
                         </div>
                     </div>
 
@@ -205,16 +202,16 @@ export default function EmailVerifiedPage() {
 
                     {/* Action Buttons */}
                     <div className="space-y-4">
-                        <Button 
+                        <Button
                             onClick={handleGoToLogin}
                             className="w-full bg-gradient-to-r from-fuchsia-500 to-magenta-500 hover:from-fuchsia-600 hover:to-magenta-600 text-white py-3"
                         >
                             {t('login')}
                             <ArrowRight className="h-4 w-4 ml-2" />
                         </Button>
-                        <Button 
+                        <Button
                             onClick={handleGoHome}
-                            variant="outline" 
+                            variant="outline"
                             className="w-full border-fuchsia-200 text-fuchsia-700 hover:bg-fuchsia-50 py-3"
                         >
                             {t('backToHome')}
@@ -224,7 +221,7 @@ export default function EmailVerifiedPage() {
                     {/* Welcome Footer */}
                     <div className="mt-8 pt-6 border-t border-gray-100">
                         <p className="text-body3 text-gray-500">
-                           {t('welcome')}
+                            {t('welcome')}
                         </p>
                     </div>
                 </div>

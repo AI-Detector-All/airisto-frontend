@@ -10,13 +10,13 @@ export default function HomeCTA() {
     return (
         <section className="flex items-center justify-center min-h-screen p-4 lg:p-0">
             <div className="lg:w-3/4 lg:py-36 flex justify-center items-center bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 rounded-3xl p-8 text-white">
-                <div className="text-center space-y-6 max-w-3xl">
+                <div className="text-center space-y-8 max-w-3xl">
                     <div className="flex items-center justify-center">
                         <Image
-                            src="/airisto.png"
-                            alt="Next.js logo"
-                            width={100}
-                            height={76}
+                            src="/airisto-white.png"
+                            alt="Airisto logo"
+                            width={180}
+                            height={38}
                             priority
                         />
                     </div>

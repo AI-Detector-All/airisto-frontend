@@ -115,16 +115,15 @@ export default function ForgotPasswordPage() {
                                             <p className="text-gray-500 text-sm mt-1">{t('desc')}</p>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <div className="h-8 w-8 rounded-lg justify-center">
+                                            <div className="h-16 w-32 rounded-lg justify-center mt-2">
                                                 <Image
-                                                    src="/airisto.png"
+                                                    src="/airisto-v2.png"
                                                     alt="Airisto logo"
-                                                    width={50}
+                                                    width={180}
                                                     height={38}
                                                     priority
                                                 />
                                             </div>
-                                            <h1 className="text-header3 font-bold font-onest tracking-widest">Airisto</h1>
                                         </div>
                                     </div>
 
