@@ -71,16 +71,15 @@ export default function Page() {
                 <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8 text-center">
                     <div className="flex justify-center mb-6">
                         <div className="flex items-center gap-3">
-                            <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-fuchsia-100 to-fuchsia-200 flex items-center justify-center">
+                            <div className="h-16 w-32 rounded-lg justify-center mt-2">
                                 <Image
-                                    src="/airisto.png"
+                                    src="/airisto-v2.png"
                                     alt="Airisto logo"
-                                    width={32}
-                                    height={24}
+                                    width={180}
+                                    height={38}
                                     priority
                                 />
                             </div>
-                            <h1 className="text-header4 font-bold font-onest tracking-wider text-gray-800">Airisto</h1>
                         </div>
                     </div>
 

@@ -131,11 +131,11 @@ export default function Page() {
                     {/* Left side - Gradient Background with Content */}
                     <div className="hidden md:flex w-1/2 bg-gradient-to-b from-blue-100 to-slate-900 flex-col items-center justify-center text-white relative p-8 rounded-xl">
                         <div className="flex flex-col items-center justify-center h-full">
-                            <div className="w-24 h-24 rounded-lg bg-indigo-600/20 border border-indigo-600/50 flex items-center justify-center mb-4">
+                            <div className="w-56 h-24 flex items-center justify-center mb-4">
                                 <Image
-                                    src="/airisto.png"
+                                    src="/airisto-v2.png"
                                     alt="Next.js logo"
-                                    width={50}
+                                    width={180}
                                     height={38}
                                     priority
                                 />
@@ -198,16 +198,15 @@ export default function Page() {
                                     <p className="text-gray-500 text-sm mt-1">{t('welcomeBack')}</p>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <div className="h-8 w-8 rounded-lg justify-center">
+                                    <div className="h-16 w-32 rounded-lg justify-center mt-2">
                                         <Image
-                                            src="/airisto.png"
+                                            src="/airisto-v2.png"
                                             alt="Next.js logo"
-                                            width={50}
+                                            width={150}
                                             height={38}
                                             priority
                                         />
                                     </div>
-                                    <h1 className="text-header3 font-bold font-onest tracking-widest">Airisto</h1>
                                 </div>
                             </div>
 

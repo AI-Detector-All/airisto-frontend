@@ -130,7 +130,7 @@ export default function PasswordResetPage() {
                 router.push('/sign-in');
             }, 3000);
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error('Password reset failed:', error);
 
@@ -171,11 +171,11 @@ export default function PasswordResetPage() {
     const handlePasswordChange = (value: string) => {
         setPassword(value);
         validatePassword(value);
-        
+
         if (errors.password) {
             setErrors(prev => ({ ...prev, password: '' }));
         }
-        
+
         if (confirmPassword && value !== confirmPassword) {
             setErrors(prev => ({ ...prev, confirmPassword: t('passwordMismatch') }));
         } else if (confirmPassword && value === confirmPassword) {
@@ -185,7 +185,7 @@ export default function PasswordResetPage() {
 
     const handleConfirmPasswordChange = (value: string) => {
         setConfirmPassword(value);
-        
+
         if (password !== value) {
             setErrors(prev => ({ ...prev, confirmPassword: t('passwordMismatch') }));
         } else {
@@ -212,16 +212,15 @@ export default function PasswordResetPage() {
                                     <p className="text-gray-500 text-sm mt-1">{t('description')}</p>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <div className="h-8 w-8 rounded-lg justify-center">
+                                    <div className="h-16 w-32 rounded-lg justify-center mt-2">
                                         <Image
-                                            src="/airisto.png"
+                                            src="/airisto-v2.png"
                                             alt="Airisto logo"
-                                            width={50}
+                                            width={180}
                                             height={38}
                                             priority
                                         />
                                     </div>
-                                    <h1 className="text-header3 font-bold font-onest tracking-widest">Airisto</h1>
                                 </div>
                             </div>
 
@@ -250,8 +249,8 @@ export default function PasswordResetPage() {
                                             <p className="text-xs font-medium text-gray-700 mb-2">{t('passwordRequirements')}</p>
                                             <div className="space-y-1">
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.minLength ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.minLength ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.minLength ? 'text-green-600' : 'text-red-600'}`}>
@@ -259,8 +258,8 @@ export default function PasswordResetPage() {
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasUppercase ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.hasUppercase ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.hasUppercase ? 'text-green-600' : 'text-red-600'}`}>
@@ -268,8 +267,8 @@ export default function PasswordResetPage() {
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasLowercase ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.hasLowercase ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.hasLowercase ? 'text-green-600' : 'text-red-600'}`}>
@@ -277,8 +276,8 @@ export default function PasswordResetPage() {
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasNumber ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.hasNumber ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.hasNumber ? 'text-green-600' : 'text-red-600'}`}>
@@ -286,8 +285,8 @@ export default function PasswordResetPage() {
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasSpecialChar ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.hasSpecialChar ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.hasSpecialChar ? 'text-green-600' : 'text-red-600'}`}>
@@ -295,7 +294,7 @@ export default function PasswordResetPage() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            
+
                                             {/* Şifre Gücü */}
                                             {password && (
                                                 <div className="mt-2 pt-2 border-t border-gray-200">
@@ -306,12 +305,11 @@ export default function PasswordResetPage() {
                                                         </span>
                                                     </div>
                                                     <div className="w-full bg-gray-200 rounded-full h-1 mt-1">
-                                                        <div 
-                                                            className={`h-1 rounded-full transition-all duration-300 ${
-                                                                getPasswordStrength().text === t('passwordStrengthWeak') ? 'bg-red-500 w-1/3' :
-                                                                getPasswordStrength().text === t('passwordStrengthMedium') ? 'bg-yellow-500 w-2/3' :
-                                                                'bg-green-500 w-full'
-                                                            }`}
+                                                        <div
+                                                            className={`h-1 rounded-full transition-all duration-300 ${getPasswordStrength().text === t('passwordStrengthWeak') ? 'bg-red-500 w-1/3' :
+                                                                    getPasswordStrength().text === t('passwordStrengthMedium') ? 'bg-yellow-500 w-2/3' :
+                                                                        'bg-green-500 w-full'
+                                                                }`}
                                                         ></div>
                                                     </div>
                                                 </div>
@@ -337,7 +335,7 @@ export default function PasswordResetPage() {
                                     {errors.confirmPassword && (
                                         <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>
                                     )}
-                                    
+
                                     {confirmPassword && (
                                         <div className="flex items-center gap-2 mt-1">
                                             {password === confirmPassword ? (

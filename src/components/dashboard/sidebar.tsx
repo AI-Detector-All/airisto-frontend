@@ -135,7 +135,7 @@ export default function DashboardSidebar({
         <>
             {/* Mobile Overlay */}
             {isMobileOpen && (
-                <div 
+                <div
                     className="fixed inset-0 bg-black/50 z-40 lg:hidden"
                     onClick={closeMobileSidebar}
                 />
@@ -152,18 +152,17 @@ export default function DashboardSidebar({
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-slate-200">
                     {!isCollapsed && (
-                        <div className="flex items-center gap-3">
+                        <div className="h-16 w-32 rounded-lg justify-center mt-2">
                             <Image
-                                src="/airisto.png"
+                                src="/airisto-v2.png"
                                 alt="Airisto logo"
-                                width={28}
-                                height={28}
+                                width={180}
+                                height={38}
                                 priority
                             />
-                            <h1 className="text-lg font-bold text-gray-900">Airisto</h1>
                         </div>
                     )}
-                    
+
                     <Button
                         variant="ghost"
                         size="icon"
@@ -234,17 +233,16 @@ export default function DashboardSidebar({
             >
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                    <div className="flex items-center gap-3">
+                    <div className="h-16 w-32 rounded-lg justify-center mt-2">
                         <Image
-                            src="/airisto.png"
+                            src="/airisto-v2.png"
                             alt="Airisto logo"
-                            width={28}
-                            height={28}
+                            width={180}
+                            height={38}
                             priority
                         />
-                        <h1 className="text-lg font-bold text-gray-900">Airisto</h1>
                     </div>
-                    
+
                     <Button
                         variant="ghost"
                         size="icon"

@@ -12,10 +12,10 @@ import { signUp } from "@/services/auth";
 import { useRouter } from "next/navigation";
 import { CheckedState } from "@radix-ui/react-checkbox";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useTranslate } from "@/locales";
 import { Toaster } from "@/components/ui/sonner";
@@ -51,11 +51,11 @@ export default function Page() {
 
     const handleUserChange = (field: string, value: string | boolean) => {
         setUserData({ ...userData, [field]: value });
-        
+
         if (field === 'password' && typeof value === 'string') {
             validatePassword(value);
         }
-        
+
         if (errors[field]) {
             setErrors(prev => ({ ...prev, [field]: '' }));
         }
@@ -88,17 +88,17 @@ export default function Page() {
         if (!userData.name.trim()) {
             newErrors.name = t('requiredName');
         }
-        
+
         if (!userData.surname.trim()) {
             newErrors.surname = t('requiredSurName');
         }
-        
+
         if (!userData.email.trim()) {
             newErrors.email = t('requiredEmail');
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.email)) {
             newErrors.email = t('invalidEmail');
         }
-        
+
         if (!userData.password) {
             newErrors.password = t('requiredPassword');
         }
@@ -107,7 +107,7 @@ export default function Page() {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSignup = async() => {
+    const handleSignup = async () => {
         if (!validateForm()) {
             toast.error(t('errorValidation'), {
                 description: t('errorValidationDesc'),
@@ -136,7 +136,7 @@ export default function Page() {
 
         if (!isPasswordValid()) {
             toast.error(t('errorPasswordValid'), {
-                description:t('errorPasswordValidDesc'),
+                description: t('errorPasswordValidDesc'),
                 duration: 3000,
                 style: {
                     background: '#ef4444',
@@ -146,12 +146,12 @@ export default function Page() {
             });
             return;
         }
-        
+
         setIsLoading(true);
-        
+
         try {
             const response = await signUp(userData);
-            
+
             if (response) {
                 toast.success(`${t('welcome')}, ${userData.name}! 🎉`, {
                     description: t('redirectToEmailVerification'),
@@ -167,13 +167,13 @@ export default function Page() {
                     router.push(`/verify-email?token=${response.emailVerificationToken}&email=${response.authResponse.user.email}`);
                 }, 3000);
             }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.error('Signup failed:', error);
-            
+
             let errorMessage = t('errorDesc');
             let errorTitle = t('errorTitle');
-            
+
             if (error?.response?.status === 409) {
                 errorTitle = t('errorConflict');
                 errorMessage = t('errorConflictDesc');
@@ -197,7 +197,7 @@ export default function Page() {
                 errorTitle = t('errorNetwork');
                 errorMessage = t('errorNetworkDesc');
             }
-            
+
             toast.error(errorTitle, {
                 description: errorMessage,
                 duration: 5000,
@@ -263,11 +263,11 @@ export default function Page() {
                     {/* Left side - Gradient Background with Content */}
                     <div className="hidden md:flex w-1/2 bg-gradient-to-b from-fuchsia-100 to-gray-900 flex-col items-center justify-center text-white relative p-8 rounded-xl">
                         <div className="flex flex-col items-center justify-center h-full">
-                            <div className="w-24 h-24 rounded-lg bg-fuchsia-600/20 border border-fuchsia-600/50 flex items-center justify-center mb-4">
+                            <div className="w-56 h-24 flex items-center justify-center mb-4">
                                 <Image
-                                    src="/airisto.png"
+                                    src="/airisto-v2.png"
                                     alt="Airisto logo"
-                                    width={50}
+                                    width={180}
                                     height={38}
                                     priority
                                 />
@@ -330,16 +330,15 @@ export default function Page() {
                                     <p className="text-gray-500 text-sm mt-1">{t('getStarted')}</p>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <div className="h-8 w-8 rounded-lg justify-center">
+                                    <div className="h-16 w-32 rounded-lg mt-2 justify-center">
                                         <Image
-                                            src="/airisto.png"
-                                            alt="Airisto logo"
-                                            width={50}
+                                            src="/airisto-v2.png"
+                                            alt="Next.js logo"
+                                            width={150}
                                             height={38}
                                             priority
                                         />
                                     </div>
-                                    <h1 className="text-header3 font-bold font-onest tracking-widest">Airisto</h1>
                                 </div>
                             </div>
 
@@ -411,15 +410,15 @@ export default function Page() {
                                     {errors.password && (
                                         <p className="text-red-500 text-xs mt-1">{errors.password}</p>
                                     )}
-                                    
+
                                     {/* Şifre Gereksinimleri */}
                                     {userData.password && (
                                         <div className="mt-2 p-3 bg-gray-50 rounded-lg border">
                                             <p className="text-xs font-medium text-gray-700 mb-2">{t('passwordRequirements')}</p>
                                             <div className="space-y-1">
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.minLength ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.minLength ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.minLength ? 'text-green-600' : 'text-red-600'}`}>
@@ -427,8 +426,8 @@ export default function Page() {
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasUppercase ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.hasUppercase ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.hasUppercase ? 'text-green-600' : 'text-red-600'}`}>
@@ -436,8 +435,8 @@ export default function Page() {
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasLowercase ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.hasLowercase ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.hasLowercase ? 'text-green-600' : 'text-red-600'}`}>
@@ -445,8 +444,8 @@ export default function Page() {
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasNumber ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.hasNumber ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.hasNumber ? 'text-green-600' : 'text-red-600'}`}>
@@ -454,8 +453,8 @@ export default function Page() {
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasSpecialChar ? 
-                                                        <Check className="h-3 w-3 text-green-500" /> : 
+                                                    {passwordValidation.hasSpecialChar ?
+                                                        <Check className="h-3 w-3 text-green-500" /> :
                                                         <X className="h-3 w-3 text-red-500" />
                                                     }
                                                     <span className={`text-xs ${passwordValidation.hasSpecialChar ? 'text-green-600' : 'text-red-600'}`}>
@@ -463,7 +462,7 @@ export default function Page() {
                                                     </span>
                                                 </div>
                                             </div>
-                                            
+
                                             {/* Şifre Gücü */}
                                             {userData.password && (
                                                 <div className="mt-2 pt-2 border-t border-gray-200">
@@ -474,12 +473,11 @@ export default function Page() {
                                                         </span>
                                                     </div>
                                                     <div className="w-full bg-gray-200 rounded-full h-1 mt-1">
-                                                        <div 
-                                                            className={`h-1 rounded-full transition-all duration-300 ${
-                                                                getPasswordStrength().text === t('passwordStrengthWeak') ? 'bg-red-500 w-1/3' :
-                                                                getPasswordStrength().text === t('passwordStrengthMedium') ? 'bg-yellow-500 w-2/3' :
-                                                                'bg-green-500 w-full'
-                                                            }`}
+                                                        <div
+                                                            className={`h-1 rounded-full transition-all duration-300 ${getPasswordStrength().text === t('passwordStrengthWeak') ? 'bg-red-500 w-1/3' :
+                                                                    getPasswordStrength().text === t('passwordStrengthMedium') ? 'bg-yellow-500 w-2/3' :
+                                                                        'bg-green-500 w-full'
+                                                                }`}
                                                         ></div>
                                                     </div>
                                                 </div>
@@ -551,7 +549,7 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-            
+
             <Toaster />
         </>
     );
