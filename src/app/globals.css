@@ -143,6 +143,17 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+@keyframes border-pulse {
+    0%, 100% { 
+        border-color: rgb(250 232 255 / 0.8);
+        box-shadow: 0 0 0 0 rgb(250 232 255 / 0.4);
+    }
+    50% { 
+        border-color: rgb(153 133 255 / 0.9);
+        box-shadow: 0 0 0 4px rgb(250 232 255 / 0.1);
+    }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
