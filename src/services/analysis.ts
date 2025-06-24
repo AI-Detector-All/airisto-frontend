@@ -1,5 +1,6 @@
 import { api } from "@/lib/api/api";
 import { AnalysisResults } from "@/types/analysis";
+import { User } from "@/types/user";
 
 export async function newAnalyze(
     corporate?: string,
@@ -103,4 +104,14 @@ export async function downloadOutputDocument(analysisId: string): Promise<Blob> 
 
 
     return response.data
+}
+
+export async function getCorporateAdmin(corporateId: string): Promise<User> {
+    try {
+        const response = await api.get(`/corporate/admin/${corporateId}`)
+
+        return response.data;
+    } catch (error) {
+        throw error
+    }
 }
