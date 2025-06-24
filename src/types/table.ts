@@ -17,4 +17,5 @@ export interface TableAction<T> {
     className?: string;
     show?: (item: T) => boolean;
     hideOnMobile?: boolean;
+    iconClassName?: string;
 }
