@@ -21,9 +21,25 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: titles[lang as keyof typeof titles],
     description: descriptions[lang as keyof typeof descriptions],
-    icons: {
-      icon: "/icon.ico",
-    }
+    icons: [
+      {
+        rel: 'icon',
+        url: '/icon.ico',
+        media: '(prefers-color-scheme: dark)',
+        sizes: '32x32',
+      },
+      {
+        rel: 'icon',
+        url: '/icon-dark.ico',
+        media: '(prefers-color-scheme: light)',
+        sizes: '32x32',
+      },
+      {
+        rel: 'icon',
+        url: '/icon-dark.ico',
+        sizes: '32x32',
+      }
+    ]
   };
 }
 export default function RootLayout({
