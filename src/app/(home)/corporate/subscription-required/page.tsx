@@ -1,7 +1,6 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import {
@@ -10,7 +9,6 @@ import {
   Crown,
   CheckCircle,
   Mail,
-  Phone
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { HomePricing } from '@/sections/home/home-pricing';
@@ -139,26 +137,6 @@ export default function Page() {
           <HomePricing activePlansType='corporate' />
         </div>
 
-        {/* Contact Support */}
-        <Card className="bg-gray-50">
-          <CardContent className="text-center py-8">
-            <Phone className="h-8 w-8 text-blue-600 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold mb-2"> {t('needHelp')} </h3>
-            <p className="text-gray-600 mb-4">
-              {t('needHelpDesc')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button variant="outline">
-                <Phone className="mr-2 h-4 w-4" />
-                +90 212 555 0123
-              </Button>
-              <Button variant="outline">
-                <Mail className="mr-2 h-4 w-4" />
-                destek@firma.com
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </div>
   );
