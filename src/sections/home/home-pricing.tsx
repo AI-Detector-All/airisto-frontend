@@ -145,8 +145,8 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                 </p>
             </div>
 
-            <div className="flex justify-center mb-4 animate-in slide-in-from-bottom duration-700 delay-200">
-                <div className="inline-flex p-1.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-lg shadow-gray-200/40">
+            <div className="flex justify-center mb-4 ">
+                <div className="inline-flex p-2 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-lg shadow-gray-200/40">
                     {activePlansType === "corporate" ? (
                         <Button
                             className="px-8 py-4 flex items-center gap-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60 transition-all duration-300 hover:-translate-y-0.5"
@@ -183,7 +183,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             </div>
 
             {customerType === "corporate" && (
-                <div className="max-w-5xl mx-auto mb-12 animate-in slide-in-from-bottom duration-700 delay-300">
+                <div className="max-w-5xl mx-auto mb-12 animate-in slide-in-from-bottom duration-700 delay-100">
                     <Card className="border-2 border-purple-200/60 bg-gradient-to-br from-white to-purple-50/30 backdrop-blur-sm shadow-xl shadow-purple-100/40 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
 
@@ -254,7 +254,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             )}
 
             {customerType === "individual" && (
-                <div className="flex justify-center mb-12 animate-in slide-in-from-bottom duration-700 delay-300">
+                <div className="flex justify-center mb-12">
                     <div className="inline-flex p-1.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-lg shadow-gray-200/40">
                         <BillingToggle
                             label={t('pricingMonthlyLabel')}
@@ -276,7 +276,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                     <div
                         key={index}
                         className="animate-in slide-in-from-bottom duration-700"
-                        style={{ animationDelay: `${(index + 4) * 150}ms` }}
+                        style={{ animationDelay: `${(index + 4) * 50}ms` }}
                     >
                         {customerType === "individual" && (
                             <PricingCard
