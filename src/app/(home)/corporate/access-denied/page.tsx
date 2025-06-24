@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -16,10 +16,13 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useTranslate } from '@/locales';
+import { User } from '@/types/user';
+import { getCorporateAdmin } from '@/services/analysis';
 
 export default function Page() {
   const { t, currentLang } = useTranslate('access-denied');
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [corporateAdmin, setCorporateAdmin] = useState<User | null>(null);
   const { user } = useAuth();
 
   const corporateInfo = user?.corporate
@@ -32,9 +35,20 @@ export default function Page() {
     }, 2000);
   };
 
+  const fetchCorporateAdmin = async () => {
+    if (!corporateInfo?.id) return
+    const response = await getCorporateAdmin(corporateInfo?.id);
+    setCorporateAdmin(response);
+  }
+
   const handleContactSupport = () => {
-    window.open('mailto:destek@firma.com?subject=Kurum Aktivasyon Sorunu&body=Merhaba, kurumumuz aktif değil ve sisteme erişim sağlayamıyorum.', '_blank');
+    window.open('mailto:ainonce@gmail.com?subject=Kurum Aktivasyon Sorunu&body=Merhaba, kurumumuz aktif değil ve sisteme erişim sağlayamıyorum.', '_blank');
   };
+
+  useEffect(() => {
+    fetchCorporateAdmin()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [corporateInfo?.id])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 flex items-center justify-center p-4">
@@ -88,7 +102,7 @@ export default function Page() {
                 </div>
                 <div>
                   <span className="text-gray-600">{t('accessCorporateManager')}:</span>
-                  <div className="font-medium">{"Yönetici"}</div>
+                  <div className="font-medium">{corporateAdmin?.name} {corporateAdmin?.surname}</div>
                 </div>
                 <div>
                   <span className="text-gray-600">{t('accessCorporateStatus')}:</span>
@@ -107,11 +121,11 @@ export default function Page() {
                     <div className="text-sm text-blue-700 mt-1">
                       {currentLang.value === 'tr' ? (
                         <div>
-                          Kurumunuzun abonelik durumu hakkında bilgi almak için <strong>{"Yönetici"}</strong> ile iletişime gelebilirsiniz.
+                          Kurumunuzun abonelik durumu hakkında bilgi almak için <strong>{corporateAdmin?.name} {corporateAdmin?.surname}</strong> ile iletişime gelebilirsiniz.
                         </div>
                       ) : (
                         <div>
-                          Contact your administrator <strong>{"Manager"}</strong>to inquire about your organization&apos;s subscription status.
+                          Contact your administrator <strong>{corporateAdmin?.name} {corporateAdmin?.surname}</strong>to inquire about your organization&apos;s subscription status.
                         </div>
                       )}
                     </div>
@@ -125,10 +139,10 @@ export default function Page() {
                     <div className="text-sm text-green-700 mt-1">
                       {t('sendEmailDesc')}
                       <a
-                        href={`mailto:${"yöneticiemail"}?subject=Sistem Erişim Sorunu&body=Merhaba, sistemе erişim sağlayamıyorum. Kurum aboneliği ile ilgili bilgi alabilir miyim?`}
+                        href={`mailto:${corporateAdmin?.email}?subject=Sistem Erişim Sorunu&body=Merhaba, sistemе erişim sağlayamıyorum. Kurum aboneliği ile ilgili bilgi alabilir miyim?`}
                         className="text-green-800 hover:underline font-medium ml-1"
                       >
-                        {"yöneticiemail"}
+                        {corporateAdmin?.email}
                       </a>
                     </div>
                   </div>
@@ -162,7 +176,7 @@ export default function Page() {
               </Button>
 
               <Button
-                onClick={() => window.open(`mailto:${"yöneticiemail"}?subject=Sistem Erişim Sorunu&body=Merhaba ${"yöneticiemail"}, sistemе erişim sağlayamıyorum. Kurum aboneliği ile ilgili bilgi alabilir miyim?`, '_blank')}
+                onClick={() => window.open(`mailto:${corporateAdmin?.email}?subject=Sistem Erişim Sorunu&body=Merhaba ${corporateAdmin?.name}, sistemе erişim sağlayamıyorum. Kurum aboneliği ile ilgili bilgi alabilir miyim?`, '_blank')}
                 className="flex-1"
               >
                 <Mail className="mr-2 h-4 w-4" />

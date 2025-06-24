@@ -81,7 +81,7 @@ export function HomeTechnology() {
                         </div>
 
                         <div className="lg:w-2/3 text-white">
-                            
+
 
                             <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                                 {currentLang.value === 'tr' ? (
@@ -111,13 +111,15 @@ export function HomeTechnology() {
                                 {t('technologySection.description')}
                             </p>
 
-                            <Button
-                                size="lg"
-                                className="bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
-                            >
-                                {t('technologySection.ctaText')}
-                                <ArrowRight className="ml-2 w-5 h-5" />
-                            </Button>
+                            <Link href={'/#how-it-works'}>
+                                <Button
+                                    size="lg"
+                                    className="bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
+                                >
+                                    {t('technologySection.ctaText')}
+                                    <ArrowRight className="ml-2 w-5 h-5" />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

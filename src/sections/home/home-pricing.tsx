@@ -125,19 +125,19 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
     const activePlans = getActivePlans();
 
     return (
-        <div id="pricing" className="w-full font-onest py-16 mt-16 flex flex-col min-h-screen justify-center items-center relative overflow-hidden">
+        <div id="pricing" className="w-full font-onest py-16 flex flex-col min-h-screen justify-center items-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 to-purple-50/30 pointer-events-none" />
             <div className="absolute top-20 left-20 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl animate-pulse" />
             <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-200/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
 
-            <div className="text-center mb-12 relative z-10 animate-in fade-in duration-1000">
+            <div className="text-center mb-4 relative z-10 animate-in fade-in duration-1000">
                 <div className="inline-flex items-center justify-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 mb-6">
                     <Sparkles className="w-4 h-4 text-purple-500 mr-2" />
                     <span className="text-sm font-medium bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                         {t('pricingPlans')}
                     </span>
                 </div>
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-[1.2] py-1">
                     {t('pricingTitle')}
                 </h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -145,8 +145,8 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                 </p>
             </div>
 
-            <div className="flex justify-center mb-12 animate-in slide-in-from-bottom duration-700 delay-200">
-                <div className="inline-flex p-1.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-lg shadow-gray-200/40">
+            <div className="flex justify-center mb-4 ">
+                <div className="inline-flex p-2 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-lg shadow-gray-200/40">
                     {activePlansType === "corporate" ? (
                         <Button
                             className="px-8 py-4 flex items-center gap-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60 transition-all duration-300 hover:-translate-y-0.5"
@@ -183,7 +183,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             </div>
 
             {customerType === "corporate" && (
-                <div className="max-w-5xl mx-auto mb-12 animate-in slide-in-from-bottom duration-700 delay-300">
+                <div className="max-w-5xl mx-auto mb-12 animate-in slide-in-from-bottom duration-700 delay-100">
                     <Card className="border-2 border-purple-200/60 bg-gradient-to-br from-white to-purple-50/30 backdrop-blur-sm shadow-xl shadow-purple-100/40 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
 
@@ -254,7 +254,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             )}
 
             {customerType === "individual" && (
-                <div className="flex justify-center mb-12 animate-in slide-in-from-bottom duration-700 delay-300">
+                <div className="flex justify-center mb-12">
                     <div className="inline-flex p-1.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-lg shadow-gray-200/40">
                         <BillingToggle
                             label={t('pricingMonthlyLabel')}
@@ -276,7 +276,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
                     <div
                         key={index}
                         className="animate-in slide-in-from-bottom duration-700"
-                        style={{ animationDelay: `${(index + 4) * 150}ms` }}
+                        style={{ animationDelay: `${(index + 4) * 50}ms` }}
                     >
                         {customerType === "individual" && (
                             <PricingCard

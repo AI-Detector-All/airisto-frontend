@@ -16,5 +16,12 @@
     "downloadOriginalDocument":"Orijinal Dosyayı İndir",
     "downloadAnalyzedDocument":"Analiz Raporunu İndir",
     "delete":"Sil",
-    "actions":"Eylemler"
+    "actions":"Eylemler",
+
+    "errorTitle":"Bir Hata Oluştu",
+    "deleteSuccess":"Başarılı",
+    "deleteSuccessDesc":"Analiz başarıyla silindi.",
+    "deleteFailDesc":"Analiz silinemedi. Lütfen tekrar deneyin.",
+    "downloadErrorDesc":"Dosya indirilemedi. Lütfen tekrar deneyin.",
+    "downloadErrorTitle":"İndirme Hatası"
 }

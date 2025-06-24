@@ -262,7 +262,10 @@ export function HomeHero() {
                                                 placeholder={t('homeHero.scanner.placeholder')}
                                                 value={inputText}
                                                 onChange={(e) => setInputText(e.target.value)}
-                                                className="md:min-h-[250px] min-h-[150px] border-none shadow-none transition-all hover:focus-none hover:border-none duration-300"
+                                                className="md:min-h-[250px] min-h-[150px] border-2 shadow-none focus-visible:ring-0"
+                                                style={{
+                                                    animation: 'border-pulse 3s ease-in-out infinite'
+                                                }}
                                                 maxLength={5000}
                                             />
 

@@ -8,8 +8,6 @@ import { formatBytes } from "@/utils/format-byte";
 import { ChevronLeft, Plus, HardDrive } from "lucide-react";
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import { deleteAnalysis } from "@/services/analysis";
-import { toast } from "sonner";
 import { useTranslate } from "@/locales";
 
 const filterItems = [
@@ -34,8 +32,8 @@ const filterItems = [
 export default function DocumentsView() {
     const {t} = useTranslate('documents');
     const [selected, setSelected] = useState(filterItems[0].id)
-    const { isLoading, user, refreshUserData } = useAuth()
-    const { userDocuments, isDocumentLoading, refreshUserAnalysis } = useUserDocument();
+    const { isLoading, user } = useAuth()
+    const { userDocuments, isDocumentLoading } = useUserDocument();
 
     const storageInfo = useMemo(() => {
         if (!user) return { used: 0, max: 0, remaining: 0, percentage: 0 };
@@ -72,16 +70,6 @@ export default function DocumentsView() {
 
     if (isDocumentLoading) return <DashboardSkeleton />
 
-    const handleDeleteAnalysis = async (analysisId: string) => {
-        try {
-            await deleteAnalysis(analysisId);
-            refreshUserAnalysis();
-            refreshUserData();
-        } catch (error) {
-            console.error(error);
-            toast.error("Bir hata oluştu", { description: "Analiz silinemedi." });
-        }
-    }
 
     return (
         <div className="bg-gray-100 w-full min-h-screen p-4 sm:p-6 lg:p-8">
@@ -162,7 +150,6 @@ export default function DocumentsView() {
                     <div className="bg-white rounded-lg shadow-sm">
                         <DocumentsTable 
                             documents={filteredDocuments} 
-                            handleDeleteAnalysis={handleDeleteAnalysis}
                             isSearchButton={true}
                         />
                     </div>

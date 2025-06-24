@@ -22,7 +22,7 @@ export default function HomeView() {
 
             <HomeTechnology />
 
-            <Separator className="my-8" />
+            <Separator className="my-2" />
 
             <HomePricing />
 
