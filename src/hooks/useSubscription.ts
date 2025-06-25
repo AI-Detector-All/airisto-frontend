@@ -1,21 +1,22 @@
 'use client'
-import { Subscription } from "@/types/subscription";
 import { useAuth } from "./useAuth";
 import { useEffect, useState } from "react";
-import { getSubscriptionById } from "@/services/subscription";
+import { getUserSubscription } from "@/services/user-subscription";
+import { UserSubscription } from "@/types/user-subscription";
 
 export const useSubscription = () => {
     const { user, isLoading } = useAuth();
-    const [subscription, setSubscription] = useState<Subscription>();
+    const [subscription, setSubscription] = useState<UserSubscription>();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     const getSubscription = async () => {
-        if (!user?.subscription) return;
+        if (!user) return;
         try {
             setLoading(true);
             setError(null);
-            const response = await getSubscriptionById(user.subscription.id);
+            const response = await getUserSubscription(user.id);
+            
             setSubscription(response);
         } catch (err) {
             console.error('Subscription fetch error:', err);
@@ -28,7 +29,7 @@ export const useSubscription = () => {
     useEffect(() => {
         if (isLoading) return;
 
-        if (user?.subscription) {
+        if (user) {
             getSubscription();
         }
     }, [user, isLoading]);
