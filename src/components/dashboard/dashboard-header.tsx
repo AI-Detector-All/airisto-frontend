@@ -9,19 +9,20 @@ import { InlineLoader } from "../ui/global-loader";
 import { useTranslate } from "@/locales";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
+import { useSubscription } from "@/hooks/useSubscription";
 
 interface DashboardHeaderProps {
     toggleMobileMenu?: () => void;
     isMobileMenuOpen?: boolean;
 }
 
-export default function DashboardHeader({ 
-    toggleMobileMenu, 
-    isMobileMenuOpen 
+export default function DashboardHeader({
+    toggleMobileMenu,
+    isMobileMenuOpen
 }: DashboardHeaderProps) {
     const { t, onChangeLang, currentLang } = useTranslate('dashboard-hs');
-    const { user, isLoading, isAuthenticated, getTokenUsage } = useAuth();
-    const { used, total, percentage } = getTokenUsage();
+    const { user, isLoading, isAuthenticated } = useAuth();
+    const { subscription } = useSubscription();
 
     const handleLanguageChange = (lang: string) => {
         onChangeLang(lang);
@@ -53,7 +54,7 @@ export default function DashboardHeader({
     return (
         <header className="h-16 border-b border-gray-200 bg-white/95 backdrop-blur-sm sticky top-0 z-30">
             <div className="h-full px-4 lg:px-6 flex items-center justify-between">
-                
+
                 {/* Sol taraf - Mobile Menu Button */}
                 <div className="flex items-center">
                     <Button
@@ -73,7 +74,7 @@ export default function DashboardHeader({
 
                 {/* Sağ taraf - Navigation */}
                 <div className="flex items-center gap-4 lg:gap-4">
-                    
+
                     {/* Token Usage */}
                     <div className="w-full flex items-center gap-2">
                         {/* Desktop Token Display */}
@@ -82,18 +83,18 @@ export default function DashboardHeader({
                                 <Zap className="h-4 w-4 text-purple-500" />
                                 <span className="text-sm font-medium">{t('usedToken')}</span>
                             </div>
-                            <span className="text-sm text-gray-500">{used} / {total}</span>
+                            <span className="text-sm text-gray-500">{subscription?.usedAnalyses} / {subscription?.maxAnalyses}</span>
                         </div>
-                        
+
                         {/* Mobile Token Display */}
                         <div className="md:hidden flex items-center gap-1">
                             <Zap className="h-4 w-4 text-purple-500" />
-                            <span className="text-xs text-gray-500">{used}/{total}</span>
+                            <span className="text-xs text-gray-500">{subscription?.usedAnalyses}/{subscription?.maxAnalyses}</span>
                         </div>
-                        
+
                         {/* Progress Bar */}
                         <Progress
-                            value={percentage}
+                            value={subscription && subscription?.maxAnalyses > 0 ? (subscription?.usedAnalyses / subscription?.maxAnalyses) * 100 : 0}
                             className="h-2 bg-purple-100 w-16 md:w-32"
                         />
                     </div>
@@ -101,8 +102,8 @@ export default function DashboardHeader({
                     {/* Language Selector */}
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button 
-                                variant="outline" 
+                            <Button
+                                variant="outline"
                                 size="sm"
                                 className="flex items-center gap-1 h-9 px-2 lg:px-3"
                             >

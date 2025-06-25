@@ -1,9 +1,15 @@
 import { HomePricing } from "../home/home-pricing";
 
-export function SubscriptionPlan() {
+interface SubscriptionPlanProps {
+    activePlansType?: string
+}
+
+export function SubscriptionPlan({ activePlansType }: SubscriptionPlanProps) {
+    console.log(activePlansType);
+    
     return (
         <div className="bg-white  rounded-md">
-            <HomePricing />
+            <HomePricing activePlansType={activePlansType} />
         </div>
     )
 }

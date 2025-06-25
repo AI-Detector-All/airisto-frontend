@@ -1,19 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslate } from "@/locales";
-import { Subscription } from "@/types/subscription";
 import { User } from "@/types/user";
+import { UserSubscription } from "@/types/user-subscription";
 import { formatDate } from "@/utils/date-formatter";
 import { Calendar, ChevronLeft, Crown, Zap } from "lucide-react";
 import Link from "next/link";
 
 interface SubscriptionHeroProps {
     user: User
-    subscription: Subscription
-    getTokenUsage: () => { used: number; total: number; percentage: number; }
+    subscription: UserSubscription
+    getTokenUsage: { used: number; total: number; percentage: number; }
 }
 
 export function SubscriptionHero({ user, subscription, getTokenUsage }: SubscriptionHeroProps) {
-    const { used, total } = getTokenUsage();
+    const { used, total } = getTokenUsage;
     const { t } = useTranslate('subscription');
 
     return (
@@ -36,7 +36,7 @@ export function SubscriptionHero({ user, subscription, getTokenUsage }: Subscrip
                             <div className="p-8 flex items-center justify-between bg-success-400 rounded-lg">
                                 <div>
                                     <h1 className="text-white text-body2 font-onest"> {t('subscriptionPlan')} </h1>
-                                    <h1 className="text-white text-body2 font-onest font-semibold"> {subscription.name} </h1>
+                                    <h1 className="text-white text-body2 font-onest font-semibold"> {subscription.subscription.name} </h1>
                                 </div>
                                 <Crown className="text-white text-2xl" />
                             </div>
