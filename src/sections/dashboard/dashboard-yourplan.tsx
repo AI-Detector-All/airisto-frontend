@@ -13,9 +13,9 @@ import { useTranslate } from "@/locales";
 
 export function DashboardYourPlan() {
     const { t } = useTranslate('dashboard');
-    const { user, isLoading, getTokenUsage } = useAuth();
+    const { user, isLoading } = useAuth();
     const { subscription } = useSubscription();
-    const { used, total, percentage } = getTokenUsage();
+    // const { used, total, percentage } = getTokenUsage();
 
     if (isLoading) return <DashboardSkeleton />
 
@@ -31,7 +31,7 @@ export function DashboardYourPlan() {
                             variant="outline" 
                             className="bg-purple-100 text-purple-700 border-purple-200 w-fit text-xs sm:text-sm"
                         >
-                            {subscription?.name}
+                            {subscription?.subscription.name}
                         </Badge>
                     </div>
                     <CardDescription className="pt-2 text-gray-600 text-sm sm:text-base">
@@ -50,22 +50,22 @@ export function DashboardYourPlan() {
                                 <span className="text-sm font-medium">{t('wordToken')}</span>
                             </div>
                             <span className="text-sm text-gray-500 sm:ml-auto">
-                                {used.toLocaleString()} / {total.toLocaleString()}
+                                {subscription?.usedAnalyses} / {subscription?.maxAnalyses}
                             </span>
                         </div>
 
                         <div className="space-y-2">
                             <Progress
-                                value={percentage}
+                                value={subscription && subscription?.maxAnalyses > 0 ? (subscription?.usedAnalyses / subscription?.maxAnalyses) * 100 : 0}
                                 className="h-2 sm:h-2.5 bg-purple-100"
                             />
                             
                             <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-xs text-gray-500">
                                 <span>
-                                    {(total - used).toLocaleString()} {t('tokensRemaining')}
+                                    {subscription && (subscription?.maxAnalyses - subscription?.usedAnalyses).toLocaleString()} {t('tokensRemaining')}
                                 </span>
                                 <span>
-                                    {used.toLocaleString()} {t('tokensUsed')}
+                                    {subscription?.usedAnalyses} {t('tokensUsed')}
                                 </span>
                             </div>
                         </div>
@@ -73,7 +73,7 @@ export function DashboardYourPlan() {
                         <div className="sm:hidden bg-gray-50 rounded-lg p-3 mt-4">
                             <div className="text-center">
                                 <div className="text-2xl font-bold text-purple-600">
-                                    {Math.round(percentage)}%
+                                    {Math.round(subscription && subscription?.maxAnalyses > 0 ? (subscription?.usedAnalyses / subscription?.maxAnalyses) * 100 : 0)}%
                                 </div>
                                 <div className="text-xs text-gray-600 mt-1">
                                     {t('used') || 'Kullanıldı'}

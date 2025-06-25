@@ -63,5 +63,14 @@
   "expertTeamDescription": "Our experienced team quickly answers your questions",
   "fastSolutionTitle": "Fast Solutions",
   "fastSolutionDescription": "We prioritize customer satisfaction and deliver quick solutions",
-  "requiredField": "*"
+  "requiredField": "*",
+
+  "errorTitle": "An error occurred",
+  "errorDesc": "An error occurred. Please try again later.",
+  "errorECONNABORTED": "Request timed out. Please try again.",
+  "errorNavigator": "Connection Error",
+  "errorNavigatorDesc": "A connection error occurred. Please try again later.",
+  "errorNetwork": "Network Error",
+  "errorNetworkDesc": "Could not connect to server. Please try again later.",
+  "unexpectedError": "An unexpected error occurred. Please try again later."
 }

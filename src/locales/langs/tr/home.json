@@ -29,7 +29,7 @@
       "scanButton": "Tarama Başlat",
       "scanning": "Analiz Ediliyor...",
       "scanningProgress": "Analiz ediliyor...",
-      "readyToScan":"Taramaya hazır",
+      "readyToScan": "Taramaya hazır",
       "minCharacters": "Minimum 250 karakter",
 
       "results": {
@@ -233,7 +233,7 @@
   "hiwResultReasons": "Neden AI üretimi olduğu gerekçeleri",
 
   "pricingTitle": "İhtiyacınıza Uygun Planı Seçin",
-  "pricingPlans":"Satın Alım Planları",
+  "pricingPlans": "Satın Alım Planları",
   "pricingSubtitle": "İçerik doğrulama ihtiyaçlarınıza en uygun planı seçin",
   "pricingIndividualLabel": "Bireysel",
   "pricingCorporateLabel": "Kurumsal",
@@ -309,6 +309,14 @@
   "pricingCorporateAnnualFeature7": "Özelleştirilebilir Entegrasyonlar",
   "pricingCorporateAnnualFeature8": "7/24 Öncelikli Teknik Destek",
   "pricingCorporateAnnualButton": "İletişime Geç",
+  "pricingCreditsLabel": "Analiz Hakkı",
+  "Gelişmiş Yapay Zeka İçerik Dedektörü": "Gelişmiş Yapay Zeka İçerik Dedektörü",
+  "Tüm Tespit Özelliklerine Erişim": "Tüm Tespit Özelliklerine Erişim",
+  "Tüm Tespit Araçlarına Erişim": "Tüm Tespit Araçlarına Erişim",
+  "Detaylı Analiz Panosu": "Detaylı Analiz Panosu",
+  "Öncelikli Destek": "Öncelikli Destek",
+  "Gelişmiş Raporlama": "Gelişmiş Raporlama",
+  "Toplu İşlem": "Toplu İşlem",
 
   "corporatePricingTitle": "Kurumsal Çözümlerimiz",
   "corporatePricingDesc": "İşletmenizin büyüklüğüne ve ihtiyaçlarına özel tasarlanmış esnek çözümler sunuyoruz",
@@ -339,8 +347,8 @@
     "faqA5": "Ücretsiz plan şuanda mevcut değildir.",
     "faqTitle": "Airisto - Sık Sorulan Sorular",
     "faqDesc": "Destek ekibimiz yapay zeka destekli önerilerden yardım alarak destek taleplerini her zamankinden daha hızlı bir şekilde ele alacak.",
-    "cantFindAnswerTitle":"Sorularınızın cevabını bulamadınız mı?",
-    "contactUs":"Bizimle iletişime geçin"
+    "cantFindAnswerTitle": "Sorularınızın cevabını bulamadınız mı?",
+    "contactUs": "Bizimle iletişime geçin"
   },
 
   "language_detection_message": "Tercih ettiğiniz dili otomatik olarak algıladık. İstediğiniz zaman değiştirebilirsiniz.",

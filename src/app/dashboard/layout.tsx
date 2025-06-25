@@ -7,10 +7,13 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import { RolesEnum } from "@/enums/roles";
+import { useSubscription } from "@/hooks/useSubscription";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { subscription } = useSubscription();
+  
   const router = useRouter();
   const { user } = useAuth();
 
@@ -27,11 +30,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       }
     }
 
-    if (!user.subscription) {
-      router.push('/#pricing');
-      return;
-    }
-  }, [router, user]);
+    // if (!subscription) {
+    //   router.push('/#pricing');
+    //   return;
+    // }
+  }, [router, user, subscription]);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -48,20 +51,20 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-gray-50">
-        <DashboardSidebar 
-          isCollapsed={isCollapsed} 
+        <DashboardSidebar
+          isCollapsed={isCollapsed}
           toggleSidebar={toggleSidebar}
           userRole={user?.role as RolesEnum || RolesEnum.USER}
           isMobileOpen={isMobileMenuOpen}
           closeMobileSidebar={closeMobileMenu}
         />
-        
+
         <div className={cn(
           "min-h-screen transition-all duration-300",
           isCollapsed ? "lg:ml-16" : "lg:ml-64",
           "ml-0"
         )}>
-          <DashboardHeader 
+          <DashboardHeader
             toggleMobileMenu={toggleMobileMenu}
             isMobileMenuOpen={isMobileMenuOpen}
           />
