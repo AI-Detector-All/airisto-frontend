@@ -54,29 +54,29 @@ export function ContactForm() {
     const errors: string[] = [];
 
     if (!formData.firstName.trim()) {
-      errors.push('Ad alanı zorunludur');
+      errors.push(t('requireName'));
     }
 
     if (!formData.lastName.trim()) {
-      errors.push('Soyad alanı zorunludur');
+      errors.push(t('requireLastName'));
     }
 
     if (!formData.email.trim()) {
-      errors.push('E-posta alanı zorunludur');
+      errors.push(t('requireEmail'));
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errors.push('Geçerli bir e-posta adresi giriniz');
+      errors.push(t('validEmail'));
     }
 
     if (!formData.subject) {
-      errors.push('Konu seçimi zorunludur');
+      errors.push(t('requireSubject'));
     }
 
     if (!formData.message.trim()) {
-      errors.push('Mesaj alanı zorunludur');
+      errors.push(t('requireMessage'));
     }
 
     if (formData.customerType === 'corporate' && !formData.company.trim()) {
-      errors.push('Kurumsal müşteriler için şirket adı zorunludur');
+      errors.push(t('requireCorporateName'));
     }
 
     return errors;
@@ -131,17 +131,17 @@ export function ContactForm() {
           if (Array.isArray(apiError.message)) {
             setStatusMessage(apiError.message.join(', '));
           } else {
-            setStatusMessage(apiError.message || 'Bir hata oluştu');
+            setStatusMessage(apiError.message || t('errorTitle'));
           }
         } else if (error.code === 'ECONNABORTED') {
-          setStatusMessage('İstek zaman aşımına uğradı. Lütfen tekrar deneyin.');
+          setStatusMessage(t('errorECONNABORTED'));
         } else if (error.message.includes('Network Error')) {
-          setStatusMessage('Bağlantı hatası. Lütfen internet bağlantınızı kontrol edin.');
+          setStatusMessage(t('errorNetwork'));
         } else {
-          setStatusMessage('Sunucu ile bağlantı kurulamadı');
+          setStatusMessage(t('errorNetworkDesc'));
         }
       } else {
-        setStatusMessage('Beklenmeyen bir hata oluştu');
+        setStatusMessage(t('unexceptedError'));
       }
     } finally {
       setIsSubmitting(false);

@@ -63,5 +63,23 @@
   "expertTeamDescription": "Deneyimli ekibimiz sorularınızı hızla yanıtlıyor",
   "fastSolutionTitle": "Hızlı Çözüm",
   "fastSolutionDescription": "Müşteri memnuniyetini ön planda tutuyor, hızlı çözümler sunuyoruz",
-  "requiredField": "*"
+  "requiredField": "*",
+
+  "requireName":"Adınız zorunludur",
+  "requireLastName":"Adınız zorunludur",
+  "requirePhone":"Telefon numaranız zorunludur",
+  "requireEmail":"E-posta adresiniz zorunludur",
+  "requireSubject":"Konu zorunludur",
+  "requireMessage":"Mesajınız zorunludur",
+  "validEmail":"Geçerli bir e-posta adresi giriniz",
+  "requireCorporateName":"Kurumsal müşteriler için şirket adı zorunludur",
+
+  "errorTitle":"Bir hata oluştu",
+  "errorDesc":"Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+  "errorECONNABORTED":"İstek zaman aşımına uğradı. Lütfen tekrar deneyin.",
+  "errorNavigator":"Bağlantı Hatası",
+  "errorNavigatorDesc":"Bağlantı hatası oluştu. Lütfen daha sonra tekrar deneyin.",
+  "errorNetwork":"Ağ Hatası",
+  "errorNetworkDesc":"Sunucuya bağlanılamadı. Lütfen daha sonra tekrar deneyin.",
+  "unexpectedError":"Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin."
 }
