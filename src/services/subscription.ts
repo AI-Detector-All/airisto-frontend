@@ -10,3 +10,13 @@ export async function getSubscriptionById(subscriptionId: string): Promise<Subsc
         throw error
     }
 }
+
+export async function getSubscriptions(): Promise<Subscription[]> {
+    try {
+        const response = await api.get('/subscription');
+
+        return response.data;
+    } catch (error) {
+        throw error
+    }
+}
