@@ -78,7 +78,7 @@ const bottomItems = [
     {
         name: "settings",
         icon: Settings,
-        href: "/dashboard/settings",
+        href: "/dashboard/profile",
         roles: [RolesEnum.USER, RolesEnum.ADMIN, RolesEnum.INSTITUTION_ADMIN, RolesEnum.ACADEMICIAN, RolesEnum.STUDENT]
     }
 ];
@@ -144,19 +144,32 @@ export default function DashboardSidebar({
             {/* Desktop Sidebar */}
             <div
                 className={cn(
-                    "hidden lg:flex flex-col h-screen bg-slate-50 border-r border-slate-200 transition-all duration-300 fixed left-0 top-0 z-30",
-                    isCollapsed ? "w-16" : "w-64",
+                    "hidden lg:flex flex-col h-screen bg-slate-50 border-r border-slate-200 transition-all duration-300 fixed left-0 top-0 z-99",
+                    isCollapsed ? "w-24" : "w-64",
                     className
                 )}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-slate-200">
-                    {!isCollapsed && (
-                        <div className="h-16 w-32 rounded-lg justify-center mt-2">
+                <div className={`flex items-center border-b border-slate-200 ${isCollapsed ? "justify-center px-2 py-4" : "justify-between px-4 py-2"}`}>
+                    {isCollapsed ? (
+                        <div
+                            onClick={toggleSidebar}
+                            className="w-12 h-12 flex items-center justify-center">
+                            <Image
+                                src="/icon-dark.ico"
+                                alt="Airisto"
+                                width={24}
+                                height={24}
+                                priority
+                                className="text-white"
+                            />
+                        </div>
+                    ) : (
+                        <div className="rounded-lg justify-center mt-1.5">
                             <Image
                                 src="/airisto-v2.png"
                                 alt="Airisto logo"
-                                width={180}
+                                width={150}
                                 height={38}
                                 priority
                             />
@@ -173,58 +186,87 @@ export default function DashboardSidebar({
                     </Button>
                 </div>
 
+
                 {/* Navigation */}
-                <nav className="flex-1 p-4">
-                    <ul className="space-y-1">
+                <nav className={cn("flex-1", isCollapsed ? "px-2 py-6" : "p-4")}>
+                    <ul className={cn("space-y-1", isCollapsed && "space-y-3")}>
                         {filteredSidebarItems.map((item) => (
                             <li key={item.name}>
-                                <Link
-                                    href={item.href}
-                                    className={cn(
-                                        "flex items-center rounded-lg p-3 text-gray-700 hover:bg-fuchsia-50 hover:text-fuchsia-600 transition-colors",
-                                        isLinkActive(item.href) && "bg-fuchsia-50 text-fuchsia-600"
-                                    )}
-                                >
-                                    <item.icon className={cn(
-                                        "h-5 w-5",
-                                        isCollapsed ? "mx-auto" : "mr-3"
-                                    )} />
-                                    {!isCollapsed && (
+                                {isCollapsed ? (
+                                    // Collapsed durumda tooltip ile merkezi butonlar
+                                    <div className="group relative">
+                                        <Link
+                                            href={item.href}
+                                            className={cn(
+                                                "flex items-center justify-center w-12 h-12 rounded-xl text-gray-600 hover:bg-fuchsia-50 hover:text-fuchsia-600 transition-all duration-200 mx-auto border border-transparent hover:border-fuchsia-100",
+                                                isLinkActive(item.href) && "bg-fuchsia-50 text-fuchsia-600 border-fuchsia-100 shadow-sm"
+                                            )}
+                                        >
+                                            <item.icon className="h-5 w-5" />
+                                        </Link>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-full ml-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 top-1/2 -translate-y-1/2 pointer-events-none">
+                                            {t(item.name)}
+                                            <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1 w-2 h-2 bg-gray-900 rotate-45"></div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        className={cn(
+                                            "flex items-center rounded-lg p-3 text-gray-700 hover:bg-fuchsia-50 hover:text-fuchsia-600 transition-colors",
+                                            isLinkActive(item.href) && "bg-fuchsia-50 text-fuchsia-600"
+                                        )}
+                                    >
+                                        <item.icon className="h-5 w-5 mr-3" />
                                         <span className="font-medium">{t(item.name)}</span>
-                                    )}
-                                </Link>
+                                    </Link>
+                                )}
                             </li>
                         ))}
                     </ul>
                 </nav>
 
                 {/* Bottom Items */}
-                <div className="border-t border-slate-200 p-4">
-                    <ul className="space-y-1">
+                <div className={cn("border-t border-slate-200", isCollapsed ? "px-2 py-4" : "p-4")}>
+                    <ul className="space-y-2">
                         {filteredBottomItems.map((item) => (
                             <li key={item.name}>
-                                <Link
-                                    href={item.href}
-                                    className={cn(
-                                        "flex items-center rounded-lg p-3 text-gray-700 hover:bg-slate-100 transition-colors",
-                                        isLinkActive(item.href) && "bg-blue-500 text-white"
-                                    )}
-                                >
-                                    <item.icon className={cn(
-                                        "h-5 w-5",
-                                        isCollapsed ? "mx-auto" : "mr-3"
-                                    )} />
-                                    {!isCollapsed && (
+                                {isCollapsed ? (
+                                    <div className="group relative">
+                                        <Link
+                                            href={item.href}
+                                            className={cn(
+                                                "flex items-center justify-center w-12 h-12 rounded-lg text-gray-700 hover:bg-slate-100 transition-colors mx-auto",
+                                                isLinkActive(item.href) && "bg-blue-500 text-white"
+                                            )}
+                                        >
+                                            <item.icon className="h-5 w-5" />
+                                        </Link>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-full ml-2 px-2 py-1 bg-gray-900 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 top-1/2 -translate-y-1/2">
+                                            {t(item.name)}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        className={cn(
+                                            "flex items-center rounded-lg p-3 text-gray-700 hover:bg-slate-100 transition-colors",
+                                            isLinkActive(item.href) && "bg-blue-500 text-white"
+                                        )}
+                                    >
+                                        <item.icon className="h-5 w-5 mr-3" />
                                         <span className="font-medium">{t(item.name)}</span>
-                                    )}
-                                </Link>
+                                    </Link>
+                                )}
                             </li>
                         ))}
                     </ul>
                 </div>
             </div>
 
-            {/* Mobile Sidebar */}
+            {/* Mobile Sidebar - Değişiklik yok */}
             <div
                 className={cn(
                     "lg:hidden fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 z-50 transition-transform duration-300",
