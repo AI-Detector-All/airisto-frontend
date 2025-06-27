@@ -51,5 +51,6 @@
   "passwordLowercase": "En az 1 küçük harf",
   "passwordNumber": "En az 1 sayı",
   "passwordSpecialChar": "En az 1 özel karakter",
-  "passwordStrength":"Şifre Gücü"
+  "passwordStrength":"Şifre Gücü",
+  "personalInformation": "Kişisel Bilgiler"
 }

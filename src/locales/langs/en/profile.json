@@ -50,5 +50,6 @@
   "passwordLowercase": "At least 1 lowercase letter",
   "passwordNumber": "At least 1 number",
   "passwordSpecialChar": "At least 1 special character",
-  "passwordStrength":"Password Strength"
+  "passwordStrength":"Password Strength",
+  "personalInformation": "Personal Information"
 }

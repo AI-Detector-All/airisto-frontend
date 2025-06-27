@@ -18,5 +18,6 @@
   "tokensRemaining": "token kaldı",
   "tokensUsed": "token kullanıldı",
   "planDetails": "Plan Detayları",
-  "used":"Kullanıldı"
+  "used":"Kullanıldı",
+  "noDocuments":"Belge bulunamadı "
 }

@@ -52,7 +52,7 @@ export default function DashboardHeader({
     }
 
     return (
-        <header className="h-16 border-b border-gray-200 bg-white/95 backdrop-blur-sm sticky top-0 z-30">
+        <header className="h-[81px] border-b border-gray-200 bg-white/95 backdrop-blur-sm sticky top-0 z-30">
             <div className="h-full px-4 lg:px-6 flex items-center justify-between">
 
                 {/* Sol taraf - Mobile Menu Button */}
@@ -76,14 +76,15 @@ export default function DashboardHeader({
                 <div className="flex items-center gap-4 lg:gap-4">
 
                     {/* Token Usage */}
-                    <div className="w-full flex items-center gap-2">
+                    <div className="w-full flex flex-col items-center gap-2">
                         {/* Desktop Token Display */}
                         <div className="hidden md:flex items-center gap-3">
                             <div className="flex items-center gap-2">
                                 <Zap className="h-4 w-4 text-purple-500" />
                                 <span className="text-sm font-medium">{t('usedToken')}</span>
                             </div>
-                            <span className="text-sm text-gray-500">{subscription?.usedAnalyses} / {subscription?.maxAnalyses}</span>
+                            <span className="text-body3 text-gray-500">{subscription?.usedAnalyses} / {subscription?.maxAnalyses}</span>
+
                         </div>
 
                         {/* Mobile Token Display */}
@@ -95,7 +96,7 @@ export default function DashboardHeader({
                         {/* Progress Bar */}
                         <Progress
                             value={subscription && subscription?.maxAnalyses > 0 ? (subscription?.usedAnalyses / subscription?.maxAnalyses) * 100 : 0}
-                            className="h-2 bg-purple-100 w-16 md:w-32"
+                            className="h-2 bg-purple-100 w-16 md:w-full"
                         />
                     </div>
 

@@ -18,5 +18,6 @@
   "tokensRemaining": "tokens remaining",
   "tokensUsed": "tokens used",
   "planDetails": "Plan Details",
-  "used":"used"
+  "used":"used",
+  "noDocuments": "No documents found"
 }
