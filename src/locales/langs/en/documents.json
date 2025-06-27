@@ -23,5 +23,10 @@
   "deleteSuccessDesc": "Analysis deleted successfully.",
   "deleteFailDesc": "Failed to delete analysis. Please try again.",
   "downloadErrorDesc": "Failed to download file. Please try again.",
-  "downloadErrorTitle": "Download Error"
+  "downloadErrorTitle": "Download Error",
+
+  "noDocuments": "No documents found",
+  "noDocumentsDesc": "No documents have been uploaded yet.",
+  "noFilteredDocuments": "No documents match this filter.",
+  "uploadFirst": "Upload your first analysis"
 }

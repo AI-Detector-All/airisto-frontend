@@ -23,5 +23,10 @@
     "deleteSuccessDesc":"Analiz başarıyla silindi.",
     "deleteFailDesc":"Analiz silinemedi. Lütfen tekrar deneyin.",
     "downloadErrorDesc":"Dosya indirilemedi. Lütfen tekrar deneyin.",
-    "downloadErrorTitle":"İndirme Hatası"
+    "downloadErrorTitle":"İndirme Hatası",
+
+    "noDocuments":"Belge bulunamadı ",
+    "noDocumentsDesc":"Henüz hiç belge yüklenmemiş.",
+    "noFilteredDocuments":"Bu filtreye uygun belge bulunamadı.",
+    "uploadFirst":"İlk Analizinizi yükleyin"
 }
