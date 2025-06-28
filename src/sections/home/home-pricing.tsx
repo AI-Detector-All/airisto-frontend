@@ -50,7 +50,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
         return {
             onetime: onetimePlan ? {
                 name: onetimePlan.name,
-                price: `$${onetimePlan.price}`,
+                price: onetimePlan.price,
                 credits: `${onetimePlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: false,
                 features: onetimePlan.features,
@@ -58,7 +58,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             } : null,
             monthly: monthlyPlan ? {
                 name: monthlyPlan.name,
-                price: `$${monthlyPlan.price}`,
+                price: monthlyPlan.price,
                 credits: `${monthlyPlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: true,
                 features: monthlyPlan.features,
@@ -66,7 +66,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             } : null,
             annual: yearlyPlan ? {
                 name: yearlyPlan.name,
-                price: `$${yearlyPlan.price}`,
+                price: yearlyPlan.price,
                 credits: `${yearlyPlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: true,
                 features: yearlyPlan.features,
@@ -88,7 +88,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
         return {
             monthly: monthlyPlan ? {
                 name: monthlyPlan.name,
-                price: `$${monthlyPlan.price}`,
+                price: monthlyPlan.price,
                 credits: `${monthlyPlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: true,
                 features: monthlyPlan.features,
@@ -96,7 +96,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             } : null,
             annual: yearlyPlan ? {
                 name: yearlyPlan.name,
-                price: `$${yearlyPlan.price}`,
+                price: yearlyPlan.price,
                 credits: `${yearlyPlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: true,
                 features: yearlyPlan.features,
@@ -147,7 +147,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
     }
 
     return (
-        <div id="pricing" className="w-full font-onest py-16 flex flex-col min-h-screen justify-center items-center relative overflow-hidden">
+        <div id="pricing" className="w-full font-onest py-8 flex flex-col min-h-screen justify-center items-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 to-purple-50/30 pointer-events-none" />
             <div className="absolute top-20 left-20 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl animate-pulse" />
             <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-200/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />

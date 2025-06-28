@@ -114,14 +114,14 @@ export function HomeHero() {
     const mockResults = generateMockResults(inputText);
 
     return (
-        <div className="bg-gradient-to-br from-gray-50 to-white relative  w-full ">
+        <div className="bg-gradient-to-br from-gray-50 to-white relative w-full font-onest">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-20 left-20 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl animate-pulse" />
                 <div className="absolute top-40 right-40 w-24 h-24 bg-blue-200/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
                 <div className="absolute bottom-20 left-1/3 w-40 h-40 bg-purple-100/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
             </div>
 
-            <div className="lg:w-full px-2 py-10 lg:px-8 lg:py-20 relative w-full flex justify-center items-center">
+            <div className="lg:w-full px-2 py-10 lg:px-8 lg:py-12 relative w-full flex justify-center items-center">
                 <div className={`w-full lg:flex lg:px-16 2xl:px-32 xl:gap-16 ${showResults
                     ? 'lg:items-start'
                     : 'lg:items-start'
@@ -262,15 +262,22 @@ export function HomeHero() {
                                                 placeholder={t('homeHero.scanner.placeholder')}
                                                 value={inputText}
                                                 onChange={(e) => setInputText(e.target.value)}
-                                                className="md:min-h-[250px] min-h-[150px] border-2 shadow-none focus-visible:ring-0"
+                                                className="md:min-h-[250px] min-h-[150px] w-full border-2 shadow-none focus-visible:ring-0 resize-none break-words"
                                                 style={{
-                                                    animation: 'border-pulse 3s ease-in-out infinite'
+                                                    animation: 'border-pulse 3s ease-in-out infinite',
+                                                    whiteSpace: 'pre-wrap',
+                                                    wordBreak: 'break-word',
+                                                    overflowWrap: 'anywhere',
+                                                    maxWidth: '100%',
+                                                    width: '100%'
                                                 }}
-                                                maxLength={5000}
+                                                maxLength={1000}
+                                                rows={6}
+                                                wrap="soft"
                                             />
 
                                             <div className="flex justify-between items-center text-sm text-gray-500">
-                                                <span>{inputText.length}/5,000 {t('homeHero.scanner.characterCount')}</span>
+                                                <span>{inputText.length}/1.000 {t('homeHero.scanner.characterCount')}</span>
                                                 <div className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${inputText.length >= 250
                                                     ? 'bg-green-100 text-green-700'
                                                     : 'bg-orange-100 text-orange-700'

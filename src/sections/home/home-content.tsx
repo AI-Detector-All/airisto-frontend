@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslate } from "@/locales";
 import { Brain, Shield, Target, ArrowRight, Users, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export function HomeContent() {
   const { t, currentLang } = useTranslate('home');
@@ -44,7 +45,7 @@ export function HomeContent() {
   ];
 
   return (
-    <div id="features" className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 py-8 space-y-24">
+    <div id="features" className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 py-4 space-y-24 font-onest">
 
       <section className="w-full">
         <div className="text-center mb-16">
@@ -71,7 +72,7 @@ export function HomeContent() {
             {t('homeContent.desc')}
           </p>
 
-          <p className="text-body2 text-gray-500 max-w-3xl mx-auto">
+          <p className="text-body2 text-gray-500 max-w-4xl mx-auto">
             {t('homeContent.desc2')}
           </p>
         </div>
@@ -103,17 +104,17 @@ export function HomeContent() {
       </section>
 
       {/* İstatistikler ve Branding */}
-      <section className="w-full bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-12 text-white text-center">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">
+      <section className="w-full bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-12 text-white text-center font-onest">
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-3xl md:text-4xl font-bold mb-8">
             {t('brandingMessages.tagline')}
           </h3>
 
-          <p className="text-xl mb-8 opacity-90 leading-relaxed">
+          <p className="mb-8 opacity-90 leading-relaxed">
             {t('brandingMessages.mission')}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 mb-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
               <div className="text-4xl font-bold mb-2">{t('homeHero.stats.accuracy')}</div>
               <div className="text-lg opacity-80">{t('homeHero.stats.accuracyLabel')}</div>
@@ -124,13 +125,15 @@ export function HomeContent() {
             </div>
           </div>
 
-          <Button
-            size="lg"
-            className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            {t('ctaStartNow')}
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <Link href={'/sign-in'}>
+            <Button
+              size="lg"
+              className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              {t('ctaStartNow')}
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </Link>
         </div>
       </section>
 

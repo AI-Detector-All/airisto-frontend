@@ -141,10 +141,9 @@ export default function DashboardSidebar({
                 />
             )}
 
-            {/* Desktop Sidebar */}
             <div
                 className={cn(
-                    "hidden lg:flex flex-col h-screen bg-slate-50 border-r border-slate-200 transition-all duration-300 fixed left-0 top-0 z-99",
+                    "hidden lg:flex flex-col h-screen font-onest bg-slate-50 border-r border-slate-200 transition-all duration-300 fixed left-0 top-0 z-99",
                     isCollapsed ? "w-24" : "w-64",
                     className
                 )}
@@ -266,10 +265,9 @@ export default function DashboardSidebar({
                 </div>
             </div>
 
-            {/* Mobile Sidebar - Değişiklik yok */}
             <div
                 className={cn(
-                    "lg:hidden fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 z-50 transition-transform duration-300",
+                    "lg:hidden fixed left-0 font-onest top-0 h-full w-64 bg-white border-r border-gray-200 z-50 transition-transform duration-300",
                     isMobileOpen ? "translate-x-0" : "-translate-x-full"
                 )}
             >

@@ -56,7 +56,7 @@
             "detail": "Düşünce derinliği ve özgünlük seviyesi değerlendirildi"
           },
           "layer4": {
-            "name": "Model Artık Tarama",
+            "name": "Stilistik İz Tespiti",
             "description": "ChatGPT ve benzeri modellerden kalan stilistik izler aranır",
             "detail": "Spesifik AI modeli imzaları tespit edildi"
           },
@@ -143,7 +143,7 @@
         "icon": "Search"
       },
       "layer4": {
-        "title": "Model Artık Tarama",
+        "title": "Stilistik İz Tespiti",
         "description": "ChatGPT ve benzeri modellerden kalan stilistik izler aranır",
         "icon": "Shield"
       },
@@ -201,7 +201,7 @@
     "layer1": "Kelime Örüntüleri Analizi: Yapay dile özgü tekrarları ve yapısal kalıpları tespit eder",
     "layer2": "Cümle Yapısı Sapma Modeli: İnsan yazımı ile yapay kurgu arasındaki farkı hesaplar",
     "layer3": "Anlamsal Derinlik Ölçümü: Metindeki bağlam tutarlılığı ve içerik yoğunluğu incelenir",
-    "layer4": "Model Artık Tarama (LLM İz Analizi): ChatGPT ve benzeri modellerden kalan stilistik izler aranır",
+    "layer4": "Stilistik İz Tespiti (LLM İz Analizi): ChatGPT ve benzeri modellerden kalan stilistik izler aranır",
     "layer5": "Yazar Skoru Hesaplama: Her cümleye insan-yapay olasılık puanı verilir, genel oran çıkarılır"
   },
 
@@ -317,6 +317,10 @@
   "Öncelikli Destek": "Öncelikli Destek",
   "Gelişmiş Raporlama": "Gelişmiş Raporlama",
   "Toplu İşlem": "Toplu İşlem",
+  "Tek Seferlik Analiz":"Tek Seferlik Analiz",
+  "Aylık Analiz":"Aylık Analiz",
+  "Yıllık Analiz":"Yıllık Analiz",
+  "100 Sayfaya Kadar Tek Seferlik Analiz":"100 Sayfaya Kadar Tek Seferlik Analiz",
 
   "corporatePricingTitle": "Kurumsal Çözümlerimiz",
   "corporatePricingDesc": "İşletmenizin büyüklüğüne ve ihtiyaçlarına özel tasarlanmış esnek çözümler sunuyoruz",

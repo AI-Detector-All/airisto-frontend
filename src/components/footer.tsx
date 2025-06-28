@@ -2,26 +2,87 @@
 
 import { useTranslate } from "@/locales";
 import Link from "next/link";
-import { Mail, Phone, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
+import { Mail, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Footer() {
     const { t } = useTranslate('footer');
+    const pathname = usePathname();
+    const router = useRouter();
+
+    useEffect(() => {
+        const handleHashChange = () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                setTimeout(() => {
+                    const element = document.getElementById(hash);
+                    if (element) {
+                        const headerOffset = 100;
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 300);
+            }
+        };
+
+        if (pathname === '/') {
+            handleHashChange();
+        }
+
+        window.addEventListener('hashchange', handleHashChange);
+
+        return () => {
+            window.removeEventListener('hashchange', handleHashChange);
+        };
+    }, [pathname]);
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const scrollToSection = (sectionId: string) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+    const handleNavigation = async (sectionId: string) => {
+        if (pathname !== '/') {
+            await router.push('/');
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    window.history.pushState(null, '', `#${sectionId}`);
+                }
+            }, 500);
+        } else {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const headerOffset = 100;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                window.history.pushState(null, '', `#${sectionId}`);
+            }
         }
     };
 
     return (
-        <footer className="w-full bg-gradient-to-b from-gray-900 to-gray-950 text-white">
+        <footer className="w-full bg-gradient-to-b from-gray-900 to-gray-950 text-white font-onest">
             {/* Main Footer Content */}
             <div className="container mx-auto px-6 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -39,7 +100,7 @@ export default function Footer() {
                                 />
                             </Link>
                         </div>
-                        <p className="text-gray-300 text-sm leading-relaxed">
+                        <p className="text-gray-300 text-sm leading-relaxed text-justify">
                             {t('company_description')}
                         </p>
                         <div className="flex space-x-3">
@@ -70,37 +131,38 @@ export default function Footer() {
                         </div>
                     </div>
 
+                    {/* Quick Links */}
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold">{t('quick_links.title')}</h4>
                         <ul className="space-y-3">
                             <li>
                                 <button
-                                    onClick={() => scrollToSection('features')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline"
+                                    onClick={() => handleNavigation('features')}
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer text-left"
                                 >
                                     {t('quick_links.features')}
                                 </button>
                             </li>
                             <li>
                                 <button
-                                    onClick={() => scrollToSection('pricing')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline"
+                                    onClick={() => handleNavigation('pricing')}
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer text-left"
                                 >
                                     {t('quick_links.pricing')}
                                 </button>
                             </li>
                             <li>
                                 <button
-                                    onClick={() => scrollToSection('how-it-works')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline"
+                                    onClick={() => handleNavigation('how-it-works')}
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer text-left"
                                 >
                                     {t('quick_links.how_it_works')}
                                 </button>
                             </li>
                             <li>
                                 <button
-                                    onClick={() => scrollToSection('faq')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline"
+                                    onClick={() => handleNavigation('faq')}
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer text-left"
                                 >
                                     {t('quick_links.faq')}
                                 </button>
@@ -108,6 +170,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
+                    {/* Company */}
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold">{t('company.title')}</h4>
                         <ul className="space-y-3">
@@ -130,6 +193,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
+                    {/* Contact Info */}
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold">{t('contact_info.title')}</h4>
                         <div className="space-y-3">
@@ -145,25 +209,15 @@ export default function Footer() {
                                     </a>
                                 </div>
                             </div>
-                            <div className="flex items-start space-x-3">
-                                <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <p className="text-gray-300 text-sm">{t('contact_info.phone_label')}</p>
-                                    <a
-                                        href="tel:+902345678900"
-                                        className="text-white text-sm hover:text-primary transition-colors"
-                                    >
-                                        +90 538 586 69 44
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            {/* Divider */}
             <div className="border-t border-gray-800"></div>
 
+            {/* Bottom Section */}
             <div className="container mx-auto px-6 py-6">
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">

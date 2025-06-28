@@ -2,9 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Building2, 
-  Mail, 
-  Phone, 
-  MapPin,
+  Mail,
   Users,
   Zap,
   Shield
@@ -28,37 +26,6 @@ export function ContactLeft() {
                 <h3 className="font-semibold text-gray-800 mb-2">{t('emailTitle')}</h3>
                 <p className="text-gray-600 mb-2">{t('emailAddress')}</p>
                 <p className="text-sm text-gray-500">{t('emailDescription')}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-0 shadow-lg bg-white/70 backdrop-blur-sm">
-          <CardContent className="p-6">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-blue-100 rounded-lg">
-                <Phone className="w-6 h-6 text-blue-600" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-2">{t('phoneTitle')}</h3>
-                <p className="text-gray-600 mb-2">{t('phoneNumber')}</p>
-                <p className="text-sm text-gray-500">{t('phoneDescription')}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-0 shadow-lg bg-white/70 backdrop-blur-sm">
-          <CardContent className="p-6">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-green-100 rounded-lg">
-                <MapPin className="w-6 h-6 text-green-600" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-2">{t('addressTitle')}</h3>
-                <p className="text-gray-600 mb-2 whitespace-pre-line">
-                  {t('addressText')}
-                </p>
               </div>
             </div>
           </CardContent>

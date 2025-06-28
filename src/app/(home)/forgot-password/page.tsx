@@ -103,7 +103,7 @@ export default function ForgotPasswordPage() {
 
     return (
         <>
-            <div className="flex flex-col mt-8 max-w-[99%] justify-center items-center">
+            <div className="flex flex-col mt-8 max-w-[99%] justify-center items-center font-onest">
                 <div className="flex justify-center items-center lg:w-5/6 mt-8">
                     <div className="flex flex-1 items-center justify-center p-6">
                         <div className="w-full max-w-md">

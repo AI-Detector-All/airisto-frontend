@@ -6,6 +6,7 @@ import HomeCTA from "../home-cta";
 import HomeFAQ from "../home-faq";
 import { LanguageDetectionPopup } from "../language-detection";
 import { HomeTechnology } from "../home-technology";
+import { HomeHowItWorks } from "../home-howitwork";
 
 export default function HomeView() {
     return (
@@ -14,19 +15,21 @@ export default function HomeView() {
 
             <HomeHero />
 
-            <Separator className="my-8" />
+            <Separator className="my-4" />
 
             <HomeContent />
 
-            <Separator className="my-8" />
+            <Separator className="my-4" />
 
             <HomeTechnology />
+
+            <HomeHowItWorks />
 
             <Separator className="my-2" />
 
             <HomePricing />
 
-            <Separator className="my-8" />
+            <Separator className="my-4" />
             
             <HomeCTA />
 

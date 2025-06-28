@@ -317,6 +317,10 @@
   "Öncelikli Destek": "Priority Support",
   "Gelişmiş Raporlama": "Advanced Reporting",
   "Toplu İşlem": "Batch Processing",
+  "Tek Seferlik Analiz":"One-Time Analysis",
+  "Aylık Analiz":"Monthly Analysis",
+  "Yıllık Analiz":"Annual Analysis",
+  "100 Sayfaya Kadar Tek Seferlik Analiz":"Up to 100 Pages One-Time Analysis",
 
   "corporatePricingTitle": "Our Corporate Solutions",
   "corporatePricingDesc": "We offer flexible solutions tailored to the size and needs of your business.",

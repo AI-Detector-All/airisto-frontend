@@ -22,7 +22,7 @@ export function UserAvatar({ user }: UserAvatarProps) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="gap-2 px-2">
+                <Button variant="ghost" className="gap-2 px-2 font-onest">
                     <div className="flex items-center gap-3">
                         <Avatar className="h-10 w-10">
                             <AvatarImage src={user.picture} />
@@ -34,7 +34,7 @@ export function UserAvatar({ user }: UserAvatarProps) {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end">
-                <DropdownMenuLabel className="font-normal">
+                <DropdownMenuLabel className="font-normal font-onest">
                     <div className="flex flex-col space-y-1">
                         <p className="text-sm font-medium leading-none">{user.name}</p>
                         <p className="text-xs leading-none text-muted-foreground">
@@ -43,20 +43,20 @@ export function UserAvatar({ user }: UserAvatarProps) {
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem className="cursor-pointer font-onest">
                     <Link href={'/dashboard/profile'} className="flex items-center gap-1">
                         <User className="mr-2 h-4 w-4" />
                         <span> {t('profile')} </span>
                     </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem className="cursor-pointer font-onest">
                     <Link href={'/dashboard/subscription'} className="flex items-center gap-1">
                         <User className="mr-2 h-4 w-4" />
                         <span>{t('subsPlan')}</span>
                     </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer" onClick={logout}>
+                <DropdownMenuItem className="cursor-pointer font-onest" onClick={logout}>
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>{t('logout')}</span>
                 </DropdownMenuItem>
