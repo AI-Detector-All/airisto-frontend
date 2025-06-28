@@ -76,7 +76,7 @@ export default function Footer() {
                             <li>
                                 <button
                                     onClick={() => scrollToSection('features')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline"
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer"
                                 >
                                     {t('quick_links.features')}
                                 </button>
@@ -84,7 +84,7 @@ export default function Footer() {
                             <li>
                                 <button
                                     onClick={() => scrollToSection('pricing')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline"
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer"
                                 >
                                     {t('quick_links.pricing')}
                                 </button>
@@ -92,7 +92,7 @@ export default function Footer() {
                             <li>
                                 <button
                                     onClick={() => scrollToSection('how-it-works')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline"
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer"
                                 >
                                     {t('quick_links.how_it_works')}
                                 </button>
@@ -100,7 +100,7 @@ export default function Footer() {
                             <li>
                                 <button
                                     onClick={() => scrollToSection('faq')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline"
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer"
                                 >
                                     {t('quick_links.faq')}
                                 </button>
