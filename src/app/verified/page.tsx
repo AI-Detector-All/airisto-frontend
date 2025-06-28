@@ -196,7 +196,6 @@ export default function EmailVerifiedPage() {
                             <li>{t('list1')}</li>
                             <li>{t('list2')}</li>
                             <li>{t('list3')}</li>
-                            <li>{t('list4')}</li>
                         </ul>
                     </div>
 
