@@ -2,21 +2,63 @@
 
 import { useTranslate } from "@/locales";
 import Link from "next/link";
-import { Mail, Phone, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
+import { Mail, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Footer() {
     const { t } = useTranslate('footer');
+    const pathname = usePathname();
+
+    useEffect(() => {
+        const handleHashChange = () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                setTimeout(() => {
+                    const element = document.getElementById(hash);
+                    if (element) {
+                        const offsetTop = element.offsetTop - 100;
+                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+        };
+
+        if (pathname === '/' && window.location.hash) {
+            handleHashChange();
+        }
+
+        window.addEventListener('hashchange', handleHashChange);
+        
+        return () => {
+            window.removeEventListener('hashchange', handleHashChange);
+        };
+    }, [pathname]);
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const scrollToSection = (sectionId: string) => {
+        if (pathname !== '/') {
+            window.location.href = `/#${sectionId}`;
+            return;
+        }
+
         const element = document.getElementById(sectionId);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            const offsetTop = element.offsetTop - 100;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        } else {
+            setTimeout(() => {
+                const retryElement = document.getElementById(sectionId);
+                if (retryElement) {
+                    const offsetTop = retryElement.offsetTop - 100;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            }, 100);
         }
     };
 
@@ -142,18 +184,6 @@ export default function Footer() {
                                         className="text-white text-sm hover:text-primary transition-colors"
                                     >
                                         ainonceai@gmail.com
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="flex items-start space-x-3">
-                                <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <p className="text-gray-300 text-sm">{t('contact_info.phone_label')}</p>
-                                    <a
-                                        href="tel:+902345678900"
-                                        className="text-white text-sm hover:text-primary transition-colors"
-                                    >
-                                        +90 538 586 69 44
                                     </a>
                                 </div>
                             </div>

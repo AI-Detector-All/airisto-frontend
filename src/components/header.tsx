@@ -59,31 +59,60 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollMargin = 120;
-            const scrollPosition = window.scrollY;
+            const headerOffset = 84;
+            const scrollPosition = window.scrollY + headerOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
 
             let currentSectionId = nav_links[0].id;
 
-            for (let i = 0; i < nav_links.length; i++) {
+            const viewportCenter = window.scrollY + (windowHeight / 2);
+
+            for (let i = nav_links.length - 1; i >= 0; i--) {
                 const section = document.getElementById(nav_links[i].id);
                 if (section) {
-                    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-                    if (scrollPosition + scrollMargin >= sectionTop) {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (viewportCenter >= sectionTop && viewportCenter < sectionBottom) {
                         currentSectionId = nav_links[i].id;
+                        break;
+                    }
+                    else if (scrollPosition >= sectionTop) {
+                        currentSectionId = nav_links[i].id;
+                        break;
                     }
                 }
+            }
+
+            if (window.scrollY + windowHeight >= documentHeight - 50) {
+                currentSectionId = nav_links[nav_links.length - 1].id;
             }
 
             setActiveSection(currentSectionId);
         };
 
+        const timeoutId = setTimeout(() => {
+            handleScroll();
+        }, 100);
+
         window.addEventListener("scroll", handleScroll);
-        handleScroll();
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            clearTimeout(timeoutId);
         };
     }, [nav_links]);
+
+    useEffect(() => {
+        if (pathname === "/" && window.location.hash) {
+            const hashId = window.location.hash.substring(1);
+            const validSection = nav_links.find(link => link.id === hashId);
+            if (validSection) {
+                setActiveSection(hashId);
+            }
+        }
+    }, [pathname, nav_links]);
 
     return (
         <header className="w-full flex justify-between items-center p-4 px-16 border-b border-b-border sticky left-0 top-0 bg-white z-50 font-onest">
