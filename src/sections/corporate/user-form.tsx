@@ -32,7 +32,7 @@ export function UserForm({ userData, setUserData, corporateData, setCurrentStep,
     };
 
     return (
-        <Card className="w-full">
+        <Card className="w-full font-onest">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <User className="h-5 w-5" />

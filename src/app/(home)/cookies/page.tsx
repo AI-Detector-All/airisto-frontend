@@ -8,7 +8,7 @@ export default function CookiePolicyPage() {
     const { t } = useTranslate('cookie-policy');
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+        <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 font-onest">
             <div className="container mx-auto px-4 py-12 max-w-4xl">
                 {/* Header */}
                 <div className="text-center mb-12">

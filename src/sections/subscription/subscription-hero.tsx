@@ -17,7 +17,7 @@ export function SubscriptionHero({ user, subscription, getTokenUsage }: Subscrip
     const { t } = useTranslate('subscription');
 
     return (
-        <div className="w-full lg:px-8 flex flex-col ">
+        <div className="w-full lg:px-8 flex flex-col font-onest ">
             <div className="flex justify-between items-center">
                 <div>
                     <Link href={'/dashboard'} className="flex gap-2 items-center">

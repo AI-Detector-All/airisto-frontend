@@ -18,7 +18,7 @@ export const AllUsersTable: React.FC<UsersTableProps> = ({ users }) => {
             key: 'name',
             header: t('user'),
             render: (item) => (
-                <div className="flex items-center min-w-0">
+                <div className="flex items-center min-w-0 font-onest">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
                         <span className="text-xs sm:text-sm font-medium text-blue-600">
                             {item.name.charAt(0)}{item.surname.charAt(0)}

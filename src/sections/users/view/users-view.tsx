@@ -29,7 +29,7 @@ export default function UsersView() {
 
     if (isLoading) return <DashboardSkeleton />;
     return (
-        <div className="bg-gray-100 w-full min-h-screen p-8">
+        <div className="bg-gray-100 w-full min-h-screen p-8 font-onest">
             <div className="w-full px-8 flex flex-col ">
                 <div className="flex justify-between items-center">
                     <div>

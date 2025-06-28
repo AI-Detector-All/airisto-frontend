@@ -8,7 +8,7 @@ import Link from "next/link"
 export default function HomeCTA() {
     const { t } = useTranslate('home');
     return (
-        <section className="flex items-center justify-center  p-4 lg:p-0">
+        <section className="flex items-center justify-center font-onest p-4 lg:p-0">
             <div className="lg:w-3/4 lg:py-36  lg:mb-8 flex justify-center items-center bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 rounded-3xl p-8 text-white">
                 <div className="text-center space-y-8 max-w-3xl">
                     <div className="flex items-center justify-center">

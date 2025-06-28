@@ -72,7 +72,7 @@ export default function DocumentsView() {
 
 
     return (
-        <div className="bg-gray-100 w-full min-h-screen p-4 sm:p-6 lg:p-8">
+        <div className="bg-gray-100 w-full min-h-screen p-4 sm:p-6 lg:p-8 font-onest">
             <div className="w-full px-4 sm:px-6 lg:px-8 flex flex-col">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0">
                     <div className="flex-1">

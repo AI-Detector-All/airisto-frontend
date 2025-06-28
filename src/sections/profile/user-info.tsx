@@ -72,7 +72,7 @@ export function UserInfo({ user }: UserInfoProps) {
 
     return (
         <div>
-            <Card className="w-full shadow-none border-none bg-transparent order-1">
+            <Card className="w-full shadow-none border-none bg-transparent order-1 font-onest">
                 <CardContent className="p-0 space-y-4 sm:space-y-6">
                     {/* Avatar and Basic Info Header */}
                     <div className="bg-white p-4 sm:p-6 rounded-lg">

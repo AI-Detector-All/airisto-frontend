@@ -7,7 +7,7 @@ import { useTranslate } from '@/locales';
 export default function Page() {
     const { t } = useTranslate('privacy-policy');
     return (
-        <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+        <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 font-onest">
             <div className="container mx-auto px-4 py-12 max-w-4xl">
                 <div className="text-center mb-12">
                     <div className="flex justify-center mb-4">

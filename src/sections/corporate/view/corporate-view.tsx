@@ -29,7 +29,7 @@ export default function CorporateView() {
 
     if (isLoading) return <DashboardSkeleton />;
     return (
-        <div className="bg-gray-100 w-full min-h-screen lg:p-8 p-4">
+        <div className="bg-gray-100 w-full min-h-screen lg:p-8 p-4 font-onest">
             <div className="w-full lg:px-8 flex flex-col ">
                 <div className="flex justify-between items-center">
                     <div>

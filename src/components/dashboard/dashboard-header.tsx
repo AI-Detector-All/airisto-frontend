@@ -52,7 +52,7 @@ export default function DashboardHeader({
     }
 
     return (
-        <header className="h-[81px] border-b border-gray-200 bg-white/95 backdrop-blur-sm sticky top-0 z-30">
+        <header className="h-[81px] border-b border-gray-200 bg-white/95 backdrop-blur-sm sticky top-0 z-30 font-onest">
             <div className="h-full px-4 lg:px-6 flex items-center justify-between">
 
                 {/* Sol taraf - Mobile Menu Button */}

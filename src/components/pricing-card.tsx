@@ -68,7 +68,7 @@ export function PricingCard({ name, price, credits, features, highlighted = fals
     };
 
     return (
-        <Card className={`overflow-hidden group transition-all duration-500 hover:-translate-y-2 relative h-full ${highlighted
+        <Card className={`overflow-hidden font-onest group transition-all duration-500 hover:-translate-y-2 relative h-full ${highlighted
             ? "border-2 border-purple-300 bg-gradient-to-br from-white to-purple-50/50 shadow-xl shadow-purple-100/50 hover:shadow-2xl hover:shadow-purple-200/60"
             : "border border-gray-200 bg-white/80 backdrop-blur-sm shadow-lg shadow-gray-100/50 hover:shadow-xl hover:shadow-gray-200/40"
             }`}>

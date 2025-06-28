@@ -100,7 +100,7 @@ export function PasswordChange() {
 
     return (
         <div>
-            <Card className="w-full shadow-none border-none bg-transparent order-2 lg:order-2">
+            <Card className="w-full shadow-none border-none bg-transparent order-2 lg:order-2 font-onest">
                 <CardContent className="p-0">
                     <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-lg space-y-4 sm:space-y-6">
                         <div className="border-b border-gray-100 pb-3 sm:pb-4">

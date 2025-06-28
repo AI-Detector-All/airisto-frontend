@@ -86,7 +86,7 @@ export default function Header() {
     }, [nav_links]);
 
     return (
-        <header className="w-full flex justify-between items-center p-4 px-16 border-b border-b-border sticky left-0 top-0 bg-white z-50">
+        <header className="w-full flex justify-between items-center p-4 px-16 border-b border-b-border sticky left-0 top-0 bg-white z-50 font-onest">
             <Link href="/" className="flex justify-start items-center gap-4 w-full">
                 <Image
                     src="/airisto-v3.png"

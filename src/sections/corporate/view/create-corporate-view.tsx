@@ -126,7 +126,7 @@ export const CreateCorporateView = () => {
     }
 
     return (
-        <div className="bg-gray-100 w-full min-h-screen lg:p-8">
+        <div className="bg-gray-100 w-full min-h-screen lg:p-8 font-onest">
             <div className="w-full lg:px-8 flex flex-col px-4 py-2">
                 <div>
                     <Link href={'/dashboard'} className="flex gap-2 items-center">

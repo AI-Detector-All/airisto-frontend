@@ -114,7 +114,7 @@ export function CookieConsent({
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-in slide-in-from-bottom-4 duration-500">
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-in slide-in-from-bottom-4 duration-500 font-onest">
       <Card className="mx-auto max-w-4xl border-border/50 bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <CardContent className="p-4">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">

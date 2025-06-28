@@ -120,7 +120,7 @@ export default function GenericTable<T extends Record<string, any>>({
     );
 
     return (
-        <div className="w-full">
+        <div className="w-full font-onest">
             {searchable && (
                 <div className="mb-4 p-2">
                     <input

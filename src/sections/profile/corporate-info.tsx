@@ -82,7 +82,7 @@ export function CorporateInfo({ user }: CorporateInfoProps) {
 
 
     return (
-        <div className="bg-white p-4 sm:p-6 rounded-lg">
+        <div className="bg-white p-4 sm:p-6 rounded-lg font-onest">
             <h2 className="text-lg sm:text-xl font-onest font-semibold text-gray-900 mb-4 sm:mb-6">
                 {t('corporateInformation') || 'Kurumsal Bilgiler'}
             </h2>
