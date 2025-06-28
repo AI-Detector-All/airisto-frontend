@@ -14,7 +14,7 @@ export default function ContactView() {
             <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 py-16">
                     <div className="text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
+                        <h1 className="text-4xl p-1 md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
                             {t('contactTitle')}
                         </h1>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
