@@ -89,23 +89,23 @@ export default function Header() {
         <header className="w-full flex justify-between items-center p-4 px-16 border-b border-b-border sticky left-0 top-0 bg-white z-50">
             <Link href="/" className="flex justify-start items-center gap-4 w-full">
                 <Image
-                    src="/airisto-v2.png"
+                    src="/airisto-v3.png"
                     alt="Next.js logo"
-                    width={150}
+                    width={185}
                     height={30}
                     priority
-                    className="lg:ml-24"
+                    className="xl:ml-24"
                 />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex gap-8 justify-center items-center w-full">
+            <div className="hidden lg:flex gap-8 justify-center items-center">
                 {nav_links.map((link) => (
                     <div key={link.id} className="relative flex flex-col items-center">
                         <Link
                             href={`/#${link.id}`}
-                            className={`text-body2 font-semibold font-onest relative transition-colors duration-300 hover:text-fuchsia-400 
-                            ${activeSection === link.id && pathname === `/` ? 'text-fuchsia-400' : 'text-gray-600'}`}
+                            className={`text-body2 font-semibold font-onest relative transition-colors duration-300 hover:text-fuchsia-400 whitespace-nowrap
+                        ${activeSection === link.id && pathname === `/` ? 'text-fuchsia-400' : 'text-gray-600'}`}
                             onClick={() => setActiveSection(link.id)}
                         >
                             {link.name}
