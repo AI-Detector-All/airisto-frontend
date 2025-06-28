@@ -14,11 +14,11 @@ export default function HomeView() {
 
             <HomeHero />
 
-            <Separator className="my-8" />
+            <Separator className="my-4" />
 
             <HomeContent />
 
-            <Separator className="my-8" />
+            <Separator className="my-4" />
 
             <HomeTechnology />
 
@@ -26,7 +26,7 @@ export default function HomeView() {
 
             <HomePricing />
 
-            <Separator className="my-8" />
+            <Separator className="my-4" />
             
             <HomeCTA />
 

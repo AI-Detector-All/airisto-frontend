@@ -114,14 +114,14 @@ export function HomeHero() {
     const mockResults = generateMockResults(inputText);
 
     return (
-        <div className="bg-gradient-to-br from-gray-50 to-white relative  w-full ">
+        <div className="bg-gradient-to-br from-gray-50 to-white relative w-full ">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-20 left-20 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl animate-pulse" />
                 <div className="absolute top-40 right-40 w-24 h-24 bg-blue-200/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
                 <div className="absolute bottom-20 left-1/3 w-40 h-40 bg-purple-100/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
             </div>
 
-            <div className="lg:w-full px-2 py-10 lg:px-8 lg:py-20 relative w-full flex justify-center items-center">
+            <div className="lg:w-full px-2 py-10 lg:px-8 lg:py-12 relative w-full flex justify-center items-center">
                 <div className={`w-full lg:flex lg:px-16 2xl:px-32 xl:gap-16 ${showResults
                     ? 'lg:items-start'
                     : 'lg:items-start'

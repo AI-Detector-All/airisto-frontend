@@ -44,7 +44,7 @@ export function HomeContent() {
   ];
 
   return (
-    <div id="features" className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 py-8 space-y-24">
+    <div id="features" className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 py-4 space-y-24">
 
       <section className="w-full">
         <div className="text-center mb-16">
