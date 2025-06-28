@@ -50,7 +50,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
         return {
             onetime: onetimePlan ? {
                 name: onetimePlan.name,
-                price: `$${onetimePlan.price}`,
+                price: onetimePlan.price,
                 credits: `${onetimePlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: false,
                 features: onetimePlan.features,
@@ -58,7 +58,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             } : null,
             monthly: monthlyPlan ? {
                 name: monthlyPlan.name,
-                price: `$${monthlyPlan.price}`,
+                price: monthlyPlan.price,
                 credits: `${monthlyPlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: true,
                 features: monthlyPlan.features,
@@ -66,7 +66,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             } : null,
             annual: yearlyPlan ? {
                 name: yearlyPlan.name,
-                price: `$${yearlyPlan.price}`,
+                price: yearlyPlan.price,
                 credits: `${yearlyPlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: true,
                 features: yearlyPlan.features,
@@ -88,7 +88,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
         return {
             monthly: monthlyPlan ? {
                 name: monthlyPlan.name,
-                price: `$${monthlyPlan.price}`,
+                price: monthlyPlan.price,
                 credits: `${monthlyPlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: true,
                 features: monthlyPlan.features,
@@ -96,7 +96,7 @@ export function HomePricing({ activePlansType }: HomePricingProps) {
             } : null,
             annual: yearlyPlan ? {
                 name: yearlyPlan.name,
-                price: `$${yearlyPlan.price}`,
+                price: yearlyPlan.price,
                 credits: `${yearlyPlan.maxAnalyses} ${t('pricingCreditsLabel') || 'analiz'}`,
                 highlighted: true,
                 features: yearlyPlan.features,

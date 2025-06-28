@@ -35,7 +35,7 @@ export type BillingPeriod = "monthly" | "annual";
 
 interface PricingCardProps {
     name: string;
-    price: string;
+    price: number;
     credits: string;
     features: string[];
     highlighted?: boolean;
@@ -88,7 +88,7 @@ export function PricingCard({ name, price, credits, features, highlighted = fals
             <CardHeader className="pb-4 relative z-10">
                 <div className="text-center">
                     <h3 className="text-2xl font-bold mb-2 mt-2 group-hover:text-purple-600 transition-colors duration-300">
-                        {name}
+                        {t(name)}
                     </h3>
                 </div>
             </CardHeader>
@@ -96,7 +96,7 @@ export function PricingCard({ name, price, credits, features, highlighted = fals
             <CardContent className="text-center pt-0 relative z-10">
                 <div className="mb-6">
                     <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-blue-600 transition-all duration-500">
-                        {price}
+                        ${price.toFixed(2)}
                     </div>
                     <p className="text-gray-500 text-sm mb-4">{getPeriodText()}</p>
                     <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-50 to-blue-50 text-purple-700 rounded-full px-6 py-2 text-sm font-medium border border-purple-200/60">
@@ -117,8 +117,7 @@ export function PricingCard({ name, price, credits, features, highlighted = fals
             </CardContent>
 
             <CardFooter className="flex flex-col pt-6 relative z-10">
-                <div className="text-sm text-gray-600 mb-6 text-center font-medium flex items-center justify-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
+                <div className="text-body1 text-gray-600 mb-6 text-center font-semibold flex items-center justify-center gap-2">
                     {t('pricingFeaturesLabel')}
                 </div>
                 <ul className="space-y-4 w-full">
