@@ -5,12 +5,13 @@ import Link from "next/link";
 import { Mail, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Footer() {
     const { t } = useTranslate('footer');
     const pathname = usePathname();
+    const router = useRouter();
 
     useEffect(() => {
         const handleHashChange = () => {
@@ -19,19 +20,25 @@ export default function Footer() {
                 setTimeout(() => {
                     const element = document.getElementById(hash);
                     if (element) {
-                        const offsetTop = element.offsetTop - 100;
-                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                        const headerOffset = 100;
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
                     }
-                }, 100);
+                }, 300);
             }
         };
 
-        if (pathname === '/' && window.location.hash) {
+        if (pathname === '/') {
             handleHashChange();
         }
 
         window.addEventListener('hashchange', handleHashChange);
-        
+
         return () => {
             window.removeEventListener('hashchange', handleHashChange);
         };
@@ -41,24 +48,36 @@ export default function Footer() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const scrollToSection = (sectionId: string) => {
+    const handleNavigation = async (sectionId: string) => {
         if (pathname !== '/') {
-            window.location.href = `/#${sectionId}`;
-            return;
-        }
-
-        const element = document.getElementById(sectionId);
-        if (element) {
-            const offsetTop = element.offsetTop - 100;
-            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-        } else {
+            await router.push('/');
             setTimeout(() => {
-                const retryElement = document.getElementById(sectionId);
-                if (retryElement) {
-                    const offsetTop = retryElement.offsetTop - 100;
-                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    window.history.pushState(null, '', `#${sectionId}`);
                 }
-            }, 100);
+            }, 500);
+        } else {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const headerOffset = 100;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                window.history.pushState(null, '', `#${sectionId}`);
+            }
         }
     };
 
@@ -81,7 +100,7 @@ export default function Footer() {
                                 />
                             </Link>
                         </div>
-                        <p className="text-gray-300 text-sm leading-relaxed">
+                        <p className="text-gray-300 text-sm leading-relaxed text-justify">
                             {t('company_description')}
                         </p>
                         <div className="flex space-x-3">
@@ -112,37 +131,38 @@ export default function Footer() {
                         </div>
                     </div>
 
+                    {/* Quick Links */}
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold">{t('quick_links.title')}</h4>
                         <ul className="space-y-3">
                             <li>
                                 <button
-                                    onClick={() => scrollToSection('features')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer"
+                                    onClick={() => handleNavigation('features')}
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer text-left"
                                 >
                                     {t('quick_links.features')}
                                 </button>
                             </li>
                             <li>
                                 <button
-                                    onClick={() => scrollToSection('pricing')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer"
+                                    onClick={() => handleNavigation('pricing')}
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer text-left"
                                 >
                                     {t('quick_links.pricing')}
                                 </button>
                             </li>
                             <li>
                                 <button
-                                    onClick={() => scrollToSection('how-it-works')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer"
+                                    onClick={() => handleNavigation('how-it-works')}
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer text-left"
                                 >
                                     {t('quick_links.how_it_works')}
                                 </button>
                             </li>
                             <li>
                                 <button
-                                    onClick={() => scrollToSection('faq')}
-                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer"
+                                    onClick={() => handleNavigation('faq')}
+                                    className="text-gray-300 hover:text-white text-sm transition-colors hover:underline cursor-pointer text-left"
                                 >
                                     {t('quick_links.faq')}
                                 </button>
@@ -150,6 +170,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
+                    {/* Company */}
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold">{t('company.title')}</h4>
                         <ul className="space-y-3">
@@ -172,6 +193,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
+                    {/* Contact Info */}
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold">{t('contact_info.title')}</h4>
                         <div className="space-y-3">
@@ -192,8 +214,10 @@ export default function Footer() {
                 </div>
             </div>
 
+            {/* Divider */}
             <div className="border-t border-gray-800"></div>
 
+            {/* Bottom Section */}
             <div className="container mx-auto px-6 py-6">
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
