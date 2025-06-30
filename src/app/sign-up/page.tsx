@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Shield, Bot, FileCheck, BarChart3, Info, Check, X } from "lucide-react";
+import { CheckCircle, Shield, Bot, FileCheck, BarChart3, Check, X } from "lucide-react";
 import { toast } from "sonner";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,13 +12,17 @@ import { signUp } from "@/services/auth";
 import { useRouter } from "next/navigation";
 import { CheckedState } from "@radix-ui/react-checkbox";
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip";
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import { useTranslate } from "@/locales";
 import { Toaster } from "@/components/ui/sonner";
+import { RolesEnum } from "@/enums/roles";
+
+type UserRole = 'USER' | 'ACADEMICIAN' | 'STUDENT';
 
 export default function Page() {
     const { t } = useTranslate('sign-up');
@@ -30,6 +34,7 @@ export default function Page() {
         orcidId: '',
         provider: 'LOCAL',
         isActive: false,
+        role: RolesEnum.USER,
     });
     const [acceptTerms, setAcceptTerms] = useState(false);
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -50,10 +55,14 @@ export default function Page() {
     }, [])
 
     const handleUserChange = (field: string, value: string | boolean) => {
-        setUserData({ ...userData, [field]: value });
-
         if (field === 'password' && typeof value === 'string') {
             validatePassword(value);
+        }
+
+        if (field === 'role' && typeof value === 'string' && value !== 'ACADEMICIAN') {
+            setUserData(prev => ({ ...prev, [field]: value as RolesEnum, orcidId: '' }));
+        } else {
+            setUserData({ ...userData, [field]: value });
         }
 
         if (errors[field]) {
@@ -101,6 +110,10 @@ export default function Page() {
 
         if (!userData.password) {
             newErrors.password = t('requiredPassword');
+        }
+
+        if (userData.role === 'ACADEMICIAN' && !userData.orcidId.trim()) {
+            newErrors.orcidId = t('requiredOrcidForAcademician');
         }
 
         setErrors(newErrors);
@@ -226,6 +239,19 @@ export default function Page() {
         }
     };
 
+    const getRoleDisplayName = (role: UserRole) => {
+        switch (role) {
+            case 'USER':
+                return t('roleUser');
+            case 'ACADEMICIAN':
+                return t('roleAcademician');
+            case 'STUDENT':
+                return t('roleStudent');
+            default:
+                return t('roleUser');
+        }
+    };
+
     const features = [
         {
             icon: <Shield className="h-5 w-5" />,
@@ -343,6 +369,21 @@ export default function Page() {
                             </div>
 
                             <div className="space-y-4">
+                                {/* User Role Selection */}
+                                <div>
+                                    <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">{t('roleLabel')}</label>
+                                    <Select value={userData.role} onValueChange={(value: UserRole) => handleUserChange('role', value)}>
+                                        <SelectTrigger className="w-full">
+                                            <SelectValue placeholder={t('roleSelectPlaceholder')} />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="USER">{getRoleDisplayName('USER')}</SelectItem>
+                                            <SelectItem value="ACADEMICIAN">{getRoleDisplayName('ACADEMICIAN')}</SelectItem>
+                                            <SelectItem value="STUDENT">{getRoleDisplayName('STUDENT')}</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{t('firstNameLabel')}</label>
@@ -411,7 +452,6 @@ export default function Page() {
                                         <p className="text-red-500 text-xs mt-1">{errors.password}</p>
                                     )}
 
-                                    {/* Şifre Gereksinimleri */}
                                     {userData.password && (
                                         <div className="mt-2 p-3 bg-gray-50 rounded-lg border">
                                             <p className="text-xs font-medium text-gray-700 mb-2">{t('passwordRequirements')}</p>
@@ -463,7 +503,6 @@ export default function Page() {
                                                 </div>
                                             </div>
 
-                                            {/* Şifre Gücü */}
                                             {userData.password && (
                                                 <div className="mt-2 pt-2 border-t border-gray-200">
                                                     <div className="flex items-center justify-between">
@@ -475,8 +514,8 @@ export default function Page() {
                                                     <div className="w-full bg-gray-200 rounded-full h-1 mt-1">
                                                         <div
                                                             className={`h-1 rounded-full transition-all duration-300 ${getPasswordStrength().text === t('passwordStrengthWeak') ? 'bg-red-500 w-1/3' :
-                                                                    getPasswordStrength().text === t('passwordStrengthMedium') ? 'bg-yellow-500 w-2/3' :
-                                                                        'bg-green-500 w-full'
+                                                                getPasswordStrength().text === t('passwordStrengthMedium') ? 'bg-yellow-500 w-2/3' :
+                                                                    'bg-green-500 w-full'
                                                                 }`}
                                                         ></div>
                                                     </div>
@@ -486,30 +525,32 @@ export default function Page() {
                                     )}
                                 </div>
 
-                                <div>
-                                    <div className="flex items-center gap-2 mb-1">
-                                        <label htmlFor="orcid" className="block text-sm font-medium text-gray-700">{t('orcidLabel')}</label>
-                                        <TooltipProvider>
-                                            <Tooltip>
-                                                <TooltipTrigger asChild>
-                                                    <Info className="h-4 w-4 text-gray-400 cursor-help" />
-                                                </TooltipTrigger>
-                                                <TooltipContent className="max-w-xs">
-                                                    <p className="text-sm">{t('orcidTooltip')}</p>
-                                                </TooltipContent>
-                                            </Tooltip>
-                                        </TooltipProvider>
+                                {userData.role === RolesEnum.ACADEMICIAN && (
+                                    <div>
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <label htmlFor="orcid" className="block text-sm font-medium text-gray-700">
+                                                {t('orcidLabel')}
+                                                {userData.role === 'ACADEMICIAN' && <span className="text-red-500 ml-1">*</span>}
+                                            </label>
+                                        </div>
+                                        <Input
+                                            id="orcid"
+                                            type="text"
+                                            placeholder={userData.role === 'ACADEMICIAN' ? t('orcidPlaceholderRequired') : t('orcidPlaceholder')}
+                                            value={userData.orcidId}
+                                            onChange={(e) => handleUserChange('orcidId', e.target.value)}
+                                            onKeyPress={handleKeyPress}
+                                            disabled={isLoading}
+                                            className={errors.orcidId ? 'border-red-500' : ''}
+                                        />
+                                        {errors.orcidId && (
+                                            <p className="text-red-500 text-xs mt-1">{errors.orcidId}</p>
+                                        )}
+                                        {userData.role === 'ACADEMICIAN' && (
+                                            <p className="text-xs text-gray-500 mt-1">{t('orcidRequiredNote')}</p>
+                                        )}
                                     </div>
-                                    <Input
-                                        id="orcid"
-                                        type="text"
-                                        placeholder={t('orcidPlaceholder')}
-                                        value={userData.orcidId}
-                                        onChange={(e) => handleUserChange('orcidId', e.target.value)}
-                                        onKeyPress={handleKeyPress}
-                                        disabled={isLoading}
-                                    />
-                                </div>
+                                )}
 
                                 <div className="flex items-center space-x-2">
                                     <Checkbox

@@ -85,5 +85,14 @@
   "errorNavigatorDesc": "A connection error occurred. Please try again later.",
   "errorNetwork": "Network Error",
   "errorNetworkDesc": "Could not connect to the server. Please try again later.",
-  "passwordStrength": "Password Strength"
+  "passwordStrength": "Password Strength",
+  "roleLabel": "User Type",
+  "roleSelectPlaceholder": "Select your user type",
+  "roleUser": "User",
+  "roleAcademician": "Academic",
+  "roleStudent": "Student",
+  "requiredOrcidForAcademician": "ORCID ID is required for academics",
+  "orcidTooltipRequired": "ORCID ID is a mandatory identifier for academics. It uniquely identifies researchers.",
+  "orcidPlaceholderRequired": "ORCID ID (required)",
+  "orcidRequiredNote": "ORCID ID is required for academics"
 }
