@@ -68,11 +68,11 @@ export function HomeHowItWorks() {
                         </span>
                     </div>
 
-                    <h2 className="text-4xl p-1 lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                    <h2 className="text-3xl p-1 lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                         {t('technologySection.processTitle')}
                     </h2>
 
-                    <p className=" text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <p className=" text-gray-600 max-w-4xl mx-auto leading-relaxed text-body1 xl:text-lg">
                         {t('technologySection.processDesc')}
                     </p>
                 </div>

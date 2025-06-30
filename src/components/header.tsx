@@ -116,14 +116,14 @@ export default function Header() {
 
     return (
         <header className="w-full flex justify-between items-center p-4 px-16 border-b border-b-border sticky left-0 top-0 bg-white z-50 font-onest">
-            <Link href="/" className="flex justify-start items-center gap-4 w-full">
+            <Link href="/" className="flex justify-start items-center w-full">
                 <Image
                     src="/airisto-v3.png"
                     alt="Next.js logo"
                     width={185}
                     height={30}
                     priority
-                    className="xl:ml-24"
+                    className="sm:ml-0 md:ml-0 xl:ml-8 2xl:ml-24"
                 />
             </Link>
 

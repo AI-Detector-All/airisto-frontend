@@ -85,5 +85,14 @@
   "errorNavigatorDesc": "Bağlantı hatası oluştu. Lütfen daha sonra tekrar deneyin.",
   "errorNetwork": "Ağ Hatası",
   "errorNetworkDesc": "Sunucuya bağlanılamadı. Lütfen daha sonra tekrar deneyin.",
-  "passwordStrength": "Şifre Gücü"
+  "passwordStrength": "Şifre Gücü",
+  "roleLabel": "Kullanıcı Tipi",
+  "roleSelectPlaceholder": "Kullanıcı tipinizi seçin",
+  "roleUser": "Kullanıcı",
+  "roleAcademician": "Akademisyen",
+  "roleStudent": "Öğrenci",
+  "requiredOrcidForAcademician": "Akademisyenler için ORCID ID zorunludur",
+  "orcidTooltipRequired": "ORCID ID, akademisyenler için zorunlu bir tanımlayıcıdır. Araştırmacıları benzersiz şekilde tanımlar.",
+  "orcidPlaceholderRequired": "ORCID ID (zorunlu)",
+  "orcidRequiredNote": "Akademisyenler için ORCID ID zorunludur"
 }
