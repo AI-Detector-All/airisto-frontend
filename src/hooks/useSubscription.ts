@@ -6,7 +6,7 @@ import { UserSubscription } from "@/types/user-subscription";
 
 export const useSubscription = () => {
     const { user, isLoading } = useAuth();
-    const [subscription, setSubscription] = useState<UserSubscription>();
+    const [subscription, setSubscription] = useState<UserSubscription | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -16,11 +16,17 @@ export const useSubscription = () => {
             setLoading(true);
             setError(null);
             const response = await getUserSubscription(user.id);
-            
             setSubscription(response);
-        } catch (err) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (err: any) {
             console.error('Subscription fetch error:', err);
-            setError('Failed to fetch subscription');
+            if (err.status === 404 || err.response?.status === 404) {
+                setSubscription(null);
+                setError('No subscription found');
+            } else {
+                setSubscription(null);
+                setError('Failed to fetch subscription');
+            }
         } finally {
             setLoading(false);
         }
@@ -31,6 +37,9 @@ export const useSubscription = () => {
 
         if (user) {
             getSubscription();
+        } else {
+            setSubscription(null);
+            setLoading(false);
         }
     }, [user, isLoading]);
 

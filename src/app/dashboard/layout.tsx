@@ -12,12 +12,14 @@ import { useSubscription } from "@/hooks/useSubscription";
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { subscription } = useSubscription();
-  
+  const { subscription, loading, error } = useSubscription();
+
   const router = useRouter();
-  const { user } = useAuth();
+  const { user, isLoading: userLoading } = useAuth();
 
   useEffect(() => {
+    if (userLoading) return;
+
     if (!user) return;
 
     if (!user?.corporate?.isActive) {
@@ -30,11 +32,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       }
     }
 
-    // if (!subscription) {
-    //   router.push('/#pricing');
-    //   return;
-    // }
-  }, [router, user, subscription]);
+    if (loading) return;
+
+    if (subscription === null || error) {
+      router.push('/#pricing');
+      return;
+    }
+  }, [router, user, subscription, loading, error, userLoading]);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
