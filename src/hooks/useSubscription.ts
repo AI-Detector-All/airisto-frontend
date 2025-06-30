@@ -7,7 +7,7 @@ import { UserSubscription } from "@/types/user-subscription";
 export const useSubscription = () => {
     const { user, isLoading } = useAuth();
     const [subscription, setSubscription] = useState<UserSubscription | null>(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     const getSubscription = async () => {
