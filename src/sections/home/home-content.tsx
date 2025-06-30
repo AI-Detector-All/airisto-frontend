@@ -64,11 +64,11 @@ export function HomeContent() {
             </Badge>
           )}
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
             {t('homeContent.title')}
           </h2>
 
-          <p className="text-body1 text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8 text-justify">
+          <p className="text-body2 2xl:text-body1 text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8 text-justify">
             {t('homeContent.desc')}
           </p>
 
@@ -90,11 +90,11 @@ export function HomeContent() {
                   <feature.icon className={`h-8 w-8 bg-gradient-to-r ${feature.gradient} bg-clip-text `} />
                 </div>
 
-                <h3 className="font-bold text-xl mb-4 text-gray-900 group-hover:text-gray-800 transition-colors">
+                <h3 className="font-bold text-lg xl:text-xl mb-4 text-gray-900 group-hover:text-gray-800 transition-colors">
                   {feature.title}
                 </h3>
 
-                <p className="text-gray-600 text-base leading-relaxed group-hover:text-gray-700 transition-colors">
+                <p className="text-gray-600 text-body2 xl:text-body1 leading-relaxed group-hover:text-gray-700 transition-colors">
                   {feature.description}
                 </p>
               </CardContent>

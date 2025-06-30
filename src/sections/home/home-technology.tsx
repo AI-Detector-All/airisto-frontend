@@ -34,7 +34,7 @@ export function HomeTechnology() {
                         <div className="lg:w-2/3 text-white">
 
 
-                            <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                            <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight">
                                 {currentLang.value === 'tr' ? (
                                     <div>
                                         <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-300 bg-clip-text text-transparent">
@@ -54,11 +54,11 @@ export function HomeTechnology() {
 
                             </h2>
 
-                            <h3 className="text-xl text-blue-200 mb-6 font-medium">
+                            <h3 className="text-lg xl:text-xl text-blue-200 mb-6 font-medium">
                                 {t('technologySection.subtitle')}
                             </h3>
 
-                            <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-3xl text-justify">
+                            <p className="xl:text-lg text-slate-300 leading-relaxed mb-8 max-w-3xl text-justify">
                                 {t('technologySection.description')}
                             </p>
 
