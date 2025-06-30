@@ -123,7 +123,7 @@ export default function Header() {
                     width={185}
                     height={30}
                     priority
-                    className="xl:ml-24"
+                    className="xl:ml-16"
                 />
             </Link>
 
