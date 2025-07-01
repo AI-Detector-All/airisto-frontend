@@ -277,313 +277,302 @@ export default function Page() {
 
     return (
         <>
-            <div className="flex flex-col mt-8 w-full justify-center items-center">
-                {/* <div className="w-full flex justify-start items-start ml-8">
-                    <Link href="/" className="flex gap-2">
-                        <ArrowLeft className="h-5 w-5" />
-                        <h1 className="text-body2 font-onest font-bold text-gray-700">{t('backToHome')}</h1>
-                    </Link>
-                </div> */}
+            <div className="flex flex-col w-full justify-center items-center">
                 {/* Main container */}
-                <div className="flex justify-center items-center lg:w-5/6 mt-16">
-                    {/* Left side - Gradient Background with Content */}
-                    <div className="hidden md:flex w-1/2 bg-gradient-to-b from-fuchsia-100 to-gray-900 flex-col items-center justify-center text-white relative p-8 rounded-xl">
-                        <div className="flex flex-col items-center justify-center h-full">
-                            <div className="w-56 h-24 flex items-center justify-center mb-4">
-                                <Image
-                                    src="/airisto-v2.png"
-                                    alt="Airisto logo"
-                                    width={180}
-                                    height={38}
-                                    priority
-                                />
-                            </div>
-
-                            <div className="text-center mt-8 mb-8">
-                                <Badge variant="outline" className="bg-white/10 hover:bg-white/20 text-sm rounded-full mb-8 px-6 py-1 border-fuchsia-300/30">
-                                    {t('aiTagline')}
-                                </Badge>
-                                <h2 className="text-2xl font-bold mb-2">{t('mainTitle')}</h2>
-                                <h2 className="text-2xl font-bold mb-6">{t('mainSubtitle')}</h2>
-                                <p className="text-sm text-gray-200 mb-8">
-                                    {t('mainDescription')}
-                                </p>
-
-                                <div className="grid grid-cols-2 gap-4 mb-8">
-                                    {features.map((feature, index) => (
-                                        <div key={index} className="flex items-start p-3 bg-white/5 rounded-lg backdrop-blur-sm">
-                                            <div className="mr-3 text-fuchsia-300">
-                                                {feature.icon}
-                                            </div>
-                                            <div className="text-left">
-                                                <h3 className="font-medium text-sm">{feature.title}</h3>
-                                                <p className="text-xs text-gray-300">{feature.description}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <div className="flex space-x-4 mb-8">
-                                    <div className="flex items-center text-xs">
-                                        <CheckCircle className="h-4 w-4 mr-1 text-success-400" />
-                                        <span>{t('detectAI')}</span>
-                                    </div>
-                                    <div className="flex items-center text-xs">
-                                        <CheckCircle className="h-4 w-4 mr-1 text-success-400" />
-                                        <span>{t('cancelAnytime')}</span>
-                                    </div>
-                                </div>
-
-                                {/* <Button variant="outline" className="bg-transparent border border-white text-white hover:bg-white/10 hover:text-white rounded-lg">
-                                    <Link href={'/#how-it-works'}>
-                                        <span className="mr-2">{t('seeHowItWorks')}</span>
-                                    </Link>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 3.33325V12.6666" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M12.6667 7.99992L8.00008 12.6666L3.33341 7.99992" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </Button> */}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right side - Signup Form */}
-                    <div className="flex flex-1 items-center justify-center p-6">
-                        <div className="w-full max-w-md">
-                            <div className="flex justify-between items-center mb-6">
-                                <div>
-                                    <h1 className="text-2xl font-bold">{t('createAccount')}</h1>
-                                    <p className="text-gray-500 text-sm mt-1">{t('getStarted')}</p>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="h-16 w-32 rounded-lg mt-2 justify-center">
+                <div className="flex justify-center p-4 xl:p-0 items-center w-full lg:w-3/4 xl:min-w-[1250px] 2xl:min-w-7xl h-screen">
+                    {/* Tek büyük kart - hem sol hem sağ tarafı kapsıyor */}
+                    <div className="flex w-full bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+                        {/* Left side - Gradient Background with Content */}
+                        <div className="hidden md:flex w-1/2 bg-gradient-to-b from-fuchsia-100 to-gray-900 flex-col items-center justify-center text-white relative px-12 py-6">
+                            <div className="flex flex-col items-center justify-center h-full">
+                                <div className="w-56 h-24 flex items-center justify-center mb-4">
+                                    <Link href={"/"}>
                                         <Image
                                             src="/airisto-v2.png"
-                                            alt="Next.js logo"
-                                            width={150}
+                                            alt="Airisto logo"
+                                            width={180}
                                             height={38}
                                             priority
                                         />
+                                    </Link>
+                                </div>
+
+                                <div className="text-center mb-8">
+                                    <Badge variant="outline" className="bg-white/10 hover:bg-white/20 text-sm rounded-full mb-8 px-6 py-1 border-fuchsia-300/30">
+                                        {t('aiTagline')}
+                                    </Badge>
+                                    <h2 className="text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold mb-2">{t('mainTitle')}</h2>
+                                    <h2 className="text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold mb-6">{t('mainSubtitle')}</h2>
+                                    <p className="text-sm lg:text-base xl:text-lg text-gray-200 mb-8">
+                                        {t('mainDescription')}
+                                    </p>
+
+                                    <div className="grid grid-cols-2 gap-4 mb-8">
+                                        {features.map((feature, index) => (
+                                            <div key={index} className="flex items-start p-3 bg-white/5 rounded-lg backdrop-blur-sm">
+                                                <div className="mr-3 text-fuchsia-300">
+                                                    {feature.icon}
+                                                </div>
+                                                <div className="text-left">
+                                                    <h3 className="font-medium text-sm">{feature.title}</h3>
+                                                    <p className="text-xs text-gray-300">{feature.description}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex space-x-4">
+                                        <div className="flex items-center text-xs">
+                                            <CheckCircle className="h-4 w-4 mr-1 text-green-400" />
+                                            <span>{t('detectAI')}</span>
+                                        </div>
+                                        <div className="flex items-center text-xs">
+                                            <CheckCircle className="h-4 w-4 mr-1 text-green-400" />
+                                            <span>{t('cancelAnytime')}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div className="space-y-4">
-                                {/* User Role Selection */}
-                                <div>
-                                    <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">{t('roleLabel')}</label>
-                                    <Select value={userData.role} onValueChange={(value: UserRole) => handleUserChange('role', value)}>
-                                        <SelectTrigger className="w-full">
-                                            <SelectValue placeholder={t('roleSelectPlaceholder')} />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="USER">{getRoleDisplayName('USER')}</SelectItem>
-                                            <SelectItem value="ACADEMICIAN">{getRoleDisplayName('ACADEMICIAN')}</SelectItem>
-                                            <SelectItem value="STUDENT">{getRoleDisplayName('STUDENT')}</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-4">
+                        {/* Right side - Signup Form */}
+                        <div className="flex flex-1 items-center justify-center p-6">
+                            <div className="w-full max-w-md">
+                                <div className="flex justify-between items-center mb-6">
                                     <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{t('firstNameLabel')}</label>
-                                        <Input
-                                            id="name"
-                                            type="text"
-                                            placeholder={t('firstNamePlaceholder')}
-                                            value={userData.name}
-                                            onChange={(e) => handleUserChange("name", e.target.value)}
-                                            onKeyPress={handleKeyPress}
-                                            disabled={isLoading}
-                                            className={errors.name ? 'border-red-500' : ''}
-                                        />
-                                        {errors.name && (
-                                            <p className="text-red-500 text-xs mt-1">{errors.name}</p>
-                                        )}
+                                        <h1 className="text-2xl font-bold">{t('createAccount')}</h1>
+                                        <p className="text-gray-500 text-sm mt-1">{t('getStarted')}</p>
                                     </div>
-                                    <div>
-                                        <label htmlFor="surname" className="block text-sm font-medium text-gray-700 mb-1">{t('lastNameLabel')}</label>
-                                        <Input
-                                            id="surname"
-                                            type="text"
-                                            placeholder={t('lastNamePlaceholder')}
-                                            value={userData.surname}
-                                            onChange={(e) => handleUserChange('surname', e.target.value)}
-                                            onKeyPress={handleKeyPress}
-                                            disabled={isLoading}
-                                            className={errors.surname ? 'border-red-500' : ''}
-                                        />
-                                        {errors.surname && (
-                                            <p className="text-red-500 text-xs mt-1">{errors.surname}</p>
-                                        )}
+                                    <div className="flex items-center gap-2">
+                                        <div className="h-16 w-32 rounded-lg justify-center mt-2">
+                                            <Image
+                                                src="/airisto-v2.png"
+                                                alt="Airisto logo"
+                                                width={150}
+                                                height={38}
+                                                priority
+                                            />
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{t('emailLabel')}</label>
-                                    <Input
-                                        id="email"
-                                        type="email"
-                                        placeholder={t('emailPlaceholder')}
-                                        value={userData.email}
-                                        onChange={(e) => handleUserChange('email', e.target.value)}
-                                        onKeyPress={handleKeyPress}
-                                        disabled={isLoading}
-                                        className={errors.email ? 'border-red-500' : ''}
-                                    />
-                                    {errors.email && (
-                                        <p className="text-red-500 text-xs mt-1">{errors.email}</p>
-                                    )}
-                                </div>
+                                <div className="space-y-4">
+                                    {/* User Role Selection */}
+                                    <div>
+                                        <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">{t('roleLabel')}</label>
+                                        <Select value={userData.role} onValueChange={(value: UserRole) => handleUserChange('role', value)}>
+                                            <SelectTrigger className="w-full">
+                                                <SelectValue placeholder={t('roleSelectPlaceholder')} />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectItem value="USER">{getRoleDisplayName('USER')}</SelectItem>
+                                                <SelectItem value="ACADEMICIAN">{getRoleDisplayName('ACADEMICIAN')}</SelectItem>
+                                                <SelectItem value="STUDENT">{getRoleDisplayName('STUDENT')}</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
 
-                                <div>
-                                    <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">{t('passwordLabel')}</label>
-                                    <Input
-                                        id="password"
-                                        type="password"
-                                        placeholder={t('passwordPlaceholder')}
-                                        value={userData.password}
-                                        onChange={(e) => handleUserChange('password', e.target.value)}
-                                        onKeyPress={handleKeyPress}
-                                        disabled={isLoading}
-                                        className={errors.password ? 'border-red-500' : ''}
-                                    />
-                                    {errors.password && (
-                                        <p className="text-red-500 text-xs mt-1">{errors.password}</p>
-                                    )}
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{t('firstNameLabel')}</label>
+                                            <Input
+                                                id="name"
+                                                type="text"
+                                                placeholder={t('firstNamePlaceholder')}
+                                                value={userData.name}
+                                                onChange={(e) => handleUserChange("name", e.target.value)}
+                                                onKeyPress={handleKeyPress}
+                                                disabled={isLoading}
+                                                className={errors.name ? 'border-red-500' : ''}
+                                            />
+                                            {errors.name && (
+                                                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <label htmlFor="surname" className="block text-sm font-medium text-gray-700 mb-1">{t('lastNameLabel')}</label>
+                                            <Input
+                                                id="surname"
+                                                type="text"
+                                                placeholder={t('lastNamePlaceholder')}
+                                                value={userData.surname}
+                                                onChange={(e) => handleUserChange('surname', e.target.value)}
+                                                onKeyPress={handleKeyPress}
+                                                disabled={isLoading}
+                                                className={errors.surname ? 'border-red-500' : ''}
+                                            />
+                                            {errors.surname && (
+                                                <p className="text-red-500 text-xs mt-1">{errors.surname}</p>
+                                            )}
+                                        </div>
+                                    </div>
 
-                                    {userData.password && (
-                                        <div className="mt-2 p-3 bg-gray-50 rounded-lg border">
-                                            <p className="text-xs font-medium text-gray-700 mb-2">{t('passwordRequirements')}</p>
-                                            <div className="space-y-1">
-                                                <div className="flex items-center gap-2">
-                                                    {passwordValidation.minLength ?
-                                                        <Check className="h-3 w-3 text-green-500" /> :
-                                                        <X className="h-3 w-3 text-red-500" />
-                                                    }
-                                                    <span className={`text-xs ${passwordValidation.minLength ? 'text-green-600' : 'text-red-600'}`}>
-                                                        {t('passwordMinLength')}
-                                                    </span>
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasUppercase ?
-                                                        <Check className="h-3 w-3 text-green-500" /> :
-                                                        <X className="h-3 w-3 text-red-500" />
-                                                    }
-                                                    <span className={`text-xs ${passwordValidation.hasUppercase ? 'text-green-600' : 'text-red-600'}`}>
-                                                        {t('passwordUppercase')}
-                                                    </span>
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasLowercase ?
-                                                        <Check className="h-3 w-3 text-green-500" /> :
-                                                        <X className="h-3 w-3 text-red-500" />
-                                                    }
-                                                    <span className={`text-xs ${passwordValidation.hasLowercase ? 'text-green-600' : 'text-red-600'}`}>
-                                                        {t('passwordLowercase')}
-                                                    </span>
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasNumber ?
-                                                        <Check className="h-3 w-3 text-green-500" /> :
-                                                        <X className="h-3 w-3 text-red-500" />
-                                                    }
-                                                    <span className={`text-xs ${passwordValidation.hasNumber ? 'text-green-600' : 'text-red-600'}`}>
-                                                        {t('passwordNumber')}
-                                                    </span>
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    {passwordValidation.hasSpecialChar ?
-                                                        <Check className="h-3 w-3 text-green-500" /> :
-                                                        <X className="h-3 w-3 text-red-500" />
-                                                    }
-                                                    <span className={`text-xs ${passwordValidation.hasSpecialChar ? 'text-green-600' : 'text-red-600'}`}>
-                                                        {t('passwordSpecialChar')}
-                                                    </span>
-                                                </div>
-                                            </div>
+                                    <div>
+                                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{t('emailLabel')}</label>
+                                        <Input
+                                            id="email"
+                                            type="email"
+                                            placeholder={t('emailPlaceholder')}
+                                            value={userData.email}
+                                            onChange={(e) => handleUserChange('email', e.target.value)}
+                                            onKeyPress={handleKeyPress}
+                                            disabled={isLoading}
+                                            className={errors.email ? 'border-red-500' : ''}
+                                        />
+                                        {errors.email && (
+                                            <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                                        )}
+                                    </div>
 
-                                            {userData.password && (
-                                                <div className="mt-2 pt-2 border-t border-gray-200">
-                                                    <div className="flex items-center justify-between">
-                                                        <span className="text-xs text-gray-600">{t('passwordStrength')}</span>
-                                                        <span className={`text-xs font-medium ${getPasswordStrength().color}`}>
-                                                            {getPasswordStrength().text}
+                                    <div>
+                                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">{t('passwordLabel')}</label>
+                                        <Input
+                                            id="password"
+                                            type="password"
+                                            placeholder={t('passwordPlaceholder')}
+                                            value={userData.password}
+                                            onChange={(e) => handleUserChange('password', e.target.value)}
+                                            onKeyPress={handleKeyPress}
+                                            disabled={isLoading}
+                                            className={errors.password ? 'border-red-500' : ''}
+                                        />
+                                        {errors.password && (
+                                            <p className="text-red-500 text-xs mt-1">{errors.password}</p>
+                                        )}
+
+                                        {userData.password && (
+                                            <div className="mt-2 p-3 bg-gray-50 rounded-lg border">
+                                                <p className="text-xs font-medium text-gray-700 mb-2">{t('passwordRequirements')}</p>
+                                                <div className="space-y-1">
+                                                    <div className="flex items-center gap-2">
+                                                        {passwordValidation.minLength ?
+                                                            <Check className="h-3 w-3 text-green-500" /> :
+                                                            <X className="h-3 w-3 text-red-500" />
+                                                        }
+                                                        <span className={`text-xs ${passwordValidation.minLength ? 'text-green-600' : 'text-red-600'}`}>
+                                                            {t('passwordMinLength')}
                                                         </span>
                                                     </div>
-                                                    <div className="w-full bg-gray-200 rounded-full h-1 mt-1">
-                                                        <div
-                                                            className={`h-1 rounded-full transition-all duration-300 ${getPasswordStrength().text === t('passwordStrengthWeak') ? 'bg-red-500 w-1/3' :
-                                                                getPasswordStrength().text === t('passwordStrengthMedium') ? 'bg-yellow-500 w-2/3' :
-                                                                    'bg-green-500 w-full'
-                                                                }`}
-                                                        ></div>
+                                                    <div className="flex items-center gap-2">
+                                                        {passwordValidation.hasUppercase ?
+                                                            <Check className="h-3 w-3 text-green-500" /> :
+                                                            <X className="h-3 w-3 text-red-500" />
+                                                        }
+                                                        <span className={`text-xs ${passwordValidation.hasUppercase ? 'text-green-600' : 'text-red-600'}`}>
+                                                            {t('passwordUppercase')}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        {passwordValidation.hasLowercase ?
+                                                            <Check className="h-3 w-3 text-green-500" /> :
+                                                            <X className="h-3 w-3 text-red-500" />
+                                                        }
+                                                        <span className={`text-xs ${passwordValidation.hasLowercase ? 'text-green-600' : 'text-red-600'}`}>
+                                                            {t('passwordLowercase')}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        {passwordValidation.hasNumber ?
+                                                            <Check className="h-3 w-3 text-green-500" /> :
+                                                            <X className="h-3 w-3 text-red-500" />
+                                                        }
+                                                        <span className={`text-xs ${passwordValidation.hasNumber ? 'text-green-600' : 'text-red-600'}`}>
+                                                            {t('passwordNumber')}
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        {passwordValidation.hasSpecialChar ?
+                                                            <Check className="h-3 w-3 text-green-500" /> :
+                                                            <X className="h-3 w-3 text-red-500" />
+                                                        }
+                                                        <span className={`text-xs ${passwordValidation.hasSpecialChar ? 'text-green-600' : 'text-red-600'}`}>
+                                                            {t('passwordSpecialChar')}
+                                                        </span>
                                                     </div>
                                                 </div>
+
+                                                {userData.password && (
+                                                    <div className="mt-2 pt-2 border-t border-gray-200">
+                                                        <div className="flex items-center justify-between">
+                                                            <span className="text-xs text-gray-600">{t('passwordStrength')}</span>
+                                                            <span className={`text-xs font-medium ${getPasswordStrength().color}`}>
+                                                                {getPasswordStrength().text}
+                                                            </span>
+                                                        </div>
+                                                        <div className="w-full bg-gray-200 rounded-full h-1 mt-1">
+                                                            <div
+                                                                className={`h-1 rounded-full transition-all duration-300 ${getPasswordStrength().text === t('passwordStrengthWeak') ? 'bg-red-500 w-1/3' :
+                                                                    getPasswordStrength().text === t('passwordStrengthMedium') ? 'bg-yellow-500 w-2/3' :
+                                                                        'bg-green-500 w-full'
+                                                                    }`}
+                                                            ></div>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {userData.role === RolesEnum.ACADEMICIAN && (
+                                        <div>
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <label htmlFor="orcid" className="block text-sm font-medium text-gray-700">
+                                                    {t('orcidLabel')}
+                                                    {userData.role === 'ACADEMICIAN' && <span className="text-red-500 ml-1">*</span>}
+                                                </label>
+                                            </div>
+                                            <Input
+                                                id="orcid"
+                                                type="text"
+                                                placeholder={userData.role === 'ACADEMICIAN' ? t('orcidPlaceholderRequired') : t('orcidPlaceholder')}
+                                                value={userData.orcidId}
+                                                onChange={(e) => handleUserChange('orcidId', e.target.value)}
+                                                onKeyPress={handleKeyPress}
+                                                disabled={isLoading}
+                                                className={errors.orcidId ? 'border-red-500' : ''}
+                                            />
+                                            {errors.orcidId && (
+                                                <p className="text-red-500 text-xs mt-1">{errors.orcidId}</p>
+                                            )}
+                                            {userData.role === 'ACADEMICIAN' && (
+                                                <p className="text-xs text-gray-500 mt-1">{t('orcidRequiredNote')}</p>
                                             )}
                                         </div>
                                     )}
-                                </div>
 
-                                {userData.role === RolesEnum.ACADEMICIAN && (
-                                    <div>
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <label htmlFor="orcid" className="block text-sm font-medium text-gray-700">
-                                                {t('orcidLabel')}
-                                                {userData.role === 'ACADEMICIAN' && <span className="text-red-500 ml-1">*</span>}
-                                            </label>
-                                        </div>
-                                        <Input
-                                            id="orcid"
-                                            type="text"
-                                            placeholder={userData.role === 'ACADEMICIAN' ? t('orcidPlaceholderRequired') : t('orcidPlaceholder')}
-                                            value={userData.orcidId}
-                                            onChange={(e) => handleUserChange('orcidId', e.target.value)}
-                                            onKeyPress={handleKeyPress}
+                                    <div className="flex items-center space-x-2">
+                                        <Checkbox
+                                            id="terms"
+                                            checked={acceptTerms}
+                                            onCheckedChange={handleTermsChange}
                                             disabled={isLoading}
-                                            className={errors.orcidId ? 'border-red-500' : ''}
                                         />
-                                        {errors.orcidId && (
-                                            <p className="text-red-500 text-xs mt-1">{errors.orcidId}</p>
-                                        )}
-                                        {userData.role === 'ACADEMICIAN' && (
-                                            <p className="text-xs text-gray-500 mt-1">{t('orcidRequiredNote')}</p>
-                                        )}
+                                        <label htmlFor="terms" className="text-sm text-gray-600 leading-relaxed">
+                                            <Link href="/terms" className="text-fuchsia-600 hover:text-fuchsia-500">{t('termsOfService')}</Link>{t('acceptTermsStart')} {t('acceptTermsText')} <Link href="/privacy" className="text-fuchsia-600 hover:text-fuchsia-500">{t('privacyPolicy')}</Link>{t('acceptTermsEnd')}
+                                        </label>
                                     </div>
-                                )}
 
-                                <div className="flex items-center space-x-2">
-                                    <Checkbox
-                                        id="terms"
-                                        checked={acceptTerms}
-                                        onCheckedChange={handleTermsChange}
-                                        disabled={isLoading}
-                                    />
-                                    <label htmlFor="terms" className="text-sm text-gray-600 leading-relaxed">
-                                        <Link href="/terms" className="text-fuchsia-600 hover:text-fuchsia-500">{t('termsOfService')}</Link>{t('acceptTermsStart')} {t('acceptTermsText')} <Link href="/privacy" className="text-fuchsia-600 hover:text-fuchsia-500">{t('privacyPolicy')}</Link>{t('acceptTermsEnd')}
-                                    </label>
-                                </div>
+                                    <Button
+                                        type="submit"
+                                        onClick={handleSignup}
+                                        className="w-full bg-gradient-to-r from-fuchsia-500 to-magenta-500 hover:from-fuchsia-600 hover:to-magenta-600 text-white py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        disabled={isLoading || !acceptTerms || !isPasswordValid()}
+                                    >
+                                        {isLoading ? (
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                <span>Hesap oluşturuluyor...</span>
+                                            </div>
+                                        ) : (
+                                            t('createAccountButton')
+                                        )}
+                                    </Button>
 
-                                <Button
-                                    type="submit"
-                                    onClick={handleSignup}
-                                    className="w-full bg-gradient-to-r from-fuchsia-500 to-magenta-500 hover:from-fuchsia-600 hover:to-magenta-600 text-white py-6 disabled:opacity-50 disabled:cursor-not-allowed"
-                                    disabled={isLoading || !acceptTerms || !isPasswordValid()}
-                                >
-                                    {isLoading ? (
-                                        <div className="flex items-center gap-2">
-                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                            <span>Hesap oluşturuluyor...</span>
-                                        </div>
-                                    ) : (
-                                        t('createAccountButton')
-                                    )}
-                                </Button>
-
-                                <div className="text-center mt-4">
-                                    <p className="text-sm text-gray-600">
-                                        {t('alreadyHaveAccount')} <Link href="/sign-in" className="text-fuchsia-600 hover:text-fuchsia-500 font-medium">{t('signInLink')}</Link>
-                                    </p>
+                                    <div className="text-center mt-4">
+                                        <p className="text-sm text-gray-600">
+                                            {t('alreadyHaveAccount')} <Link href="/sign-in" className="text-fuchsia-600 hover:text-fuchsia-500 font-medium">{t('signInLink')}</Link>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
