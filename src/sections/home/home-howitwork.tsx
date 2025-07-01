@@ -1,7 +1,7 @@
 'use client';
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslate } from "@/locales";
-import { Brain, Calculator, Search, Shield, Zap } from "lucide-react";
+import { Brain, Calculator, ClipboardPlus, Search, Shield, Zap } from "lucide-react";
 import Link from "next/link";
 
 export function HomeHowItWorks() {
@@ -52,15 +52,24 @@ export function HomeHowItWorks() {
             color: "text-red-400",
             bgColor: "bg-red-500/10",
             borderColor: "border-red-500/20"
-        }
+        },
+        {
+            number: "06",
+            title: t('technologySection.layers.layer6.title'),
+            description: t('technologySection.layers.layer6.description'),
+            icon: ClipboardPlus,
+            color: "text-blue-400",
+            bgColor: "bg-blue-500/10",
+            borderColor: "border-blue-500/20"
+        },
     ];
 
     return (
-        <section id="how-it-works" className="relative bg-gradient-to-b from-gray-50/50 to-white py-12 px-4 overflow-hidden">
+        <section id="how-it-works" className="relative bg-gradient-to-b from-gray-50/50 to-white py-8 px-4 overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.04),transparent_50%)] pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.04),transparent_50%)] pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto relative">
+            <div className="md:w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl mx-auto relative">
                 <div className="text-center mb-16 space-y-6 animate-in fade-in duration-1000">
                     <div className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-blue-50/80 to-purple-50/80 backdrop-blur-sm rounded-full border border-blue-200/30 mb-4">
                         <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -82,7 +91,7 @@ export function HomeHowItWorks() {
                         {layers.slice(0, 3).map((layer, index) => (
                             <div
                                 key={index}
-                                className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both w-3/4 lg:w-full "
+                                className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both w-3/4 lg:w-full h-80"
                                 style={{
                                     animationDelay: `${index * 150}ms`,
                                     animationFillMode: 'both'
@@ -93,17 +102,13 @@ export function HomeHowItWorks() {
 
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-200/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
 
-                                    <CardContent className="p-8 relative z-10">
-                                        <div className="flex items-start justify-between mb-6">
+                                    <CardContent className="p-4 relative z-10">
+                                        <div className="flex items-start justify-center mb-6">
                                             <div className="relative">
                                                 <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100/60 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 group-hover:shadow-md group-hover:shadow-blue-100/40">
                                                     <layer.icon className="w-6 h-6 text-blue-600 group-hover:text-blue-700 transition-colors duration-300" />
                                                 </div>
                                                 <div className="absolute inset-0 bg-blue-200/40 rounded-2xl scale-0 group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                                            </div>
-
-                                            <div className="text-3xl font-bold text-gray-300 group-hover:text-blue-300 transition-colors duration-300 font-mono">
-                                                0{layer.number}
                                             </div>
                                         </div>
 
@@ -112,7 +117,7 @@ export function HomeHowItWorks() {
                                                 {layer.title}
                                             </h3>
 
-                                            <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                                            <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-justify">
                                                 {layer.description}
                                             </p>
                                         </div>
@@ -126,12 +131,12 @@ export function HomeHowItWorks() {
                         ))}
                     </div>
 
-                    <div className="flex justify-center">
-                        <div className="lg:grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl flex flex-col justify-center items-center">
-                            {layers.slice(3, 5).map((layer, index) => (
+                    <div className="">
+                        <div className="lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 flex flex-col justify-center items-center">
+                            {layers.slice(3, 6).map((layer, index) => (
                                 <div
                                     key={index + 3}
-                                    className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both w-3/4 lg:w-full"
+                                    className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both w-3/4 lg:w-full h-80"
                                     style={{
                                         animationDelay: `${(index + 3) * 150}ms`,
                                         animationFillMode: 'both'
@@ -142,17 +147,13 @@ export function HomeHowItWorks() {
 
                                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-200/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
 
-                                        <CardContent className="p-8 relative z-10">
-                                            <div className="flex items-start justify-between mb-6">
+                                        <CardContent className="p-4 relative z-10">
+                                            <div className="flex items-start justify-center mb-6">
                                                 <div className="relative">
                                                     <div className="w-12 h-12 bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100/60 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 group-hover:shadow-md group-hover:shadow-purple-100/40">
                                                         <layer.icon className="w-6 h-6 text-purple-600 group-hover:text-purple-700 transition-colors duration-300" />
                                                     </div>
                                                     <div className="absolute inset-0 bg-purple-200/40 rounded-2xl scale-0 group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                                                </div>
-
-                                                <div className="text-3xl font-bold text-gray-300 group-hover:text-purple-300 transition-colors duration-300 font-mono">
-                                                    0{layer.number}
                                                 </div>
                                             </div>
 
@@ -179,18 +180,18 @@ export function HomeHowItWorks() {
 
                 <div className="text-center space-y-6 animate-in fade-in duration-1000 delay-500">
                     <div className="relative inline-block">
-                        <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                        <h3 className="text-3xl lg:text-xl xl:text-2xl font-bold text-gray-900 mb-2">
                             {t('technologySection.bottomText')}
                         </h3>
                         <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 animate-in slide-in-from-left duration-1000 delay-1000"
                             style={{ width: '60%' }} />
                     </div>
 
-                    <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <p className="text-body3 lg:text-body2 xl:text-body1 text-gray-600 max-w-4xl mx-auto leading-relaxed">
                         {t('technologySection.mission')}
                     </p>
 
-                    <div className="pt-8">
+                    <div className="pt-4">
                         <Link href={'/sign-in'} className="inline-flex items-center space-x-2 text-gray-500 group cursor-pointer hover:text-blue-600 transition-colors duration-300">
                             <span className="text-sm font-medium">
                                 {t('technologySection.bottom.more')}

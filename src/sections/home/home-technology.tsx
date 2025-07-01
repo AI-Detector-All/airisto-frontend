@@ -58,7 +58,7 @@ export function HomeTechnology() {
                                 {t('technologySection.subtitle')}
                             </h3>
 
-                            <p className="xl:text-lg text-slate-300 leading-relaxed mb-8 max-w-3xl text-justify">
+                            <p className="text-body2 xl:text-body1 text-slate-300 leading-relaxed mb-8 max-w-xl xl:max-w-3xl text-justify">
                                 {t('technologySection.description')}
                             </p>
 
