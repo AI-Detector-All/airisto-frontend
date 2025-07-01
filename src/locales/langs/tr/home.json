@@ -144,13 +144,18 @@
       },
       "layer4": {
         "title": "Stilistik İz Tespiti",
-        "description": "ChatGPT ve benzeri modellerden kalan stilistik izler aranır",
+        "description": "ChatGPT, Gemini, LLaMa ve benzeri yapay zeka modellerden kalan stilistik izler aranır",
         "icon": "Shield"
       },
       "layer5": {
         "title": "Yazar Skoru Hesaplama",
         "description": "Her cümleye insan-yapay olasılık puanı verilir, genel oran çıkarılır",
         "icon": "Calculator"
+      },
+      "layer6": {
+        "title":"Rapor Hazır!",
+        "description": "5 katmanlı analiz tamamlandıktan sonra, RegressionPro™ detaylı bir rapor sunar",
+        "icon": "ClipboardPlus"
       }
     },
     "bottom": {

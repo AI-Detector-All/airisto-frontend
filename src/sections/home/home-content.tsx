@@ -1,10 +1,8 @@
 'use client';
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslate } from "@/locales";
-import { Brain, Shield, Target, ArrowRight, Users, Sparkles } from "lucide-react";
-import Link from "next/link";
+import { Brain, Shield, Target, Users, Sparkles } from "lucide-react";
 
 export function HomeContent() {
   const { t, currentLang } = useTranslate('home');
@@ -46,7 +44,6 @@ export function HomeContent() {
 
   return (
     <div id="features" className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 py-4 space-y-24 font-onest">
-
       <section className="w-full">
         <div className="text-center mb-16">
           {currentLang.value === 'tr' && (
@@ -77,34 +74,37 @@ export function HomeContent() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {mainFeatures.map((feature, index) => (
-            <Card
-              key={index}
-              className={`group hover:shadow-2xl transition-all duration-500 border-0 ${feature.bgColor} hover:scale-105 cursor-pointer overflow-hidden relative`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="max-w-4xl xl:max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {mainFeatures.map((feature, index) => (
+              <Card
+                key={index}
+                className={`group hover:shadow-2xl transition-all duration-500 border-0 ${feature.bgColor} hover:scale-105 cursor-pointer overflow-hidden relative`}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              <CardContent className="p-8 flex flex-col items-center text-center h-full relative z-10">
-                <div className={`w-16 h-16 ${feature.iconBg} flex items-center justify-center rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <feature.icon className={`h-8 w-8 bg-gradient-to-r ${feature.gradient} bg-clip-text `} />
-                </div>
+                <CardContent className="p-2 xl:p-8 flex flex-col items-center text-center h-full relative z-10">
+                  <div className={`w-16 h-16 ${feature.iconBg} flex items-center justify-center rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    <feature.icon className={`h-8 w-8 bg-gradient-to-r ${feature.gradient} bg-clip-text `} />
+                  </div>
 
-                <h3 className="font-bold text-lg xl:text-xl mb-4 text-gray-900 group-hover:text-gray-800 transition-colors">
-                  {feature.title}
-                </h3>
+                  <h3 className="font-bold text-lg xl:text-xl mb-4 text-gray-900 group-hover:text-gray-800 transition-colors">
+                    {feature.title}
+                  </h3>
 
-                <p className="text-gray-600 text-body2 xl:text-body1 leading-relaxed group-hover:text-gray-700 transition-colors">
-                  {feature.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+                  <p className="text-gray-600 text-body2 xl:text-body1 leading-relaxed group-hover:text-gray-700 transition-colors">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
+
       </section>
 
       {/* İstatistikler ve Branding */}
-      <section className="w-full bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-12 text-white text-center font-onest">
+      {/* <section className="w-full bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-12 text-white text-center font-onest">
         <div className="max-w-5xl mx-auto">
           <h3 className="text-3xl md:text-4xl font-bold mb-8">
             {t('brandingMessages.tagline')}
@@ -135,7 +135,7 @@ export function HomeContent() {
             </Button>
           </Link>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );

@@ -29,7 +29,7 @@
       "scanButton": "Start Scan",
       "scanning": "Analyzing...",
       "scanningProgress": "Analysis in progress...",
-      "readyToScan":"Ready to scan",
+      "readyToScan": "Ready to scan",
       "minCharacters": "Minimum 250 characters",
 
       "results": {
@@ -57,13 +57,18 @@
           },
           "layer4": {
             "name": "Model Residue Scanning",
-            "description": "Searches for stylistic traces left by ChatGPT and similar models",
+            "description": "Searches for stylistic traces left by AI models such as ChatGPT, Gemini, LLaMa and others",
             "detail": "Specific AI model signatures detected"
           },
           "layer5": {
             "name": "Author Score Calculation",
             "description": "Assigns human-AI probability scores to each sentence, derives overall ratio",
             "detail": "Final confidence score calculated"
+          },
+          "layer6": {
+            "title": "Report Ready!",
+            "description": "After the 5-layer analysis is complete, RegressionPro™ provides a detailed report",
+            "icon": "ClipboardPlus"
           }
         },
 
@@ -233,7 +238,7 @@
   "hiwResultReasons": "Rationale for AI generation determination",
 
   "pricingTitle": "Choose the Plan That Suits Your Needs",
-  "pricingPlans":"Pricing Plans",
+  "pricingPlans": "Pricing Plans",
   "pricingSubtitle": "Select the plan that best fits your content verification needs",
   "pricingIndividualLabel": "Individual",
   "pricingCorporateLabel": "Corporate",
@@ -313,14 +318,14 @@
   "Gelişmiş Yapay Zeka İçerik Dedektörü": "Advanced AI Content Detector",
   "Tüm Tespit Özelliklerine Erişim": "Access to All Detection Features",
   "Tüm Tespit Araçlarına Erişim": "Access to All Detection Tools",
-  "Detaylı Analiz Panosu": "Detailed Analysis Dashboard", 
+  "Detaylı Analiz Panosu": "Detailed Analysis Dashboard",
   "Öncelikli Destek": "Priority Support",
   "Gelişmiş Raporlama": "Advanced Reporting",
   "Toplu İşlem": "Batch Processing",
-  "Tek Seferlik Analiz":"One-Time Analysis",
-  "Aylık Analiz":"Monthly Analysis",
-  "Yıllık Analiz":"Annual Analysis",
-  "100 Sayfaya Kadar Tek Seferlik Analiz":"Up to 100 Pages One-Time Analysis",
+  "Tek Seferlik Analiz": "One-Time Analysis",
+  "Aylık Analiz": "Monthly Analysis",
+  "Yıllık Analiz": "Annual Analysis",
+  "100 Sayfaya Kadar Tek Seferlik Analiz": "Up to 100 Pages One-Time Analysis",
 
   "corporatePricingTitle": "Our Corporate Solutions",
   "corporatePricingDesc": "We offer flexible solutions tailored to the size and needs of your business.",
@@ -351,7 +356,7 @@
     "faqA5": "There is currently no free plan available.",
     "faqTitle": "Frequently Asked Questions for Airisto",
     "faqDesc": "Our support team, assisted by AI-powered suggestions, will handle support requests faster than ever.",
-    "cantFindAnswerTitle":"Can't find the answer to your question?",
-    "contactUs":"Contact Us"
+    "cantFindAnswerTitle": "Can't find the answer to your question?",
+    "contactUs": "Contact Us"
   }
 }

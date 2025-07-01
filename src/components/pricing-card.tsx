@@ -85,9 +85,9 @@ export function PricingCard({ name, price, credits, features, highlighted = fals
                 </div>
             )}
 
-            <CardHeader className="pb-4 relative z-10">
+            <CardHeader className="relative z-10">
                 <div className="text-center">
-                    <h3 className="text-2xl font-bold mb-2 mt-2 group-hover:text-purple-600 transition-colors duration-300">
+                    <h3 className="text-medium lg:text-lg xl:text-xl font-bold  group-hover:text-purple-600 transition-colors duration-300">
                         {t(name)}
                     </h3>
                 </div>
@@ -95,10 +95,10 @@ export function PricingCard({ name, price, credits, features, highlighted = fals
 
             <CardContent className="text-center pt-0 relative z-10">
                 <div className="mb-6">
-                    <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-blue-600 transition-all duration-500">
+                    <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-blue-600 transition-all duration-500">
                         ${price.toFixed(2)}
                     </div>
-                    <p className="text-gray-500 text-sm mb-4">{getPeriodText()}</p>
+                    <p className="text-gray-500 text-sm mb-2">{getPeriodText()}</p>
                     <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-50 to-blue-50 text-purple-700 rounded-full px-6 py-2 text-sm font-medium border border-purple-200/60">
                         <Sparkles className="w-4 h-4" />
                         {credits}
@@ -107,7 +107,7 @@ export function PricingCard({ name, price, credits, features, highlighted = fals
 
                 <Button
                     onClick={handlePlanSelect}
-                    className={`w-full py-4 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5 ${highlighted
+                    className={`w-full rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5 ${highlighted
                         ? "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-200/40 hover:shadow-xl hover:shadow-purple-200/60"
                         : "bg-gray-900 hover:bg-gray-800 text-white shadow-lg shadow-gray-200/40 hover:shadow-xl hover:shadow-gray-200/60"
                         }`}
@@ -116,7 +116,7 @@ export function PricingCard({ name, price, credits, features, highlighted = fals
                 </Button>
             </CardContent>
 
-            <CardFooter className="flex flex-col pt-6 relative z-10">
+            <CardFooter className="flex flex-col pt-1 relative z-10">
                 <div className="text-body1 text-gray-600 mb-6 text-center font-semibold flex items-center justify-center gap-2">
                     {t('pricingFeaturesLabel')}
                 </div>
@@ -124,7 +124,7 @@ export function PricingCard({ name, price, credits, features, highlighted = fals
                     {features.map((feature, index) => (
                         <li
                             key={index}
-                            className="flex items-start gap-3 text-sm group-hover:text-gray-700 transition-colors duration-300"
+                            className="flex items-start gap-3 text-body3 xl:text-body3 2xl:text-body2 group-hover:text-gray-700 transition-colors duration-300"
                             style={{ animationDelay: `${index * 100}ms` }}
                         >
                             <div className="relative flex-shrink-0 mt-0.5">
