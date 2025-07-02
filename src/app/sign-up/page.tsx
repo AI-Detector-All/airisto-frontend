@@ -279,17 +279,16 @@ export default function Page() {
         <>
             <div className="flex flex-col w-full justify-center items-center">
                 {/* Main container */}
-                <div className="flex justify-center p-4 xl:p-0 items-center w-full lg:w-3/4 xl:min-w-[1250px] 2xl:min-w-7xl h-screen">
-                    {/* Tek büyük kart - hem sol hem sağ tarafı kapsıyor */}
+                <div className="flex justify-center p-4 xl:p-0 items-center w-full xl:max-w-[1250px] 2xl:max-w-7xl h-screen">
                     <div className="flex w-full bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
                         {/* Left side - Gradient Background with Content */}
-                        <div className="hidden md:flex w-1/2 bg-gradient-to-b from-fuchsia-100 to-gray-900 flex-col items-center justify-center text-white relative px-12 py-6">
+                        <div className="hidden md:flex w-1/2 bg-gradient-to-b from-blue-100 to-slate-900 flex-col items-center justify-center text-white relative px-12 py-6">
                             <div className="flex flex-col items-center justify-center h-full">
                                 <div className="w-56 h-24 flex items-center justify-center mb-4">
                                     <Link href={"/"}>
                                         <Image
                                             src="/airisto-v2.png"
-                                            alt="Airisto logo"
+                                            alt="Next.js logo"
                                             width={180}
                                             height={38}
                                             priority
@@ -298,19 +297,19 @@ export default function Page() {
                                 </div>
 
                                 <div className="text-center mb-8">
-                                    <Badge variant="outline" className="bg-white/10 hover:bg-white/20 text-sm rounded-full mb-8 px-6 py-1 border-fuchsia-300/30">
+                                    <Badge variant="outline" className="bg-white/10 hover:bg-white/20 text-sm rounded-full mb-8 px-6 py-1">
                                         {t('aiTagline')}
                                     </Badge>
                                     <h2 className="text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold mb-2">{t('mainTitle')}</h2>
                                     <h2 className="text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold mb-6">{t('mainSubtitle')}</h2>
-                                    <p className="text-sm lg:text-base xl:text-lg text-gray-200 mb-8">
+                                    <p className="text-sm lg:text-body3 xl:text-body2 text-gray-200 mb-8">
                                         {t('mainDescription')}
                                     </p>
 
                                     <div className="grid grid-cols-2 gap-4 mb-8">
                                         {features.map((feature, index) => (
                                             <div key={index} className="flex items-start p-3 bg-white/5 rounded-lg backdrop-blur-sm">
-                                                <div className="mr-3 text-fuchsia-300">
+                                                <div className="mr-3 text-indigo-300">
                                                     {feature.icon}
                                                 </div>
                                                 <div className="text-left">

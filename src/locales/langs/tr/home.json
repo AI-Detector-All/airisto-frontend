@@ -149,7 +149,7 @@
       },
       "layer5": {
         "title": "Yazar Skoru Hesaplama",
-        "description": "Her cümleye insan-yapay olasılık puanı verilir, genel oran çıkarılır",
+        "description": "Makale incelenerek insan-yapay olasılık puanı verilir ve genel oran çıkarılır",
         "icon": "Calculator"
       },
       "layer6": {
