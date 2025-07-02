@@ -121,8 +121,7 @@ export default function Page() {
         <>
             <div className="flex flex-col w-full justify-center items-center">
                 {/* Main container */}
-                <div className="flex justify-center p-4 xl:p-0 items-center w-full lg:w-3/4 xl:min-w-[1250px] 2xl:min-w-7xl h-screen">
-                    {/* Tek büyük kart - hem sol hem sağ tarafı kapsıyor */}
+                <div className="flex justify-center p-4 xl:p-0 items-center w-full xl:max-w-[1250px] 2xl:max-w-7xl h-screen">
                     <div className="flex w-full bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
                         {/* Left side - Gradient Background with Content */}
                         <div className="hidden md:flex w-1/2 bg-gradient-to-b from-blue-100 to-slate-900 flex-col items-center justify-center text-white relative px-12 py-6">
@@ -145,7 +144,7 @@ export default function Page() {
                                     </Badge>
                                     <h2 className="text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold mb-2">{t('mainTitle')}</h2>
                                     <h2 className="text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold mb-6">{t('mainSubtitle')}</h2>
-                                    <p className="text-sm lg:text-base xl:text-lg text-gray-200 mb-8">
+                                    <p className="text-sm lg:text-body3 xl:text-body2 text-gray-200 mb-8">
                                         {t('mainDescription')}
                                     </p>
 
