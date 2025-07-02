@@ -69,7 +69,7 @@ export function HomeHowItWorks() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.04),transparent_50%)] pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.04),transparent_50%)] pointer-events-none" />
 
-            <div className="md:w-full lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl mx-auto relative">
+            <div className="md:w-full lg:max-w-3xl xl:max-w-4xl 2xl:max-w-7xl mx-auto relative">
                 <div className="text-center mb-16 space-y-6 animate-in fade-in duration-1000">
                     <div className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-blue-50/80 to-purple-50/80 backdrop-blur-sm rounded-full border border-blue-200/30 mb-4">
                         <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -87,22 +87,23 @@ export function HomeHowItWorks() {
                 </div>
 
                 <div className="mb-20">
-                    <div className="lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 flex flex-col justify-center items-center">
+                    {/* İlk 3 kart */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" style={{ gridAutoRows: '1fr' }}>
                         {layers.slice(0, 3).map((layer, index) => (
                             <div
                                 key={index}
-                                className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both w-3/4 lg:w-full h-80"
+                                className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both"
                                 style={{
                                     animationDelay: `${index * 150}ms`,
                                     animationFillMode: 'both'
                                 }}
                             >
-                                <Card className="relative h-full bg-white/80 backdrop-blur-sm border border-gray-200/60 hover:border-blue-200/60 transition-all duration-500 hover:shadow-lg hover:shadow-blue-100/40 group-hover:-translate-y-2 overflow-hidden">
+                                <Card className="relative bg-white/80 backdrop-blur-sm border border-gray-200/60 hover:border-blue-200/60 transition-all duration-500 hover:shadow-lg hover:shadow-blue-100/40 group-hover:-translate-y-2 overflow-hidden h-full">
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-purple-50/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-200/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
 
-                                    <CardContent className="p-4 relative z-10">
+                                    <CardContent className="p-6 relative z-10 h-full flex flex-col">
                                         <div className="flex items-start justify-center mb-6">
                                             <div className="relative">
                                                 <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100/60 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 group-hover:shadow-md group-hover:shadow-blue-100/40">
@@ -112,18 +113,20 @@ export function HomeHowItWorks() {
                                             </div>
                                         </div>
 
-                                        <div className="space-y-4">
-                                            <h3 className="text-lg font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
-                                                {layer.title}
-                                            </h3>
+                                        <div className="flex-1 flex flex-col justify-between">
+                                            <div className="space-y-4">
+                                                <h3 className="text-lg font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                                                    {layer.title}
+                                                </h3>
 
-                                            <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-justify">
-                                                {layer.description}
-                                            </p>
-                                        </div>
+                                                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-sm lg:text-base">
+                                                    {layer.description}
+                                                </p>
+                                            </div>
 
-                                        <div className="mt-6 h-1 bg-gray-100 rounded-full overflow-hidden">
-                                            <div className="h-full bg-gradient-to-r from-blue-400 to-purple-400 rounded-full w-0 group-hover:w-full transition-all duration-700 ease-out" />
+                                            <div className="mt-6 h-1 bg-gray-100 rounded-full overflow-hidden">
+                                                <div className="h-full bg-gradient-to-r from-blue-400 to-purple-400 rounded-full w-0 group-hover:w-full transition-all duration-700 ease-out" />
+                                            </div>
                                         </div>
                                     </CardContent>
                                 </Card>
@@ -131,38 +134,38 @@ export function HomeHowItWorks() {
                         ))}
                     </div>
 
-                    <div className="">
-                        <div className="lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 flex flex-col justify-center items-center">
-                            {layers.slice(3, 6).map((layer, index) => (
-                                <div
-                                    key={index + 3}
-                                    className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both w-3/4 lg:w-full h-80"
-                                    style={{
-                                        animationDelay: `${(index + 3) * 150}ms`,
-                                        animationFillMode: 'both'
-                                    }}
-                                >
-                                    <Card className="relative h-full bg-white/80 backdrop-blur-sm border border-gray-200/60 hover:border-purple-200/60 transition-all duration-500 hover:shadow-lg hover:shadow-purple-100/40 group-hover:-translate-y-2 overflow-hidden">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-purple-50/0 to-blue-50/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ gridAutoRows: '1fr' }}>
+                        {layers.slice(3, 6).map((layer, index) => (
+                            <div
+                                key={index + 3}
+                                className="group relative animate-in slide-in-from-bottom duration-700 fill-mode-both"
+                                style={{
+                                    animationDelay: `${(index + 3) * 150}ms`,
+                                    animationFillMode: 'both'
+                                }}
+                            >
+                                <Card className="relative bg-white/80 backdrop-blur-sm border border-gray-200/60 hover:border-purple-200/60 transition-all duration-500 hover:shadow-lg hover:shadow-purple-100/40 group-hover:-translate-y-2 overflow-hidden h-full">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-50/0 to-blue-50/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-200/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-200/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
 
-                                        <CardContent className="p-4 relative z-10">
-                                            <div className="flex items-start justify-center mb-6">
-                                                <div className="relative">
-                                                    <div className="w-12 h-12 bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100/60 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 group-hover:shadow-md group-hover:shadow-purple-100/40">
-                                                        <layer.icon className="w-6 h-6 text-purple-600 group-hover:text-purple-700 transition-colors duration-300" />
-                                                    </div>
-                                                    <div className="absolute inset-0 bg-purple-200/40 rounded-2xl scale-0 group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                                    <CardContent className="p-6 relative z-10 h-full flex flex-col">
+                                        <div className="flex items-start justify-center mb-6">
+                                            <div className="relative">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100/60 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 group-hover:shadow-md group-hover:shadow-purple-100/40">
+                                                    <layer.icon className="w-6 h-6 text-purple-600 group-hover:text-purple-700 transition-colors duration-300" />
                                                 </div>
+                                                <div className="absolute inset-0 bg-purple-200/40 rounded-2xl scale-0 group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                                             </div>
+                                        </div>
 
+                                        <div className="flex-1 flex flex-col justify-between">
                                             <div className="space-y-4">
-                                                <h3 className="text-xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                                                <h3 className="text-lg font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                                                     {layer.title}
                                                 </h3>
 
-                                                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                                                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-sm lg:text-base">
                                                     {layer.description}
                                                 </p>
                                             </div>
@@ -170,11 +173,11 @@ export function HomeHowItWorks() {
                                             <div className="mt-6 h-1 bg-gray-100 rounded-full overflow-hidden">
                                                 <div className="h-full bg-gradient-to-r from-purple-400 to-blue-400 rounded-full w-0 group-hover:w-full transition-all duration-700 ease-out" />
                                             </div>
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            ))}
-                        </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        ))}
                     </div>
                 </div>
 

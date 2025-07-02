@@ -64,11 +64,6 @@
             "name": "Author Score Calculation",
             "description": "Assigns human-AI probability scores to each sentence, derives overall ratio",
             "detail": "Final confidence score calculated"
-          },
-          "layer6": {
-            "title": "Report Ready!",
-            "description": "After the 5-layer analysis is complete, RegressionPro™ provides a detailed report",
-            "icon": "ClipboardPlus"
           }
         },
 
@@ -138,7 +133,7 @@
         "icon": "Zap"
       },
       "layer2": {
-        "title": "Sentence Structure Deviation Model",
+        "title": "Sentence Structure Model",
         "description": "Calculates differences between human writing and artificial construction",
         "icon": "Brain"
       },
@@ -149,13 +144,18 @@
       },
       "layer4": {
         "title": "Model Residue Scanning",
-        "description": "Searches for stylistic traces left by ChatGPT and similar models",
+        "description": "Searches for stylistic traces left by AI models such as ChatGPT, Gemini, LLaMa and others",
         "icon": "Shield"
       },
       "layer5": {
         "title": "Author Score Calculation",
-        "description": "Assigns human-AI probability scores to each sentence and derives overall ratio",
+        "description": "The article is analyzed and a human-artificial probability score is given and the overall ratio is derived",
         "icon": "Calculator"
+      },
+      "layer6": {
+        "title": "Report Ready!",
+        "description": "After the 5-layer analysis is complete, RegressionPro™ provides a detailed report",
+        "icon": "ClipboardPlus"
       }
     },
     "bottom": {
