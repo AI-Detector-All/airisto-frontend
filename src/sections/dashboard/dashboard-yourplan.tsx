@@ -37,7 +37,7 @@ export function DashboardYourPlan() {
                     <CardDescription className="pt-2 text-gray-600 text-sm sm:text-base">
                         {t('renewalDate')} 
                         <span className="font-medium block sm:inline mt-1 sm:mt-0 sm:ml-1">
-                            {formatDate(user?.renewalDate ?? new Date(), { hour: undefined, minute: undefined })}
+                            {formatDate(subscription?.validUntil ?? new Date(), { hour: undefined, minute: undefined })}
                         </span>
                     </CardDescription>
                 </CardHeader>
