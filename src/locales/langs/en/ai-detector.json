@@ -76,5 +76,66 @@
   "generalProgress": "Overall Progress",
 
   "aiServiceUnavailable": "AI Service Unavailable",
-  "aiServiceUnavailableDesc": "Please try again later."
+  "aiServiceUnavailableDesc": "Please try again later.",
+
+  "errors": {
+    "subscriptionExpired": {
+      "title": "Your Subscription Has Expired",
+      "description": "You need to renew your subscription to continue performing analyses.",
+      "upgradeButton": "Renew Subscription"
+    },
+    "tokenLimit": {
+      "title": "Analysis Limit Reached",
+      "description": "You've reached your monthly analysis limit. Upgrade your plan to perform more analyses.",
+      "upgradeButton": "Upgrade Plan"
+    },
+    "emailNotVerified": {
+      "title": "Email Verification Required",
+      "description": "You need to verify your email address to continue performing analyses.",
+      "verifyButton": "Verify Email"
+    },
+    "fileTooLarge": {
+      "title": "File Too Large",
+      "description": "The file you uploaded exceeds the maximum file size limit. Please choose a smaller file.",
+      "chooseAnotherButton": "Choose Another File"
+    },
+    "invalidFile": {
+      "title": "Invalid File Format",
+      "description": "Unsupported file format. Please select a file in .txt, .doc, .docx, .pdf or .md format.",
+      "chooseAnotherButton": "Choose Another File"
+    },
+    "aiServiceUnavailable": {
+      "title": "AI Service Unavailable",
+      "description": "The AI analysis service is currently unavailable. Please try again in a few minutes.",
+      "retryButton": "Try Again"
+    },
+    "networkError": {
+      "title": "Connection Error",
+      "description": "Check your internet connection and try again.",
+      "retryButton": "Try Again"
+    },
+    "validationError": {
+      "title": "Validation Error",
+      "description": "There are errors in your input. Please check and try again.",
+      "fixButton": "Fix"
+    },
+    "unknownError": {
+      "title": "Unknown Error",
+      "description": "An unexpected error occurred. Please refresh the page or try again.",
+      "retryButton": "Try Again"
+    },
+    "severity": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "details": "Error Details",
+    "statusCode": "Error Code",
+    "goBack": "Go Back",
+    "goHome": "Home",
+    "retry": "Try Again",
+    "clear": "Clear",
+    "helpText": "If the problem persists, please contact our support team."
+  },
+  "error": "Error"
 }

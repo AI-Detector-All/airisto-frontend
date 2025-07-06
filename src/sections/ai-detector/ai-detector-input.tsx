@@ -9,10 +9,10 @@ import { useAuth } from "@/hooks/useAuth";
 import { useTranslate } from "@/locales";
 import { newAnalyze } from "@/services/analysis";
 import { AnalysisResults } from "@/types/analysis";
+import { AIDetectorError } from "./ai-detector-errors";
 import { FileText, RefreshCw, Upload, X, Info, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { SetStateAction, useRef } from "react";
-import { toast } from "sonner";
 
 interface AIDetectorInputProps {
     text: string;
@@ -23,7 +23,8 @@ interface AIDetectorInputProps {
     setIsAnalyzing: React.Dispatch<React.SetStateAction<boolean>>;
     setResults: React.Dispatch<React.SetStateAction<AnalysisResults | null>>;
     setActiveTab: React.Dispatch<React.SetStateAction<string>>;
-    setTokenLimitExceeded: React.Dispatch<React.SetStateAction<boolean>>
+    setTokenLimitExceeded: () => void;
+    setError: (errorType: AIDetectorError['type'], message?: string, statusCode?: number) => void;
 }
 
 export function AIDetectorInput({
@@ -35,7 +36,8 @@ export function AIDetectorInput({
     setActiveTab,
     title,
     setTitle,
-    setTokenLimitExceeded
+    setTokenLimitExceeded,
+    setError
 }: AIDetectorInputProps) {
     const { t } = useTranslate('ai-detector');
     const { user, isLoading, refreshUserData } = useAuth();
@@ -51,10 +53,13 @@ export function AIDetectorInput({
     if (isLoading) return <DashboardSkeleton />
 
     const handleAnalyze = async () => {
-        if (!text.trim() && !uploadedFileName) return;
+        if (!text.trim() && !uploadedFileName) {
+            setError('validation_error', t('errors.validationError.noTextOrFile'));
+            return;
+        }
 
         if (user && !user.isEmailVerified) {
-            setShowVerifyModal(true);
+            setError('email_not_verified');
             return;
         }
 
@@ -74,23 +79,58 @@ export function AIDetectorInput({
             setIsAnalyzing(false);
             refreshUserData();
 
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
-            if (error.response.status === 402) {
-                toast.warning(t("youDontHaveTokenTitle"), {
-                    description: t("youDontHaveTokenDesc"),
-                });
-                setTokenLimitExceeded(true);
-                return;
-            }
-            if (error.response.status === 500 && error.response.data.message === "AI servisi şu anda kullanılamıyor.") {
-                toast.warning(t("aiServiceUnavailable"), {
-                    description: t("aiServiceUnavailableDesc"),
-                });
-                return;
-            }
-        } finally {
             setIsAnalyzing(false);
+            
+            // Handle different error types
+            if (error.response) {
+                const statusCode = error.response.status;
+                const errorMessage = error.response.data?.message;
+
+                switch (statusCode) {
+                    case 402:
+                        if (errorMessage === "Your subscription has expired") {
+                            setError('subscription_expired', errorMessage, statusCode);
+                        } else {
+                            setTokenLimitExceeded();
+                        }
+                        break;
+                    
+                    case 413:
+                        setError('file_too_large', errorMessage, statusCode);
+                        break;
+                    
+                    case 415:
+                        setError('invalid_file', errorMessage, statusCode);
+                        break;
+                    
+                    case 422:
+                        setError('validation_error', errorMessage, statusCode);
+                        break;
+                    
+                    case 500:
+                        if (errorMessage === "AI servisi şu anda kullanılamıyor.") {
+                            setError('ai_service_unavailable', errorMessage, statusCode);
+                        } else {
+                            setError('unknown_error', errorMessage, statusCode);
+                        }
+                        break;
+                    
+                    case 503:
+                        setError('ai_service_unavailable', errorMessage, statusCode);
+                        break;
+                    
+                    default:
+                        setError('unknown_error', errorMessage, statusCode);
+                }
+            } else if (error.request) {
+                // Network error
+                setError('network_error', t('errors.networkError.description'));
+            } else {
+                // Other errors
+                setError('unknown_error', error.message);
+            }
         }
     };
 
@@ -112,6 +152,21 @@ export function AIDetectorInput({
         const file = e.target.files?.[0];
         if (!file) return;
 
+        // File size validation (e.g., 10MB)
+        const maxSize = 10 * 1024 * 1024;
+        if (file.size > maxSize) {
+            setError('file_too_large', t('errors.fileTooLarge.description'));
+            return;
+        }
+
+        // File type validation
+        const allowedTypes = ['.txt', '.md', '.doc', '.docx', '.pdf'];
+        const fileExtension = '.' + file.name.split('.').pop()?.toLowerCase();
+        if (!allowedTypes.includes(fileExtension)) {
+            setError('invalid_file', t('errors.invalidFile.description'));
+            return;
+        }
+
         setUploadedFileName(file);
         setText("");
     };
@@ -119,14 +174,26 @@ export function AIDetectorInput({
     const handleReferenceFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(e.target.files || []);
 
-        // Mevcut referans dosyaları + yeni dosyalar
+        // Validate each file
+        for (const file of files) {
+            const maxSize = 10 * 1024 * 1024;
+            if (file.size > maxSize) {
+                setError('file_too_large', t('errors.fileTooLarge.description'));
+                return;
+            }
+
+            const allowedTypes = ['.txt', '.md', '.doc', '.docx', '.pdf'];
+            const fileExtension = '.' + file.name.split('.').pop()?.toLowerCase();
+            if (!allowedTypes.includes(fileExtension)) {
+                setError('invalid_file', t('errors.invalidFile.description'));
+                return;
+            }
+        }
+
         const newReferenceFiles = [...referenceDocuments, ...files];
 
-        // Maksimum 3 dosya kontrolü
         if (newReferenceFiles.length > 3) {
-            toast.warning(t('errorReference'), {
-                description: t('errorReferenceDesc')
-            });
+            setError('validation_error', t('errors.maxReferenceFiles'));
             return;
         }
 

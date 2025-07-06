@@ -45,35 +45,96 @@
   "verifyNow": "Şimdi Doğrula",
   "cancel": "İptal",
 
-  "referenceDocumentsTitle":"Referans Dokümanlar (Opsiyonel)",
-  "referenceDocumentsDesc":"Geçmiş çalışmalarınızı yükleyerek karşılaştırmalı analiz yapabilirsiniz",
-  "referenceDocumentsInfoTitle":"Neden referans doküman?",
-  "referenceDocumentsInfoTitle1":"Geçmiş çalışmalarınızı yükleyerek:",
-  "referenceDocumentsInfo1":"Yazım dili tutarlılığınızı kontrol edebiliriz",
-  "referenceDocumentsInfo2":"Akademik tarzınızla uyumluluğunu değerlendirebiliriz",
-  "referenceDocumentsInfo3":"Kişisel yazım stilinizi tanıyarak daha doğru analiz yapabiliriz",
-  "uploadedReferenceDocuments":"Yüklenen Referans Dokümanlar:",
-  "reference":"Referans",
-  "addReferenceDocument":"Referans Doküman Ekle",
-  "addReferenceDocumentDesc":"PDF, DOCX veya DOC formatında dosyalarınızı seçin",
-  "remain":"Kalan",
-  "file":"dosya",
-  "maxReference":"✓ Maksimum sayıda referans doküman yüklendi",
-  "nowReference":"Artık karşılaştırmalı analiz için hazırsınız",
-  "errorReference":"Maksimum 3 referans doküman yükleyebilirsiniz",
-  "errorReferenceDesc":"Lütfen daha az dosya seçin.",
+  "referenceDocumentsTitle": "Referans Dokümanlar (Opsiyonel)",
+  "referenceDocumentsDesc": "Geçmiş çalışmalarınızı yükleyerek karşılaştırmalı analiz yapabilirsiniz",
+  "referenceDocumentsInfoTitle": "Neden referans doküman?",
+  "referenceDocumentsInfoTitle1": "Geçmiş çalışmalarınızı yükleyerek:",
+  "referenceDocumentsInfo1": "Yazım dili tutarlılığınızı kontrol edebiliriz",
+  "referenceDocumentsInfo2": "Akademik tarzınızla uyumluluğunu değerlendirebiliriz",
+  "referenceDocumentsInfo3": "Kişisel yazım stilinizi tanıyarak daha doğru analiz yapabiliriz",
+  "uploadedReferenceDocuments": "Yüklenen Referans Dokümanlar:",
+  "reference": "Referans",
+  "addReferenceDocument": "Referans Doküman Ekle",
+  "addReferenceDocumentDesc": "PDF, DOCX veya DOC formatında dosyalarınızı seçin",
+  "remain": "Kalan",
+  "file": "dosya",
+  "maxReference": "✓ Maksimum sayıda referans doküman yüklendi",
+  "nowReference": "Artık karşılaştırmalı analiz için hazırsınız",
+  "errorReference": "Maksimum 3 referans doküman yükleyebilirsiniz",
+  "errorReferenceDesc": "Lütfen daha az dosya seçin.",
 
-  "textAnalyzing":"Metin Taranıyor",
-  "textAnalyzingDesc":"İçerik yapısı analiz ediliyor...",
-  "sourcesScanning":"Kaynaklar Taranıyor",
-  "sourcesScanningDesc":"Veri tabanları kontrol ediliyor...",
-  "aiScanning":"Yapay Zeka Analizi",
-  "aiScanningDesc":"Yapay zeka kalıpları tespit ediliyor...",
-  "finalScanning":"Sonuçlar Birleştiriliyor",
-  "finalScanningDesc":"Analiz tamamlanıyor ve rapor hazırlanıyor...",
-  "aiScanningTitle":"Yapay Zeka Analizi Yapılıyor",
-  "aiScanningDesc2":"İçeriğiniz detaylı olarak analiz ediliyor...",
-  "generalProgress":"Genel İlerleme",
-  "aiServiceUnavailable":"Yapay zeka servisimiz şuanda kullanılamıyor.",
-  "aiServiceUnavailableDesc":"Lütfen daha sonra tekrar deneyin."
+  "textAnalyzing": "Metin Taranıyor",
+  "textAnalyzingDesc": "İçerik yapısı analiz ediliyor...",
+  "sourcesScanning": "Kaynaklar Taranıyor",
+  "sourcesScanningDesc": "Veri tabanları kontrol ediliyor...",
+  "aiScanning": "Yapay Zeka Analizi",
+  "aiScanningDesc": "Yapay zeka kalıpları tespit ediliyor...",
+  "finalScanning": "Sonuçlar Birleştiriliyor",
+  "finalScanningDesc": "Analiz tamamlanıyor ve rapor hazırlanıyor...",
+  "aiScanningTitle": "Yapay Zeka Analizi Yapılıyor",
+  "aiScanningDesc2": "İçeriğiniz detaylı olarak analiz ediliyor...",
+  "generalProgress": "Genel İlerleme",
+  "aiServiceUnavailable": "Yapay zeka servisimiz şuanda kullanılamıyor.",
+  "aiServiceUnavailableDesc": "Lütfen daha sonra tekrar deneyin.",
+
+  "errors": {
+    "subscriptionExpired": {
+      "title": "Aboneliğiniz Sona Erdi",
+      "description": "Analiz yapmaya devam etmek için aboneliğinizi yenilemeniz gerekiyor.",
+      "upgradeButton": "Aboneliği Yenile"
+    },
+    "tokenLimit": {
+      "title": "Analiz Limitiniz Doldu",
+      "description": "Bu ay için analiz limitinize ulaştınız. Daha fazla analiz yapmak için planınızı yükseltebilirsiniz.",
+      "upgradeButton": "Planı Yükselt"
+    },
+    "emailNotVerified": {
+      "title": "E-posta Doğrulaması Gerekli",
+      "description": "Analiz yapmaya devam etmek için e-posta adresinizi doğrulamanız gerekiyor.",
+      "verifyButton": "E-postayı Doğrula"
+    },
+    "fileTooLarge": {
+      "title": "Dosya Çok Büyük",
+      "description": "Yüklediğiniz dosya maksimum dosya boyutu limitini aşıyor. Lütfen daha küçük bir dosya seçin.",
+      "chooseAnotherButton": "Başka Dosya Seç"
+    },
+    "invalidFile": {
+      "title": "Geçersiz Dosya Formatı",
+      "description": "Desteklenmeyen dosya formatı. Lütfen .txt, .doc, .docx, .pdf veya .md formatında bir dosya seçin.",
+      "chooseAnotherButton": "Başka Dosya Seç"
+    },
+    "aiServiceUnavailable": {
+      "title": "AI Servisi Kullanılamıyor",
+      "description": "AI analiz servisi şu anda kullanılamıyor. Lütfen birkaç dakika sonra tekrar deneyin.",
+      "retryButton": "Tekrar Dene"
+    },
+    "networkError": {
+      "title": "Bağlantı Hatası",
+      "description": "İnternet bağlantınızı kontrol edin ve tekrar deneyin.",
+      "retryButton": "Tekrar Dene"
+    },
+    "validationError": {
+      "title": "Doğrulama Hatası",
+      "description": "Girdiğiniz bilgilerde hata var. Lütfen kontrol edin ve tekrar deneyin.",
+      "fixButton": "Düzelt"
+    },
+    "unknownError": {
+      "title": "Bilinmeyen Hata",
+      "description": "Beklenmeyen bir hata oluştu. Lütfen sayfayı yenileyin veya tekrar deneyin.",
+      "retryButton": "Tekrar Dene"
+    },
+    "severity": {
+      "high": "Yüksek",
+      "medium": "Orta",
+      "low": "Düşük"
+    },
+    "details": "Hata Detayları",
+    "statusCode": "Hata Kodu",
+    "goBack": "Geri Dön",
+    "goHome": "Ana Sayfa",
+    "retry": "Tekrar Dene",
+    "clear": "Temizle",
+    "helpText": "Sorun devam ederse, lütfen destek ekibi ile iletişime geçin."
+  },
+  "error": "Hata"
 }
