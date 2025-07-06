@@ -21,7 +21,12 @@ export const useUserDocument = () => {
                 title: analysis.title as string,
                 analysisId: analysis.id,
                 createdAt: analysis.createdAt
-            }));
+            }))
+            .sort((a, b) => {
+                const dateA = new Date(a.createdAt).getTime();
+                const dateB = new Date(b.createdAt).getTime();
+                return dateB - dateA;
+            });
             setUserDocuments(userDocuments);
             setIsDocumentLoading(false);
         }

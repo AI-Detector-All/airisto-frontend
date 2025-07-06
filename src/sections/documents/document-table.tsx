@@ -110,7 +110,7 @@ export const DocumentsTable: React.FC<DocumentsTableProps> = ({
                 <div className="flex items-center min-w-0">
                     <FileText className="w-4 h-4 mr-2 text-gray-400 flex-shrink-0" />
                     <span className="font-medium truncate" title={value || "İsimsiz"}>
-                        {value || "İsimsiz"}
+                        {value.length > 100 ? `${value.slice(0, 100)}...` : value || "İsimsiz"}
                     </span>
                 </div>
             )
